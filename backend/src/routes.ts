@@ -1,9 +1,7 @@
 import { Request, Response, Router } from "express";
-
+import { CreateEnterpriseController } from "./controllers/CreateEnterpriseController";
 const router = Router();
 
-router.get('/hello', (req: Request, res: Response) => {
-    return void res.json({ message: 'Hello, World!' });
-});
+router.post("/enterprise", new CreateEnterpriseController().handle);
 
 export { router };
