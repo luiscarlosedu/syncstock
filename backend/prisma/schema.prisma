@@ -22,12 +22,12 @@ model Empresa {
   endereco String?
   telefone String?
   token_vinculo String @unique
-  funcionarios Funcionario[] 
-  produtos Produto[]
-  createdAt DateTime @default(now())
+  createdAt DateTime? @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("empresas")
+  funcionarios Funcionario[] 
+  produtos Produto[]
 }
 
 model Funcionario {
@@ -35,31 +35,50 @@ model Funcionario {
   nome String
   email String @unique
   senha String
-  role String @default("funcionario")
-  empresa_id String
-  empresa Empresa @relation(fields: [empresa_id], references: [id])
+  foto String?
+  
   // movimentacoes Movimentacao[]
-  createdAt DateTime @default(now())
+
+  createdAt DateTime? @default(now())
   updatedAt DateTime @updatedAt
 
+  empresa Empresa @relation(fields: [empresa_id], references: [id])
+
   @@map("funcionarios")
+  empresa_id String
+}
+
+model Category {
+  id String @id @default(uuid())
+  name String @unique
+
+  created_at DateTime? @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("categorias")
+  produtos Produto[]
 }
 
 model Produto {
   id String @id @default(uuid())
   nome String
   descricao String?
-  preco_custo Float
-  preco_venda Float
-  quantidade Int
-  estoque_minimo Int
-  empresa_id String
-  empresa Empresa @relation(fields: [empresa_id], references: [id])
+  preco Int
+  banner String
+  
+  // quantidade Int
+  // estoque_minimo Int
   // movimentacoes Movimentacao[]
-  createdAt DateTime @default(now())
+
+  createdAt DateTime? @default(now())
   updatedAt DateTime @updatedAt
 
+  categoria Category @relation(fields: [categoria_id], references: [id])
+  empresa Empresa @relation(fields: [empresa_id], references: [id])
+
   @@map("produtos")
+  empresa_id String
+  categoria_id String
 }
 
 // model Movimentacao {
