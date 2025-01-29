@@ -5,7 +5,7 @@ export class CreateEnterpriseController {
     async handle(req: Request, res: Response) {
 
         const { 
-            name,
+            nome,
             cnpj,
             email,
             senha,
@@ -15,7 +15,7 @@ export class CreateEnterpriseController {
 
         const createEnterpriseController = new CreateEnterpriseService();
         const enterprise = await createEnterpriseController.execute({
-            name,
+            nome,
             cnpj,
             email,
             senha,
