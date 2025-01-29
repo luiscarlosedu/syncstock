@@ -23,7 +23,5 @@ export class CreateEnterpriseController {
             telefone,
         });
 
-        return res.json({ok: true})
-
     }
 }

@@ -11,6 +11,6 @@ export class CreateEnterpriseService {
     async execute({
         name, cnpj, email, senha, endereco, telefone
     }: EnterpriseRequest) {
-        return {ok: true}
+        
     }
 }
