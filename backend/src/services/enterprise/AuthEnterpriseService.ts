@@ -1,6 +1,6 @@
 import { compare } from "bcryptjs";
 import prismaClient from "../../prisma";
-import { sign } from 'jsonwebtoken';
+import { sign } from "jsonwebtoken";
 
 interface AuthEnterpriseRequest {
     email: string;
@@ -39,12 +39,14 @@ export class AuthEnterpriseService {
                 subject: enterprise.id,
                 expiresIn: '30d'
             }
-        )
+        );
 
         return {
-            email: email,
             id: enterprise.id,
             nome: enterprise.nome,
+            email: enterprise.email,
+            cnpj: enterprise.cnpj,
+            token: token,
         }
 
     }
