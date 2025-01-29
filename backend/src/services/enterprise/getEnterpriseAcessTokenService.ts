@@ -1,6 +1,6 @@
 import prismaClient from "../../prisma";
 
-export class GetTokenVinculoService {
+export class getEnterpriseAcessTokenService {
     async execute({email}: {email: string}) {
         const token = await prismaClient.empresa.findFirst({
             where: {
