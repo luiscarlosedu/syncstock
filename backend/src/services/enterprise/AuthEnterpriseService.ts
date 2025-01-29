@@ -1,5 +1,6 @@
 import { compare } from "bcryptjs";
 import prismaClient from "../../prisma";
+import { sign } from 'jsonwebtoken';
 
 interface AuthEnterpriseRequest {
     email: string;
@@ -16,7 +17,7 @@ export class AuthEnterpriseService {
                 email: email,
                 cnpj: cnpj
             }
-        }); 
+        });
 
         if (!enterprise) {
             throw new Error("[ERROR] Email/CNPJ/senha incorretos(as)!");
@@ -27,6 +28,18 @@ export class AuthEnterpriseService {
         if(!passwordMatch) {
             throw new Error("[ERROR] Email/CNPJ/senha incorretos(as)!");
         }
+
+        const token = sign(
+            {
+                name: enterprise.nome,
+                email: enterprise.email,
+            },
+            process.env.JWT_SECRET,
+            {
+                subject: enterprise.id,
+                expiresIn: '30d'
+            }
+        )
 
         return {
             email: email,
