@@ -1,4 +1,6 @@
-import prismaClient from "../prisma";
+import prismaClient from "../../prisma";
+import { hash } from "bcryptjs";
+import { v4 as uuidv4 } from 'uuid';
 
 interface EnterpriseRequest {
     nome: string;
@@ -7,11 +9,12 @@ interface EnterpriseRequest {
     senha: string;
     endereco: string;
     telefone: string;
+    foto: string;
 }
 
 export class CreateEnterpriseService {
     async execute({
-        nome, cnpj, email, senha, endereco, telefone
+        nome, cnpj, email, senha, endereco, telefone, foto
     }: EnterpriseRequest) {
         if (!email || !senha || !cnpj) {
             throw new Error("[ERRO] Você não digitou todos os campos obrigatórios!");
@@ -37,15 +40,24 @@ export class CreateEnterpriseService {
             throw new Error("[ERROR] CNPJ já cadastrado!");
         }
 
+        const token_vinculo = `${nome.replace(/\s+/g, "_")}_${uuidv4()}`;
 
-        // const enterprise = prismaClient.empresa.create({
-        //     data: {
-        //         nome: nome,
-        //         cnpj: cnpj,
-        //         email: email,
-        //         senha: senha,
+        const passwordHash = await hash(senha, 7);
 
-        //     }
-        // })
+        const enterprise = await prismaClient.empresa.create({
+            data: {
+                nome, cnpj, email, senha: passwordHash, endereco: endereco, telefone, foto, token_vinculo 
+            },
+            select: {
+                nome: true,
+                cnpj: true,
+                email: true,
+                endereco: true,
+                telefone: true,
+                token_vinculo: true
+            }
+        });
+
+        return enterprise;
     }
 }

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateEnterpriseService } from "../services/CreateEnterpriseService";
+import { CreateEnterpriseService } from "../../services/enterprise/CreateEnterpriseService";
 
 export class CreateEnterpriseController {
     async handle(req: Request, res: Response) {
@@ -13,6 +13,8 @@ export class CreateEnterpriseController {
             telefone,
         } = req.body;
 
+        let foto = '';
+
         const createEnterpriseController = new CreateEnterpriseService();
         const enterprise = await createEnterpriseController.execute({
             nome,
@@ -21,7 +23,10 @@ export class CreateEnterpriseController {
             senha,
             endereco,
             telefone,
+            foto
         });
+
+        res.json(enterprise);
 
     }
 }
