@@ -26,6 +26,8 @@ model Empresa {
   produtos Produto[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("empresas")
 }
 
 model Funcionario {
@@ -36,13 +38,15 @@ model Funcionario {
   role String @default("funcionario")
   empresa_id String
   empresa Empresa @relation(fields: [empresa_id], references: [id])
-  movimentacoes Movimentacao[]
+  // movimentacoes Movimentacao[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("funcionarios")
 }
 
 model Produto {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   nome String
   descricao String?
   preco_custo Float
@@ -51,20 +55,24 @@ model Produto {
   estoque_minimo Int
   empresa_id String
   empresa Empresa @relation(fields: [empresa_id], references: [id])
-  movimentacoes Movimentacao[]
+  // movimentacoes Movimentacao[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("produtos")
 }
 
-model Movimentacao {
-  id Int @id @default(autoincrement())
-  tipo String
-  quantidade Int
-  produto_id Int
-  produto Produto @relation(fields: [produto_id], references: [id])
-  funcionario_id String
-  funcionario Funcionario @relation(fields: [funcionario_id], references: [id])
-  data DateTime @default(now())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
+// model Movimentacao {
+//   id String @id @default(uuid())
+//   tipo String
+//   quantidade Int
+//   produto_id Int
+//   produto Produto @relation(fields: [produto_id], references: [id])
+//   funcionario_id String
+//   funcionario Funcionario @relation(fields: [funcionario_id], references: [id])
+//   data DateTime @default(now())
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+
+//   @@map("movimentacoes")
+// }
