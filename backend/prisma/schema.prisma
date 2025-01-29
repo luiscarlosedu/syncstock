@@ -19,6 +19,7 @@ model Empresa {
   cnpj String @unique
   email String @unique
   senha String
+  foto String?
   endereco String?
   telefone String?
   token_vinculo String @unique
@@ -64,7 +65,7 @@ model Produto {
   nome String
   descricao String?
   preco Int
-  banner String
+  foto String
   
   // quantidade Int
   // estoque_minimo Int
