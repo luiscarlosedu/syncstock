@@ -13,20 +13,26 @@ export class CreateEnterpriseController {
             telefone,
         } = req.body;
 
-        let foto = '';
-
         const createEnterpriseController = new CreateEnterpriseService();
-        const enterprise = await createEnterpriseController.execute({
-            nome,
-            cnpj,
-            email,
-            senha,
-            endereco,
-            telefone,
-            foto
-        });
 
-        res.json(enterprise);
+        if (!req.file) {
+            throw new Error("[ERROR] Erro ao postar foto")
+        } else {
+            const { originalname, filename: banner } = req.file
+
+            const enterprise = await createEnterpriseController.execute({
+                nome,
+                cnpj,
+                email,
+                senha,
+                endereco,
+                telefone,
+                foto: banner
+            });
+    
+            res.json(enterprise);
+        }
+        
 
     }
 }

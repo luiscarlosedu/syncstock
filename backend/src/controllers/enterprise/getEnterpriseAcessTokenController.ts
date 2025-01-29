@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import { getEnterpriseAcessTokenService } from "../../services/enterprise/getEnterpriseAcessTokenService";
-
+import { getEnterpriseAcessTokenService } from "../../services/enterprise/GetEnterpriseAcessTokenService";
 export class getEnterpriseAcessTokenController {
     async handle(req: Request, res: Response) {
         const { email } = req.body;
