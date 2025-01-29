@@ -2,7 +2,7 @@ import { Request, Response, Router } from "express";
 import multer from "multer";
 
 import { CreateEnterpriseController } from "./controllers/enterprise/CreateEnterpriseController";
-import { getEnterpriseAcessTokenController } from "./controllers/enterprise/getEnterpriseAcessTokenController";
+import { getEnterpriseAcessTokenController } from "./controllers/enterprise/GetEnterpriseAcessTokenController";
 
 import uploadConfig from './config/multer';
 
