@@ -12,9 +12,6 @@ export class CreateEmployeeController {
         if (req.file) {
             const { originalname, filename: banner } = req.file;
             foto = banner;
-            console.log("enviou foto!", banner, originalname);
-        } else {
-            console.log("Não enviou foto, será enviada como null")
         }
 
         const employee = await createEmployeeService.execute({

@@ -16,8 +16,8 @@ export class CreateEnterpriseService {
     async execute({
         nome, cnpj, email, senha, endereco, telefone, foto
     }: EnterpriseRequest) {
-        if (!email || !senha || !cnpj) {
-            throw new Error("[ERRO] Você não digitou todos os campos obrigatórios!");
+        if (!nome || !email || !senha || !cnpj) {
+            throw new Error("[ERRO] Você não preencheu todos os campos obrigatórios!");
         }
         
         const enterpriseAlreadyExists = await prismaClient.empresa.findFirst({
