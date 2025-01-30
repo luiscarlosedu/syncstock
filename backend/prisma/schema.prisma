@@ -36,6 +36,7 @@ model Funcionario {
   nome String
   email String @unique
   senha String
+  employed Boolean @default(false)
   foto String?
   
   // movimentacoes Movimentacao[]
