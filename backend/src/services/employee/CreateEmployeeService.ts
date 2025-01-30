@@ -9,6 +9,8 @@ export class CreateEmployeeService {
     async execute({
         nome, email, senha, foto
     }: CreateEmployeeRequest) {
-        
+        return {
+            nome, email, senha
+        }
     }
 }
