@@ -11,7 +11,6 @@ export class GetEnterpriseAcessTokenService {
                 email: email
             },
             select: {
-                email: true,
                 token_vinculo: true
             }
         });

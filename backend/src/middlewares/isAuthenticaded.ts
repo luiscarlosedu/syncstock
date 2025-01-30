@@ -22,12 +22,10 @@ export function isAuthenticaded(
     try {
         const { sub } = verify(
             token,
-            process.env.SECRET_KEY 
+            process.env.JWT_SECRET
         ) as Payload;
 
         req.user_id = sub;
-
-        console.log("deu certo!");
 
         return next();
     } catch (err) {

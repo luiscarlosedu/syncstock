@@ -4,6 +4,7 @@ import multer from "multer";
 import { CreateEnterpriseController } from "./controllers/enterprise/CreateEnterpriseController";
 import { GetEnterpriseAcessTokenController } from "./controllers/enterprise/GetEnterpriseAcessTokenController";
 import { AuthEnterpriseController } from "./controllers/enterprise/AuthEnterpriseController";
+import { GetDetailEnterpriseController } from "./controllers/enterprise/GetDetailEnterpriseController";
 
 import { isAuthenticaded } from "./middlewares/isAuthenticaded";
 
@@ -18,6 +19,7 @@ router.post("/enterprise/session", new AuthEnterpriseController().handle);
 
 // rotas - Auth
 router.get("/enterprise/token", isAuthenticaded, new GetEnterpriseAcessTokenController().handle);
+router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseController().handle);
 
 
 export { router };
