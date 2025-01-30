@@ -2,7 +2,11 @@ import { Request, Response, Router } from "express";
 import multer from "multer";
 
 import { CreateEnterpriseController } from "./controllers/enterprise/CreateEnterpriseController";
-import { getEnterpriseAcessTokenController } from "./controllers/enterprise/GetEnterpriseAcessTokenController";
+import { GetEnterpriseAcessTokenController } from "./controllers/enterprise/GetEnterpriseAcessTokenController";
+import { AuthEnterpriseController } from "./controllers/enterprise/AuthEnterpriseController";
+import { GetDetailEnterpriseController } from "./controllers/enterprise/GetDetailEnterpriseController";
+
+import { isAuthenticaded } from "./middlewares/isAuthenticaded";
 
 import uploadConfig from './config/multer';
 
@@ -11,9 +15,11 @@ const router = Router();
 const upload = multer(uploadConfig.upload("./tmp"));
 
 router.post("/enterprise", upload.single('file'), new CreateEnterpriseController().handle);
+router.post("/enterprise/session", new AuthEnterpriseController().handle);
 
 // rotas - Auth
-router.get("/enterprise/token", new getEnterpriseAcessTokenController().handle);
+router.get("/enterprise/token", isAuthenticaded, new GetEnterpriseAcessTokenController().handle);
+router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseController().handle);
 
 
 export { router };
