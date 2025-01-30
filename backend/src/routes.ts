@@ -1,3 +1,4 @@
+import { AuthTokenAcessEmployeeController } from './controllers/employee/AuthTokenAcessEmployeeController';
 import { Request, Response, Router } from "express";
 import multer from "multer";
 
@@ -25,6 +26,8 @@ router.post("/employee/session", new AuthEmployeeController().handle);
 // rotas - Auth
 router.get("/enterprise/token", isAuthenticaded, new GetEnterpriseAcessTokenController().handle);
 router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseController().handle);
+
+router.post("/employee/acess-token", isAuthenticaded, new AuthTokenAcessEmployeeController().handle);
 
 
 export { router };
