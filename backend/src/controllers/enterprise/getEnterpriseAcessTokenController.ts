@@ -3,8 +3,8 @@ import { GetEnterpriseAcessTokenService } from "../../services/enterprise/GetEnt
 export class GetEnterpriseAcessTokenController {
     async handle(req: Request, res: Response) {
         const { email } = req.body;
-        const getTokenVinculoService = new GetEnterpriseAcessTokenService();
-        const token = await getTokenVinculoService.execute({email});
+        const getEnterpriseAcessTokenService = new GetEnterpriseAcessTokenService();
+        const token = await getEnterpriseAcessTokenService.execute({email});
         res.json(token);
     }
 }

@@ -3,7 +3,6 @@ import { verify } from "jsonwebtoken";
 
 interface Payload {
     sub: string;
-    role: "empresa" | "funcionario";
 }
 
 export function isAuthenticaded(
@@ -21,12 +20,14 @@ export function isAuthenticaded(
     const [, token] = authToken.split(" ");
 
     try {
-        const { sub, role } = verify(
+        const { sub } = verify(
             token,
             process.env.SECRET_KEY 
         ) as Payload;
 
         req.user_id = sub;
+
+        console.log("deu certo!");
 
         return next();
     } catch (err) {
