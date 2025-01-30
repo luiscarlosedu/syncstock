@@ -5,6 +5,8 @@ import { CreateEnterpriseController } from "./controllers/enterprise/CreateEnter
 import { GetEnterpriseAcessTokenController } from "./controllers/enterprise/GetEnterpriseAcessTokenController";
 import { AuthEnterpriseController } from "./controllers/enterprise/AuthEnterpriseController";
 
+import { isAuthenticaded } from "./middlewares/isAuthenticaded";
+
 import uploadConfig from './config/multer';
 
 const router = Router();
@@ -15,7 +17,7 @@ router.post("/enterprise", upload.single('file'), new CreateEnterpriseController
 router.post("/enterprise/session", new AuthEnterpriseController().handle);
 
 // rotas - Auth
-router.get("/enterprise/token", new GetEnterpriseAcessTokenController().handle);
+router.get("/enterprise/token", isAuthenticaded, new GetEnterpriseAcessTokenController().handle);
 
 
 export { router };
