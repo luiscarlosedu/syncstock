@@ -10,6 +10,7 @@ import { isAuthenticaded } from "./middlewares/isAuthenticaded";
 
 import uploadConfig from './config/multer';
 import { CreateEmployeeController } from "./controllers/employee/CreateEmployeeController";
+import { AuthEmployeeController } from "./controllers/employee/AuthEmployeeController";
 
 const router = Router();
 
@@ -19,6 +20,7 @@ router.post("/enterprise", upload.single('file'), new CreateEnterpriseController
 router.post("/enterprise/session", new AuthEnterpriseController().handle);
 
 router.post("/employee", upload.single('file'),new CreateEmployeeController().handle);
+router.post("/employee/session", new AuthEmployeeController().handle);
 
 // rotas - Auth
 router.get("/enterprise/token", isAuthenticaded, new GetEnterpriseAcessTokenController().handle);
