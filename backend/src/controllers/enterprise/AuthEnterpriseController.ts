@@ -8,8 +8,6 @@ export class AuthEnterpriseController {
         const authEnterpriseService = new AuthEnterpriseService();
         const authEnterprise = await authEnterpriseService.execute({ email, cnpj, senha });
 
-        
-
         res.json(authEnterprise);
     }
 }

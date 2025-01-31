@@ -1,3 +1,4 @@
+import { AuthTokenAcessEmployeeController } from './controllers/employee/AuthTokenAcessEmployeeController';
 import { Request, Response, Router } from "express";
 import multer from "multer";
 
@@ -9,6 +10,8 @@ import { GetDetailEnterpriseController } from "./controllers/enterprise/GetDetai
 import { isAuthenticaded } from "./middlewares/isAuthenticaded";
 
 import uploadConfig from './config/multer';
+import { CreateEmployeeController } from "./controllers/employee/CreateEmployeeController";
+import { AuthEmployeeController } from "./controllers/employee/AuthEmployeeController";
 
 const router = Router();
 
@@ -17,9 +20,13 @@ const upload = multer(uploadConfig.upload("./tmp"));
 router.post("/enterprise", upload.single('file'), new CreateEnterpriseController().handle);
 router.post("/enterprise/session", new AuthEnterpriseController().handle);
 
+router.post("/employee", upload.single('file'),new CreateEmployeeController().handle);
+router.post("/employee/session", new AuthEmployeeController().handle);
+
 // rotas - Auth
 router.get("/enterprise/token", isAuthenticaded, new GetEnterpriseAcessTokenController().handle);
 router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseController().handle);
 
+router.post("/employee/acess-token", isAuthenticaded, new AuthTokenAcessEmployeeController().handle);
 
 export { router };
