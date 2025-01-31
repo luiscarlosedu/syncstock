@@ -7,6 +7,7 @@ interface AuthTokenAcessEmployeeRequest {
 
 export class AuthTokenAcessEmployeeService {
     async execute({ acess_token, employeeSub }: AuthTokenAcessEmployeeRequest) {
+        
         const enterprise = await prismaClient.empresa.findFirst({
             where: {
                 token_vinculo: acess_token
