@@ -7,6 +7,7 @@ import { CreateEnterpriseController } from "./controllers/enterprise/CreateEnter
 import { GetEnterpriseAcessTokenController } from "./controllers/enterprise/GetEnterpriseAcessTokenController";
 import { AuthEnterpriseController } from "./controllers/enterprise/AuthEnterpriseController";
 import { GetDetailEnterpriseController } from "./controllers/enterprise/GetDetailEnterpriseController";
+import { ListEmployeesController } from "./controllers/enterprise/ListEmployeesController";
 
 import { CreateEmployeeController } from "./controllers/employee/CreateEmployeeController";
 import { AuthTokenAcessEmployeeController } from './controllers/employee/AuthTokenAcessEmployeeController';
@@ -27,6 +28,7 @@ router.post("/employee/session", new AuthEmployeeController().handle);
 // rotas - Auth
 router.get("/enterprise/token", isAuthenticaded, new GetEnterpriseAcessTokenController().handle);
 router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseController().handle);
+router.get("/enterprise/employees", isAuthenticaded, new ListEmployeesController().handle);
 
 router.post("/employee/acess-token", isAuthenticaded, new AuthTokenAcessEmployeeController().handle);
 
