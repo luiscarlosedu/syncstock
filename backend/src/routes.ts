@@ -1,17 +1,18 @@
-import { AuthTokenAcessEmployeeController } from './controllers/employee/AuthTokenAcessEmployeeController';
-import { Request, Response, Router } from "express";
+import { Router } from "express";
 import multer from "multer";
+
+import uploadConfig from './config/multer';
 
 import { CreateEnterpriseController } from "./controllers/enterprise/CreateEnterpriseController";
 import { GetEnterpriseAcessTokenController } from "./controllers/enterprise/GetEnterpriseAcessTokenController";
 import { AuthEnterpriseController } from "./controllers/enterprise/AuthEnterpriseController";
 import { GetDetailEnterpriseController } from "./controllers/enterprise/GetDetailEnterpriseController";
 
-import { isAuthenticaded } from "./middlewares/isAuthenticaded";
-
-import uploadConfig from './config/multer';
 import { CreateEmployeeController } from "./controllers/employee/CreateEmployeeController";
+import { AuthTokenAcessEmployeeController } from './controllers/employee/AuthTokenAcessEmployeeController';
 import { AuthEmployeeController } from "./controllers/employee/AuthEmployeeController";
+
+import { isAuthenticaded } from "./middlewares/isAuthenticaded";
 
 const router = Router();
 
