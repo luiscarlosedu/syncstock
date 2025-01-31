@@ -4,6 +4,6 @@ interface AuthTokenAcessEmployeeRequest {
 
 export class AuthTokenAcessEmployeeService {
     async execute({ acess_token }: AuthTokenAcessEmployeeRequest) {
-
+        
     }
 }

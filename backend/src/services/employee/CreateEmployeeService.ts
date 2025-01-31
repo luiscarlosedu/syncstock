@@ -22,7 +22,7 @@ export class CreateEmployeeService {
             }
         });
 
-        if (!employeeAlreadyExists) {
+        if (employeeAlreadyExists) {
             throw new Error('[ERROR] Email já cadastrado!')
         }
 
@@ -37,6 +37,12 @@ export class CreateEmployeeService {
                 employed: false,
                 empresa_id: null
             },
+            select: {
+                id: true,
+                nome: true,
+                email: true,
+                createdAt: true,
+            }
         });
         
         return employee;
