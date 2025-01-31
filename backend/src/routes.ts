@@ -29,5 +29,4 @@ router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseControl
 
 router.post("/employee/acess-token", isAuthenticaded, new AuthTokenAcessEmployeeController().handle);
 
-
 export { router };
