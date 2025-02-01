@@ -27,8 +27,8 @@ export class EmployeeDetailService {
 
         if (!employee) {
             throw new Error("[ERROR] Funcionário não encontrado");
-        }
+        };
 
         return employee;
     }
-}
+};
