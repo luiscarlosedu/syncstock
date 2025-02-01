@@ -1,14 +1,14 @@
 import prismaClient from "../../prisma";
 
-interface DetailEnterpriseRequest {
+interface EmployeeDetailEnterpriseRequest {
     enterprise_id: string;
-};
+}
 
-export class GetDetailEnterpriseService {
-    async execute({ enterprise_id }: DetailEnterpriseRequest) {
+export class EmployeeDetailEnterpriseService {
+    async execute({ enterprise_id }: EmployeeDetailEnterpriseRequest) {
         const enterprise = await prismaClient.empresa.findFirst({
             where: {
-                id: enterprise_id
+                id: enterprise_id,
             },
             select: {
                 nome: true,
@@ -21,7 +21,7 @@ export class GetDetailEnterpriseService {
 
         if(!enterprise) {
             throw new Error("[ERROR] Empresa não encontrada!");
-        };
+        }
 
         return enterprise;
     }
