@@ -16,6 +16,7 @@ import { EmployeeDetailController } from "./controllers/employee/EmployeeDetailC
 import { EmployeeDetailEnterpriseController } from "./controllers/employee/EmployeeDetailEnterpriseController";
 
 import { isAuthenticaded } from "./middlewares/isAuthenticaded";
+import { RemoveEmployeeController } from "./controllers/enterprise/RemoveEmployeeController";
 
 const router = Router();
 
@@ -31,6 +32,7 @@ router.post("/employee/session", new AuthEmployeeController().handle);
 router.get("/enterprise/token", isAuthenticaded, new GetEnterpriseAcessTokenController().handle);
 router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseController().handle);
 router.get("/enterprise/employees", isAuthenticaded, new ListEmployeesController().handle);
+router.patch("/enterprise/remove-employee", isAuthenticaded, new RemoveEmployeeController().handle);
 
 router.post("/employee/acess-token", isAuthenticaded, new AuthTokenAcessEmployeeController().handle);
 router.get("/employee/detail", isAuthenticaded, new EmployeeDetailController().handle);
