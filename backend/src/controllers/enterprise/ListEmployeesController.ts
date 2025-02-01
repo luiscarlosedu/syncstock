@@ -3,7 +3,7 @@ import { ListEmployeesService } from "../../services/enterprise/ListEmployeesSer
 
 export class ListEmployeesController {
     async handle(req: Request, res: Response) {
-        const { enterprise_id } = req.body;
+        const enterprise_id = req.user_id;
         const listEmployeeService = new ListEmployeesService();
         const employees = await listEmployeeService.execute({enterprise_id});
         

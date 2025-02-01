@@ -12,6 +12,7 @@ import { ListEmployeesController } from "./controllers/enterprise/ListEmployeesC
 import { CreateEmployeeController } from "./controllers/employee/CreateEmployeeController";
 import { AuthTokenAcessEmployeeController } from './controllers/employee/AuthTokenAcessEmployeeController';
 import { AuthEmployeeController } from "./controllers/employee/AuthEmployeeController";
+import { EmployeeDetailEnterpriseController } from "./controllers/employee/EmployeeDetailEnterpriseController";
 
 import { isAuthenticaded } from "./middlewares/isAuthenticaded";
 
@@ -31,5 +32,6 @@ router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseControl
 router.get("/enterprise/employees", isAuthenticaded, new ListEmployeesController().handle);
 
 router.post("/employee/acess-token", isAuthenticaded, new AuthTokenAcessEmployeeController().handle);
+router.get("/employee/enterprise", isAuthenticaded, new EmployeeDetailEnterpriseController().handle);
 
 export { router };
