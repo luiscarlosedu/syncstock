@@ -18,7 +18,7 @@ export class CreateEnterpriseController {
         if (!req.file) {
             throw new Error("[ERROR] Erro ao postar foto")
         } else {
-            const { originalname, filename: banner } = req.file
+            const { originalname, filename: banner } = req.file;
 
             const enterprise = await createEnterpriseService.execute({
                 nome,
