@@ -21,6 +21,13 @@ import { EmployeeDetailEnterpriseController } from "./controllers/employee/Emplo
 import { CreateCategoryController } from "./controllers/storage/categories/CreateCategoryController";
 import { ListCategoriesController } from "./controllers/storage/categories/ListCategoriesController";
 
+import { CreateProductController } from "./controllers/storage/products/CreateProductController";
+import { ListProductsController } from "./controllers/storage/products/ListProductsController";
+import { ListOneProductController } from './controllers/storage/products/ListOneProductController';
+import { ListByCategoryController } from "./controllers/storage/products/ListByCategoryController";
+import { DeleteProductController } from "./controllers/storage/products/DeleteProductController";
+import { UpdateProductQuantityController } from "./controllers/storage/products/UpdateProductQuantityController";
+
 const router = Router();
 
 const upload = multer(uploadConfig.upload("./tmp"));
@@ -49,5 +56,11 @@ router.post("/category", isAuthenticaded, new CreateCategoryController().handle)
 router.get("/categories", isAuthenticaded, new ListCategoriesController().handle);
 
 // Rotas - Products / Produtos
+router.post("/product", isAuthenticaded, upload.single('file'), new CreateProductController().handle);
+router.get("/products", isAuthenticaded, new ListProductsController().handle);
+router.get("/products/:id", isAuthenticaded, new ListOneProductController().handle);
+router.get("/products/category/:category-id", isAuthenticaded, new ListByCategoryController().handle);
+router.delete("/products/:id", isAuthenticaded, new DeleteProductController().handle);
+router.put("/product/:id/quantity", isAuthenticaded, new UpdateProductQuantityController().handle);
 
 export { router };

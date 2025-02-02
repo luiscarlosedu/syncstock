@@ -1,18 +1,20 @@
 import prismaClient from "../../../prisma";
 
 interface CreateCategoryRequest {
-    name: string;
+    nome: string;
+    empresa_id: string;
 }
 
 export class CreateCategoryService {
-    async execute({ name }: CreateCategoryRequest) {
-        const category = prismaClient.category.create({
+    async execute({ nome, empresa_id }: CreateCategoryRequest) {
+        const category = prismaClient.categoria.create({
             data: {
-                name,
+                nome,
+                empresa_id
             },
             select: {
                 id: true,
-                name: true,
+                nome: true,
             }
         });
 
