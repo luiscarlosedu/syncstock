@@ -22,9 +22,9 @@ export class CreateProductService {
             data: {
                 nome: nome,
                 descricao: descricao,
-                preco: preco,
+                preco: Number(preco),
                 foto: foto,
-                quantidade: quantidade,
+                quantidade: Number(quantidade),
                 categoria_id: category_id,
                 empresa_id: enterprise_id,
             }
