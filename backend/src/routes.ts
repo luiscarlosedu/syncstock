@@ -26,6 +26,7 @@ import { ListProductsController } from "./controllers/storage/products/ListProdu
 import { ListOneProductController } from './controllers/storage/products/ListOneProductController';
 import { ListByCategoryController } from "./controllers/storage/products/ListByCategoryController";
 import { DeleteProductController } from "./controllers/storage/products/DeleteProductController";
+import { UpdateProductQuantityController } from "./controllers/storage/products/UpdateProductQuantityController";
 
 const router = Router();
 
@@ -60,5 +61,6 @@ router.get("/products", isAuthenticaded, new ListProductsController().handle);
 router.get("/products/:id", isAuthenticaded, new ListOneProductController().handle);
 router.get("/products/category/:category-id", isAuthenticaded, new ListByCategoryController().handle);
 router.delete("/products/:id", isAuthenticaded, new DeleteProductController().handle);
+router.put("/product/:id/quantity", isAuthenticaded, new UpdateProductQuantityController().handle);
 
 export { router };
