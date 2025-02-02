@@ -25,6 +25,7 @@ import { CreateProductController } from "./controllers/storage/products/CreatePr
 import { ListProductsController } from "./controllers/storage/products/ListProductsController";
 import { ListOneProductController } from './controllers/storage/products/ListOneProductController';
 import { ListByCategoryController } from "./controllers/storage/products/ListByCategoryController";
+import { DeleteProductController } from "./controllers/storage/products/DeleteProductController";
 
 const router = Router();
 
@@ -58,5 +59,6 @@ router.post("/product", isAuthenticaded, upload.single('file'), new CreateProduc
 router.get("/products", isAuthenticaded, new ListProductsController().handle);
 router.get("/products/:id", isAuthenticaded, new ListOneProductController().handle);
 router.get("/products/category/:category-id", isAuthenticaded, new ListByCategoryController().handle);
+router.delete("/products/:id", isAuthenticaded, new DeleteProductController().handle);
 
 export { router };
