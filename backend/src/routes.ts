@@ -24,6 +24,7 @@ import { ListCategoriesController } from "./controllers/storage/categories/ListC
 import { CreateProductController } from "./controllers/storage/products/CreateProductController";
 import { ListProductsController } from "./controllers/storage/products/ListProductsController";
 import { ListOneProductController } from './controllers/storage/products/ListOneProductController';
+import { ListByCategoryController } from "./controllers/storage/products/ListByCategoryController";
 
 const router = Router();
 
@@ -56,5 +57,6 @@ router.get("/categories", isAuthenticaded, new ListCategoriesController().handle
 router.post("/product", isAuthenticaded, upload.single('file'), new CreateProductController().handle);
 router.get("/products", isAuthenticaded, new ListProductsController().handle);
 router.get("/products/:id", isAuthenticaded, new ListOneProductController().handle);
+router.get("/products/category/:category-id", isAuthenticaded, new ListByCategoryController().handle);
 
 export { router };
