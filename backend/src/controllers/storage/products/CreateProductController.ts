@@ -18,7 +18,7 @@ export class CreateProductController {
             throw new Error("[ERROR] Você não enviou a foto do produto!");
         };
 
-        const {originalname, filename: foto} = req.file
+        const {originalname, filename: foto} = req.file;
 
         const product = await createProductService.execute({
             nome,
