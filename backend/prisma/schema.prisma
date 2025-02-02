@@ -67,7 +67,7 @@ model Produto {
   descricao String?
   preco Int
   foto String
-  quantidade Int
+  quantidade Int @default(0)
   
   // estoque_minimo Int
   // movimentacoes Movimentacao[]
