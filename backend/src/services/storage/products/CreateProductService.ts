@@ -5,13 +5,14 @@ interface CreateProductRequest {
     descricao?: string;
     preco: number;
     foto: string;
+    quantidade: number;
     category_id: string;
     enterprise_id: string;
 };
 
 export class CreateProductService {
     async execute({
-        nome, descricao, preco, foto, category_id, enterprise_id
+        nome, descricao, preco, foto, quantidade, category_id, enterprise_id
     }: CreateProductRequest) {
         if (!nome || !preco || !foto || !category_id || !enterprise_id) {
             throw new Error("[ERROR] Você não preencheu todos os campos!");
@@ -23,9 +24,12 @@ export class CreateProductService {
                 descricao: descricao,
                 preco: preco,
                 foto: foto,
+                quantidade: quantidade,
                 categoria_id: category_id,
                 empresa_id: enterprise_id,
             }
         });
+
+        return product;
     };
 };
