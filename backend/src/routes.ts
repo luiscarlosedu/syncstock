@@ -21,6 +21,8 @@ import { EmployeeDetailEnterpriseController } from "./controllers/employee/Emplo
 import { CreateCategoryController } from "./controllers/storage/categories/CreateCategoryController";
 import { ListCategoriesController } from "./controllers/storage/categories/ListCategoriesController";
 
+import { CreateProductController } from "./controllers/storage/products/CreateProductController";
+
 const router = Router();
 
 const upload = multer(uploadConfig.upload("./tmp"));
@@ -49,5 +51,6 @@ router.post("/category", isAuthenticaded, new CreateCategoryController().handle)
 router.get("/categories", isAuthenticaded, new ListCategoriesController().handle);
 
 // Rotas - Products / Produtos
+router.post("/product", isAuthenticaded, upload.single('file'), new CreateProductController().handle);
 
 export { router };
