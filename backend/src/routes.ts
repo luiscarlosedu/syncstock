@@ -22,6 +22,7 @@ import { CreateCategoryController } from "./controllers/storage/categories/Creat
 import { ListCategoriesController } from "./controllers/storage/categories/ListCategoriesController";
 
 import { CreateProductController } from "./controllers/storage/products/CreateProductController";
+import { ListProductsController } from "./controllers/storage/products/ListProductsController";
 
 const router = Router();
 
@@ -52,5 +53,6 @@ router.get("/categories", isAuthenticaded, new ListCategoriesController().handle
 
 // Rotas - Products / Produtos
 router.post("/product", isAuthenticaded, upload.single('file'), new CreateProductController().handle);
+router.get("/products", isAuthenticaded, new ListProductsController().handle);
 
 export { router };
