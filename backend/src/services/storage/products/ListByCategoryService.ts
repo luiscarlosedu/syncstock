@@ -6,7 +6,7 @@ interface ListByCategoryRequest {
 
 export class ListByCategoryService {
     async execute({ category_id }: ListByCategoryRequest) {
-        const products = await prismaClient.produto.findFirst({
+        const products = await prismaClient.produto.findMany({
             where: {
                 categoria_id: category_id
             },

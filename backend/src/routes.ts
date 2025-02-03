@@ -59,7 +59,7 @@ router.get("/categories", isAuthenticaded, new ListCategoriesController().handle
 router.post("/product", isAuthenticaded, upload.single('file'), new CreateProductController().handle);
 router.get("/products", isAuthenticaded, new ListProductsController().handle);
 router.get("/products/:id", isAuthenticaded, new ListOneProductController().handle);
-router.get("/products/category/:category-id", isAuthenticaded, new ListByCategoryController().handle);
+router.get("/products/category/:id", isAuthenticaded, new ListByCategoryController().handle);
 router.delete("/products/:id", isAuthenticaded, new DeleteProductController().handle);
 router.put("/product/:id/quantity", isAuthenticaded, new UpdateProductQuantityController().handle);
 
