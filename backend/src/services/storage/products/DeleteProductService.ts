@@ -5,7 +5,7 @@ import path from "path";
 export class DeleteProductService {
     async execute({ id }: { id: string }) {
         const product = await prismaClient.produto.findUnique({
-            where: { id }
+            where: { id },
         });
 
         if (!product) {
@@ -23,7 +23,10 @@ export class DeleteProductService {
         }
 
         const deletedProduct = await prismaClient.produto.delete({
-            where: { id }
+            where: { id },
+            select: {
+                id: true
+            },
         });
 
         return deletedProduct;
