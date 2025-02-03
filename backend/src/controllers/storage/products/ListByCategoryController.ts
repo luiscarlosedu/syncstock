@@ -6,7 +6,7 @@ export class ListByCategoryController {
         const { category_id } = req.params;
 
         const listByCategoryService = new ListByCategoryService();
-        const productsByCategory = listByCategoryService.execute({ category_id });
+        const productsByCategory = await listByCategoryService.execute({ category_id });
 
         res.json(productsByCategory);
     }
