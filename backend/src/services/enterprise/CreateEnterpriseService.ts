@@ -40,13 +40,11 @@ export class CreateEnterpriseService {
             throw new Error("[ERROR] CNPJ já cadastrado!");
         }
 
-        const token_vinculo = `${nome.replace(/\s+/g, "_")}_${uuidv4()}`;
-
         const passwordHash = await hash(senha, 7);
 
         const enterprise = await prismaClient.empresa.create({
             data: {
-                nome, cnpj, email, senha: passwordHash, endereco: endereco, telefone, foto, token_vinculo 
+                nome, cnpj, email, senha: passwordHash, endereco: endereco, telefone, foto,
             },
             select: {
                 nome: true,
@@ -54,7 +52,6 @@ export class CreateEnterpriseService {
                 email: true,
                 endereco: true,
                 telefone: true,
-                token_vinculo: true
             }
         });
 

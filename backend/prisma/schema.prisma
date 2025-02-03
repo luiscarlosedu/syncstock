@@ -22,7 +22,6 @@ model Empresa {
   foto String?
   endereco String?
   telefone String?
-  token_vinculo String @unique
   createdAt DateTime? @default(now())
   updatedAt DateTime @updatedAt
 
