@@ -10,6 +10,7 @@ import { AuthEnterpriseController } from "./controllers/enterprise/AuthEnterpris
 import { GetDetailEnterpriseController } from "./controllers/enterprise/GetDetailEnterpriseController";
 import { ListEmployeesController } from "./controllers/enterprise/ListEmployeesController";
 import { RemoveEmployeeController } from "./controllers/enterprise/RemoveEmployeeController";
+import { EmailEmployeeController } from "./controllers/enterprise/EmailEmployeeController";
 
 import { CreateEmployeeController } from "./controllers/employee/CreateEmployeeController";
 import { AuthEmployeeController } from "./controllers/employee/AuthEmployeeController";
@@ -40,6 +41,7 @@ router.post("/employee/session", new AuthEmployeeController().handle);
 
 // Rotas - Enterprise / Empresa
 router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseController().handle);
+router.post("/employee/approve", isAuthenticaded, new EmailEmployeeController().handle);
 router.get("/enterprise/employees", isAuthenticaded, new ListEmployeesController().handle);
 router.patch("/enterprise/remove-employee", isAuthenticaded, new RemoveEmployeeController().handle);
 
