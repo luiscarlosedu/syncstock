@@ -31,13 +31,15 @@ const router = Router();
 
 const upload = multer(uploadConfig.upload("./tmp"));
 
+
+// ====== Rotas - Guest ========
 router.post("/enterprise", upload.single('file'), new CreateEnterpriseController().handle);
 router.post("/enterprise/session", new AuthEnterpriseController().handle);
 
 router.post("/employee", upload.single('file'),new CreateEmployeeController().handle);
 router.post("/employee/session", new AuthEmployeeController().handle);
 
-// rotas - Auth
+// ====== Rotas - Auth ========
 
 // Rotas - Enterprise / Empresa
 router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseController().handle);
