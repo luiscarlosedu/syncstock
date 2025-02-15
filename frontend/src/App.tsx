@@ -1,7 +1,11 @@
-export default function App() {
-  return (
-    <div>
-      <h1>My Frontend of SyncStock</h1>
-    </div>
-  );
-}
+import { createBrowserRouter } from "react-router";
+import Home from "./pages/home";
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  }
+]);
+
+export { router };
