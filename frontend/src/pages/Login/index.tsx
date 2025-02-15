@@ -1,11 +1,11 @@
 import {
-    
+    Container
 } from "./styles";
 
 export default function Login() {
     return (
-        <div>
+        <Container>
             <h1>Page Login</h1>
-        </div>
+        </Container>
     );
 };

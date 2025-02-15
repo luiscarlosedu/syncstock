@@ -1,11 +1,11 @@
 import {
-    
+    Container
 } from "./styles";
 
 export default function Register() {
     return (
-        <div>
+        <Container>
             <h1>Page Register</h1>
-        </div>
+        </Container>
     );
 }

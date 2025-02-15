@@ -1,11 +1,17 @@
-import {
-    
+import { 
+    Container,
+    SelectContent,
+    Title,
+    SubTitle
 } from "./styles";
 
 export default function Select() {
     return (
-        <div>
-            <h1>Page Select</h1>
-        </div>
+        <Container>
+            <SelectContent>
+                <Title>Bem vindo ao SyncStock!</Title>
+                <SubTitle>Gerencie seu estoque com nossa plataforma.</SubTitle>
+            </SelectContent>
+        </Container>
     );
-}
+};
