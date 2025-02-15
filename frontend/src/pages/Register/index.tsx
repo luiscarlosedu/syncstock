@@ -2,10 +2,10 @@ import {
     
 } from "./styles";
 
-export default function Home() {
+export default function Register() {
     return (
         <div>
-            <h1>Page Home</h1>
+            <h1>Page Register</h1>
         </div>
     );
 }
