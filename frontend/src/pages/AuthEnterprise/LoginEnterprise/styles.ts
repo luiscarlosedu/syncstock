@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -95,4 +96,17 @@ export const Hr = styled.hr`
 export const HorizontalRowText = styled.h3`
     font-size: 14px;
     font-weight: 500;
+`;
+
+export const LoginFooter = styled.footer`
+    width: 100%;
+`;
+
+export const LoginFooterText = styled.p`
+    text-align: center;
+    font-size: 14px;
+`;
+
+export const LoginFooterLink = styled(Link)`
+    color: blue;
 `;

@@ -12,7 +12,10 @@ import {
     LoginFormSubmit,
     HorizontalRow,
     Hr,
-    HorizontalRowText
+    HorizontalRowText,
+    LoginFooter,
+    LoginFooterText,
+    LoginFooterLink
 } from "./styles";
 
 import { AuthHeader } from "../../../components/auth-header";
@@ -74,6 +77,14 @@ export default function LoginEnterprise() {
                         <HorizontalRowText>ou</HorizontalRowText>
                         <Hr />
                     </HorizontalRow>
+
+                    <LoginFooter>
+                        <LoginFooterText>
+                            Não possui uma conta de empresa? <LoginFooterLink
+                                to={'/register/empresa'}
+                            >Crie-a agora!</LoginFooterLink>
+                        </LoginFooterText>
+                    </LoginFooter>
 
                 </LoginContent>
             </LoginContainer>
