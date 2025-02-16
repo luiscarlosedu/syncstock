@@ -1,3 +1,4 @@
+import { AuthHeader } from "../../../components/auth-header";
 import {
     Container
 } from "./styles";
@@ -5,7 +6,7 @@ import {
 export default function RegisterEmployee() {
     return (
         <Container>
-            <h1>Page Register Employee</h1>
+            <AuthHeader />
         </Container>
     );
 }

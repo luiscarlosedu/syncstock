@@ -1,11 +1,16 @@
 import {
-    Container
+    Container,
+    LoginContent,
 } from "./styles";
+
+import { AuthHeader } from "../../../components/auth-header";
 
 export default function LoginEnterprise() {
     return (
         <Container>
-            <h1>Page Login Enterprise</h1>
+            <LoginContent>
+                <AuthHeader />
+            </LoginContent>
         </Container>
     );
 };

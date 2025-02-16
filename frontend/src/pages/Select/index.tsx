@@ -1,24 +1,20 @@
+import { useNavigate } from "react-router";
+
 import { 
     Container,
     SelectContent,
     Title,
     SubTitle,
     SelectContentText,
-    SelectContentHeader,
-    SelectHeaderTitle,
-    HeaderLogo,
-    SelectHeaderImage,
     SelectButton,
     SelectButtonArea,
     SelectContentTextContainer,
     SelectContentFooter,
     SelectFooterText,
-    SelectLabel
+    SelectLabel,
 } from "./styles";
 
-import { useNavigate } from "react-router";
-
-import LogoImage from '../../assets/syncstock-no.png';
+import { AuthHeader } from "../../components/auth-header";
 
 export default function Select() {
     const navigate = useNavigate();
@@ -26,14 +22,7 @@ export default function Select() {
     return (
         <Container>
             <SelectContent>
-                <SelectContentHeader>
-                    <HeaderLogo>
-                        <SelectHeaderImage src={LogoImage} alt="logo syncstock" />
-                        <SelectHeaderTitle>
-                            SyncStock
-                        </SelectHeaderTitle>
-                    </HeaderLogo>
-                </SelectContentHeader>
+                <AuthHeader />
                 <SelectContentText>
                     <SelectContentTextContainer>
                         <Title>Bem vindo ao SyncStock!</Title>

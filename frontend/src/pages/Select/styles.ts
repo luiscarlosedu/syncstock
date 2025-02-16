@@ -17,25 +17,6 @@ export const SelectContent = styled.div`
     align-items: center;
 `;
 
-export const SelectContentHeader = styled.div`
-    width: 100%;
-`;
-
-export const HeaderLogo = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 10px;
-`;
-
-export const SelectHeaderTitle = styled.h1`
-    font-size: 25px;
-`;
-
-export const SelectHeaderImage = styled.img`
-    width: 30px;
-    height: 30px;
-`;
-
 export const SelectContentText = styled.div`
     width: 100%;
     padding: 20px;
