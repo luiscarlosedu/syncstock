@@ -12,12 +12,17 @@ import {
     SelectButtonArea,
     SelectContentTextContainer,
     SelectContentFooter,
-    SelectFooterText
+    SelectFooterText,
+    SelectLabel
 } from "./styles";
+
+import { useNavigate } from "react-router";
 
 import LogoImage from '../../assets/syncstock-no.png';
 
 export default function Select() {
+    const navigate = useNavigate();
+
     return (
         <Container>
             <SelectContent>
@@ -35,11 +40,13 @@ export default function Select() {
                         <SubTitle>Gerencie seu estoque com nossa plataforma.</SubTitle>
                     </SelectContentTextContainer>
                     <SelectButtonArea>
-                        <p>Escolha uma maneira de acessar:</p>
-                        <SelectButton>
+                        <SelectLabel>
+                            Escolha uma maneira de acessar:
+                        </SelectLabel>
+                        <SelectButton onClick={() => navigate('/login/empresa')}>
                             Entrar como <strong>Empresa</strong>
                         </SelectButton>
-                        <SelectButton>
+                        <SelectButton onClick={() => navigate('/login/funcionario')}>
                             Entrar como <strong>Funcionário</strong>
                         </SelectButton>
                     </SelectButtonArea>

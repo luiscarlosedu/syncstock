@@ -48,6 +48,11 @@ export const SelectContentText = styled.div`
 
 export const SelectContentTextContainer = styled.div``;
 
+export const SelectLabel = styled.h3`
+    font-size: 16px;
+    font-weight: 600;
+`;
+
 export const Title = styled.h1`
     font-size: 30px;
 `;
@@ -74,6 +79,7 @@ export const SelectButton = styled.button`
     font-size: 14px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     transition: 0.2s;
+    user-select: none;
 
     &:hover {
         background-color: #505050;

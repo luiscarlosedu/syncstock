@@ -2,10 +2,10 @@ import {
     Container
 } from "./styles";
 
-export default function Login() {
+export default function LoginEmployee() {
     return (
         <Container>
-            <h1>Page Login</h1>
+            <h1>Page Login Employee</h1>
         </Container>
     );
 };

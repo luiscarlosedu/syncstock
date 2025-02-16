@@ -2,10 +2,10 @@ import {
     Container
 } from "./styles";
 
-export default function Register() {
+export default function RegisterEnterprise() {
     return (
         <Container>
-            <h1>Page Register</h1>
+            <h1>Page Register Enterprise</h1>
         </Container>
     );
 }
