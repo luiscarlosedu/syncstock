@@ -8,4 +8,5 @@ export const Container = styled.div`
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: red;
 `;
