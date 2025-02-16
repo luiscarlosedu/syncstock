@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router";
 
-export const ContentHeader = styled.div`
+export const ContentHeader = styled.header`
     width: 100%;
     display: flex;
     justify-content: space-between;
