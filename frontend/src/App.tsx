@@ -10,6 +10,8 @@ import RegisterEmployee from "./pages/AuthEmployee/RegisterEmployee";
 import LoginEmployee from "./pages/AuthEmployee/LoginEmployee";
 
 import Error from "./pages/Error";
+import Home from "./pages/Home";
+import { UseLayout } from "./components/layouts/use-layout";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,15 @@ const router = createBrowserRouter([
         path: '/register/funcionario',
         element: <RegisterEmployee />
       }
+    ],
+  },
+  {
+    element: <UseLayout />,
+    children: [
+      {
+        path: '/home',
+        element: <Home />
+      },
     ],
   },
   {

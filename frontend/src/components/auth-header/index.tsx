@@ -7,8 +7,6 @@ import {
     StyledLink
 } from './styles';
 
-import { Link } from 'react-router';
-
 import LogoImage from '../../assets/syncstock-no.png';
 
 export function AuthHeader() {
