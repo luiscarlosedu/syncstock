@@ -5,7 +5,7 @@ import {
 export default function HomeEnterprise() {
     return (
         <div>
-            <h1>Page Home</h1>
+            <h1>Page Home Enterprise</h1>
         </div>
     );
 }
