@@ -9,8 +9,11 @@ import RegisterEnterprise from "./pages/AuthEnterprise/RegisterEnterprise";
 import RegisterEmployee from "./pages/AuthEmployee/RegisterEmployee";
 import LoginEmployee from "./pages/AuthEmployee/LoginEmployee";
 
+
+import HomeEnterprise from "./pages/AppEnterprise/Home";
+// import HomeEmployee from "./pages/AppEmployee/Home";
+
 import Error from "./pages/Error";
-import Home from "./pages/Home";
 import { UseLayout } from "./components/layouts/use-layout";
 
 const router = createBrowserRouter([
@@ -43,8 +46,8 @@ const router = createBrowserRouter([
     element: <UseLayout />,
     children: [
       {
-        path: '/home',
-        element: <Home />
+        path: '/empresa/home',
+        element: <HomeEnterprise />
       },
     ],
   },
