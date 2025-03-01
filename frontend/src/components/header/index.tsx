@@ -29,14 +29,14 @@ export function Header({ type }: HeaderProps) {
                     <MyEnterpriseText>
                         My Store
                     </MyEnterpriseText>
-                    <MyEnterpriseImage src={ImageLogo} alt="" />
+                    <MyEnterpriseImage src={ImageLogo} alt="Logo da empresa" />
                 </MyEnterprise>
             ): (
                 <MyEnterprise>
                     <MyEnterpriseText>
                         My Account
                     </MyEnterpriseText>
-                    <MyEnterpriseImage src={ImageLogo} alt="" />
+                    <MyEnterpriseImage src="https://github.com/luiscarlosedu.png" alt="Logo da empresa" />
                 </MyEnterprise>
             )}
         </Container>
