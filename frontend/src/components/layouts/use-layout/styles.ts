@@ -8,7 +8,6 @@ export const UseLayoutPage = styled.main`
     display: flex;
     flex-direction: row;
     height: calc(100dvh - 65px);
-    background-color: red;
     width: 100%;
     margin-top: 65px;
     overflow: hidden;
@@ -16,5 +15,6 @@ export const UseLayoutPage = styled.main`
     article {
         overflow: auto;
         scrollbar-color: #404040 #202020;
+        padding: 10px 20px;
     }
 `;

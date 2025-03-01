@@ -4,11 +4,13 @@ import { Header } from "../../header";
 import { SideBar } from "../../sidebar";
 
 export function UseLayout() {
+    const typeUser = "enterprise";
+
     return (
         <Container>
-            <Header />
+            <Header type={typeUser} />
             <UseLayoutPage>
-                <SideBar />
+                <SideBar type={typeUser} />
                 <Outlet />
             </UseLayoutPage>
         </Container>

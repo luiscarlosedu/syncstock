@@ -1,9 +1,17 @@
 import { Container } from "./styles";
 
-export function SideBar() {
+interface SideBarProps {
+    type: "enterprise" | "employee";
+}
+
+export function SideBar({ type }: SideBarProps) {
     return (
         <Container>
-            <h1>sidebar</h1>
+            {type === 'enterprise' ? (
+                <p>Sidebar enterprise</p>
+            ): (
+                <p>Sidebar employee</p>
+            )}
         </Container>
     );
 };
