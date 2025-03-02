@@ -15,7 +15,7 @@ export const UseLayoutPage = styled.main`
     article {
         overflow: auto;
         scrollbar-color: #404040 #202020;
-        padding: 10px 20px;
+        padding: 20px 25px;
         width: 100%;
         background-color: #F1F1F1;
     }
