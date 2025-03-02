@@ -8,7 +8,7 @@ import {
     SideBarFooter
 } from "./styles";
 
-import { FaHome, /*FaUsers*/ } from "react-icons/fa";
+import { FaHome, FaUsers } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
 import { IoMdPricetag } from "react-icons/io";
 import { useLocation } from "react-router";
@@ -53,6 +53,15 @@ export function SideBar({ type }: SideBarProps) {
                             >
                                 <IoMdPricetag />
                                 Produtos
+                            </SideBarItemLink>
+                        </SideBarItem>
+                        <SideBarItem>
+                            <SideBarItemLink 
+                                to={'/empresa/funcionarios'}
+                                isActive={location.pathname === "/empresa/funcionarios"}
+                            >
+                                <FaUsers />
+                                Funcionários
                             </SideBarItemLink>
                         </SideBarItem>
                     </SideBarList>
