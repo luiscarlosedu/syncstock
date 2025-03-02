@@ -13,6 +13,8 @@ import LoginEmployee from "./pages/AuthEmployee/LoginEmployee";
 import HomeEnterprise from "./pages/AppEnterprise/Home";
 // import HomeEmployee from "./pages/AppEmployee/Home";
 
+import CategoriesEnterprise from "./pages/AppEnterprise/Categories";
+
 import Error from "./pages/Error";
 import { UseLayout } from "./components/layouts/use-layout";
 
@@ -49,6 +51,10 @@ const router = createBrowserRouter([
         path: '/empresa/home',
         element: <HomeEnterprise />
       },
+      {
+        path: '/empresa/categorias',
+        element: <CategoriesEnterprise />
+      }
     ],
   },
   {

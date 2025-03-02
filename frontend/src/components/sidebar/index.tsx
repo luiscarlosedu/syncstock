@@ -1,16 +1,58 @@
-import { Container } from "./styles";
+import { 
+    Container,
+    SideBarEnterprise,
+    SideBarEmployee,
+    SideBarItem,
+    SideBarList,
+    SideBarItemLink,
+    SideBarFooter
+} from "./styles";
+
+import { FaHome, /*FaUsers*/ } from "react-icons/fa";
+import { MdCategory } from "react-icons/md";
+import { IoMdPricetag } from "react-icons/io";
+// import { IoLogOut } from "react-icons/io5";
 
 interface SideBarProps {
     type: "enterprise" | "employee";
 }
 
+// Enterprise: home, funcionarios, categorias, products, about, sair
+// Employee: home, categorias, products, empresa, about, sair
+
 export function SideBar({ type }: SideBarProps) {
     return (
         <Container>
             {type === 'enterprise' ? (
-                <p>Sidebar enterprise</p>
+                <SideBarEnterprise>
+                    <SideBarList>
+                        <SideBarItem>
+                            <SideBarItemLink to={'/empresa/home'}>
+                                <FaHome />
+                                Home
+                            </SideBarItemLink>
+                        </SideBarItem>
+                        <SideBarItem>
+                            <SideBarItemLink to={'/empresa/categorias'}>
+                                <MdCategory />
+                                Categorias
+                            </SideBarItemLink>
+                        </SideBarItem>
+                        <SideBarItem>
+                            <SideBarItemLink to={'/empresa/products'}>
+                                <IoMdPricetag />
+                                Produtos
+                            </SideBarItemLink>
+                        </SideBarItem>
+                    </SideBarList>
+                    <SideBarFooter>
+                        <p>Sair</p>
+                    </SideBarFooter>
+                </SideBarEnterprise>
             ): (
-                <p>Sidebar employee</p>
+                <SideBarEmployee>
+                    <p>Sidebar employee</p>
+                </SideBarEmployee>
             )}
         </Container>
     );

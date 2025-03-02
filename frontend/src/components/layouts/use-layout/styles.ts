@@ -16,5 +16,6 @@ export const UseLayoutPage = styled.main`
         overflow: auto;
         scrollbar-color: #404040 #202020;
         padding: 10px 20px;
+        width: 100%;
     }
 `;
