@@ -46,15 +46,15 @@ export function SideBar({ type }: SideBarProps) {
                                 Categorias
                             </SideBarItemLink>
                         </SideBarItem>
-                        {/* <SideBarItem>
+                        <SideBarItem>
                             <SideBarItemLink 
-                                to={'/empresa/products'}
-                                // isActive={location.pathname === "/empresa/home"}
+                                to={'/empresa/produtos'}
+                                isActive={location.pathname === "/empresa/produtos"}
                             >
                                 <IoMdPricetag />
                                 Produtos
                             </SideBarItemLink>
-                        </SideBarItem> */}
+                        </SideBarItem>
                     </SideBarList>
                     <SideBarFooter>
                         <p>Sair</p>

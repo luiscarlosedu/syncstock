@@ -1,22 +1,21 @@
 import { createBrowserRouter } from "react-router";
 
 import { AuthLayout } from "./components/layouts/auth-layout";
+import { UseLayout } from "./components/layouts/use-layout";
 
 import Select from "./pages/Select";
+
 import LoginEnterprise from "./pages/AuthEnterprise/LoginEnterprise";
 import RegisterEnterprise from "./pages/AuthEnterprise/RegisterEnterprise";
 
 import RegisterEmployee from "./pages/AuthEmployee/RegisterEmployee";
 import LoginEmployee from "./pages/AuthEmployee/LoginEmployee";
 
-
 import HomeEnterprise from "./pages/AppEnterprise/Home";
-// import HomeEmployee from "./pages/AppEmployee/Home";
-
 import CategoriesEnterprise from "./pages/AppEnterprise/Categories";
+import ProductsEnterprise from "./pages/AppEnterprise/Products";
 
 import Error from "./pages/Error";
-import { UseLayout } from "./components/layouts/use-layout";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: '/empresa/categorias',
         element: <CategoriesEnterprise />
+      },
+      {
+        path: '/empresa/produtos',
+        element: <ProductsEnterprise />
       }
     ],
   },
