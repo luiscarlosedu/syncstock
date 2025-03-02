@@ -29,21 +29,19 @@ export const SideBarList = styled.ul`
     list-style-type: none;
 `;
 
-export const SideBarItem = styled.li`
-    
-`;
+export const SideBarItem = styled.li``;
 
 export const SideBarItemLink = styled(Link)<{ isActive: boolean }>`
     color: ${({ isActive }) => (isActive ? "#000" : "#434343")};
     background-color: ${({ isActive }) => (isActive ? "#FAFAFA" : "transparent")};
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: none;
     padding: 5px 10px;
     display: flex;
     align-items: center;
     gap: 8px;
     border-radius: 6px;
-    font-size: 18px;
+    font-size: 17px;
     transition: background-color 0.3s ease, color 0.3s ease;
 `;
 
