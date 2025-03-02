@@ -1,9 +1,9 @@
 import { Container } from "./styles";
 
-export default function ProductsEnterprise() {
+export default function EmployeesEnterprise() {
     return (
         <Container>
-            <h1>Page Products Enterprise</h1>
+            <h1>Page employee enterprise</h1>
         </Container>
     );
 }
