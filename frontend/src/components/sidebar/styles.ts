@@ -20,11 +20,16 @@ export const SideBarEmployee = styled.div`
 
 `;
 
+export const SideBarContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+`;
+
 export const SideBarList = styled.ul`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
     gap: 10px;
     list-style-type: none;
 `;
@@ -45,7 +50,31 @@ export const SideBarItemLink = styled(Link)<{ isActive: boolean }>`
     transition: background-color 0.3s ease, color 0.3s ease;
 `;
 
+export const SideBarRow = styled.div`
+    height: 1.3px;
+    width: 93%;
+    margin: 0 auto;
+    background-color: black;
+`;
+
 export const SideBarFooter = styled.div`
     background-color: gray;
     width: 100%;
+    border-radius: 4px;
+`;
+
+export const SideBarFooterButton = styled.button`
+    width: 100%;
+    border: 0;
+    background-color: #434343;
+    color: white;
+    height: 100%;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+        background-color: #555555;
+    };
 `;

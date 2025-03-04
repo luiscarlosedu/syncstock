@@ -5,13 +5,17 @@ import {
     SideBarItem,
     SideBarList,
     SideBarItemLink,
-    SideBarFooter
+    SideBarFooter,
+    SideBarContent,
+    SideBarRow,
+    SideBarFooterButton
 } from "./styles";
 
-import { FaHome, FaUsers } from "react-icons/fa";
+import { FaHome, FaQuestion, FaUsers } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
 import { IoMdPricetag } from "react-icons/io";
 import { useLocation } from "react-router";
+import { TbMessage2Question } from "react-icons/tb";
 // import { IoLogOut } from "react-icons/io5";
 
 interface SideBarProps {
@@ -27,46 +31,78 @@ export function SideBar({ type }: SideBarProps) {
         <Container>
             {type === 'enterprise' ? (
                 <SideBarEnterprise>
-                    <SideBarList>
-                        <SideBarItem>
-                            <SideBarItemLink 
-                                to={'/empresa/home'}
-                                isActive={location.pathname === "/empresa/home"}
-                            >
-                                <FaHome />
-                                Home
-                            </SideBarItemLink>
-                        </SideBarItem>
-                        <SideBarItem>
-                            <SideBarItemLink 
-                                to={'/empresa/categorias'}
-                                isActive={location.pathname === "/empresa/categorias"}
-                            >
-                                <MdCategory />
-                                Categorias
-                            </SideBarItemLink>
-                        </SideBarItem>
-                        <SideBarItem>
-                            <SideBarItemLink 
-                                to={'/empresa/produtos'}
-                                isActive={location.pathname === "/empresa/produtos"}
-                            >
-                                <IoMdPricetag />
-                                Produtos
-                            </SideBarItemLink>
-                        </SideBarItem>
-                        <SideBarItem>
-                            <SideBarItemLink 
-                                to={'/empresa/funcionarios'}
-                                isActive={location.pathname === "/empresa/funcionarios"}
-                            >
-                                <FaUsers />
-                                Funcionários
-                            </SideBarItemLink>
-                        </SideBarItem>
-                    </SideBarList>
+                    <SideBarContent>
+                        <SideBarList>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/home'}
+                                    isActive={location.pathname === "/empresa/home"}
+                                >
+                                    <FaHome />
+                                    Home
+                                </SideBarItemLink>
+                            </SideBarItem>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/categorias'}
+                                    isActive={location.pathname === "/empresa/categorias"}
+                                >
+                                    <MdCategory />
+                                    Categorias
+                                </SideBarItemLink>
+                            </SideBarItem>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/produtos'}
+                                    isActive={location.pathname === "/empresa/produtos"}
+                                >
+                                    <IoMdPricetag />
+                                    Produtos
+                                </SideBarItemLink>
+                            </SideBarItem>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/funcionarios'}
+                                    isActive={location.pathname === "/empresa/funcionarios"}
+                                >
+                                    <FaUsers />
+                                    Funcionários
+                                </SideBarItemLink>
+                            </SideBarItem>
+                        </SideBarList>
+
+                        {/* <h4>About</h4> */}
+                        <SideBarRow />
+
+                        <SideBarList>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/home'}
+                                    isActive={location.pathname === "/empresa/home"}
+                                >
+                                    <FaQuestion size={14} />
+                                    About
+                                </SideBarItemLink>
+                            </SideBarItem>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/categorias'}
+                                    isActive={location.pathname === "/empresa/categorias"}
+                                >
+                                    <TbMessage2Question />
+                                    FAQ
+                                </SideBarItemLink>
+                            </SideBarItem>
+                        </SideBarList>
+
+                    </SideBarContent>
+
+                    
+
                     <SideBarFooter>
-                        <p>Sair</p>
+                        <SideBarFooterButton>
+                            Sair
+                        </SideBarFooterButton>
                     </SideBarFooter>
                 </SideBarEnterprise>
             ): (

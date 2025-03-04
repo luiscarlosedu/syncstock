@@ -5,7 +5,7 @@ export const Container = styled.div`
 `;
 
 export const UseLayoutPage = styled.main`
-    display: flex;
+    display: flex; 
     flex-direction: row;
     height: calc(100dvh - 65px);
     width: 100%;
@@ -15,7 +15,7 @@ export const UseLayoutPage = styled.main`
     article {
         overflow: auto;
         scrollbar-color: #404040 #202020;
-        padding: 20px 25px;
+        padding: 19px 25px;
         width: 100%;
         background-color: #F1F1F1;
     }
