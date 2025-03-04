@@ -15,6 +15,8 @@ import HomeEnterprise from "./pages/AppEnterprise/Home";
 import CategoriesEnterprise from "./pages/AppEnterprise/Categories";
 import ProductsEnterprise from "./pages/AppEnterprise/Products";
 import EmployeesEnterprise from "./pages/AppEnterprise/Employees";
+import AboutEnterprise from "./pages/AppEnterprise/About";
+import FAQEnterprise from "./pages/AppEnterprise/FAQ";
 
 import Error from "./pages/Error";
 
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
       {
         path: '/empresa/funcionarios',
         element: <EmployeesEnterprise />
+      },
+      {
+        path: '/empresa/sobre',
+        element: <AboutEnterprise />
+      },
+      {
+        path: '/empresa/faq',
+        element: <FAQEnterprise />
       }
     ],
   },

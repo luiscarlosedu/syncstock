@@ -70,24 +70,23 @@ export function SideBar({ type }: SideBarProps) {
                                 </SideBarItemLink>
                             </SideBarItem>
                         </SideBarList>
-
-                        {/* <h4>About</h4> */}
+                        
                         <SideBarRow />
 
                         <SideBarList>
                             <SideBarItem>
                                 <SideBarItemLink
-                                    to={'/empresa/home'}
-                                    isActive={location.pathname === "/empresa/home"}
+                                    to={'/empresa/sobre'}
+                                    isActive={location.pathname === "/empresa/sobre"}
                                 >
                                     <FaQuestion size={14} />
-                                    About
+                                    Sobre
                                 </SideBarItemLink>
                             </SideBarItem>
                             <SideBarItem>
                                 <SideBarItemLink
-                                    to={'/empresa/categorias'}
-                                    isActive={location.pathname === "/empresa/categorias"}
+                                    to={'/empresa/faq'}
+                                    isActive={location.pathname === "/empresa/faq"}
                                 >
                                     <TbMessage2Question />
                                     FAQ
