@@ -13,7 +13,7 @@ export const EmployeeWarn = styled.p`
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
 `;
 
 export const EmployeeWarnLink = styled(Link)`
