@@ -22,5 +22,5 @@ export const EmployeeWarnLink = styled(Link)`
     padding: 5px 10px;
     text-decoration: none;
     border-radius: 3px;
-    font-weight: bold;
+    font-weight: 600;
 `;
