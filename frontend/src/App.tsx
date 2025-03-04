@@ -18,6 +18,13 @@ import EmployeesEnterprise from "./pages/AppEnterprise/Employees";
 import AboutEnterprise from "./pages/AppEnterprise/About";
 import FAQEnterprise from "./pages/AppEnterprise/FAQ";
 
+import HomeEmployee from "./pages/AppEmployee/Home";
+import CategoriesEmployee from "./pages/AppEmployee/Categories";
+import ProductsEmployee from "./pages/AppEmployee/Products";
+import EnterpriseEmployee from "./pages/AppEmployee/Enterprise";
+import AboutEmployee from "./pages/AppEmployee/About";
+import FAQEmployee from "./pages/AppEmployee/FAQ";
+
 import Error from "./pages/Error";
 
 const router = createBrowserRouter([
@@ -72,7 +79,31 @@ const router = createBrowserRouter([
       {
         path: '/empresa/faq',
         element: <FAQEnterprise />
-      }
+      },
+      {
+        path: '/funcionario/home',
+        element: <HomeEmployee />
+      },
+      {
+        path: '/funcionario/categorias',
+        element: <CategoriesEmployee />
+      },
+      {
+        path: '/funcionario/produtos',
+        element: <ProductsEmployee />
+      },
+      {
+        path: '/funcionario/empresa',
+        element: <EnterpriseEmployee />
+      },
+      {
+        path: '/funcionario/sobre',
+        element: <AboutEmployee />
+      },
+      {
+        path: '/funcionario/faq',
+        element: <FAQEmployee />
+      },
     ],
   },
   {

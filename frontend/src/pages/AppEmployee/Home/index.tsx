@@ -1,11 +1,9 @@
-import {
-    
-} from "./styles";
+import { Container } from "./styles";
 
 export default function HomeEmployee() {
     return (
-        <div>
+        <Container>
             <h1>Page Home</h1>
-        </div>
+        </Container>
     );
 }
