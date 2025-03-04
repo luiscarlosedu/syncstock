@@ -12,6 +12,14 @@ export const UseLayoutPage = styled.main`
     margin-top: 65px;
     overflow: hidden;
 
+    aside > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 20px;
+    }
+
     article {
         overflow: auto;
         scrollbar-color: #404040 #202020;

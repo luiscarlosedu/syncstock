@@ -8,13 +8,7 @@ export const Container = styled.aside`
     height: 100%;
 `;
 
-export const SideBarEnterprise = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding: 20px;
-`;
+export const SideBarEnterprise = styled.div``;
 
 export const SideBarEmployee = styled.div`
 

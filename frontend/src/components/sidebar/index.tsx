@@ -22,9 +22,6 @@ interface SideBarProps {
     type: "enterprise" | "employee";
 }
 
-// Enterprise: home, funcionarios, categorias, products, about, sair
-// Employee: home, categorias, products, empresa, about, sair
-
 export function SideBar({ type }: SideBarProps) {
     const location = useLocation();
     return (
@@ -96,8 +93,6 @@ export function SideBar({ type }: SideBarProps) {
 
                     </SideBarContent>
 
-                    
-
                     <SideBarFooter>
                         <SideBarFooterButton>
                             Sair
@@ -106,7 +101,75 @@ export function SideBar({ type }: SideBarProps) {
                 </SideBarEnterprise>
             ): (
                 <SideBarEmployee>
-                    <p>Sidebar employee</p>
+                    <SideBarContent>
+                        <SideBarList>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/home'}
+                                    isActive={location.pathname === "/empresa/home"}
+                                >
+                                    <FaHome />
+                                    Home
+                                </SideBarItemLink>
+                            </SideBarItem>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/categorias'}
+                                    isActive={location.pathname === "/empresa/categorias"}
+                                >
+                                    <MdCategory />
+                                    Categorias
+                                </SideBarItemLink>
+                            </SideBarItem>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/produtos'}
+                                    isActive={location.pathname === "/empresa/produtos"}
+                                >
+                                    <IoMdPricetag />
+                                    Produtos
+                                </SideBarItemLink>
+                            </SideBarItem>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/funcionarios'}
+                                    isActive={location.pathname === "/empresa/funcionarios"}
+                                >
+                                    <FaUsers />
+                                    Empresa
+                                </SideBarItemLink>
+                            </SideBarItem>
+                        </SideBarList>
+                        
+                        <SideBarRow />
+
+                        <SideBarList>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/sobre'}
+                                    isActive={location.pathname === "/empresa/sobre"}
+                                >
+                                    <FaQuestion size={14} />
+                                    Sobre
+                                </SideBarItemLink>
+                            </SideBarItem>
+                            <SideBarItem>
+                                <SideBarItemLink
+                                    to={'/empresa/faq'}
+                                    isActive={location.pathname === "/empresa/faq"}
+                                >
+                                    <TbMessage2Question />
+                                    FAQ
+                                </SideBarItemLink>
+                            </SideBarItem>
+                        </SideBarList>
+                    </SideBarContent>
+
+                    <SideBarFooter>
+                        <SideBarFooterButton>
+                            Sair
+                        </SideBarFooterButton>
+                    </SideBarFooter>
                 </SideBarEmployee>
             )}
         </Container>

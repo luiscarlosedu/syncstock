@@ -4,7 +4,7 @@ import { Header } from "../../header";
 import { SideBar } from "../../sidebar";
 
 export function UseLayout() {
-    const typeUser = "enterprise";
+    const typeUser: "employee" | "enterprise" = "employee";
 
     return (
         <Container>

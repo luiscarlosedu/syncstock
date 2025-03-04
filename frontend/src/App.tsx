@@ -18,6 +18,8 @@ import EmployeesEnterprise from "./pages/AppEnterprise/Employees";
 import AboutEnterprise from "./pages/AppEnterprise/About";
 import FAQEnterprise from "./pages/AppEnterprise/FAQ";
 
+import HomeEmployee from "./pages/AppEmployee/Home";
+
 import Error from "./pages/Error";
 
 const router = createBrowserRouter([
@@ -72,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: '/empresa/faq',
         element: <FAQEnterprise />
+      },
+      {
+        path: '/funcionario/home',
+        element: <HomeEmployee />
       }
     ],
   },
