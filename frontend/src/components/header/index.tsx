@@ -10,7 +10,11 @@ import {
 
 import ImageLogo from '../../assets/syncstock-white.png';
 
-export function Header() {
+interface HeaderProps {
+    type: 'enterprise' | 'employee';
+}
+
+export function Header({ type }: HeaderProps) {
     return (
         <Container>
             <HeaderLogo>
@@ -20,12 +24,21 @@ export function Header() {
                 </HeaderLogoTitle>
             </HeaderLogo>
 
-            <MyEnterprise>
-                <MyEnterpriseText>
-                    My Store
-                </MyEnterpriseText>
-                <MyEnterpriseImage src={ImageLogo} alt="" />
-            </MyEnterprise>
+            {type === 'enterprise' ? (
+                <MyEnterprise>
+                    <MyEnterpriseText>
+                        My Store
+                    </MyEnterpriseText>
+                    <MyEnterpriseImage src={ImageLogo} alt="Logo da empresa" />
+                </MyEnterprise>
+            ): (
+                <MyEnterprise>
+                    <MyEnterpriseText>
+                        My Account
+                    </MyEnterpriseText>
+                    <MyEnterpriseImage src="https://github.com/luiscarlosedu.png" alt="Logo da empresa" />
+                </MyEnterprise>
+            )}
         </Container>
     );
 }
