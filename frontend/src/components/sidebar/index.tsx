@@ -12,7 +12,7 @@ import {
 } from "./styles";
 
 import { FaHome, FaQuestion, FaUsers } from "react-icons/fa";
-import { MdCategory } from "react-icons/md";
+import { MdCategory, MdOutlineHomeWork } from "react-icons/md";
 import { IoMdPricetag } from "react-icons/io";
 import { useLocation } from "react-router";
 import { TbMessage2Question } from "react-icons/tb";
@@ -105,8 +105,8 @@ export function SideBar({ type }: SideBarProps) {
                         <SideBarList>
                             <SideBarItem>
                                 <SideBarItemLink
-                                    to={'/empresa/home'}
-                                    isActive={location.pathname === "/empresa/home"}
+                                    to={'/funcionario/home'}
+                                    isActive={location.pathname === "/funcionario/home"}
                                 >
                                     <FaHome />
                                     Home
@@ -114,8 +114,8 @@ export function SideBar({ type }: SideBarProps) {
                             </SideBarItem>
                             <SideBarItem>
                                 <SideBarItemLink
-                                    to={'/empresa/categorias'}
-                                    isActive={location.pathname === "/empresa/categorias"}
+                                    to={'/funcionario/categorias'}
+                                    isActive={location.pathname === "/funcionario/categorias"}
                                 >
                                     <MdCategory />
                                     Categorias
@@ -123,8 +123,8 @@ export function SideBar({ type }: SideBarProps) {
                             </SideBarItem>
                             <SideBarItem>
                                 <SideBarItemLink
-                                    to={'/empresa/produtos'}
-                                    isActive={location.pathname === "/empresa/produtos"}
+                                    to={'/funcionario/produtos'}
+                                    isActive={location.pathname === "/funcionario/produtos"}
                                 >
                                     <IoMdPricetag />
                                     Produtos
@@ -132,10 +132,10 @@ export function SideBar({ type }: SideBarProps) {
                             </SideBarItem>
                             <SideBarItem>
                                 <SideBarItemLink
-                                    to={'/empresa/funcionarios'}
-                                    isActive={location.pathname === "/empresa/funcionarios"}
+                                    to={'/funcionario/empresa'}
+                                    isActive={location.pathname === "/funcionario/empresa"}
                                 >
-                                    <FaUsers />
+                                    <MdOutlineHomeWork />
                                     Empresa
                                 </SideBarItemLink>
                             </SideBarItem>
@@ -146,8 +146,8 @@ export function SideBar({ type }: SideBarProps) {
                         <SideBarList>
                             <SideBarItem>
                                 <SideBarItemLink
-                                    to={'/empresa/sobre'}
-                                    isActive={location.pathname === "/empresa/sobre"}
+                                    to={'/funcionario/sobre'}
+                                    isActive={location.pathname === "/funcionario/sobre"}
                                 >
                                     <FaQuestion size={14} />
                                     Sobre
@@ -155,8 +155,8 @@ export function SideBar({ type }: SideBarProps) {
                             </SideBarItem>
                             <SideBarItem>
                                 <SideBarItemLink
-                                    to={'/empresa/faq'}
-                                    isActive={location.pathname === "/empresa/faq"}
+                                    to={'/funcionario/faq'}
+                                    isActive={location.pathname === "/funcionario/faq"}
                                 >
                                     <TbMessage2Question />
                                     FAQ
