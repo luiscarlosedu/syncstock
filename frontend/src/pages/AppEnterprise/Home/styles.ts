@@ -5,7 +5,7 @@ export const Container = styled.article`
     justify-content: center;
 `;
 
-export const HomeContent = styled.main`
+export const HomeContentContainer = styled.main`
     width: 100%;
     max-width: 1000px;
 `;
@@ -27,4 +27,8 @@ export const HomePhoto = styled.img`
     margin-top: 12px;
     object-fit: cover;
     border-radius: 2px;
+`;
+
+export const HomeContent = styled.div`
+    
 `;
