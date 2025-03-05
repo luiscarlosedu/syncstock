@@ -1,21 +1,24 @@
 import { 
     Container, 
+    HomeContent, 
     HomePhoto, 
     HomeTitle,
 } from "./styles";
 
 import { EmployeeLengthWarn } from "../../../components/EmployeeLengthWarn";
-import Image from '../../../assets/home-image.jpg';
+import Image from '../../../assets/enterprise-stock.jpg';
 
 export default function HomeEnterprise() {
-    const length: number = 1;
+    const length: number = 0;
     return (
         <Container>
-            {length === 0 && <EmployeeLengthWarn/>}
+            <HomeContent>
+                {length === 0 && <EmployeeLengthWarn/>}
+                <HomeTitle>Olá, Empresa!</HomeTitle>
+                <HomePhoto src={Image} />
+                
 
-            <HomeTitle>Olá, Empresa!</HomeTitle>
-
-            <HomePhoto src={Image} />
+            </HomeContent>
             
         </Container>
     );
