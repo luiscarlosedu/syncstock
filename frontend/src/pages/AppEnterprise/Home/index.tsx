@@ -2,6 +2,7 @@ import {
     Container, 
     HomeContent, 
     HomePhoto, 
+    HomeSubTitle, 
     HomeTitle,
 } from "./styles";
 
@@ -15,8 +16,9 @@ export default function HomeEnterprise() {
             <HomeContent>
                 {length === 0 && <EmployeeLengthWarn/>}
                 <HomeTitle>Olá, Empresa!</HomeTitle>
+                <HomeSubTitle>Gerencie seu estoque com nossa plataforma.</HomeSubTitle>
                 <HomePhoto src={Image} />
-                
+
 
             </HomeContent>
             

@@ -11,14 +11,20 @@ export const HomeContent = styled.main`
 `;
 
 export const HomeTitle = styled.h2`
-    margin-bottom: 10px;
     font-weight: 700;
     font-size: 22px;
+`;
+
+export const HomeSubTitle = styled.h3`
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: -2px;
 `;
 
 export const HomePhoto = styled.img`
     width: 100%;
     height: 300px;
+    margin-top: 12px;
     object-fit: cover;
     border-radius: 2px;
 `;
