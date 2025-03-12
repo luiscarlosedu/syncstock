@@ -1,16 +1,78 @@
-import { Container } from "./styles";
+import { 
+    Container, 
+    HomeContentContainer, 
+    HomePhoto, 
+    HomeSubTitle, 
+    HomeTitle,
+    HomeContent,
+    EnterpriseInfoContainer,
+    EnterpriseCard,
+    EnterpriseLogo,
+    EnterpriseDetails,
+    EnterpriseLabel,
+    EnterpriseTotal,
+    EmployeeCard,
+    EmployeeIcon,
+    StockSummary,
+    StockCard,
+    QuickActions,
+    ActionButton,
+    EnterpriseDetailsText
+} from "./styles";
+
+import { EmployeeLengthWarn } from "../../../components/EmployeeLengthWarn";
+import Image from '../../../assets/enterprise-stock.jpg';
+import Logo from '../../../assets/SyncStock.png';
 
 export default function HomeEnterprise() {
+    const length: number = 0;
+    
     return (
         <Container>
-            <h1>Page Home Enterprise</h1>
-            <p>lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore corporis perferendis doloremque eius laboriosam perspiciatis? Voluptatem ipsam sequi provident voluptates qui nisi adipisci Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde delectus atque, tenetur itaque omnis deserunt quam repellendus eveniet error officiis ex ea vitae asperiores veritatis, tempore debitis alias. Sunt omnis quis dolorum commodi ad? Vitae incidunt totam a. Aliquam distinctio, iste officia ipsa nemo corporis! Iusto autem quod, cumque quas, laudantium assumenda debitis, nobis in doloribus libero nemo nam possimus dicta quasi. Minima obcaecati nisi ullam amet, voluptatem vitae magnam quae quod quia doloremque impedit at tempore, perferendis in vel quisquam. Dicta eveniet ducimus minus harum dolor ipsam saepe eius exercitationem voluptates illo asperiores deleniti, nulla in, libero laudantium. Quisquam reprehenderit exercitationem itaque nobis, laudantium rerum impedit ducimus vero nisi commodi dolor fugiat iusto at laboriosam minus quam dolores, minima suscipit eaque placeat, inventore recusandae. Laborum quo aliquid vel tenetur facilis?</p>
-            <p>lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore corporis perferendis doloremque eius laboriosam perspiciatis? Voluptatem ipsam sequi provident voluptates qui nisi adipisci Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde delectus atque, tenetur itaque omnis deserunt quam repellendus eveniet error officiis ex ea vitae asperiores veritatis, tempore debitis alias. Sunt omnis quis dolorum commodi ad? Vitae incidunt totam a. Aliquam distinctio, iste officia ipsa nemo corporis! Iusto autem quod, cumque quas, laudantium assumenda debitis, nobis in doloribus libero nemo nam possimus dicta quasi. Minima obcaecati nisi ullam amet, voluptatem vitae magnam quae quod quia doloremque impedit at tempore, perferendis in vel quisquam. Dicta eveniet ducimus minus harum dolor ipsam saepe eius exercitationem voluptates illo asperiores deleniti, nulla in, libero laudantium. Quisquam reprehenderit exercitationem itaque nobis, laudantium rerum impedit ducimus vero nisi commodi dolor fugiat iusto at laboriosam minus quam dolores, minima suscipit eaque placeat, inventore recusandae. Laborum quo aliquid vel tenetur facilis?</p>
-            <p>lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore corporis perferendis doloremque eius laboriosam perspiciatis? Voluptatem ipsam sequi provident voluptates qui nisi adipisci Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde delectus atque, tenetur itaque omnis deserunt quam repellendus eveniet error officiis ex ea vitae asperiores veritatis, tempore debitis alias. Sunt omnis quis dolorum commodi ad? Vitae incidunt totam a. Aliquam distinctio, iste officia ipsa nemo corporis! Iusto autem quod, cumque quas, laudantium assumenda debitis, nobis in doloribus libero nemo nam possimus dicta quasi. Minima obcaecati nisi ullam amet, voluptatem vitae magnam quae quod quia doloremque impedit at tempore, perferendis in vel quisquam. Dicta eveniet ducimus minus harum dolor ipsam saepe eius exercitationem voluptates illo asperiores deleniti, nulla in, libero laudantium. Quisquam reprehenderit exercitationem itaque nobis, laudantium rerum impedit ducimus vero nisi commodi dolor fugiat iusto at laboriosam minus quam dolores, minima suscipit eaque placeat, inventore recusandae. Laborum quo aliquid vel tenetur facilis?</p>
-            <p>lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore corporis perferendis doloremque eius laboriosam perspiciatis? Voluptatem ipsam sequi provident voluptates qui nisi adipisci Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde delectus atque, tenetur itaque omnis deserunt quam repellendus eveniet error officiis ex ea vitae asperiores veritatis, tempore debitis alias. Sunt omnis quis dolorum commodi ad? Vitae incidunt totam a. Aliquam distinctio, iste officia ipsa nemo corporis! Iusto autem quod, cumque quas, laudantium assumenda debitis, nobis in doloribus libero nemo nam possimus dicta quasi. Minima obcaecati nisi ullam amet, voluptatem vitae magnam quae quod quia doloremque impedit at tempore, perferendis in vel quisquam. Dicta eveniet ducimus minus harum dolor ipsam saepe eius exercitationem voluptates illo asperiores deleniti, nulla in, libero laudantium. Quisquam reprehenderit exercitationem itaque nobis, laudantium rerum impedit ducimus vero nisi commodi dolor fugiat iusto at laboriosam minus quam dolores, minima suscipit eaque placeat, inventore recusandae. Laborum quo aliquid vel tenetur facilis?</p>
-            <p>lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore corporis perferendis doloremque eius laboriosam perspiciatis? Voluptatem ipsam sequi provident voluptates qui nisi adipisci Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde delectus atque, tenetur itaque omnis deserunt quam repellendus eveniet error officiis ex ea vitae asperiores veritatis, tempore debitis alias. Sunt omnis quis dolorum commodi ad? Vitae incidunt totam a. Aliquam distinctio, iste officia ipsa nemo corporis! Iusto autem quod, cumque quas, laudantium assumenda debitis, nobis in doloribus libero nemo nam possimus dicta quasi. Minima obcaecati nisi ullam amet, voluptatem vitae magnam quae quod quia doloremque impedit at tempore, perferendis in vel quisquam. Dicta eveniet ducimus minus harum dolor ipsam saepe eius exercitationem voluptates illo asperiores deleniti, nulla in, libero laudantium. Quisquam reprehenderit exercitationem itaque nobis, laudantium rerum impedit ducimus vero nisi commodi dolor fugiat iusto at laboriosam minus quam dolores, minima suscipit eaque placeat, inventore recusandae. Laborum quo aliquid vel tenetur facilis?</p>
-            <p>lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore corporis perferendis doloremque eius laboriosam perspiciatis? Voluptatem ipsam sequi provident voluptates qui nisi adipisci Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde delectus atque, tenetur itaque omnis deserunt quam repellendus eveniet error officiis ex ea vitae asperiores veritatis, tempore debitis alias. Sunt omnis quis dolorum commodi ad? Vitae incidunt totam a. Aliquam distinctio, iste officia ipsa nemo corporis! Iusto autem quod, cumque quas, laudantium assumenda debitis, nobis in doloribus libero nemo nam possimus dicta quasi. Minima obcaecati nisi ullam amet, voluptatem vitae magnam quae quod quia doloremque impedit at tempore, perferendis in vel quisquam. Dicta eveniet ducimus minus harum dolor ipsam saepe eius exercitationem voluptates illo asperiores deleniti, nulla in, libero laudantium. Quisquam reprehenderit exercitationem itaque nobis, laudantium rerum impedit ducimus vero nisi commodi dolor fugiat iusto at laboriosam minus quam dolores, minima suscipit eaque placeat, inventore recusandae. Laborum quo aliquid vel tenetur facilis?</p>
-            <p>lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore corporis perferendis doloremque eius laboriosam perspiciatis? Voluptatem ipsam sequi provident voluptates qui nisi adipisci Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde delectus atque, tenetur itaque omnis deserunt quam repellendus eveniet error officiis ex ea vitae asperiores veritatis, tempore debitis alias. Sunt omnis quis dolorum commodi ad? Vitae incidunt totam a. Aliquam distinctio, iste officia ipsa nemo corporis! Iusto autem quod, cumque quas, laudantium assumenda debitis, nobis in doloribus libero nemo nam possimus dicta quasi. Minima obcaecati nisi ullam amet, voluptatem vitae magnam quae quod quia doloremque impedit at tempore, perferendis in vel quisquam. Dicta eveniet ducimus minus harum dolor ipsam saepe eius exercitationem voluptates illo asperiores deleniti, nulla in, libero laudantium. Quisquam reprehenderit exercitationem itaque nobis, laudantium rerum impedit ducimus vero nisi commodi dolor fugiat iusto at laboriosam minus quam dolores, minima suscipit eaque placeat, inventore recusandae. Laborum quo aliquid vel tenetur facilis?</p>
+            <HomeContentContainer>
+                {length === 0 && <EmployeeLengthWarn/>}
+                
+                <HomeTitle>Olá, Empresa!</HomeTitle>
+                <HomeSubTitle>Gerencie seu estoque com nossa plataforma.</HomeSubTitle>
+                
+                <HomePhoto src={Image} />
+
+                <HomeContent>
+                    <EnterpriseInfoContainer>
+
+                        <EnterpriseCard>
+                            <EnterpriseLogo src={Logo} alt="Logo da Empresa" />
+                            <EnterpriseDetails>
+                                <EnterpriseDetailsText>
+                                    SyncStock {/* nome da empresa */}
+                                </EnterpriseDetailsText>
+                            </EnterpriseDetails>
+                        </EnterpriseCard>
+
+                        <EmployeeCard>
+                            <EmployeeIcon>👥</EmployeeIcon>
+                            <EnterpriseDetails>
+                                <EnterpriseLabel>Funcionários Cadastrados</EnterpriseLabel>
+                                <EnterpriseTotal>35</EnterpriseTotal>
+                            </EnterpriseDetails>
+                        </EmployeeCard>
+                    </EnterpriseInfoContainer>
+
+                </HomeContent>
+
+                <StockSummary>
+                    <StockCard>📦 Produtos: 120</StockCard>
+                    <StockCard>📂 Categorias: 10</StockCard>
+                    {/* <StockCard>⚠️ Baixo Estoque: 5</StockCard> */}
+                </StockSummary>
+
+                <QuickActions>
+                    <ActionButton>➕ Adicionar Produto</ActionButton>
+                    <ActionButton>👥 Cadastrar Funcionário</ActionButton>
+                    <ActionButton>📂 Gerenciar Categorias</ActionButton>
+                </QuickActions>
+
+            </HomeContentContainer>
         </Container>
     );
 }
