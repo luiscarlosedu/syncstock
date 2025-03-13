@@ -44,7 +44,7 @@ export default function HomeEnterprise() {
                             <EnterpriseLogo src={Logo} alt="Logo da Empresa" />
                             <EnterpriseDetails>
                                 <EnterpriseDetailsText>
-                                    SyncStock {/* nome da empresa */}
+                                    SyncStock
                                 </EnterpriseDetailsText>
                             </EnterpriseDetails>
                         </EnterpriseCard>
@@ -63,7 +63,6 @@ export default function HomeEnterprise() {
                 <StockSummary>
                     <StockCard>📦 Produtos: 120</StockCard>
                     <StockCard>📂 Categorias: 10</StockCard>
-                    {/* <StockCard>⚠️ Baixo Estoque: 5</StockCard> */}
                 </StockSummary>
 
                 <QuickActions>

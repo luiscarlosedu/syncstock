@@ -1,9 +1,20 @@
-import { Container } from "./styles";
+import { 
+    Container,
+    CategoryContentContainer,
+    CategoryTitleAddContainer,
+    CategoryTitle,
+    CategoryAdd
+} from "./styles";
 
 export default function CategoriesEnterprise() {
     return (
         <Container>
-            <h1>Categories Enterprise Page</h1>
+            <CategoryContentContainer>
+                <CategoryTitleAddContainer>
+                    <CategoryTitle>Categorias</CategoryTitle>
+                    <CategoryAdd>Adicionar categoria</CategoryAdd>
+                </CategoryTitleAddContainer>
+            </CategoryContentContainer>
         </Container>
     )
 }
