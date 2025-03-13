@@ -14,6 +14,9 @@ export default function CategoriesEnterprise() {
                     <CategoryTitle>Categorias</CategoryTitle>
                     <CategoryAdd>Adicionar categoria</CategoryAdd>
                 </CategoryTitleAddContainer>
+
+                
+
             </CategoryContentContainer>
         </Container>
     )

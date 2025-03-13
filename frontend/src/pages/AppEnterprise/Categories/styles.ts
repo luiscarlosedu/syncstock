@@ -20,13 +20,19 @@ export const CategoryTitleAddContainer = styled.div`
 `;
 
 export const CategoryTitle = styled.h1`
-    
+    font-size: 22px;
 `;
 
 export const CategoryAdd = styled.button`
-    background-color: #3E3E3E;
+    background-color:rgb(50, 50, 50);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     border: 0;
+    cursor: pointer;
+    transition: all .4s;
+
+    &:hover {
+        background-color: #525252;
+    }
 `;
