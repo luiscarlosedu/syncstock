@@ -1,9 +1,24 @@
-import { Container } from "./styles";
+import { 
+    Container,
+    ProductContentContainer,
+    ProductsTitleAddContainer,
+    ProductsAdd,
+    ProductsTitle 
+} from "./styles";
 
 export default function ProductsEnterprise() {
     return (
         <Container>
-            <h1>Page Products Enterprise</h1>
+            <ProductContentContainer>
+                <ProductsTitleAddContainer>
+                    <ProductsTitle>
+                        Produtos
+                    </ProductsTitle>
+                    <ProductsAdd>
+                        + Adicionar produto
+                    </ProductsAdd>
+                </ProductsTitleAddContainer>
+            </ProductContentContainer>
         </Container>
     );
 }
