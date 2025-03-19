@@ -23,7 +23,6 @@ import {
     TableBody,
     TableData,
     ProductImage,
-    StatusBadge
 } from "./styles";
 
 const products = [

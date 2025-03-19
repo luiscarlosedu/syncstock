@@ -135,11 +135,11 @@ export const ProductImage = styled.img`
     display: flex;
 `;
 
-export const StatusBadge = styled.span<{ status: string }>`
-    padding: 4px 8px;
-    border-radius: 12px;
-    color: white;
-    font-size: 12px;
-    background-color: ${({ status }) =>
-        status === "Active" ? "green" : status === "Draft" ? "blue" : "gray"};
-`;
+// export const StatusBadge = styled.span<{ status: string }>`
+//     padding: 4px 8px;
+//     border-radius: 12px;
+//     color: white;
+//     font-size: 12px;
+//     background-color: ${({ status }) =>
+//         status === "Active" ? "green" : status === "Draft" ? "blue" : "gray"};
+// `;
