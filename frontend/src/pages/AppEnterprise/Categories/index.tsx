@@ -3,21 +3,41 @@ import {
     CategoryContentContainer,
     CategoryTitleAddContainer,
     CategoryTitle,
-    CategoryAdd
+    CategoryAdd,
+    CategoryList,
+    CategoryListHeader,
+    CategoryItem
 } from "./styles";
 
 export default function CategoriesEnterprise() {
+    const categories = [
+        { title: "Eletrônicos", products: 12 },
+        { title: "Roupas", products: 8 },
+        { title: "Alimentos", products: 15 },
+    ];
+
     return (
         <Container>
             <CategoryContentContainer>
                 <CategoryTitleAddContainer>
                     <CategoryTitle>Categorias</CategoryTitle>
-                    <CategoryAdd>Adicionar categoria</CategoryAdd>
+                    <CategoryAdd>+ Criar categoria</CategoryAdd>
                 </CategoryTitleAddContainer>
 
-                
+                <CategoryList>
+                    <CategoryListHeader>
+                        <span>Nome</span>
+                        <span>Produtos</span>
+                    </CategoryListHeader>
 
+                    {categories.map((category, index) => (
+                        <CategoryItem key={index}>
+                            <span>{category.title}</span>
+                            <span>{category.products}</span>
+                        </CategoryItem>
+                    ))}
+                </CategoryList>
             </CategoryContentContainer>
         </Container>
-    )
+    );
 }
