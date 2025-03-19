@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { 
     Container,
     CategoryContentContainer,
@@ -10,6 +11,8 @@ import {
 } from "./styles";
 
 export default function CategoriesEnterprise() {
+    const navigate = useNavigate();
+
     const categories = [
         { title: "Eletrônicos", products: 12 },
         { title: "Roupas", products: 8 },
@@ -21,7 +24,9 @@ export default function CategoriesEnterprise() {
             <CategoryContentContainer>
                 <CategoryTitleAddContainer>
                     <CategoryTitle>Categorias</CategoryTitle>
-                    <CategoryAdd>+ Criar categoria</CategoryAdd>
+                    <CategoryAdd
+                        onClick={() => navigate('/empresa/categoria/criar')}
+                    >+ Criar categoria</CategoryAdd>
                 </CategoryTitleAddContainer>
 
                 <CategoryList>

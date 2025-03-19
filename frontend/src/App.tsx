@@ -13,6 +13,7 @@ import LoginEmployee from "./pages/AuthEmployee/LoginEmployee";
 
 import HomeEnterprise from "./pages/AppEnterprise/Home";
 import CategoriesEnterprise from "./pages/AppEnterprise/Categories";
+import NewCategoryEnterprise from "./pages/AppEnterprise/Categories/NewCategory";
 import ProductsEnterprise from "./pages/AppEnterprise/Products";
 import EmployeesEnterprise from "./pages/AppEnterprise/Employees";
 import AboutEnterprise from "./pages/AppEnterprise/About";
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: '/empresa/categorias',
         element: <CategoriesEnterprise />
+      },
+      {
+        path: '/empresa/categorias/criar',
+        element: <NewCategoryEnterprise/>
       },
       {
         path: '/empresa/produtos',
