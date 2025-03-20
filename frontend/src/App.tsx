@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         element: <ProductsEnterprise />
       },
       {
-        path: '/empresa/produtos/criar',
+        path: '/empresa/produtos/adicionar',
         element: <NewProductEnterprise />
       },
       {
