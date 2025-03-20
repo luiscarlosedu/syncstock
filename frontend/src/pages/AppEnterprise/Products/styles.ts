@@ -8,6 +8,10 @@ export const Container = styled.article`
 export const ProductContentContainer = styled.div`
     width: 100%;
     max-width: 1180px;
+
+    @media screen and (min-width: 1800px) {
+        max-width: 1300px;
+    }
 `;
 
 export const ProductsTitleAddContainer = styled.div`
