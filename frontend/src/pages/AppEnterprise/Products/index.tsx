@@ -24,6 +24,7 @@ import {
     TableData,
     ProductImage,
 } from "./styles";
+import { useNavigate } from "react-router";
 
 const products = [
     {
@@ -82,12 +83,15 @@ const products = [
 ];
 
 export default function ProductsEnterprise() {
+    const navigate = useNavigate();
     return (
         <Container>
             <ProductContentContainer>
                 <ProductsTitleAddContainer>
                     <ProductsTitle>Produtos</ProductsTitle>
-                    <ProductsAdd>+ Adicionar produto</ProductsAdd>
+                    <ProductsAdd
+                        onClick={() => navigate("/empresa/produtos/adicionar")}
+                    >+ Adicionar produto</ProductsAdd>
                 </ProductsTitleAddContainer>
 
                 <ProductContent>
