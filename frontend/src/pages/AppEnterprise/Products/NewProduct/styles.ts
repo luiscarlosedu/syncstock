@@ -8,6 +8,8 @@ export const NewFileField = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
 
     @media screen and (min-width: 640px) {
         flex-direction: row;
@@ -48,4 +50,36 @@ export const NewFileInputChildren = styled.input`
     width: 100%;
     height: 100%;
     cursor: pointer;
+`;
+
+export const NewFormContainer = styled.div`
+    width: 100%;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+`;
+
+export const NewForm = styled.form`
+    width: 100%;
+`;
+
+export const FormInputContainer = styled.div`
+    margin-bottom: 7px;
+`;
+
+export const FormInputLabel = styled.label`
+
+`;
+
+export const FormInputLabelText = styled.p`
+
+`;
+
+export const FormInput = styled.input`
+    
 `;

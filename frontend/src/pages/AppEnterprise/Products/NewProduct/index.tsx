@@ -1,6 +1,6 @@
 import { FiUpload } from "react-icons/fi";
 import { Container, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer } from "../styles";
-import { NewFileBtn, NewFileBtnIcon, NewFileField, NewFileInput, NewFileInputChildren } from "./styles";
+import { FormInput, FormInputContainer, FormInputLabel, FormInputLabelText, NewFileBtn, NewFileBtnIcon, NewFileField, NewFileInput, NewFileInputChildren, NewForm, NewFormContainer } from "./styles";
 
 export default function NewProductEnterprise() {
     return (
@@ -19,7 +19,24 @@ export default function NewProductEnterprise() {
                             <NewFileInputChildren type="file" />
                         </NewFileInput>
                     </NewFileBtn>
+
+                    {/* demais coisas */}
                 </NewFileField>
+
+                <NewFormContainer>
+                    <NewForm>
+                        <FormInputContainer>
+                            <FormInputLabel>
+                                <FormInputLabelText>Nome</FormInputLabelText>
+                            </FormInputLabel>
+                            <FormInput 
+    
+                            />
+                        </FormInputContainer>
+                    </NewForm>
+                </NewFormContainer>
+
+
             </ProductContentContainer>
         </Container>
     );
