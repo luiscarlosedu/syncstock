@@ -26,13 +26,18 @@ export default function NewProductEnterprise() {
                 <NewFormContainer>
                     <NewForm>
                         <FormInputContainer>
-                            <FormInputLabel>
+                            <FormInputLabel
+                                htmlFor="nome"
+                            >
                                 <FormInputLabelText>Nome</FormInputLabelText>
                             </FormInputLabel>
                             <FormInput 
-    
+                                required
+                                id="nome"
+                                placeholder="Digite o nome do produto"
                             />
                         </FormInputContainer>
+
                     </NewForm>
                 </NewFormContainer>
 

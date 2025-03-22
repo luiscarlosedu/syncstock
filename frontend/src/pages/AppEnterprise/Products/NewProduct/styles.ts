@@ -73,13 +73,24 @@ export const FormInputContainer = styled.div`
 `;
 
 export const FormInputLabel = styled.label`
-
+    user-select: none;
 `;
 
 export const FormInputLabelText = styled.p`
-
+    margin-bottom: 3px;
 `;
 
 export const FormInput = styled.input`
-    
+    width: 100%;
+    border: 1px solid #505050;
+    border-radius: 3px;
+    padding: 0px 8px;
+    height: 44px;
+    outline: none;
+
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px #606060 inset;
+        -webkit-text-fill-color: white;
+    }
+
 `;
