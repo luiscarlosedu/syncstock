@@ -1,6 +1,6 @@
 import { FiUpload } from "react-icons/fi";
 import { Container, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer } from "../styles";
-import { FormInput, FormInputContainer, FormInputLabel, FormInputLabelText, FormSelect, FormSubmitBtn, FormTextArea, NewForm, NewFormContainer, PaddingStyle, SelectOption } from "./styles";
+import { FormFileArea, FormImgInput, FormImgInputContainer, FormImgInputTitle, FormInput, FormInputContainer, FormInputLabel, FormInputLabelText, FormSelect, FormSubmitBtn, FormTextArea, NewForm, NewFormContainer, PaddingStyle, SelectOption } from "./styles";
 
 export default function NewProductEnterprise() {
     const categories = [
@@ -90,6 +90,37 @@ export default function NewProductEnterprise() {
                                 placeholder="Digite sobre o produto"
                             />
                         </FormInputContainer>
+
+                        <FormFileArea>
+                            {/* {!imagePreview && ( */}
+                            <FormImgInputContainer>
+                                <FormImgInputTitle>Adicionar imagem do produto</FormImgInputTitle>
+                                <FiUpload color="#121212" />
+                                <FormImgInput
+                                    type="file"
+                                    accept="image/*"
+                                // onChange={handleOnChangeFile}
+                                />
+                            </FormImgInputContainer>
+                            {/* )} */}
+                            {/* {imagePreview && (
+                            <div className="form-img-container">
+                                <button 
+                                className="form-img-delete"
+                                onClick={() => {
+                                setFile(null);
+                                setImagePreview(null);
+                                }}
+                                >
+                                <FiTrash size={22} color="#FFF" />
+                                </button>
+                                <img
+                                src={imagePreview}
+                                alt="Imagem do produto"
+                                />
+                            </div>
+                            )} */}
+                        </FormFileArea>
 
                         <FormSubmitBtn
                             type="submit"

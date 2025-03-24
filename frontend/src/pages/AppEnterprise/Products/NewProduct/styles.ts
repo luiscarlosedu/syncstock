@@ -36,7 +36,7 @@ export const FormInput = styled.input`
     border: 1px solid #505050;
     border-radius: 3px;
     padding: 0px 8px;
-    height: 44px;
+    height: 35px;
     outline: none;
 
     &:-webkit-autofill {
@@ -62,6 +62,37 @@ export const FormTextArea = styled.textarea`
     resize: none;
     outline: none;
     color: black;
+`;
+
+export const FormFileArea = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 10px 0px;
+`;
+
+export const FormImgInputContainer = styled.div`
+    position: relative;
+    background-color: rgb(219, 219, 219);
+    width: 100%;
+    min-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+`;
+
+export const FormImgInputTitle = styled.p`
+    font-size: 14px;
+`;
+
+export const FormImgInput = styled.input`
+    border: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
 `;
 
 export const FormSubmitBtn = styled.button`
