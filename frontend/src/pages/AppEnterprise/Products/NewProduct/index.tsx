@@ -1,6 +1,6 @@
 import { FiUpload } from "react-icons/fi";
 import { Container, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer } from "../styles";
-import { FormInput, FormInputContainer, FormInputLabel, FormInputLabelText, FormSelect, FormSubmitBtn, FormTextArea, NewFileBtn, NewFileBtnIcon, NewFileField, NewFileInput, NewFileInputChildren, NewForm, NewFormContainer, PaddingStyle, SelectOption } from "./styles";
+import { FormInput, FormInputContainer, FormInputLabel, FormInputLabelText, FormSelect, FormSubmitBtn, FormTextArea, NewForm, NewFormContainer, PaddingStyle, SelectOption } from "./styles";
 
 export default function NewProductEnterprise() {
     const categories = [
