@@ -1,6 +1,6 @@
-import { FiUpload } from "react-icons/fi";
+import { FiTrash, FiUpload } from "react-icons/fi";
 import { Container, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer } from "../styles";
-import { FormFileArea, FormImgInput, FormImgInputContainer, FormImgInputTitle, FormInput, FormInputContainer, FormInputLabel, FormInputLabelText, FormSelect, FormSubmitBtn, FormTextArea, NewForm, NewFormContainer, PaddingStyle, SelectOption } from "./styles";
+import { FormFileArea, FormImg, FormImgContainer, FormImgDelete, FormImgInput, FormImgInputContainer, FormImgInputTitle, FormInput, FormInputContainer, FormInputLabel, FormInputLabelText, FormSelect, FormSubmitBtn, FormTextArea, NewForm, NewFormContainer, PaddingStyle, SelectOption } from "./styles";
 
 export default function NewProductEnterprise() {
     const categories = [
@@ -9,6 +9,8 @@ export default function NewProductEnterprise() {
             name: "carros"
         }
     ]
+
+    const imagePreview = true;
 
     return (
         <Container>
@@ -92,7 +94,7 @@ export default function NewProductEnterprise() {
                         </FormInputContainer>
 
                         <FormFileArea>
-                            {/* {!imagePreview && ( */}
+                            {!imagePreview && (
                             <FormImgInputContainer>
                                 <FormImgInputTitle>Adicionar imagem do produto</FormImgInputTitle>
                                 <FiUpload color="#121212" />
@@ -102,24 +104,24 @@ export default function NewProductEnterprise() {
                                 // onChange={handleOnChangeFile}
                                 />
                             </FormImgInputContainer>
-                            {/* )} */}
-                            {/* {imagePreview && (
-                            <div className="form-img-container">
-                                <button 
+                            )}
+                            {imagePreview && (
+                            <FormImgContainer className="form-img-container">
+                                <FormImgDelete
                                 className="form-img-delete"
-                                onClick={() => {
-                                setFile(null);
-                                setImagePreview(null);
-                                }}
+                                // onClick={() => {
+                                // setFile(null);
+                                // setImagePreview(null);
+                                // }}
                                 >
                                 <FiTrash size={22} color="#FFF" />
-                                </button>
-                                <img
-                                src={imagePreview}
+                                </FormImgDelete>
+                                <FormImg
+                                src={"https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
                                 alt="Imagem do produto"
                                 />
-                            </div>
-                            )} */}
+                            </FormImgContainer>
+                            )}
                         </FormFileArea>
 
                         <FormSubmitBtn

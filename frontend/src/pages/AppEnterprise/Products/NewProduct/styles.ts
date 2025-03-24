@@ -112,3 +112,58 @@ export const FormSubmitBtn = styled.button`
 export const PaddingStyle = styled.div`
     padding-bottom: 18px;
 `;
+
+export const FormImgContainer = styled.div`
+    width: 100%;
+    position: relative;
+`;
+
+export const FormImgDelete = styled.button`
+    position: absolute;
+    border: 0;
+    background-color: #121212;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    border-radius: 0px 5px 0px 0px;
+    cursor: pointer;
+    transition: all .4s;
+
+    &:hover {
+        background-color: red;
+    }
+`;
+
+export const FormImg = styled.img`
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+`;
+
+/*
+.form-img-container {
+    position: relative;
+    width: 100%;
+}
+
+.form-img-delete {
+    position: absolute;
+    border: 0;
+    background-color: black;
+    padding: 6px;
+    top: 0;
+    right: 0;
+    border-radius: 0px 2px 0px 2px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.form-img-delete:hover {
+    background-color: red;
+}
+
+*/
