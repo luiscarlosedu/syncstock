@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const CreateCategoryBox = styled.form`
     background-color: white;
-
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
 `;
@@ -31,6 +30,7 @@ export const CreateCategoryBtn = styled.button`
     border: 0;
     height: 40px;
     font-weight: 700;
+    border-radius: 0px 0px 8px 8px;
     background-color: #1A1A1A;
     color: white;
     font-size: 13px;
