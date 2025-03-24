@@ -17,19 +17,6 @@ export default function NewProductEnterprise() {
                     <ProductsTitle>Adicionar Produtos</ProductsTitle>
                 </ProductsTitleAddContainer>
 
-                <NewFileField>
-                    <NewFileBtn>
-                        <NewFileBtnIcon>
-                            <FiUpload size={30} />
-                        </NewFileBtnIcon>
-                        <NewFileInput>
-                            <NewFileInputChildren type="file" />
-                        </NewFileInput>
-                    </NewFileBtn>
-
-                    {/* demais coisas */}
-                </NewFileField>
-
                 <NewFormContainer>
                     <NewForm>
                         <FormInputContainer>
