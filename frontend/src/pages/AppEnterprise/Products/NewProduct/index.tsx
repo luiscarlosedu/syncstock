@@ -10,7 +10,7 @@ export default function NewProductEnterprise() {
         }
     ]
 
-    const imagePreview = true;
+    const imagePreview = false;
 
     return (
         <Container>
