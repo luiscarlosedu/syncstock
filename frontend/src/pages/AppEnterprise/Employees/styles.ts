@@ -14,17 +14,17 @@ export const EmployeesContentContainer = styled.div`
     }
 `;
 
-export const EmployeeHeader = styled.div`
+export const EmployeesHeader = styled.div`
     display: flex;
     justify-content: space-between;
 `;
 
-export const EmployeeHeaderTitle = styled.h1`
+export const EmployeesHeaderTitle = styled.h1`
     font-size: 20px;
     font-weight: 600;
 `;
 
-export const EmployeeHeaderAdd = styled.button`
+export const EmployeesHeaderAdd = styled.button`
     background-color: #000;
     color: white;
     padding: 6px 12px;

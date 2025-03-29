@@ -1,17 +1,19 @@
-import { Container, EmployeeHeader, EmployeeHeaderAdd, EmployeeHeaderTitle, EmployeesContentContainer } from "./styles";
+import { Container, EmployeesHeader, EmployeesHeaderAdd, EmployeesHeaderTitle, EmployeesContentContainer } from "./styles";
 
 export default function EmployeesEnterprise() {
     return (
         <Container>
             <EmployeesContentContainer>
-                <EmployeeHeader>
-                    <EmployeeHeaderTitle>
+                <EmployeesHeader>
+                    <EmployeesHeaderTitle>
                         Funcionários
-                    </EmployeeHeaderTitle>
-                    <EmployeeHeaderAdd>
+                    </EmployeesHeaderTitle>
+                    <EmployeesHeaderAdd>
                         Adicionar funcionários
-                    </EmployeeHeaderAdd>
-                </EmployeeHeader>
+                    </EmployeesHeaderAdd>
+                </EmployeesHeader>
+
+                
             </EmployeesContentContainer>
         </Container>
     );
