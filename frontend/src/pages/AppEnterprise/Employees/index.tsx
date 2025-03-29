@@ -1,9 +1,18 @@
-import { Container } from "./styles";
+import { Container, EmployeeHeader, EmployeeHeaderAdd, EmployeeHeaderTitle, EmployeesContentContainer } from "./styles";
 
 export default function EmployeesEnterprise() {
     return (
         <Container>
-            <h1>Page employee enterprise</h1>
+            <EmployeesContentContainer>
+                <EmployeeHeader>
+                    <EmployeeHeaderTitle>
+                        Funcionários
+                    </EmployeeHeaderTitle>
+                    <EmployeeHeaderAdd>
+                        Adicionar funcionários
+                    </EmployeeHeaderAdd>
+                </EmployeeHeader>
+            </EmployeesContentContainer>
         </Container>
     );
 }
