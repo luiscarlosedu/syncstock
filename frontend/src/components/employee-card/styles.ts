@@ -74,3 +74,38 @@ export const OptionsButton = styled.div`
     cursor: pointer;
     color: #888;
 `;
+
+export const OptionsMenu = styled.div`
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10;
+    transition: all .4s;
+`;
+
+export const OptionItem = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+        background: #f1f1f1;
+    }
+
+    svg {
+        min-width: 14px;
+        min-height: 14px;
+    }
+`;
