@@ -61,7 +61,7 @@ export default function EmployeesEnterprise() {
                         Funcionários
                     </EmployeesHeaderTitle>
                     <EmployeesHeaderAdd
-                        onClick={() => navigate('/empresa/funcionario/adicionar')}
+                        onClick={() => navigate('/empresa/funcionarios/adicionar')}
                     >
                         + Adicionar funcionários
                     </EmployeesHeaderAdd>
