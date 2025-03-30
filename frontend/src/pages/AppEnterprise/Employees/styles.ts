@@ -101,6 +101,8 @@ export const EmployeesSearchInput = styled.input`
 
 export const EmployeesContainer = styled.div`
     width: 100%;
-    display: grid;
-
+    display: flex;
+    gap: 15px;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
 `;

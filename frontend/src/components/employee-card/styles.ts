@@ -60,7 +60,7 @@ export const ContactInfo = styled.div`
     gap: 8px;
     overflow: hidden;
 
-    svg { /* Aqui você força um tamanho fixo nos ícones */
+    svg { 
         min-width: 14px;
         min-height: 14px;
     }

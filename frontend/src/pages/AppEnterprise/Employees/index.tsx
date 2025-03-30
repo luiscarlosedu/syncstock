@@ -27,7 +27,16 @@ export default function EmployeesEnterprise() {
             hired: "12/94/29",
             email: "eduardo.luis@gmail.com",
             number: "88997876890"
-        }
+        },
+        {
+            nome: "Luís Eduardo",
+            role: "Desenvolvedor",
+            empresa: "SyncStock",
+            hired: "12/94/29",
+            email: "eduardo.luis@gmail.com",
+            number: "88997876890"
+        },
+        
     ]
     return (
         <Container>
