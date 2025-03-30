@@ -22,7 +22,7 @@ export const ProductsTitleAddContainer = styled.div`
 `;
 
 export const ProductsTitle = styled.h1`
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
 `;
 
