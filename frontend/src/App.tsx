@@ -17,6 +17,7 @@ import NewCategoryEnterprise from "./pages/AppEnterprise/Categories/NewCategory"
 import ProductsEnterprise from "./pages/AppEnterprise/Products";
 import NewProductEnterprise from "./pages/AppEnterprise/Products/NewProduct";
 import EmployeesEnterprise from "./pages/AppEnterprise/Employees";
+import NewEmployeeEnterprise from "./pages/AppEnterprise/Employees/NewEmployee";
 import AboutEnterprise from "./pages/AppEnterprise/About";
 import FAQEnterprise from "./pages/AppEnterprise/FAQ";
 
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: '/empresa/funcionarios',
         element: <EmployeesEnterprise />
+      },
+      {
+        path: '/empresa/funcionarios/adicionar',
+        element: <NewEmployeeEnterprise />
       },
       {
         path: '/empresa/sobre',
