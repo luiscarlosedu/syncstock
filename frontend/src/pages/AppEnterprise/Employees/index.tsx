@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { FaSearch } from "react-icons/fa";
 import { Container, EmployeesHeader, EmployeesHeaderAdd, EmployeesHeaderTitle, EmployeesContentContainer, EmployeesContent, EmployeesStatus, EmployeesTotalContainer, EmployeesTotalTitle, EmployeesTotal, EmployeesSearchContainer, EmployeesSearchInputContainer, SearchIcon, EmployeesSearchInput, EmployeesContainer } from "./styles";
 import { EmployeeCard } from "../../../components/employee-card";
 
 export default function EmployeesEnterprise() {
+    const navigate = useNavigate();
     const [openMenu, setOpenMenu] = useState<string | null>(null);
 
     const employees = [
@@ -58,7 +60,9 @@ export default function EmployeesEnterprise() {
                     <EmployeesHeaderTitle>
                         Funcionários
                     </EmployeesHeaderTitle>
-                    <EmployeesHeaderAdd>
+                    <EmployeesHeaderAdd
+                        onClick={() => navigate('/empresa/funcionario/adicionar')}
+                    >
                         + Adicionar funcionários
                     </EmployeesHeaderAdd>
                 </EmployeesHeader>
