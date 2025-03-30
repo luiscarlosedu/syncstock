@@ -45,7 +45,6 @@ export const EmployeesContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 15px;
-    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
 `;
 
 export const EmployeesStatus = styled.div`
@@ -98,4 +97,10 @@ export const EmployeesSearchInput = styled.input`
     background: transparent;
     outline: none;
     font-size: 14px;
+`;
+
+export const EmployeesContainer = styled.div`
+    width: 100%;
+    display: grid;
+
 `;

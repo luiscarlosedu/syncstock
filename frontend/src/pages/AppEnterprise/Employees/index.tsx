@@ -1,5 +1,6 @@
 import { FaSearch } from "react-icons/fa";
-import { Container, EmployeesHeader, EmployeesHeaderAdd, EmployeesHeaderTitle, EmployeesContentContainer, EmployeesContent, EmployeesStatus, EmployeesTotalContainer, EmployeesTotalTitle, EmployeesTotal, EmployeesSearchContainer, EmployeesSearchInputContainer, SearchIcon, EmployeesSearchInput } from "./styles";
+import { Container, EmployeesHeader, EmployeesHeaderAdd, EmployeesHeaderTitle, EmployeesContentContainer, EmployeesContent, EmployeesStatus, EmployeesTotalContainer, EmployeesTotalTitle, EmployeesTotal, EmployeesSearchContainer, EmployeesSearchInputContainer, SearchIcon, EmployeesSearchInput, EmployeesContainer } from "./styles";
+import { EmployeeCard } from "../../../components/employee-card";
 
 export default function EmployeesEnterprise() {
     return (
@@ -30,6 +31,13 @@ export default function EmployeesEnterprise() {
                             </EmployeesSearchInputContainer>
                         </EmployeesSearchContainer>
                     </EmployeesStatus>
+
+                    <EmployeesContainer>
+
+                        <EmployeeCard />
+
+                    </EmployeesContainer>
+
                 </EmployeesContent>
 
             </EmployeesContentContainer>
