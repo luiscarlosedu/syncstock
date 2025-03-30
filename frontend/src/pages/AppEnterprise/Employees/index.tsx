@@ -3,6 +3,32 @@ import { Container, EmployeesHeader, EmployeesHeaderAdd, EmployeesHeaderTitle, E
 import { EmployeeCard } from "../../../components/employee-card";
 
 export default function EmployeesEnterprise() {
+    const employees = [
+        {
+            nome: "Luís Eduardo",
+            role: "Desenvolvedor",
+            empresa: "SyncStock",
+            hired: "12/94/29",
+            email: "eduardo.luis@gmail.com",
+            number: "88997876890"
+        },
+        {
+            nome: "Luís Eduardo",
+            role: "Desenvolvedor",
+            empresa: "SyncStock",
+            hired: "12/94/29",
+            email: "eduardo.luis@gmail.com",
+            number: "88997876890"
+        },
+        {
+            nome: "Luís Eduardo",
+            role: "Desenvolvedor",
+            empresa: "SyncStock",
+            hired: "12/94/29",
+            email: "eduardo.luis@gmail.com",
+            number: "88997876890"
+        }
+    ]
     return (
         <Container>
             <EmployeesContentContainer>
@@ -34,7 +60,17 @@ export default function EmployeesEnterprise() {
 
                     <EmployeesContainer>
 
-                        <EmployeeCard />
+                        {employees.map((item) => (
+                            <EmployeeCard 
+                                key={item.nome}
+                                nome={item.nome}
+                                role={item.role}
+                                empresa={item.empresa}
+                                hired={item.hired}
+                                email={item.email}
+                                number={item.number}
+                            />
+                        ))}
 
                     </EmployeesContainer>
 

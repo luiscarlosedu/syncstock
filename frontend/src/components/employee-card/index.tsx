@@ -1,31 +1,41 @@
 import { FaEllipsisH, FaEnvelope, FaPhone } from "react-icons/fa";
 import { ContactInfo, EmployeeCardContainer, EmployeeData, EmployeeInfo, EmployeeInfoData, EmployeeInfoDataName, EmployeeName, EmployeePhoto, EmployeeRole, OptionsButton } from "./styles";
 
+interface EmployeeProps {
+    nome: string;
+    role: string;
+    empresa: string;
+    hired: string;
+    email: string;
+    number: string;
+}
 
-export function EmployeeCard() {
+export function EmployeeCard({
+    nome, role, empresa, hired, email, number
+}: EmployeeProps) {
     return (
         <EmployeeCardContainer>
             <OptionsButton>
                 <FaEllipsisH />
             </OptionsButton>
             <EmployeePhoto src={"https://github.com/luiscarlosedu.png"} />
-            <EmployeeName>Luís Eduardo</EmployeeName>
-            <EmployeeRole>Desenvolvedor</EmployeeRole>
+            <EmployeeName>{nome}</EmployeeName>
+            <EmployeeRole>{role}</EmployeeRole>
             <EmployeeInfo>
                 <EmployeeInfoData>
                     <EmployeeInfoDataName>Empresa</EmployeeInfoDataName>
-                    <EmployeeData>SyncStock</EmployeeData>
+                    <EmployeeData>{empresa}</EmployeeData>
                 </EmployeeInfoData>
                 <EmployeeInfoData>
                     <EmployeeInfoDataName>Hired Date</EmployeeInfoDataName>
-                    <EmployeeData>7/27/13</EmployeeData>
+                    <EmployeeData>{hired}</EmployeeData>
                 </EmployeeInfoData>
             </EmployeeInfo>
             <ContactInfo>
-                <FaEnvelope /> eduardo.luis070408@gmail.com
+                <FaEnvelope /> {email}
             </ContactInfo>
             <ContactInfo>
-                <FaPhone /> 88997876890
+                <FaPhone /> {number}
             </ContactInfo>
         </EmployeeCardContainer>
     );
