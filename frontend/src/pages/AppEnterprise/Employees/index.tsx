@@ -10,6 +10,7 @@ export default function EmployeesEnterprise() {
         {
             id: "1",
             nome: "Luís Eduardo",
+            photo: "https://github.com/luiscarlosedu.png",
             role: "Desenvolvedor",
             empresa: "SyncStock",
             hired: "12/94/29",
@@ -18,30 +19,33 @@ export default function EmployeesEnterprise() {
         },
         {
             id: "2",
-            nome: "Luís Eduardo",
+            nome: "José Felipe",
+            photo: "https://github.com/wtffelp.png",
             role: "Desenvolvedor",
             empresa: "SyncStock",
             hired: "12/94/29",
-            email: "eduardo.luis@gmail.com",
-            number: "88997876890"
+            email: "goticas@gmail.com",
+            number: "8899787950"
         },
         {
             id: "3",
-            nome: "Luís Eduardo",
+            nome: "Cleudo Paiva",
+            photo: "https://github.com/cleudojunior.png",
             role: "Desenvolvedor",
             empresa: "SyncStock",
             hired: "12/94/29",
-            email: "eduardo.luis@gmail.com",
-            number: "88997876890"
+            email: "cleudinha@gmail.com",
+            number: "88997879990"
         },
         {
             id: "4",
-            nome: "Luís Eduardo",
+            nome: "Nério Stacio",
+            photo: "https://github.com/NarioMendonca.png",
             role: "Desenvolvedor",
             empresa: "SyncStock",
             hired: "12/94/29",
-            email: "eduardo.luis@gmail.com",
-            number: "88997876890"
+            email: "rogerio@gmail.com",
+            number: "88967872140"
         },
         
     ]
@@ -63,7 +67,7 @@ export default function EmployeesEnterprise() {
                     <EmployeesStatus>
                         <EmployeesTotalContainer>
                             <EmployeesTotalTitle>Total de Funcionários</EmployeesTotalTitle>
-                            <EmployeesTotal>16</EmployeesTotal>
+                            <EmployeesTotal>{employees.length}</EmployeesTotal>
                         </EmployeesTotalContainer>
 
                         <EmployeesSearchContainer>
@@ -83,6 +87,7 @@ export default function EmployeesEnterprise() {
                                 id={item.id}
                                 key={item.nome}
                                 nome={item.nome}
+                                photo={item.photo}
                                 role={item.role}
                                 empresa={item.empresa}
                                 hired={item.hired}

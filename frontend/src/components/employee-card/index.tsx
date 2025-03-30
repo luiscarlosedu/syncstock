@@ -8,6 +8,7 @@ import {
 interface EmployeeProps {
     id: string;
     nome: string;
+    photo: string;
     role: string;
     empresa: string;
     hired: string;
@@ -18,7 +19,7 @@ interface EmployeeProps {
 }
 
 export function EmployeeCard({ 
-    id, nome, role, empresa, hired, email, number, openMenu, setOpenMenu 
+    id, nome, photo, role, empresa, hired, email, number, openMenu, setOpenMenu 
 }: EmployeeProps) {
     const isOpen = openMenu === id;
 
@@ -47,7 +48,7 @@ export function EmployeeCard({
                 </OptionsMenu>
             )}
 
-            <EmployeePhoto src={"https://github.com/luiscarlosedu.png"} />
+            <EmployeePhoto src={photo} />
             <EmployeeName>{nome}</EmployeeName>
             <EmployeeRole>{role}</EmployeeRole>
             <EmployeeInfo>
