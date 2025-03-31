@@ -75,7 +75,6 @@ export const OptionsButton = styled.div`
     color: #888;
 `;
 
-// Animação de entrada
 const fadeIn = keyframes`
     from {
         opacity: 0;
@@ -87,7 +86,6 @@ const fadeIn = keyframes`
     }
 `;
 
-// Animação de saída
 const fadeOut = keyframes`
     from {
         opacity: 1;
