@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { 
     Container, 
     HomeContentContainer, 
@@ -25,6 +26,7 @@ import Image from '../../../assets/enterprise-stock.jpg';
 import Logo from '../../../assets/SyncStock.png';
 
 export default function HomeEnterprise() {
+    const navigate = useNavigate();
     const length: number = 0;
     
     return (
@@ -66,9 +68,15 @@ export default function HomeEnterprise() {
                 </StockSummary>
 
                 <QuickActions>
-                    <ActionButton>➕ Adicionar Produto</ActionButton>
-                    <ActionButton>👥 Cadastrar Funcionário</ActionButton>
-                    <ActionButton>📂 Gerenciar Categorias</ActionButton>
+                    <ActionButton
+                        onClick={() => navigate('/empresa/produtos/adicionar')}
+                    >➕ Adicionar Produto</ActionButton>
+                    <ActionButton
+                        onClick={() => navigate('/empresa/funcionarios/adicionar')}
+                    >👥 Cadastrar Funcionário</ActionButton>
+                    <ActionButton
+                        onClick={() => navigate('/empresa/categorias')}
+                    >📂 Gerenciar Categorias</ActionButton>
                 </QuickActions>
 
             </HomeContentContainer>

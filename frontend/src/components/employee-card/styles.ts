@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 export const EmployeeCardContainer = styled.div`
     background: white;
@@ -75,20 +75,46 @@ export const OptionsButton = styled.div`
     color: #888;
 `;
 
-export const OptionsMenu = styled.div`
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`;
+
+const fadeOut = keyframes`
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+`;
+
+export const OptionsMenu = styled.div<{ isOpen: boolean }>`
     position: absolute;
     top: 35px;
     right: 10px;
     background: white;
-    border-radius: 8px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    width: 140px;
+    border-radius: 6px;
+    padding: 8px;
+    min-width: 140px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     z-index: 10;
-    transition: all .4s;
+
+    animation: ${({ isOpen }) => (isOpen ? fadeIn : fadeOut)} 0.1s ease-in-out;
+    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+    pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
 `;
+
 
 export const OptionItem = styled.div`
     display: flex;

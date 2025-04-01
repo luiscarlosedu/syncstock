@@ -35,7 +35,7 @@ export function EmployeeCard({
             </OptionsButton>
 
             {isOpen && (
-                <OptionsMenu>
+                <OptionsMenu isOpen={isOpen}>
                     <OptionItem onClick={() => alert("Ver detalhes de " + nome)}>
                         <FaEye /> Ver Detalhes
                     </OptionItem>
