@@ -1,9 +1,13 @@
-import { Container } from "./styles";
+import { AboutContentContainer, AboutTitle, AboutTitleContainer, Container } from "./styles";
 
 export default function AboutEnterprise() {
     return (
         <Container>
-            <h1>Page about enterprise</h1>
+            <AboutContentContainer>
+                <AboutTitleContainer>
+                    <AboutTitle>Sobre</AboutTitle>
+                </AboutTitleContainer>
+            </AboutContentContainer>
         </Container>
     );
 }
