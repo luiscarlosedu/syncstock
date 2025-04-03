@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import BackgroundImage from '../../../assets/enterprise-about.jpg';
 
 export const Container = styled.article`
     display: flex;
@@ -21,4 +22,14 @@ export const AboutTitleContainer = styled.div`
 export const AboutTitle = styled.h1`
     font-size: 20px;
     font-weight: 600;
+`;
+
+export const AboutBackgroundEnterprise = styled.div`
+    width: 100%;
+    height: 250px;
+    border-radius: 4px;
+    background-image: url(${BackgroundImage});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 `;

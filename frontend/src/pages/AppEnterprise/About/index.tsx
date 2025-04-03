@@ -1,12 +1,15 @@
-import { AboutContentContainer, AboutTitle, AboutTitleContainer, Container } from "./styles";
+import { AboutBackgroundEnterprise, AboutContentContainer, /* AboutTitle, AboutTitleContainer, */ Container } from "./styles";
+
+import BackgroundImage from '../../../assets/enterprise-about.jpg';
 
 export default function AboutEnterprise() {
     return (
         <Container>
             <AboutContentContainer>
-                <AboutTitleContainer>
+                {/* <AboutTitleContainer>
                     <AboutTitle>Sobre</AboutTitle>
-                </AboutTitleContainer>
+                </AboutTitleContainer> */}
+                <AboutBackgroundEnterprise />
             </AboutContentContainer>
         </Container>
     );
