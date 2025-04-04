@@ -33,3 +33,34 @@ export const AboutBackgroundEnterprise = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
 `;
+
+export const AboutSection = styled.section`
+    width: 100%;
+    margin-top: 10px;
+`;
+
+export const AboutSyncStock = styled.div`
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+`;
+
+export const AboutSyncStockLeft = styled.div`
+    flex: 1;
+    background-color: blue;
+`;
+
+export const SyncStockLogo = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+`;
+
+export const AboutSyncStockRight = styled.div`
+    flex: 1;
+    background-color: red;
+    width: 100%;
+`;
