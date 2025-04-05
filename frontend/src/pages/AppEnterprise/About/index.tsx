@@ -24,24 +24,25 @@ export default function AboutEnterprise() {
                                 <AboutLeftContentDescription>I develop some stuff here</AboutLeftContentDescription>
                                 <AboutLeftIconsArea>
                                     <AboutIconLink 
-                                        href="https://youtube.com"
+                                        href="https://www.github.com/luiscarlosedu"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         <FaGithub />
                                     </AboutIconLink>
                                     <AboutIconLink 
-                                        href="https://youtube.com"
+                                        href="https://www.instagram.com/https.luisedu77"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         <FaInstagram />
                                     </AboutIconLink>
                                     <AboutIconLink 
-                                        href="https://youtube.com"
+                                        href="https://www.linkedin.com/in/luiscarlosedu/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         <FaLinkedin />
-                                    </AboutIconLink>
-                                    <AboutIconLink 
-                                        href="https://youtube.com"
-                                    >
-                                        <MdEmail size={24}  />
                                     </AboutIconLink>
                                 </AboutLeftIconsArea>
                             </AboutLeftContent>
