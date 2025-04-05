@@ -79,12 +79,16 @@ export const AboutLeftContentDescription = styled.p`
 
 export const AboutLeftIconsArea = styled.div`
     display: flex;
-    gap: 4px;
+    align-items: center;
+    gap: 6px;
     margin-top: 5px;
 `;
 
 export const AboutIconLink = styled.a`
-    
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     svg {
         font-size: 20px;

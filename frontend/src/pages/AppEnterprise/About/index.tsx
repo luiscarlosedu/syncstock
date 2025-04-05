@@ -23,18 +23,25 @@ export default function AboutEnterprise() {
                                 </AboutLeftContentTitle>
                                 <AboutLeftContentDescription>I develop some stuff here</AboutLeftContentDescription>
                                 <AboutLeftIconsArea>
-                                    <AboutIconLink href="https://youtube.com">
+                                    <AboutIconLink 
+                                        href="https://youtube.com"
+                                    >
                                         <FaGithub />
                                     </AboutIconLink>
-                                    <AboutIconLink href="https://youtube.com"
+                                    <AboutIconLink 
+                                        href="https://youtube.com"
                                     >
                                         <FaInstagram />
                                     </AboutIconLink>
-                                    <AboutIconLink href="https://youtube.com">
+                                    <AboutIconLink 
+                                        href="https://youtube.com"
+                                    >
                                         <FaLinkedin />
                                     </AboutIconLink>
-                                    <AboutIconLink href="https://youtube.com">
-                                        <MdEmail />
+                                    <AboutIconLink 
+                                        href="https://youtube.com"
+                                    >
+                                        <MdEmail size={24}  />
                                     </AboutIconLink>
                                 </AboutLeftIconsArea>
                             </AboutLeftContent>
