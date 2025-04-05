@@ -27,7 +27,7 @@ export const AboutTitle = styled.h1`
 export const AboutBackgroundEnterprise = styled.div`
     width: 100%;
     height: 250px;
-    border-radius: 4px;
+    border-radius: 7px;
     background-image: url(${BackgroundImage});
     background-position: center center;
     background-repeat: no-repeat;
@@ -41,26 +41,57 @@ export const AboutSection = styled.section`
 
 export const AboutSyncStock = styled.div`
     width: 100%;
-    height: 200px;
     border-radius: 5px;
     background-color: white;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
     display: flex;
+    padding: 10px;
 `;
 
 export const AboutSyncStockLeft = styled.div`
     flex: 1;
-    background-color: blue;
+    display: flex;
 `;
 
 export const SyncStockLogo = styled.img`
     width: 100%;
+    max-width: 120px;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    border-radius: 6px;
+    user-select: none;
+`;
+
+export const AboutLeftContent = styled.div`
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+
+export const AboutLeftContentTitle = styled.h3`
+    font-size: 22px;
+`;
+
+export const AboutLeftContentDescription = styled.p`
+    font-size: 15px;
+`;
+
+export const AboutLeftIconsArea = styled.div`
+    display: flex;
+    gap: 4px;
+    margin-top: 5px;
+`;
+
+export const AboutIconLink = styled.a`
+    
+
+    svg {
+        font-size: 20px;
+    }
 `;
 
 export const AboutSyncStockRight = styled.div`
     flex: 1;
-    background-color: red;
     width: 100%;
 `;
