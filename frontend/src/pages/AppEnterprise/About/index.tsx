@@ -2,7 +2,6 @@ import { AboutBackgroundEnterprise, AboutContentContainer, AboutIconLink, AboutL
 
 import SyncStockImage from '../../../assets/syncstock-no.png';
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 
 export default function AboutEnterprise() {
     return (
@@ -21,7 +20,7 @@ export default function AboutEnterprise() {
                                 <AboutLeftContentTitle>
                                     SyncStock
                                 </AboutLeftContentTitle>
-                                <AboutLeftContentDescription>I develop some stuff here</AboutLeftContentDescription>
+                                <AboutLeftContentDescription>Sistema de Gerenciamento de Estoque</AboutLeftContentDescription>
                                 <AboutLeftIconsArea>
                                     <AboutIconLink 
                                         href="https://www.github.com/luiscarlosedu"
