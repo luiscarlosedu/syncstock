@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { AboutBackgroundEnterprise, AboutContentContainer, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, /* AboutTitle, AboutTitleContainer, */ Container, OverlayButton, SyncStockLogo } from "./styles";
+import { AboutBackgroundEnterprise, AboutContent, AboutContentContainer, AboutContentText, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, /* AboutTitle, AboutTitleContainer, */ Container, OverlayButton, SyncStockLogo } from "./styles";
 
 import SyncStockImage from '../../../assets/syncstock-no.png';
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
@@ -58,6 +58,15 @@ export default function AboutEnterprise() {
                             </AboutOverlay>
                         </AboutSyncStockRight>
                     </AboutSyncStock>
+
+                    <AboutContent>
+                        <AboutContentText>
+                            O <strong>SyncStock</strong> é uma plataforma de gerenciamento de estoque desenvolvida para otimizar o controle e a organização de produtos. Com uma interface simples e intuitiva, permite que empresas de todos os portes acompanhem suas entradas e saídas de forma prática e segura.
+                        </AboutContentText>
+                        <AboutContentText>
+                            Atualmente, o <strong>SyncStock</strong> está em fase de desenvolvimento Full-Stack, utilizando tecnologias modernas no front-end e back-end para garantir uma solução robusta, ágil e eficiente.
+                        </AboutContentText>
+                    </AboutContent>
                 </AboutSection>
             </AboutContentContainer>
         </Container>

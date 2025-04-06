@@ -37,6 +37,9 @@ export const AboutBackgroundEnterprise = styled.div`
 export const AboutSection = styled.section`
     width: 100%;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 `;
 
 export const AboutSyncStock = styled.div`
@@ -139,4 +142,19 @@ export const OverlayButton = styled.button`
     &:hover {
         background-color: #f3f3f3;
     }
+`;
+
+export const AboutContent = styled.div`
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+`;
+
+export const AboutContentText = styled.p`
+    text-align: justify;
 `;
