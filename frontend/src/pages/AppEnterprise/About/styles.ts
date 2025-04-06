@@ -45,12 +45,12 @@ export const AboutSyncStock = styled.div`
     background-color: white;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
     display: flex;
-    padding: 10px;
 `;
 
 export const AboutSyncStockLeft = styled.div`
     flex: 1;
     display: flex;
+    padding: 10px;
 `;
 
 export const SyncStockLogo = styled.img`
@@ -98,4 +98,45 @@ export const AboutIconLink = styled.a`
 export const AboutSyncStockRight = styled.div`
     flex: 1;
     width: 100%;
+    border-radius: 0px 5px 5px 0px;
+    background-image: url("https://images.pexels.com/photos/7567527/pexels-photo-7567527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    &:hover div {
+        opacity: 1;
+        pointer-events: all;
+    }
+`;
+
+export const AboutOverlay = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity .4s ease;
+`;
+
+export const OverlayButton = styled.button`
+    padding: 10px 20px;
+    border: 0;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: #f3f3f3;
+    }
 `;

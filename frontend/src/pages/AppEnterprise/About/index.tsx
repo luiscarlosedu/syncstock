@@ -1,4 +1,4 @@
-import { AboutBackgroundEnterprise, AboutContentContainer, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, /* AboutTitle, AboutTitleContainer, */ Container, SyncStockLogo } from "./styles";
+import { AboutBackgroundEnterprise, AboutContentContainer, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, /* AboutTitle, AboutTitleContainer, */ Container, OverlayButton, SyncStockLogo } from "./styles";
 
 import SyncStockImage from '../../../assets/syncstock-no.png';
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
@@ -29,7 +29,7 @@ export default function AboutEnterprise() {
                                     >
                                         <FaGithub />
                                     </AboutIconLink>
-                                    <AboutIconLink 
+                                    <AboutIconLink
                                         href="https://www.instagram.com/https.luisedu77"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -47,7 +47,9 @@ export default function AboutEnterprise() {
                             </AboutLeftContent>
                         </AboutSyncStockLeft>
                         <AboutSyncStockRight>
-                            envie para mim um convite
+                            <AboutOverlay>
+                                <OverlayButton>Utilizar a plataforma &rarr;</OverlayButton>
+                            </AboutOverlay>
                         </AboutSyncStockRight>
                     </AboutSyncStock>
                 </AboutSection>
