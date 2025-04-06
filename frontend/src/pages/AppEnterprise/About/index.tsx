@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router";
 import { AboutBackgroundEnterprise, AboutContentContainer, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, /* AboutTitle, AboutTitleContainer, */ Container, OverlayButton, SyncStockLogo } from "./styles";
 
 import SyncStockImage from '../../../assets/syncstock-no.png';
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function AboutEnterprise() {
+    const navigate = useNavigate();
     return (
         <Container>
             <AboutContentContainer>
@@ -48,7 +50,11 @@ export default function AboutEnterprise() {
                         </AboutSyncStockLeft>
                         <AboutSyncStockRight>
                             <AboutOverlay>
-                                <OverlayButton>Utilizar a plataforma &rarr;</OverlayButton>
+                                <OverlayButton
+                                    onClick={() => navigate('/empresa/home')}
+                                >
+                                    Utilizar a plataforma &rarr;
+                                </OverlayButton>
                             </AboutOverlay>
                         </AboutSyncStockRight>
                     </AboutSyncStock>
