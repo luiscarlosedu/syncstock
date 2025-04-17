@@ -1,4 +1,5 @@
 import { IconType } from "react-icons";
+import { TecCardContainer, TecCardIcon } from "./styles";
 
 interface TecnologiesCardProps {
     name: string;
@@ -7,9 +8,9 @@ interface TecnologiesCardProps {
 
 export function TecnologiesCard({name, Icon}: TecnologiesCardProps) {
     return (
-        <div>
-            <h1>{name}</h1>
-            <Icon/>
-        </div>
+        <TecCardContainer>
+            <TecCardIcon><Icon size={20} /></TecCardIcon>
+            <div>{name}</div>
+        </TecCardContainer>
     );
 }

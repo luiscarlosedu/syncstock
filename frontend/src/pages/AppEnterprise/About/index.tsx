@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router";
 import { AboutBackgroundEnterprise, AboutContent, AboutContentContainer, AboutContentText, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, AboutTecnologiesTitle, /* AboutTitle, AboutTitleContainer, */ Container, OverlayButton, SyncStockLogo } from "./styles";
 
-import { Tecnologies } from "./tecnlogies";
+import { getByTecnology } from "./tecnlogies";
 
 import SyncStockImage from '../../../assets/syncstock-no.png';
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { TecnologiesCard } from "../../../components/tecnologies-card";
+import { AboutTecnologiesType } from "../../../components/tecnologies-card/styles";
 
 export default function AboutEnterprise() {
     const navigate = useNavigate();
@@ -73,7 +74,16 @@ export default function AboutEnterprise() {
                             Tecnologias usadas
                         </AboutTecnologiesTitle>
                         
-                        {Tecnologies.map((item) => (
+                        <AboutTecnologiesType>Frontend</AboutTecnologiesType>
+                        {getByTecnology("frontend").map((item) => (
+                            <TecnologiesCard 
+                                name={item.name}
+                                Icon={item.icon}
+                            />
+                        ))}
+
+                        <AboutTecnologiesType>Backend</AboutTecnologiesType>
+                        {getByTecnology("backend").map((item) => (
                             <TecnologiesCard 
                                 name={item.name}
                                 Icon={item.icon}
