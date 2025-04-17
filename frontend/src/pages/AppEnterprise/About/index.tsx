@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import { AboutBackgroundEnterprise, AboutContent, AboutContentContainer, AboutContentText, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, AboutTecnologiesTitle, /* AboutTitle, AboutTitleContainer, */ Container, OverlayButton, SyncStockLogo } from "./styles";
-import { FaReact } from "react-icons/fa";
+
+import { Tecnologies } from "./tecnlogies";
 
 import SyncStockImage from '../../../assets/syncstock-no.png';
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
@@ -8,6 +9,7 @@ import { TecnologiesCard } from "../../../components/tecnologies-card";
 
 export default function AboutEnterprise() {
     const navigate = useNavigate();
+
     return (
         <Container>
             <AboutContentContainer>
@@ -71,7 +73,12 @@ export default function AboutEnterprise() {
                             Tecnologias usadas
                         </AboutTecnologiesTitle>
                         
-                        <TecnologiesCard name="ReactJs" Icon={FaReact} />
+                        {Tecnologies.map((item) => (
+                            <TecnologiesCard 
+                                name={item.name}
+                                Icon={item.icon}
+                            />
+                        ))}
 
                     </AboutContent>
                 </AboutSection>
