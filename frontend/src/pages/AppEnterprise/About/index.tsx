@@ -1,19 +1,17 @@
 import { useNavigate } from "react-router";
-import { AboutBackgroundEnterprise, AboutContent, AboutContentContainer, AboutContentText, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, /* AboutTitle, AboutTitleContainer, */ Container, OverlayButton, SyncStockLogo } from "./styles";
+import { AboutBackgroundEnterprise, AboutContent, AboutContentContainer, AboutContentText, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, AboutTecnologiesTitle, /* AboutTitle, AboutTitleContainer, */ Container, OverlayButton, SyncStockLogo } from "./styles";
+import { FaReact } from "react-icons/fa";
 
 import SyncStockImage from '../../../assets/syncstock-no.png';
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { TecnologiesCard } from "../../../components/tecnologies-card";
 
 export default function AboutEnterprise() {
     const navigate = useNavigate();
     return (
         <Container>
             <AboutContentContainer>
-                {/* <AboutTitleContainer>
-                    <AboutTitle>Sobre</AboutTitle>
-                </AboutTitleContainer> */}
                 <AboutBackgroundEnterprise />
-
                 <AboutSection>
                     <AboutSyncStock>
                         <AboutSyncStockLeft>
@@ -66,6 +64,15 @@ export default function AboutEnterprise() {
                         <AboutContentText>
                             Atualmente, o <strong>SyncStock</strong> está em fase de desenvolvimento Full-Stack, utilizando tecnologias modernas no front-end e back-end para garantir uma solução robusta, ágil e eficiente.
                         </AboutContentText>
+                    </AboutContent>
+
+                    <AboutContent>
+                        <AboutTecnologiesTitle>
+                            Tecnologias usadas
+                        </AboutTecnologiesTitle>
+                        
+                        <TecnologiesCard name="ReactJs" Icon={FaReact} />
+
                     </AboutContent>
                 </AboutSection>
             </AboutContentContainer>

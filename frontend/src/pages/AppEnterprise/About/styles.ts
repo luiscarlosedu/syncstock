@@ -158,3 +158,7 @@ export const AboutContent = styled.div`
 export const AboutContentText = styled.p`
     text-align: justify;
 `;
+
+export const AboutTecnologiesTitle = styled.h3`
+    
+`;
