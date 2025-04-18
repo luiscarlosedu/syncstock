@@ -8,6 +8,14 @@ export const TecCardContainer = styled.div`
     gap: 7px;
     border-radius: 4px;
     align-items: center;
+    border: 0.1px solid white;
+    user-select: none;
+    transition: all .4s;
+
+    &:hover {
+        background-color:rgb(247, 247, 247);
+        border: 0.1px solid rgba(0, 0, 0, 0.25);
+    }
 `;
 
 export const TecCardIcon = styled.div`
@@ -19,6 +27,6 @@ export const TecCardIcon = styled.div`
     border-radius: 2px;
 `;
 
-export const AboutTecnologiesType = styled.h4`
-    font-size: 16px;
+export const TecCardName = styled.p`
+    font-size: 14px;
 `;

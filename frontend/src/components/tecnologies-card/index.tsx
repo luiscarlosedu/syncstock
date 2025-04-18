@@ -1,5 +1,5 @@
 import { IconType } from "react-icons";
-import { TecCardContainer, TecCardIcon } from "./styles";
+import { TecCardContainer, TecCardIcon, TecCardName } from "./styles";
 
 interface TecnologiesCardProps {
     name: string;
@@ -10,7 +10,7 @@ export function TecnologiesCard({name, Icon}: TecnologiesCardProps) {
     return (
         <TecCardContainer>
             <TecCardIcon><Icon size={20} /></TecCardIcon>
-            <div>{name}</div>
+            <TecCardName>{name}</TecCardName>
         </TecCardContainer>
     );
 }
