@@ -8,4 +8,4 @@ export default function MyStoreEnterprise() {
             </MyStoreContentContainer>
         </Container>
     );
-}
+};
