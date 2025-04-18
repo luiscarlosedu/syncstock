@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { AboutBackgroundEnterprise, AboutContent, AboutContentContainer, AboutContentText, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, AboutTecnologiesTitle, AboutTecnologiesType, /* AboutTitle, AboutTitleContainer, */ Container, OverlayButton, SyncStockLogo } from "./styles";
+import { AboutBackgroundEnterprise, AboutContent, AboutContentContainer, AboutContentText, AboutFooter, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, AboutTecnologiesTitle, AboutTecnologiesType, /* AboutTitle, AboutTitleContainer, */ Container, DevLinks, DevLinksArea, OverlayButton, SyncStockLogo } from "./styles";
 
 import { getByTecnology } from "./tecnlogies";
 
@@ -96,9 +96,23 @@ export default function AboutEnterprise() {
                                 Icon={item.icon}
                             />
                         ))}
-
                     </AboutContent>
                 </AboutSection>
+                <AboutFooter>
+                    <p>Desenvolvido por <strong><a href="https://github.com/luiscarlosedu" target="_blank">Luís Eduardo</a></strong></p>
+
+                    <DevLinksArea>
+                        <DevLinks>
+                            <a href="https://instagram.com/https.luisedu77" target="_blank"><FaInstagram size={20} /></a>
+                        </DevLinks>
+                        <DevLinks>
+                            <a href="https://github.com/luiscarlosedu" target="_blank"><FaGithub size={20} /></a>
+                        </DevLinks>
+                        <DevLinks>
+                            <a href="https://linkedin.com/in/luiscarlosedu/" target="_blank"><FaLinkedin size={20} /></a>
+                        </DevLinks>
+                    </DevLinksArea>
+                </AboutFooter>
             </AboutContentContainer>
         </Container>
     );

@@ -164,3 +164,45 @@ export const AboutTecnologiesTitle = styled.h3``;
 export const AboutTecnologiesType = styled.h4`
     font-size: 16px;
 `;
+
+export const AboutFooter = styled.footer`
+    margin-top: 10px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    a {
+        color: black;
+        text-decoration: none;
+    }
+`;
+
+export const DevLinksArea = styled.ul`
+    list-style-type: none;
+    display: flex;
+    gap: 8px;
+`;
+
+export const DevLinks = styled.li`
+    a {
+        color: black;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border-radius: 50%;
+        border: 1.6px solid black;
+        transition: all .4s;
+
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+    }
+`;
