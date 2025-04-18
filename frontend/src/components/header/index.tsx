@@ -9,12 +9,14 @@ import {
 } from "./styles";
 
 import ImageLogo from '../../assets/syncstock-white.png';
+import { useNavigate } from "react-router";
 
 interface HeaderProps {
     type: 'enterprise' | 'employee';
 }
 
 export function Header({ type }: HeaderProps) {
+    const navigate = useNavigate();
     return (
         <Container>
             <HeaderLogo>
@@ -25,14 +27,18 @@ export function Header({ type }: HeaderProps) {
             </HeaderLogo>
 
             {type === 'enterprise' ? (
-                <MyEnterprise>
+                <MyEnterprise
+                    onClick={() => navigate("/empresa/detalhes")}
+                >
                     <MyEnterpriseText>
                         My Store
                     </MyEnterpriseText>
                     <MyEnterpriseImage src={ImageLogo} alt="Logo da empresa" />
                 </MyEnterprise>
             ): (
-                <MyEnterprise>
+                <MyEnterprise
+                    onClick={() => navigate("/funcionario/detalhes")}
+                >
                     <MyEnterpriseText>
                         My Account
                     </MyEnterpriseText>
