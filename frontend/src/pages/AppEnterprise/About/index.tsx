@@ -90,6 +90,14 @@ export default function AboutEnterprise() {
                             />
                         ))}
 
+                        <AboutTecnologiesType>Mobile</AboutTecnologiesType>
+                        {getByTecnology("mobile").map((item) => (
+                            <TecnologiesCard 
+                                name={item.name}
+                                Icon={item.icon}
+                            />
+                        ))}
+
                     </AboutContent>
                 </AboutSection>
             </AboutContentContainer>

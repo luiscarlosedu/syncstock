@@ -1,8 +1,8 @@
 import { IconType } from "react-icons";
 import { FaIcons, FaNodeJs, FaReact } from "react-icons/fa";
-import { SiExpress, SiPrisma, SiPostgresql, SiStyledcomponents, SiTypescript } from "react-icons/si";
-import { TbRouteSquare } from "react-icons/tb";
-import { RiReactjsLine } from "react-icons/ri";
+import { SiExpress, SiPrisma, SiPostgresql, SiStyledcomponents, SiTypescript, SiExpo, SiJsonwebtokens } from "react-icons/si";
+import { TbBrandReactNative, TbBrandVite, TbIconsFilled, TbRouteSquare } from "react-icons/tb";
+import { FaCloudArrowUp } from "react-icons/fa6";
 interface Program {
     name: string;
     icon: IconType;
@@ -27,6 +27,14 @@ export const Tecnologies: TecnologyCategory[] = [
                 icon: FaReact
             },
             {
+                name: "TypeScript",
+                icon: SiTypescript
+            },
+            {
+                name: "Vite",
+                icon: TbBrandVite
+            },
+            {
                 name: "React Router DOM",
                 icon: TbRouteSquare
             },
@@ -38,10 +46,6 @@ export const Tecnologies: TecnologyCategory[] = [
                 name: "Styled Components",
                 icon: SiStyledcomponents
             },
-            {
-                name: "TypeScript",
-                icon: SiTypescript
-            },
         ]
     },
     {
@@ -50,6 +54,10 @@ export const Tecnologies: TecnologyCategory[] = [
             {
                 name: "NodeJs",
                 icon: FaNodeJs
+            },
+            {
+                name: "TypeScript",
+                icon: SiTypescript
             },
             {
                 name: "Express",
@@ -62,7 +70,15 @@ export const Tecnologies: TecnologyCategory[] = [
             {
                 name: "PostgreSQL",
                 icon: SiPostgresql
-            }
+            },
+            {
+                name: "Multer",
+                icon: FaCloudArrowUp
+            },
+            {
+                name: "JWT",
+                icon: SiJsonwebtokens
+            },
         ]
     },
     {
@@ -70,8 +86,20 @@ export const Tecnologies: TecnologyCategory[] = [
         tecnologies: [
             {
                 name: "React Native",
-                icon: RiReactjsLine
-            }
+                icon: TbBrandReactNative
+            },
+            {
+                name: "Expo",
+                icon: SiExpo
+            },
+            {
+                name: "Styled Components",
+                icon: SiStyledcomponents
+            },
+            {
+                name: "React Vector Icons",
+                icon: TbIconsFilled
+            },
         ]
     }
 ];
