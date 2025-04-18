@@ -12,12 +12,12 @@ export const FAQ_DATA: FaqItemProps[] = [
     {
       question: "Como cadastro uma nova empresa?",
       answer:
-        "Na tela de registro, preencha nome, CNPJ, e‑mail, senha e, opcionalmente, um banner. Após enviar, você receberá um token para convidar funcionários.",
+        "Na tela de registro, preencha nome, CNPJ, e‑mail, senha e, opcionalmente, um banner. Após enviar, você poderá acessar a plataforma!.",
     },
     {
       question: "Como convido um funcionário?",
       answer:
-        "No painel de funcionários, use o token da empresa ou envie o e‑mail dele; ao aceitar o convite, o funcionário terá acesso ao estoque da sua empresa.",
+        "Vá em Funcionários -> Adicionar funcionários, informe o e-mail do funcionário desejado.",
     },
     {
       question: "Como adiciono um produto ao estoque?",

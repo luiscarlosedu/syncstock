@@ -15,6 +15,7 @@ export const FaqContentContainer = styled.div`
 `;
 
 export const FaqHeader = styled.div`
+    margin-top: 10px;
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
