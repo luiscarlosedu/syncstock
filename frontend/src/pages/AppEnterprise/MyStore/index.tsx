@@ -24,14 +24,21 @@ export default function MyStoreEnterprise() {
 
                 <ChangeInfo>
                     <ChangeInfoItem
-
+                        className={activeTab === 'info' ? 'active' : ''}
+                        onClick={() => setActiveTab('info')}
                     >
                         Informações
                     </ChangeInfoItem>
-                    <ChangeInfoItem>
+                    <ChangeInfoItem
+                        className={activeTab === 'status' ? 'active' : ''}
+                        onClick={() => setActiveTab('status')}
+                    >
                         Status
                     </ChangeInfoItem>
-                    <ChangeInfoItem>
+                    <ChangeInfoItem
+                        className={activeTab === 'employees' ? 'active' : ''}
+                        onClick={() => setActiveTab('employees')}
+                    >
                         Funcionários
                     </ChangeInfoItem>
                 </ChangeInfo>

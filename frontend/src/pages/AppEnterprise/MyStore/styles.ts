@@ -102,4 +102,12 @@ export const ChangeInfoItem = styled.button`
     &:hover::after {
         background-color: #202020;
     }
+
+    &.active {
+        color: #202020;
+    }
+
+    &.active::after {
+        background-color: #202020;
+    }
 `;
