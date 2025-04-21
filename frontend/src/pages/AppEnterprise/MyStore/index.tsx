@@ -42,6 +42,9 @@ export default function MyStoreEnterprise() {
                         Funcionários
                     </ChangeInfoItem>
                 </ChangeInfo>
+
+                
+                
             </MyStoreContentContainer>
         </Container>
     );
