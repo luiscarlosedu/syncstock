@@ -16,7 +16,7 @@ export function EnterpriseInfo() {
                 <InfoItemName>Telefone:</InfoItemName>
                 <InfoItemValue>(88)997876890</InfoItemValue>
             </InfoItem>
-            <InfoItem>0
+            <InfoItem>
                 <InfoItemName>Endereço:</InfoItemName>
                 <InfoItemValue>Av. das Empresas, 123 - SP</InfoItemValue>
             </InfoItem>
