@@ -55,6 +55,7 @@ export const StoryBtn = styled.button`
     background-color: #202020;
     color: white;
     padding: 5px 10px;
+    border: 0;
     border-radius: 7px;
     cursor: pointer;
     transition: all .3s;
@@ -69,10 +70,24 @@ export const ChangeInfo = styled.div`
     display: flex;
     gap: 20px;
     padding: 5px 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
 `;
 
 export const ChangeInfoItem = styled.button`
     border: none;
     background-color: white;
     cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: #404040;
+    }
+
+    &::after {
+
+    }
 `;
