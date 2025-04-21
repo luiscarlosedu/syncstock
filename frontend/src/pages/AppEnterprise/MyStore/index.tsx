@@ -1,8 +1,11 @@
 import { ChangeInfo, ChangeInfoItem, Container, MyStoreContentContainer, MyStoreHead, MyStoryHeadInfo, StoreImage, StoryBtn, StoryBtnArea, StoryTitleName } from "./styles";
 
 import Image from '../../../assets/syncstock-white.png';
+import { useState } from "react";
 
 export default function MyStoreEnterprise() {
+    const [activeTab, setActiveTab] = useState("info");
+
     return (
         <Container>
             <MyStoreContentContainer>
@@ -20,9 +23,17 @@ export default function MyStoreEnterprise() {
                 </MyStoreHead>
 
                 <ChangeInfo>
-                    <ChangeInfoItem>Informações</ChangeInfoItem>
-                    <ChangeInfoItem>Status</ChangeInfoItem>
-                    <ChangeInfoItem>Funcionários</ChangeInfoItem>
+                    <ChangeInfoItem
+
+                    >
+                        Informações
+                    </ChangeInfoItem>
+                    <ChangeInfoItem>
+                        Status
+                    </ChangeInfoItem>
+                    <ChangeInfoItem>
+                        Funcionários
+                    </ChangeInfoItem>
                 </ChangeInfo>
             </MyStoreContentContainer>
         </Container>

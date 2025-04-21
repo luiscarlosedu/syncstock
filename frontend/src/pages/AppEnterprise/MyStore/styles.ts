@@ -78,9 +78,10 @@ export const ChangeInfoItem = styled.button`
     border: none;
     background-color: white;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 5px 0px;
     font-size: 14px;
     font-weight: 500;
+    position: relative;
     transition: all 0.2s ease;
 
     &:hover {
@@ -88,6 +89,17 @@ export const ChangeInfoItem = styled.button`
     }
 
     &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+    }
 
+    &:hover::after {
+        background-color: #202020;
     }
 `;
