@@ -24,8 +24,8 @@ export const StatusCardIcon = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 `;
 
 export const StatusCardContent = styled.div`
