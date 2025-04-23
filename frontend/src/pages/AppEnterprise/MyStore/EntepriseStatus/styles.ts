@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     background-color: #fff;
-    padding: 10px 20px;
+    padding: 10px 12px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     border-radius: 8px;
 `;
 
