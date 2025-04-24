@@ -1,4 +1,4 @@
-import { Container, EmployeeCard, EmployeeInfo, EmployeeName, EmployeeRole, EmployeeEmail, EmployeeAvatar } from "./styles";
+import { Container, EmployeeCard, EmployeeInfo, EmployeeName, EmployeeEmail, EmployeeAvatar } from "./styles";
 
 export function EnterpriseEmployees() {
     // Isso aqui depois vai vir da API
