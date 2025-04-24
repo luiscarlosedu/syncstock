@@ -10,15 +10,17 @@ export function EnterpriseEmployees() {
 
     return (
         <Container>
-            <EmployeeCard>
-                <EmployeeAvatar 
-                    src={`https://ui-avatars.com/api/?name=${"Luís Eduardo"}&background=202020&color=fff`} 
-                />
-                <EmployeeInfo>
-                    <EmployeeName>Luís Eduardo</EmployeeName>
-                    <EmployeeEmail>eduardo.luis070408@gmail.com</EmployeeEmail>
-                </EmployeeInfo>
+            {employees.map((emp) => (
+                <EmployeeCard>
+                    <EmployeeAvatar 
+                        src={`https://ui-avatars.com/api/?name=${emp.nome}&background=202020&color=fff`} 
+                    />
+                    <EmployeeInfo>
+                        <EmployeeName>{emp.nome}</EmployeeName>
+                        <EmployeeEmail>{emp.email}</EmployeeEmail>
+                    </EmployeeInfo>
             </EmployeeCard>
+            ))}
         </Container>
     );
 }
