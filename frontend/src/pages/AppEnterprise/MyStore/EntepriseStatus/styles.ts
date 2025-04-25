@@ -18,6 +18,14 @@ export const StatusCard = styled.div`
     border-radius: 8px;
     width: 100%;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border: 0.1px solid white;
+    user-select: none;
+    transition: all .4s;
+
+    &:hover {
+        background-color:rgb(247, 247, 247);
+        border: 0.1px solid rgba(0, 0, 0, 0.25);
+    }
 `;
 
 export const StatusCardIcon = styled.div`
