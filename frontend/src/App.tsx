@@ -14,6 +14,7 @@ import LoginEmployee from "./pages/AuthEmployee/LoginEmployee";
 import HomeEnterprise from "./pages/AppEnterprise/Home";
 import MyStoreEnterprise from "./pages/AppEnterprise/MyStore";
 import StoreEdit from "./pages/AppEnterprise/MyStore/StoreEdit";
+import StoreConfig from "./pages/AppEnterprise/MyStore/StoreConfig";
 import CategoriesEnterprise from "./pages/AppEnterprise/Categories";
 import NewCategoryEnterprise from "./pages/AppEnterprise/Categories/NewCategory";
 import ProductsEnterprise from "./pages/AppEnterprise/Products";
