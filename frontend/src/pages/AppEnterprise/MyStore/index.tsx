@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { ChangeInfo, ChangeInfoItem, Container, MyStoreContentContainer, MyStoreHead, MyStoryHeadInfo, StoreImage, StoryBtn, StoryBtnArea, StoryTitleName } from "./styles";
-import Image from '../../../assets/syncstock-white.png';
+import { ChangeInfo, ChangeInfoItem, Container, MyStoreContentContainer } from "./styles";
 import { EnterpriseInfo } from "./EnterpriseInfo";
 import { EnterpriseStatus } from "./EntepriseStatus";
 import { EnterpriseEmployees } from "./EnterpriseEmployees";
+import { MyStoreHeader } from "../../../components/my-store-header";
 
 export default function MyStoreEnterprise() {
     const [activeTab, setActiveTab] = useState("info");
@@ -11,18 +11,7 @@ export default function MyStoreEnterprise() {
     return (
         <Container>
             <MyStoreContentContainer>
-                <MyStoreHead>
-                    <StoreImage src={Image} />
-                    <MyStoryHeadInfo>
-                        <StoryTitleName>
-                            SyncStock
-                        </StoryTitleName>
-                        <StoryBtnArea>
-                            <StoryBtn>Editar</StoryBtn>
-                            <StoryBtn>Configurar</StoryBtn>
-                        </StoryBtnArea>
-                    </MyStoryHeadInfo>
-                </MyStoreHead>
+                <MyStoreHeader />
 
                 <ChangeInfo>
                     <ChangeInfoItem
