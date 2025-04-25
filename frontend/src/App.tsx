@@ -71,6 +71,14 @@ const router = createBrowserRouter([
         element: <MyStoreEnterprise />
       },
       {
+        path: '/empresa/detalhes/editar',
+        element: <StoreEdit />
+      },
+      {
+        path: '/empresa/detalhes/configurar',
+        element: <StoreConfig />
+      },
+      {
         path: '/empresa/categorias',
         element: <CategoriesEnterprise />
       },
