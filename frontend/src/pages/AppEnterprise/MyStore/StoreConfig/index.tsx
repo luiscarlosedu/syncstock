@@ -1,10 +1,13 @@
 import { MyStoreHeader } from "../../../../components/my-store-header";
-import { Container } from "./styles";
+import { Container, StoreConfigContentContainer } from "./styles";
 
 export default function StoreConfig() {
     return (
         <Container>
-            <MyStoreHeader />
+            <StoreConfigContentContainer>
+                <MyStoreHeader />
+
+            </StoreConfigContentContainer>
         </Container>
     );
 }
