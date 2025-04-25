@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router";
 import { MyStoreHead, MyStoryHeadInfo, StoreImage, StoryBtn, StoryBtnArea, StoryTitleName } from "./styles";
 
 import Image from '../../assets/syncstock-white.png';
 
 export function MyStoreHeader() {
+    const navigate = useNavigate();
     return (
         <>
             <MyStoreHead>
@@ -12,8 +14,16 @@ export function MyStoreHeader() {
                         SyncStock
                     </StoryTitleName>
                     <StoryBtnArea>
-                        <StoryBtn>Editar</StoryBtn>
-                        <StoryBtn>Configurar</StoryBtn>
+                        <StoryBtn
+                            onClick={() => navigate('/empresa/detalhes/editar')}
+                        >
+                            Editar
+                        </StoryBtn>
+                        <StoryBtn
+                            onClick={() => navigate('/empresa/detalhes/configurar')}
+                        >
+                            Configurar
+                        </StoryBtn>
                     </StoryBtnArea>
                 </MyStoryHeadInfo>
             </MyStoreHead>
