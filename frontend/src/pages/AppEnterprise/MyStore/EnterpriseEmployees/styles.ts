@@ -17,6 +17,14 @@ export const EmployeeCard = styled.div`
     display: flex;
     align-items: center;
     gap: 15px;
+    border: 0.1px solid white;
+    user-select: none;
+    transition: all .4s;
+
+    &:hover {
+        background-color:rgb(247, 247, 247);
+        border: 0.1px solid rgba(0, 0, 0, 0.25);
+    }
 `;
 
 export const EmployeeAvatar = styled.img`
