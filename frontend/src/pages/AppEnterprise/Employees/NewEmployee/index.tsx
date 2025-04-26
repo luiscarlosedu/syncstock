@@ -29,8 +29,3 @@ export default function NewEmployeeEnterprise() {
         </Container>
     );
 }
-
-/*
-Insira o e-mail do funcionário que deseja cadastrar na empresa. 
-                    Ele receberá um convite para acessar a plataforma.
-*/

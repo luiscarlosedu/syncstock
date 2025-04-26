@@ -42,23 +42,3 @@ export default function MyStoreEnterprise() {
         </Container>
     );
 };
-
-/*
-model Empresa {
-  id String @id @default(uuid())
-  nome String
-  cnpj String @unique
-  email String @unique
-  senha String
-  foto String?
-  endereco String?
-  telefone String?
-  createdAt DateTime? @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("empresas")
-  funcionarios Funcionario[] 
-  categorias Categoria[]
-  produtos Produto[]
-}
-*/
