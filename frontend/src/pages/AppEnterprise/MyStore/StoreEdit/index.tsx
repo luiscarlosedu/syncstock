@@ -11,11 +11,13 @@ export default function StoreEdit() {
                     <StoreEditInputContainer>
                         <StoreEditLabel htmlFor="iname">Nome da empresa</StoreEditLabel>
                         <StoreEditInput 
-                            placeholder="Nome da Empresa"
+                            placeholder="Chico parafusos"
                             id="iname"
                             name="name"
+                            type="text"
                         />
                     </StoreEditInputContainer>
+                    
                 </StoreEditContent>
 
             </StoreEditContentContainer>
