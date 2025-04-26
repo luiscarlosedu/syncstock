@@ -40,7 +40,7 @@ export const StoreEditLabel = styled.label`
 `;
 
 export const StoreEditInput = styled.input`
-    padding: 10px 13px;
+    padding: 8px 10px;
     border: 2px solid #ddd;
     border-radius: 6px;
     font-size: 14px;
@@ -49,5 +49,25 @@ export const StoreEditInput = styled.input`
 
     &:focus {
         border-color: #666;
+    }
+`;
+
+export const StoreEditTwoInputsContainer = styled.div`
+    display: flex;
+    gap: 10px;
+`;
+
+export const StoreEditSubmit = styled.button`
+    background-color: #2B2B2B;
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 0;
+    outline: none;
+    transition: all .3s;
+
+    &:hover {
+        background-color:rgb(55, 55, 55);
     }
 `;
