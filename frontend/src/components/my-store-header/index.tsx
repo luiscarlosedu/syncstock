@@ -1,10 +1,14 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { MyStoreHead, MyStoryHeadInfo, StoreImage, StoryBtn, StoryBtnArea, StoryTitleName } from "./styles";
 
 import Image from '../../assets/syncstock-white.png';
 
 export function MyStoreHeader() {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    if(location.pathname)
+
     return (
         <>
             <MyStoreHead>
@@ -13,18 +17,59 @@ export function MyStoreHeader() {
                     <StoryTitleName>
                         SyncStock
                     </StoryTitleName>
-                    <StoryBtnArea>
-                        <StoryBtn
+                        {/* <StoryBtn
                             onClick={() => navigate('/empresa/detalhes/editar')}
                         >
                             Editar
-                        </StoryBtn>
-                        <StoryBtn
-                            onClick={() => navigate('/empresa/detalhes/configurar')}
-                        >
-                            Configurar
-                        </StoryBtn>
-                    </StoryBtnArea>
+                        </StoryBtn> */}
+
+                        {location.pathname === '/empresa/detalhes' && (
+                            <StoryBtnArea>
+                                <StoryBtn
+                                    onClick={() => navigate('/empresa/detalhes/editar')}
+                                >
+                                    Editar
+                                </StoryBtn>
+                                    <StoryBtn
+                                    onClick={() => navigate('/empresa/detalhes/configurar')}
+                                >
+                                    Configurar
+                                </StoryBtn>
+                            </StoryBtnArea>
+                        )}
+
+                        {location.pathname === '/empresa/detalhes/editar' && (
+                            <StoryBtnArea>
+                                <StoryBtn
+                                    onClick={() => navigate('/empresa/detalhes')}
+                                >
+                                    Detalhes
+                                </StoryBtn>
+                                    <StoryBtn
+                                    onClick={() => navigate('/empresa/detalhes/configurar')}
+                                >
+                                    Configurar
+                                </StoryBtn>
+                            </StoryBtnArea>
+                        )}
+
+                        {location.pathname === '/empresa/detalhes/configurar' && (
+                            <StoryBtnArea>
+                                <StoryBtn
+                                    onClick={() => navigate('/empresa/detalhes')}
+                                >
+                                    Detalhes
+                                </StoryBtn>
+                                    <StoryBtn
+                                    onClick={() => navigate('/empresa/detalhes/editar')}
+                                >
+                                    Editar
+                                </StoryBtn>
+                            </StoryBtnArea>
+                        )}
+                            
+                        
+                    
                 </MyStoryHeadInfo>
             </MyStoreHead>
         </>
