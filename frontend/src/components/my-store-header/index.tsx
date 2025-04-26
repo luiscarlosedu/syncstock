@@ -17,58 +17,51 @@ export function MyStoreHeader() {
                     <StoryTitleName>
                         SyncStock
                     </StoryTitleName>
-                        {/* <StoryBtn
-                            onClick={() => navigate('/empresa/detalhes/editar')}
-                        >
-                            Editar
-                        </StoryBtn> */}
 
-                        {location.pathname === '/empresa/detalhes' && (
-                            <StoryBtnArea>
+                    {location.pathname === '/empresa/detalhes' && (
+                        <StoryBtnArea>
+                            <StoryBtn
+                                onClick={() => navigate('/empresa/detalhes/editar')}
+                            >
+                                Editar
+                            </StoryBtn>
                                 <StoryBtn
-                                    onClick={() => navigate('/empresa/detalhes/editar')}
-                                >
-                                    Editar
-                                </StoryBtn>
-                                    <StoryBtn
-                                    onClick={() => navigate('/empresa/detalhes/configurar')}
-                                >
-                                    Configurar
-                                </StoryBtn>
-                            </StoryBtnArea>
-                        )}
+                                onClick={() => navigate('/empresa/detalhes/configurar')}
+                            >
+                                Configurar
+                            </StoryBtn>
+                        </StoryBtnArea>
+                    )}
 
-                        {location.pathname === '/empresa/detalhes/editar' && (
-                            <StoryBtnArea>
+                    {location.pathname === '/empresa/detalhes/editar' && (
+                        <StoryBtnArea>
+                            <StoryBtn
+                                onClick={() => navigate('/empresa/detalhes')}
+                            >
+                                Detalhes
+                            </StoryBtn>
                                 <StoryBtn
-                                    onClick={() => navigate('/empresa/detalhes')}
-                                >
-                                    Detalhes
-                                </StoryBtn>
-                                    <StoryBtn
-                                    onClick={() => navigate('/empresa/detalhes/configurar')}
-                                >
-                                    Configurar
-                                </StoryBtn>
-                            </StoryBtnArea>
-                        )}
+                                onClick={() => navigate('/empresa/detalhes/configurar')}
+                            >
+                                Configurar
+                            </StoryBtn>
+                        </StoryBtnArea>
+                    )}
 
-                        {location.pathname === '/empresa/detalhes/configurar' && (
-                            <StoryBtnArea>
+                    {location.pathname === '/empresa/detalhes/configurar' && (
+                        <StoryBtnArea>
+                            <StoryBtn
+                                onClick={() => navigate('/empresa/detalhes')}
+                            >
+                                Detalhes
+                            </StoryBtn>
                                 <StoryBtn
-                                    onClick={() => navigate('/empresa/detalhes')}
-                                >
-                                    Detalhes
-                                </StoryBtn>
-                                    <StoryBtn
-                                    onClick={() => navigate('/empresa/detalhes/editar')}
-                                >
-                                    Editar
-                                </StoryBtn>
-                            </StoryBtnArea>
-                        )}
-                            
-                        
+                                onClick={() => navigate('/empresa/detalhes/editar')}
+                            >
+                                Editar
+                            </StoryBtn>
+                        </StoryBtnArea>
+                    )}
                     
                 </MyStoryHeadInfo>
             </MyStoreHead>
