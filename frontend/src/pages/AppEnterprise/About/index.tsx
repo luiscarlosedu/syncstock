@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { AboutBackgroundEnterprise, AboutContent, AboutContentContainer, AboutContentText, AboutFooter, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, AboutTecnologiesTitle, AboutTecnologiesType, /* AboutTitle, AboutTitleContainer, */ Container, DevLinks, DevLinksArea, OverlayButton, SyncStockLogo } from "./styles";
+import { AboutBackgroundEnterprise, AboutContent, AboutContentContainer, AboutContentText, AboutFooter, AboutIconLink, AboutLeftContent, AboutLeftContentDescription, AboutLeftContentTitle, AboutLeftIconsArea, AboutOverlay, AboutSection, AboutSyncStock, AboutSyncStockLeft, AboutSyncStockRight, AboutTecnologiesTitle, AboutTecnologiesType, Container, DevLinks, DevLinksArea, OverlayButton, SyncStockLogo } from "./styles";
 
 import { getByTecnology } from "./tecnlogies";
 

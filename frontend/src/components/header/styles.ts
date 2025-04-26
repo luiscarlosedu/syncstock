@@ -27,6 +27,7 @@ export const HeaderLogoImage = styled.img`
 export const HeaderLogoTitle = styled.h1`
     color: white;
     font-size: 22px;
+    cursor: pointer;
 `;
 
 export const MyEnterprise = styled.button`

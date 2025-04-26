@@ -21,7 +21,9 @@ export function Header({ type }: HeaderProps) {
         <Container>
             <HeaderLogo>
                 <HeaderLogoImage src={ImageLogo} />
-                <HeaderLogoTitle>
+                <HeaderLogoTitle
+                    onClick={() => navigate(type === 'enterprise' ? "/empresa/home" : "/funcionario")}
+                >
                     SyncStock
                 </HeaderLogoTitle>
             </HeaderLogo>

@@ -6,8 +6,6 @@ export default function StoreEdit() {
     const [empresa, setEmpresa] = useState({
         nome: 'Empresa Exemplo Ltda',
         cnpj: '00.000.000/0001-00',
-        // email: 'contato@empresa.com',
-        // senha: '',
         endereco: 'Rua Exemplo, 123 - Centro',
         telefone: '8899999-9999',
     });
@@ -78,20 +76,3 @@ export default function StoreEdit() {
         </Container>
     );
 }
-
-/*
-CNPJ:
-12.345.678/0001-99
-
-Email:
-synstock@gmail.com
-
-Telefone:
-(88)997876890
-
-Endereço:
-Av. das Empresas, 123 - SP
-
-Desde:
-01/01/2024
-*/

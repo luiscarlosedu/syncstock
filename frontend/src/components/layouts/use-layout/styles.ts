@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    /* min-height: 100dvh; */
-`;
+export const Container = styled.div``;
 
 export const UseLayoutPage = styled.main`
     display: flex; 

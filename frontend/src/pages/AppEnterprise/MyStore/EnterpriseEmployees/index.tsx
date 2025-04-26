@@ -1,7 +1,6 @@
 import { Container, EmployeeCard, EmployeeInfo, EmployeeName, EmployeeEmail, EmployeeAvatar } from "./styles";
 
 export function EnterpriseEmployees() {
-    // Isso aqui depois vai vir da API
     const employees = [
         { id: 1, nome: "Carlos Alberto", email: "carlos@syncstock.com", cargo: "Gerente" },
         { id: 2, nome: "Fernanda Lima", email: "fernanda@syncstock.com", cargo: "Estoquista" },
