@@ -38,8 +38,10 @@ export const StoryBtn = styled.button`
     background-color: #202020;
     color: white;
     padding: 5px 10px;
+    width: 95px;
+    text-align: center;
     border: 0;
-    border-radius: 7px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all .3s;
 
