@@ -44,7 +44,7 @@ export const StoreEditInput = styled.input`
     border: 2px solid #ddd;
     border-radius: 6px;
     font-size: 14px;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.25s ease;
     outline: none;
 
     &:focus {
