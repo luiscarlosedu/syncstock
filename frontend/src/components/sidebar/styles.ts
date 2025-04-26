@@ -10,9 +10,7 @@ export const Container = styled.aside`
 
 export const SideBarEnterprise = styled.div``;
 
-export const SideBarEmployee = styled.div`
-
-`;
+export const SideBarEmployee = styled.div``;
 
 export const SideBarContent = styled.div`
     display: flex;
@@ -58,10 +56,14 @@ export const SideBarFooter = styled.div`
 `;
 
 export const SideBarFooterButton = styled.button`
+    display: flex;
+    align-items: center;
+    gap: 8px;
     width: 100%;
     border: 0;
     background-color: #434343;
     color: white;
+    font-weight: 500;
     height: 100%;
     border-radius: 4px;
     padding: 5px 10px;
@@ -71,4 +73,8 @@ export const SideBarFooterButton = styled.button`
     &:hover {
         background-color: #555555;
     };
+
+    svg {
+        font-weight: bold;
+    }
 `;

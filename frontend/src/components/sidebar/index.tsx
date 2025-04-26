@@ -12,11 +12,10 @@ import {
 } from "./styles";
 
 import { FaHome, FaQuestion, FaUsers } from "react-icons/fa";
-import { MdCategory, MdOutlineHomeWork } from "react-icons/md";
+import { MdCategory, MdLogout, MdOutlineHomeWork } from "react-icons/md";
 import { IoMdPricetag } from "react-icons/io";
 import { useLocation } from "react-router";
 import { TbMessage2Question } from "react-icons/tb";
-// import { IoLogOut } from "react-icons/io5";
 
 interface SideBarProps {
     type: "enterprise" | "employee";
@@ -95,7 +94,7 @@ export function SideBar({ type }: SideBarProps) {
 
                     <SideBarFooter>
                         <SideBarFooterButton>
-                            Sair
+                            <MdLogout size={16} /> Sair
                         </SideBarFooterButton>
                     </SideBarFooter>
                 </SideBarEnterprise>
@@ -167,7 +166,7 @@ export function SideBar({ type }: SideBarProps) {
 
                     <SideBarFooter>
                         <SideBarFooterButton>
-                            Sair
+                            <MdLogout size={16}/> Sair
                         </SideBarFooterButton>
                     </SideBarFooter>
                 </SideBarEmployee>
