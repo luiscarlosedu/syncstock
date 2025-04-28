@@ -1,9 +1,11 @@
-import { Container } from "./styles";
+import { Container, HomeContentContainer } from "./styles";
 
 export default function HomeEmployee() {
     return (
         <Container>
-            <h1>Page Home</h1>
+            <HomeContentContainer>
+
+            </HomeContentContainer>
         </Container>
     );
 }
