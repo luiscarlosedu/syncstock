@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 
 import { AuthLayout } from "./components/layouts/auth-layout";
 import { UseLayout } from "./components/layouts/use-layout";
+import { EmployeeRouteGuard } from "./routes/EmployeeRouteGuard";
 
 import Select from "./pages/Select";
 
@@ -30,9 +31,9 @@ import ProductsEmployee from "./pages/AppEmployee/Products";
 import EnterpriseEmployee from "./pages/AppEmployee/Enterprise";
 import AboutEmployee from "./pages/AppEmployee/About";
 import FAQEmployee from "./pages/AppEmployee/FAQ";
+import PendingEmployee from "./pages/AppEmployee/PendingEmployee";
 
 import Error from "./pages/Error";
-import { EmployeeRouteGuard } from "./routes/EmployeeRouteGuard";
 
 const router = createBrowserRouter([
   {
@@ -114,37 +115,42 @@ const router = createBrowserRouter([
     ],
   },
   {
-    element: <EmployeeRouteGuard />,
+    element: <UseLayout />,
     children: [
       {
-        path: '/funcionario/home',
-        element: <HomeEmployee />
-      },
-      {
-        path: '/funcionario/categorias',
-        element: <CategoriesEmployee />
-      },
-      {
-        path: '/funcionario/produtos',
-        element: <ProductsEmployee />
-      },
-      {
-        path: '/funcionario/empresa',
-        element: <EnterpriseEmployee />
-      },
-      {
-        path: '/funcionario/sobre',
-        element: <AboutEmployee />
-      },
-      {
-        path: '/funcionario/faq',
-        element: <FAQEmployee />
+        element: <EmployeeRouteGuard />,
+        children: [
+          {
+            path: '/funcionario/home',
+            element: <HomeEmployee />
+          },
+          {
+            path: '/funcionario/categorias',
+            element: <CategoriesEmployee />
+          },
+          {
+            path: '/funcionario/produtos',
+            element: <ProductsEmployee />
+          },
+          {
+            path: '/funcionario/empresa',
+            element: <EnterpriseEmployee />
+          },
+          {
+            path: '/funcionario/sobre',
+            element: <AboutEmployee />
+          },
+          {
+            path: '/funcionario/faq',
+            element: <FAQEmployee />
+          },
+        ]
       },
     ]
   },
   {
     path: '/funcionario/pendente',
-    element: <PendingEmployeePage /> 
+    element: <PendingEmployee /> 
   },
   {
     path: '*',

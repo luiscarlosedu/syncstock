@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Navigate, Outlet } from "react-router";
 
 export function EmployeeRouteGuard() {
     const funcionario = {
@@ -8,30 +8,8 @@ export function EmployeeRouteGuard() {
     };
 
     if(!funcionario.employed) {
-        console.log("error");
+        return <Navigate to={'/funcionario/pendente'} replace/>
     }
 
     return <Outlet />
-}
-
-/*
-
-model Funcionario {
-  id String @id @default(uuid())
-  nome String
-  email String @unique
-  senha String
-  employed Boolean @default(false)
-  foto String?
-  
-  // movimentacoes Movimentacao[]
-
-  createdAt DateTime? @default(now())
-  updatedAt DateTime @updatedAt
-
-  empresa Empresa? @relation(fields: [empresa_id], references: [id])
-
-  @@map("funcionarios")
-  empresa_id String? 
-}
-*/
+};
