@@ -144,7 +144,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/funcionario/pendente',
-    element: <PendingEmployeePage /> // cria essa página
+    element: <PendingEmployeePage /> 
   },
   {
     path: '*',
