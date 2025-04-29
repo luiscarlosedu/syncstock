@@ -32,6 +32,7 @@ import AboutEmployee from "./pages/AppEmployee/About";
 import FAQEmployee from "./pages/AppEmployee/FAQ";
 
 import Error from "./pages/Error";
+import { EmployeeRouteGuard } from "./routes/EmployeeRouteGuard";
 
 const router = createBrowserRouter([
   {
@@ -110,6 +111,11 @@ const router = createBrowserRouter([
         path: '/empresa/faq',
         element: <FAQEnterprise />
       },
+    ],
+  },
+  {
+    element: <EmployeeRouteGuard />,
+    children: [
       {
         path: '/funcionario/home',
         element: <HomeEmployee />
@@ -134,7 +140,11 @@ const router = createBrowserRouter([
         path: '/funcionario/faq',
         element: <FAQEmployee />
       },
-    ],
+    ]
+  },
+  {
+    path: '/funcionario/pendente',
+    element: <PendingEmployeePage /> // cria essa página
   },
   {
     path: '*',
