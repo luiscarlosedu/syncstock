@@ -9,7 +9,6 @@ export function EmployeeRouteGuard() {
 
     if(!funcionario.employed) {
         console.log("error");
-        return;
     }
 
     return <Outlet />
