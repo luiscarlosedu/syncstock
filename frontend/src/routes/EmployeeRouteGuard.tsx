@@ -4,11 +4,11 @@ export function EmployeeRouteGuard() {
     const funcionario = {
         nome: "arnaldo",
         email: "eduardo@teste.com",
-        employed: true
+        employed: false
     };
 
     if(!funcionario.employed) {
-        return <Navigate to={'/funcionario/pendente'} replace/>
+        return <Navigate to={'/funcionario/pendente'} replace />
     }
 
     return <Outlet />
