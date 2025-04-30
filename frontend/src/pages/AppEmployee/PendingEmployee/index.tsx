@@ -1,6 +1,8 @@
-import { Container } from "./styles";
+import { Container, ImageArea, PendingEmployeeContentContainer } from "./styles";
 import { Header } from "../../../components/header";
 import { Navigate } from "react-router";
+
+import PendingEmployeeImage from '../../../assets/pendent-employee.jpg';
 
 export default function PendingEmployee() {
     const funcionario = {
@@ -14,6 +16,10 @@ export default function PendingEmployee() {
     return (
         <Container>
             <Header type="employee" />
+
+            <PendingEmployeeContentContainer>
+                <ImageArea src={PendingEmployeeImage} />
+            </PendingEmployeeContentContainer>
         </Container>
     );
 }
