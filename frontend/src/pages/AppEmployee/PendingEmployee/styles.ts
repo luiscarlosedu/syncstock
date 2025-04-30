@@ -16,6 +16,7 @@ export const ImageArea = styled.img`
     height: 300px;
     margin-top: 75px;
     object-fit: cover;
+    user-select: none;
     border-radius: 4px;
     @media screen and (max-width: 768px) {
         margin-top: 0;

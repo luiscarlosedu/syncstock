@@ -6,6 +6,7 @@ import PendingEmployeeImage from '../../../assets/pendent-employee.jpg';
 
 export default function PendingEmployee() {
     const funcionario = {
+        nome: 'Arnaldo César',
         employed: false
     }
 
@@ -19,6 +20,8 @@ export default function PendingEmployee() {
 
             <PendingEmployeeContentContainer>
                 <ImageArea src={PendingEmployeeImage} />
+
+                <h1>Olá! {funcionario.nome}</h1>
             </PendingEmployeeContentContainer>
         </Container>
     );
