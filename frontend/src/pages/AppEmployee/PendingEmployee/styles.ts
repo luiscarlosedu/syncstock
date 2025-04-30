@@ -14,7 +14,7 @@ export const PendingEmployeeContentContainer = styled.div`
 export const ImageArea = styled.img`
     width: 100%;
     height: 300px;
-    margin-top: 80px;
+    margin-top: 75px;
     object-fit: cover;
     border-radius: 4px;
     @media screen and (max-width: 768px) {
