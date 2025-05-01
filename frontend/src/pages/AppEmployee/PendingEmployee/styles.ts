@@ -4,6 +4,8 @@ export const Container = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #f1f1f1;
+    height: 100dvh;
 `;
 
 export const ImageArea = styled.img`
