@@ -25,11 +25,11 @@ export default function PendingEmployee() {
                 <Title>Olá, {funcionario.nome}</Title>
                 <Description>
                     Seu e-mail ainda <strong>não está vinculado a nenhuma empresa</strong> pela empresa. 
-                    Assim que for aprovado, você irá acessar sua conta normalmente.
+                    Assim que for aprovado, você irá acessar sua conta normalmente. Enquanto você não está cadastrado em uma empresa, você pode editar sua conta!
                 </Description>
 
                 <BackButton onClick={() => navigate("/funcionario/detalhes")}>
-                    Voltar ao Início
+                    Editar sua conta
                 </BackButton>
             </PendingEmployeeContentContainer>
         </Container>
