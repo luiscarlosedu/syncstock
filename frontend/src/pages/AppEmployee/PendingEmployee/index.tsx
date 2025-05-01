@@ -24,8 +24,8 @@ export default function PendingEmployee() {
             <PendingEmployeeContentContainer>
                 <Title>Olá, {funcionario.nome}</Title>
                 <Description>
-                    Seu acesso ainda está <strong>pendente de aprovação</strong> pela empresa.
-                    Assim que for aprovado, você receberá uma notificação para acessar sua conta normalmente.
+                    Seu e-mail ainda <strong>não está vinculado a nenhuma empresa</strong> pela empresa. 
+                    Assim que for aprovado, você irá acessar sua conta normalmente.
                 </Description>
 
                 <BackButton onClick={() => navigate("/")}>
