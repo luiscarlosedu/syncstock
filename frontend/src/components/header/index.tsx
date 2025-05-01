@@ -22,7 +22,7 @@ export function Header({ type }: HeaderProps) {
             <HeaderLogo>
                 <HeaderLogoImage src={ImageLogo} />
                 <HeaderLogoTitle
-                    onClick={() => navigate(type === 'enterprise' ? "/empresa/home" : "/funcionario")}
+                    onClick={() => navigate(type === 'enterprise' ? "/empresa/home" : "/funcionario/home")}
                 >
                     SyncStock
                 </HeaderLogoTitle>
