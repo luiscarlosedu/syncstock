@@ -28,7 +28,7 @@ export default function PendingEmployee() {
                     Assim que for aprovado, você irá acessar sua conta normalmente.
                 </Description>
 
-                <BackButton onClick={() => navigate("/")}>
+                <BackButton onClick={() => navigate("/funcionario/detalhes")}>
                     Voltar ao Início
                 </BackButton>
             </PendingEmployeeContentContainer>
