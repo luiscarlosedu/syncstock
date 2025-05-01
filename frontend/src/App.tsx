@@ -34,6 +34,7 @@ import FAQEmployee from "./pages/AppEmployee/FAQ";
 import PendingEmployee from "./pages/AppEmployee/PendingEmployee";
 
 import Error from "./pages/Error";
+import MyAccount from "./pages/AppEmployee/MyAccount";
 
 const router = createBrowserRouter([
   {
@@ -151,6 +152,10 @@ const router = createBrowserRouter([
   {
     path: '/funcionario/pendente',
     element: <PendingEmployee /> 
+  },
+  {
+    path: '/funcionario/detalhes',
+    element: <MyAccount />
   },
   {
     path: '*',
