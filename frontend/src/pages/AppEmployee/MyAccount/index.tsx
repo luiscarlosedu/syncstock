@@ -1,9 +1,13 @@
-import { Container } from "./styles";
+import { Header } from "../../../components/header";
+import { Container, MyAccountContentContainer } from "./styles";
 
 export default function MyAccount() {
     return (
         <Container>
-            
+            <Header type="employee" />
+            <MyAccountContentContainer>
+                <p>akdiawjdwaknd</p>
+            </MyAccountContentContainer>
         </Container>
     );
 }
