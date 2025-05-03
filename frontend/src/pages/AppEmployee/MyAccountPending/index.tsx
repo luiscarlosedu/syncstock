@@ -1,13 +1,16 @@
-import { Header } from "../../../components/header";
+import { PendingHeader } from "../../../components/pending-header";
 import { Container, MyAccountContentContainer } from "./styles";
 
 export default function MyAccountPending() {
     return (
-        <Container>
-            <Header type="employee" />
-            <MyAccountContentContainer>
-                <p>akdiawjdwaknd</p>
-            </MyAccountContentContainer>
-        </Container>
+        <>
+            <PendingHeader/>
+            <Container>
+                
+                <MyAccountContentContainer>
+                    <p>akdiawjdwaknd</p>
+                </MyAccountContentContainer>
+            </Container>
+        </>
     );
 }
