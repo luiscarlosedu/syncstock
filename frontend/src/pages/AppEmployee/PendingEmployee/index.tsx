@@ -28,7 +28,7 @@ export default function PendingEmployee() {
                     Assim que for aprovado, você irá acessar sua conta normalmente. Enquanto você não está cadastrado em uma empresa, você pode editar sua conta!
                 </Description>
 
-                <BackButton onClick={() => navigate("/funcionario/detalhes")}>
+                <BackButton onClick={() => navigate("/funcionario/pendente/detalhes")}>
                     Editar sua conta
                 </BackButton>
             </PendingEmployeeContentContainer>
