@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router";
-import { MyStoreHead, MyStoryHeadInfo, StoreImage, StoryBtn, StoryBtnArea, StoryTitleName } from "../../../components/my-store-header/styles";
 import { PendingHeader } from "../../../components/pending-header";
 import { Container, MyAccountContentContainer } from "./styles";
+import { UserHeaderPending } from "./components/user-header-pending";
 
-interface EmployeeProps {
+export interface EmployeeProps {
     name: string;
     type: "employee" | "enterprise"
     employed: boolean;
@@ -11,7 +10,6 @@ interface EmployeeProps {
 }
 
 export default function MyAccountPending() {
-    const navigate = useNavigate();
 
     const funcionario: EmployeeProps = {
         name: 'Victor Shaoles',
@@ -24,61 +22,14 @@ export default function MyAccountPending() {
         <>
             <PendingHeader/>
             <Container>
+                <UserHeaderPending 
+                    name={funcionario.name}
+                    employed={funcionario.employed}
+                    type={funcionario.type}
+                    image={funcionario.image}
+                />
                 <MyAccountContentContainer>
-                    <MyStoreHead>
-                        <StoreImage src={funcionario.image} />
-                        <MyStoryHeadInfo>
-                            <StoryTitleName>
-                                {funcionario.name}
-                            </StoryTitleName>
-        
-                            {location.pathname === '/funcionario/pendente/detalhes' && (
-                                <StoryBtnArea>
-                                    <StoryBtn
-                                        onClick={() => navigate('/funcionario/pendente/detalhes/editar')}
-                                    >
-                                        Editar
-                                    </StoryBtn>
-                                        <StoryBtn
-                                        onClick={() => navigate('/funcionario/pendente/detalhes/configurar')}
-                                    >
-                                        Configurar
-                                    </StoryBtn>
-                                </StoryBtnArea>
-                            )}
-        
-                            {location.pathname === '/empresa/detalhes/editar' && (
-                                <StoryBtnArea>
-                                    <StoryBtn
-                                        onClick={() => navigate('/empresa/detalhes')}
-                                    >
-                                        Detalhes
-                                    </StoryBtn>
-                                        <StoryBtn
-                                        onClick={() => navigate('/empresa/detalhes/configurar')}
-                                    >
-                                        Configurar
-                                    </StoryBtn>
-                                </StoryBtnArea>
-                            )}
-        
-                            {location.pathname === '/empresa/detalhes/configurar' && (
-                                <StoryBtnArea>
-                                    <StoryBtn
-                                        onClick={() => navigate('/empresa/detalhes')}
-                                    >
-                                        Detalhes
-                                    </StoryBtn>
-                                        <StoryBtn
-                                        onClick={() => navigate('/empresa/detalhes/editar')}
-                                    >
-                                        Editar
-                                    </StoryBtn>
-                                </StoryBtnArea>
-                            )}
-                            
-                        </MyStoryHeadInfo>
-                    </MyStoreHead>
+                    
                 </MyAccountContentContainer>
             </Container>
         </>
