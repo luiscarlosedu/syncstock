@@ -11,7 +11,6 @@ export interface EmployeeProps {
 }
 
 export default function MyAccountPending() {
-
     const funcionario: EmployeeProps = {
         name: 'Luís Eduardo',
         employed: false,

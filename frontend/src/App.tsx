@@ -31,10 +31,12 @@ import ProductsEmployee from "./pages/AppEmployee/Products";
 import EnterpriseEmployee from "./pages/AppEmployee/Enterprise";
 import AboutEmployee from "./pages/AppEmployee/About";
 import FAQEmployee from "./pages/AppEmployee/FAQ";
+
 import PendingEmployee from "./pages/AppEmployee/PendingEmployee";
+import MyAccountPending from "./pages/AppEmployee/MyAccountPending";
+import MyAccountPendingEdit from "./pages/AppEmployee/MyAccountPending/MyAccountPendingEdit";
 
 import Error from "./pages/Error";
-import MyAccountPending from "./pages/AppEmployee/MyAccountPending";
 
 const router = createBrowserRouter([
   {
@@ -156,6 +158,10 @@ const router = createBrowserRouter([
   {
     path: '/funcionario/pendente/detalhes',
     element: <MyAccountPending />
+  },
+  {
+    path: '/funcionario/pendente/detalhes/editar',
+    element: <MyAccountPendingEdit />
   },
   {
     path: '*',
