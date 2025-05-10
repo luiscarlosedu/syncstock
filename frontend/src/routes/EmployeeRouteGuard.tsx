@@ -4,7 +4,7 @@ export function EmployeeRouteGuard() {
     const funcionario = {
         nome: "arnaldo",
         email: "eduardo@teste.com",
-        employed: false
+        employed: true
     };
 
     if(!funcionario.employed) {
