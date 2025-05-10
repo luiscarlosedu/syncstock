@@ -1,6 +1,7 @@
 import { PendingHeader } from "../../../components/pending-header";
 import { Container, MyAccountContentContainer } from "./styles";
 import { UserHeaderPending } from "./components/user-header-pending";
+import MyAccountPendinginfo from "./MyAccountPendingInfo";
 
 export interface EmployeeProps {
     name: string;
@@ -29,6 +30,8 @@ export default function MyAccountPending() {
                         type={funcionario.type}
                         image={funcionario.image}
                     />
+
+                    <MyAccountPendinginfo />
                 </MyAccountContentContainer>
             </Container>
         </>
