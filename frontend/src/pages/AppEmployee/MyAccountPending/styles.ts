@@ -8,7 +8,7 @@ export const Container = styled.article`
 `;
 
 export const MyAccountContentContainer = styled.main`
-    widows: 100%;
+    width: 100%;
     max-width: 1100px;
     margin-top: 80px;
     display: flex;

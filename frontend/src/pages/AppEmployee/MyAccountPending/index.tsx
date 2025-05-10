@@ -22,14 +22,13 @@ export default function MyAccountPending() {
         <>
             <PendingHeader/>
             <Container>
-                <UserHeaderPending 
-                    name={funcionario.name}
-                    employed={funcionario.employed}
-                    type={funcionario.type}
-                    image={funcionario.image}
-                />
                 <MyAccountContentContainer>
-                    
+                    <UserHeaderPending 
+                        name={funcionario.name}
+                        employed={funcionario.employed}
+                        type={funcionario.type}
+                        image={funcionario.image}
+                    />
                 </MyAccountContentContainer>
             </Container>
         </>
