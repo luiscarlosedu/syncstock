@@ -7,19 +7,7 @@ export const Container = styled.article`
     height: 100dvh;
 `;
 
-export const StoreEditContentContainer = styled.main`
-    width: 100%;
-    max-width: 1100px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    @media screen and (min-width: 1800px) {
-        max-width: 1300px;
-    }
-`;
-
-export const StoreEditContent = styled.form`
+export const PendingEditContent = styled.form`
     background: #fff;   
     width: 100%;
     padding: 10px;
@@ -28,20 +16,20 @@ export const StoreEditContent = styled.form`
     gap: 10px;
 `;
 
-export const StoreEditInputContainer = styled.div`
+export const PendingEditInputContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 4px;
 `;
 
-export const StoreEditLabel = styled.label`
+export const PendingEditLabel = styled.label`
     font-size: 14px;
     font-weight: 600;
     color: #333;
 `;
 
-export const StoreEditInput = styled.input`
+export const PendingEditInput = styled.input`
     padding: 8px 10px;
     border: 2px solid #ddd;
     border-radius: 6px;
@@ -54,12 +42,12 @@ export const StoreEditInput = styled.input`
     }
 `;
 
-export const StoreEditTwoInputsContainer = styled.div`
+export const PendingEditTwoInputsContainer = styled.div`
     display: flex;
     gap: 10px;
 `;
 
-export const StoreEditSubmit = styled.button`
+export const PendingEditSubmit = styled.button`
     background-color: #2B2B2B;
     color: white;
     padding: 8px 15px;
