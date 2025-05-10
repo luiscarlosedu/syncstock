@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Container = styled.article`
     display: flex;
     justify-content: center;
+    background-color: #F1F1F1;
+    height: 100dvh;
 `;
 
 export const StoreEditContentContainer = styled.main`

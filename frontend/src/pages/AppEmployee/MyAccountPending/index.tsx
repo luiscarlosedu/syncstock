@@ -25,8 +25,6 @@ export default function MyAccountPending() {
                 <MyAccountContentContainer>
                     <UserHeaderPending 
                         name={funcionario.name}
-                        employed={funcionario.employed}
-                        type={funcionario.type}
                         image={funcionario.image}
                     />
 

@@ -1,11 +1,13 @@
 import { useLocation, useNavigate } from "react-router";
 import { UserBtn, UserBtnArea, UserHeaderPendingContainer, UserImage, UserPendingInfo, UserTitleName } from "./styles";
-
-import { EmployeeProps } from "../..";
+interface HeaderProps {
+    name: string;
+    image: string;
+}
 
 export function UserHeaderPending({
     name, image
-}: EmployeeProps) {
+}: HeaderProps) {
     const navigate = useNavigate();
     const location = useLocation();
     return (
@@ -31,30 +33,30 @@ export function UserHeaderPending({
                     </UserBtnArea>
                 )}
 
-                {location.pathname === '/empresa/detalhes/editar' && (
+                {location.pathname === '/funcionario/pendente/detalhes/editar' && (
                     <UserBtnArea>
                         <UserBtn
-                            onClick={() => navigate('/empresa/detalhes')}
+                            onClick={() => navigate('/funcionario/pendente/detalhes')}
                         >
                             Detalhes
                         </UserBtn>
                             <UserBtn
-                            onClick={() => navigate('/empresa/detalhes/configurar')}
+                            onClick={() => navigate('/funcionario/detalhes/configurar')}
                         >
                             Configurar
                         </UserBtn>
                     </UserBtnArea>
                 )}
 
-                {location.pathname === '/empresa/detalhes/configurar' && (
+                {location.pathname === '/funcionario/pendente/detalhes/configurar' && (
                     <UserBtnArea>
                         <UserBtn
-                            onClick={() => navigate('/empresa/detalhes')}
+                            onClick={() => navigate('/funcionario/pendente/detalhes')}
                         >
                             Detalhes
                         </UserBtn>
                             <UserBtn
-                            onClick={() => navigate('/empresa/detalhes/editar')}
+                            onClick={() => navigate('/funcionario/pendente/detalhes/editar')}
                         >
                             Editar
                         </UserBtn>
