@@ -12,10 +12,10 @@ export interface EmployeeProps {
 export default function MyAccountPending() {
 
     const funcionario: EmployeeProps = {
-        name: 'Victor Shaoles',
-        employed: true,
+        name: 'Luís Eduardo',
+        employed: false,
         type: 'employee',
-        image: "https://github.com/victorrxyv.png"
+        image: "https://avatars.githubusercontent.com/u/157180909?v=4"
     }
         
     return (
