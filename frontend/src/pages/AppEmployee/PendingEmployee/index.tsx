@@ -1,8 +1,8 @@
 import { Container, ImageArea, PendingEmployeeContentContainer, Title, Description, BackButton } from "./styles";
-import { Header } from "../../../components/header";
 import { Navigate, useNavigate } from "react-router";
 
 import PendingEmployeeImage from '../../../assets/pendent-employee.jpg';
+import { PendingHeader } from "../../../components/pending-header";
 
 export default function PendingEmployee() {
     const navigate = useNavigate();
@@ -16,22 +16,23 @@ export default function PendingEmployee() {
     }
 
     return (
-        <Container>
-            <Header type="employee" />
+        <>
+            <PendingHeader />
+            <Container>
+                <ImageArea src={PendingEmployeeImage} />
 
-            <ImageArea src={PendingEmployeeImage} />
+                <PendingEmployeeContentContainer>
+                    <Title>Olá, {funcionario.nome}</Title>
+                    <Description>
+                        Seu e-mail ainda <strong>não está vinculado a nenhuma empresa</strong> pela empresa. 
+                        Assim que for aprovado, você irá acessar sua conta normalmente. Enquanto você não está cadastrado em uma empresa, você pode editar sua conta!
+                    </Description>
 
-            <PendingEmployeeContentContainer>
-                <Title>Olá, {funcionario.nome}</Title>
-                <Description>
-                    Seu e-mail ainda <strong>não está vinculado a nenhuma empresa</strong> pela empresa. 
-                    Assim que for aprovado, você irá acessar sua conta normalmente. Enquanto você não está cadastrado em uma empresa, você pode editar sua conta!
-                </Description>
-
-                <BackButton onClick={() => navigate("/funcionario/detalhes")}>
-                    Editar sua conta
-                </BackButton>
-            </PendingEmployeeContentContainer>
-        </Container>
+                    <BackButton onClick={() => navigate("/funcionario/pendente/detalhes")}>
+                        Editar sua conta
+                    </BackButton>
+                </PendingEmployeeContentContainer>
+            </Container>
+        </>
     );
 }
