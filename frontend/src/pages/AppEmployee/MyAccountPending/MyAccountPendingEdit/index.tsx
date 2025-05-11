@@ -1,3 +1,4 @@
+import { Navigate } from "react-router";
 import { EmployeeProps } from "..";
 import { PendingHeader } from "../../../../components/pending-header";
 import { UserHeaderPending } from "../components/user-header-pending";
@@ -7,10 +8,15 @@ import { Container, PendingEditContent, PendingEditInput, PendingEditInputContai
 export default function MyAccountPendingEdit() {
     const funcionario: EmployeeProps = {
         name: 'Luís Eduardo',
-        employed: false,
+        employed: true,
         type: 'employee',
         image: "https://avatars.githubusercontent.com/u/157180909?v=4"
     }
+
+    if (funcionario.employed === true) {
+        return <Navigate to={'/funcionario/home'} replace />;
+    }
+
     return (
         <>
             <PendingHeader />

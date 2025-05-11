@@ -29,7 +29,7 @@ export default function RegisterEmployee() {
                         <RegisterInputContainer>
                             <RegisterLabel htmlFor="inome">Nome</RegisterLabel>
                             <Input 
-                                placeholder="Digite o nome da empresa"
+                                placeholder="Digite seu nome"
                                 type="text"
                                 name="nome"
                                 required
