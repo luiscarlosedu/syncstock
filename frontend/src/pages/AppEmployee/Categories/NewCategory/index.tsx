@@ -24,7 +24,7 @@ export default function NewCategoryEmployee() {
                     </CreateCategoryContent>
                     <CreateCategoryBtn 
                         // type="submit" 
-                        onClick={() => navigate('/empresa/categorias')}
+                        onClick={() => navigate('/funcionario/categorias')}
                     >
                         Adicionar
                     </CreateCategoryBtn>

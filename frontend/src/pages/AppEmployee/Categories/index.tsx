@@ -25,7 +25,7 @@ export default function CategoriesEmployee() {
                 <CategoryTitleAddContainer>
                     <CategoryTitle>Categorias</CategoryTitle>
                     <CategoryAdd
-                        onClick={() => navigate('/empresa/categorias/criar')}
+                        onClick={() => navigate('/funcionario/categorias/criar')}
                     >+ Criar categoria</CategoryAdd>
                 </CategoryTitleAddContainer>
 
