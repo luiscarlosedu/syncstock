@@ -38,6 +38,7 @@ import MyAccountPending from "./pages/AppEmployee/MyAccountPending";
 import MyAccountPendingEdit from "./pages/AppEmployee/MyAccountPending/MyAccountPendingEdit";
 
 import Error from "./pages/Error";
+import UpdateProducts from "./pages/AppEmployee/Products/UpdateProducts";
 
 const router = createBrowserRouter([
   {
@@ -139,6 +140,10 @@ const router = createBrowserRouter([
           {
             path: '/funcionario/produtos',
             element: <ProductsEmployee />
+          },
+          {
+            path: '/funcionario/produtos/atualizar',
+            element: <UpdateProducts />
           },
           {
             path: '/funcionario/empresa',
