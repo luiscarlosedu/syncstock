@@ -25,6 +25,8 @@ import {
     ProductImage,
     UpdateData,
 } from "./styles";
+import { useState } from "react";
+import { UpdateProductModal } from "../../../components/update-product-modal";
 // import { useNavigate } from "react-router";
 
 const products = [
@@ -85,6 +87,7 @@ const products = [
 
 export default function ProductsEmployee() {
     // const navigate = useNavigate();
+    const [modalOpen, setModalOpen] = useState(false);
     
     return (
         <Container>
@@ -139,7 +142,9 @@ export default function ProductsEmployee() {
                                         <TableData>{product.inventory}</TableData>
                                         <TableData>{product.category}</TableData>
                                         <TableData>
-                                            <UpdateData><FaExchangeAlt /></UpdateData>
+                                            <UpdateData
+                                                onClick={() => setModalOpen(true)}
+                                            ><FaExchangeAlt /></UpdateData>
                                         </TableData>
                                     </TableRow>
                                 ))}
@@ -148,6 +153,11 @@ export default function ProductsEmployee() {
                     </ProductsContainer>
                 </ProductContent>
             </ProductContentContainer>
+
+            <UpdateProductModal
+                isOpen={modalOpen}
+                onClose={() => setModalOpen(false)}
+            />
         </Container>
     );
 }
