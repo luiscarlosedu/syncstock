@@ -1,4 +1,4 @@
-import { FaSearch } from "react-icons/fa";
+import { FaExchangeAlt, FaSearch } from "react-icons/fa";
 
 import {
     Container,
@@ -23,6 +23,7 @@ import {
     TableBody,
     TableData,
     ProductImage,
+    UpdateData,
 } from "./styles";
 // import { useNavigate } from "react-router";
 
@@ -137,7 +138,9 @@ export default function ProductsEmployee() {
                                         </TableData> */}
                                         <TableData>{product.inventory}</TableData>
                                         <TableData>{product.category}</TableData>
-                                        <TableData>Atualizar</TableData>
+                                        <TableData>
+                                            <UpdateData><FaExchangeAlt /></UpdateData>
+                                        </TableData>
                                     </TableRow>
                                 ))}
                             </TableBody>

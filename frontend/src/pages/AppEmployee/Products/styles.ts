@@ -132,6 +132,21 @@ export const TableData = styled.td`
     font-size: 14px;
 `;
 
+export const UpdateData = styled.button`
+    background-color: #1A1A1A;
+    cursor: pointer;
+    border: 0;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 8px;
+    display: flex;
+    transition: all .4s;
+
+    &:hover {
+        background-color: #333;
+    }
+`;
+
 export const ProductImage = styled.img`
     width: 35px;
     height: 35px;
