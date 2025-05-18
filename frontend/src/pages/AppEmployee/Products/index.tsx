@@ -24,7 +24,7 @@ import {
     TableData,
     ProductImage,
 } from "./styles";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
 const products = [
     {
@@ -83,7 +83,7 @@ const products = [
 ];
 
 export default function ProductsEmployee() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     
     return (
         <Container>
@@ -91,7 +91,7 @@ export default function ProductsEmployee() {
                 <ProductsTitleAddContainer>
                     <ProductsTitle>Produtos</ProductsTitle>
                     <ProductsAdd
-                        onClick={() => navigate("/funcionario/produtos/adicionar")}
+                        // onClick={() => navigate("/funcionario/produtos/adicionar")}
                     >+ Atualizar estoque</ProductsAdd>
                 </ProductsTitleAddContainer>
 
@@ -121,8 +121,8 @@ export default function ProductsEmployee() {
                                     {/* <TableHeader>Status</TableHeader> */}
                                     <TableHeader>Estoque</TableHeader>
                                     {/* <TableHeader>Canais</TableHeader> */}
-                                    {/* <TableHeader>Mercados</TableHeader> */}
                                     <TableHeader>Categoria</TableHeader>
+                                    <TableHeader>Ação</TableHeader>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -136,8 +136,8 @@ export default function ProductsEmployee() {
                                             <StatusBadge status={product.status}>{product.status}</StatusBadge>
                                         </TableData> */}
                                         <TableData>{product.inventory}</TableData>
-                                        {/* <TableData>{product.salesChannels}</TableData> */}
                                         <TableData>{product.category}</TableData>
+                                        <TableData>Atualizar</TableData>
                                     </TableRow>
                                 ))}
                             </TableBody>
