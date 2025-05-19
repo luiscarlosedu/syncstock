@@ -140,6 +140,10 @@ const router = createBrowserRouter([
             path: '/funcionario/produtos',
             element: <ProductsEmployee />
           },
+          // {
+          //   path: '/funcionario/produtos/atualizar',
+          //   element: <UpdateProducts />
+          // },
           {
             path: '/funcionario/empresa',
             element: <EnterpriseEmployee />
