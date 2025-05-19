@@ -66,7 +66,7 @@ export const TypeButton = styled.button<{
   padding: 7px 10px;
   border-radius: 8px;
   cursor: pointer;
-  border: 3px solid ${({btnType}) => btnType === 'entrada' ? "#00bb00" : "#ff2323"};
+  border: 2px solid ${({btnType}) => btnType === 'entrada' ? "#00bb00" : "#ff2323"};
   background-color: ${({ selected, btnType }) => selected ? btnType === 'entrada' ? "#00bb00" : "#ff2323" : "transparent"};
   color: ${({ selected, btnType }) => selected ? btnType === 'entrada' ? "#fff" : "#fff" : btnType === 'entrada' ? "#00bb00" : "#ff2323"};
   font-weight: bold;
