@@ -4,7 +4,7 @@ import {
     Container,
     ProductContentContainer,
     ProductsTitleAddContainer,
-    ProductsAdd,
+    // ProductsAdd,
     ProductsTitle,
     ProductContent,
     ProductTotalSearchContainer,
@@ -94,9 +94,9 @@ export default function ProductsEmployee() {
             <ProductContentContainer>
                 <ProductsTitleAddContainer>
                     <ProductsTitle>Produtos</ProductsTitle>
-                    <ProductsAdd
+                    {/* <ProductsAdd
                         // onClick={() => navigate("/funcionario/produtos/adicionar")}
-                    >+ Atualizar estoque</ProductsAdd>
+                    >+ Atualizar estoque</ProductsAdd> */}
                 </ProductsTitleAddContainer>
 
                 <ProductContent>

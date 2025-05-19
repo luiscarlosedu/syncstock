@@ -1,4 +1,22 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const slideIn = keyframes`
+  from {
+    transform: translateY(-12px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+`;
 
 export const Overlay = styled.div`
   position: fixed;
@@ -8,6 +26,7 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 100;
+  animation: ${fadeIn} 0.3s ease-out;
 `;
 
 export const Content = styled.div`
@@ -17,6 +36,7 @@ export const Content = styled.div`
   max-width: 400px;
   padding: 20px 24px;
   position: relative;
+  animation: ${slideIn} 0.3s ease-out;
 `;
 
 export const Header = styled.div`
