@@ -48,7 +48,7 @@ export function UpdateProductModal({ isOpen, onClose }: UpdateModalProps) {
                         btnType="entrada"
                         selected={updateType === "entrada"}
                         onClick={() => setUpdateType("entrada")}
-                        >
+                    >
                         Entrada
                     </TypeButton>
                     <TypeButton
