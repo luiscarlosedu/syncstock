@@ -24,8 +24,6 @@ export const SelectContent = styled.div`
     height: 100%;
     justify-content: space-between;
     align-items: center;
-
-    
 `;
 
 export const SelectContentText = styled.div`
@@ -43,15 +41,27 @@ export const SelectContentTextContainer = styled.div``;
 export const SelectLabel = styled.h3`
     font-size: 16px;
     font-weight: 600;
+
+    @media screen and (max-width: 768px) {
+        font-size: 13px;
+    }
 `;
 
 export const Title = styled.h1`
     font-size: 30px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 27px;
+    }
 `;
 
 export const SubTitle = styled.h2`
     font-size: 19px;
     color: #606060;
+
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+    }
 `;
 
 export const SelectButtonArea = styled.div`
@@ -73,6 +83,10 @@ export const SelectButton = styled.button`
     transition: 0.2s;
     user-select: none;
 
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+    }
+
     &:hover {
         background-color: #505050;
     }
@@ -90,4 +104,8 @@ export const SelectFooterText = styled.p`
     font-size: 12px;
     color: #505050;
     text-align: justify;
+
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+    }
 `;
