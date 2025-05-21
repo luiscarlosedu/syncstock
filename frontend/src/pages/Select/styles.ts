@@ -5,16 +5,27 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px 60px;
+
+    @media screen and (max-width: 1247px) and (min-width: 1000px)  {
+        padding: 10px 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 20px 0px;
+    }
 `;
 
 export const SelectContent = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 20px 60px;
+    
     height: 100%;
     justify-content: space-between;
     align-items: center;
+
+    
 `;
 
 export const SelectContentText = styled.div`
@@ -69,6 +80,10 @@ export const SelectButton = styled.button`
 
 export const SelectContentFooter = styled.div`
     padding: 0px 10px;
+    
+    @media screen and (max-width: 768px) {
+        padding: 0px 20px;
+    }
 `;
 
 export const SelectFooterText = styled.p`

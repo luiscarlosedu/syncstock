@@ -9,4 +9,9 @@ export const Container = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #505050;
+
+    @media screen and (max-width: 1000px) {
+        height: 300px;
+        max-height: 300px;
+    }
 `;

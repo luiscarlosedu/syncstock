@@ -5,4 +5,9 @@ export const Container = styled.div`
     flex-direction: row;
     height: 100dvh;
     max-height: 100dvh;
+
+    @media screen and (max-width: 1000px) {
+        flex-direction: column-reverse;
+        height: auto;
+    }
 `;
