@@ -37,7 +37,6 @@ export default function MyAccount() {
                         name={funcionario.name}
                         email={funcionario.email}
                         enterpriseName={funcionario.enterpriseName}
-                        
                     />
                 </MyAccountContentContainer>
             </Container>

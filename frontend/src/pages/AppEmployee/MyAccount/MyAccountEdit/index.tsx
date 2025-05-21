@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { EmployeeProps } from "..";
 import { UserHeaderDetail } from "../components/user-header-detail";
 import { MyAccountContentContainer } from "../styles";
@@ -12,6 +13,8 @@ export default function MyAccountEdit() {
         type: 'employee',
         image: "https://avatars.githubusercontent.com/u/157180909?v=4"
     }
+
+    const [name, setName] = useState(funcionario.name);
 
     return (
         <>
@@ -30,6 +33,8 @@ export default function MyAccountEdit() {
                                 id="iname"
                                 name="name"
                                 type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                             />
                         </EditInputContainer>
                         <EditSubmit>
