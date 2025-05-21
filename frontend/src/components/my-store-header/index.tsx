@@ -7,8 +7,6 @@ export function MyStoreHeader() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    if(location.pathname)
-
     return (
         <>
             <MyStoreHead>
