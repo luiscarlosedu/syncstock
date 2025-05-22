@@ -13,6 +13,14 @@ export const LoginContainer = styled.div`
     height: 100%;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 1247px) and (min-width: 1000px)  {
+        padding: 10px 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 20px 0px;
+    }
 `;
 
 export const LoginContent = styled.div`
@@ -31,11 +39,19 @@ export const LoginContentText = styled.div`
 
 export const LoginTitle = styled.h1`
     font-size: 27px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 23px;
+    }
 `;
 
 export const LoginSubTitle = styled.h2`
     font-size: 19px;
     color: #606060;
+
+    @media screen and (max-width: 768px) {
+        font-size: 17px;
+    }
 `;
 
 export const LoginForm = styled.form`
@@ -51,6 +67,10 @@ export const LoginInputContainer = styled.div`
 export const LoginLabel = styled.label`
     font-weight: 600;
     font-size: 15px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
 `;
 
 export const Input = styled.input`
@@ -59,6 +79,10 @@ export const Input = styled.input`
     font-size: 14px;
     border-radius: 5px;
     margin-bottom: 10px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+    }
 `;
 
 export const LoginFormSubmit = styled.button`

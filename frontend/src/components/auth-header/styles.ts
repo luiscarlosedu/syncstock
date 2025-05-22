@@ -7,6 +7,10 @@ export const ContentHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+        padding: 0px 20px;
+    }
 `;
 
 export const HeaderLogo = styled.div`

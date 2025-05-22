@@ -5,13 +5,22 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px 60px;
+
+    @media screen and (max-width: 1247px) and (min-width: 1000px)  {
+        padding: 10px 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 20px 0px;
+    }
 `;
 
 export const SelectContent = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 20px 60px;
+    
     height: 100%;
     justify-content: space-between;
     align-items: center;
@@ -32,15 +41,27 @@ export const SelectContentTextContainer = styled.div``;
 export const SelectLabel = styled.h3`
     font-size: 16px;
     font-weight: 600;
+
+    @media screen and (max-width: 768px) {
+        font-size: 13px;
+    }
 `;
 
 export const Title = styled.h1`
     font-size: 30px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 27px;
+    }
 `;
 
 export const SubTitle = styled.h2`
     font-size: 19px;
     color: #606060;
+
+    @media screen and (max-width: 768px) {
+        font-size: 15px;
+    }
 `;
 
 export const SelectButtonArea = styled.div`
@@ -62,6 +83,10 @@ export const SelectButton = styled.button`
     transition: 0.2s;
     user-select: none;
 
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+    }
+
     &:hover {
         background-color: #505050;
     }
@@ -69,10 +94,18 @@ export const SelectButton = styled.button`
 
 export const SelectContentFooter = styled.div`
     padding: 0px 10px;
+    
+    @media screen and (max-width: 768px) {
+        padding: 0px 20px;
+    }
 `;
 
 export const SelectFooterText = styled.p`
     font-size: 12px;
     color: #505050;
     text-align: justify;
+
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+    }
 `;
