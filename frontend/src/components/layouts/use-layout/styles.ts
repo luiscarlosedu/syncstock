@@ -10,6 +10,12 @@ export const UseLayoutPage = styled.main`
     margin-top: 65px;
     overflow: hidden;
 
+    aside {
+        @media screen and (max-width: 1000px) {
+            display: none;
+        }
+    }
+
     aside > div {
         display: flex;
         flex-direction: column;
