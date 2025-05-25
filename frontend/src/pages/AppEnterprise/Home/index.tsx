@@ -63,8 +63,8 @@ export default function HomeEnterprise() {
                 </HomeContent>
 
                 <StockSummary>
-                    <StockCard>📦 Produtos: <br /> 120</StockCard>
-                    <StockCard>📂 Categorias: <br /> 10</StockCard>
+                    <StockCard>📦 Produtos: <span>120</span></StockCard>
+                    <StockCard>📂 Categorias:  <span>10</span></StockCard>
                 </StockSummary>
 
                 <QuickActions>

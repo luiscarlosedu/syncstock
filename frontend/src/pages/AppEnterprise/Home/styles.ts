@@ -84,6 +84,10 @@ export const EnterpriseDetailsText = styled.p`
 
 export const EnterpriseLabel = styled.span`
     font-size: 14px;
+
+    @media (max-width: 768px) {
+        font-size: 13px;
+    }
 `;
 
 export const EnterpriseTotal = styled.span`
@@ -126,6 +130,17 @@ export const StockCard = styled.div`
     text-align: center;
     border-radius: 8px;
     flex: 1;
+
+    span {
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        span {
+            display: block;
+        }
+    }
 `;
 
 export const QuickActions = styled.div`
