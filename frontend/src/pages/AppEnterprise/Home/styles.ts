@@ -44,7 +44,11 @@ export const EnterpriseInfoContainer = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const EnterpriseCard = styled.div`
@@ -56,6 +60,10 @@ export const EnterpriseCard = styled.div`
     border: 1.5px solid #d1d1d1;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
     width: 50%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const EnterpriseLogo = styled.img`
@@ -92,6 +100,10 @@ export const EmployeeCard = styled.div`
     border: 1.5px solid #d1d1d1;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
     width: 50%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const EmployeeIcon = styled.span`
