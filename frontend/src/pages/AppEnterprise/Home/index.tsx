@@ -21,7 +21,7 @@ import {
     EnterpriseDetailsText
 } from "./styles";
 
-import { EmployeeLengthWarn } from "../../../components/EmployeeLengthWarn";
+import { EmployeeLengthWarn } from "../../../components/employee-length-warn";
 import Image from '../../../assets/enterprise-stock.jpg';
 import Logo from '../../../assets/SyncStock.png';
 
