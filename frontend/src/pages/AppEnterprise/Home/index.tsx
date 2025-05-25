@@ -21,7 +21,7 @@ import {
     EnterpriseDetailsText
 } from "./styles";
 
-import { EmployeeLengthWarn } from "../../../components/EmployeeLengthWarn";
+import { EmployeeLengthWarn } from "../../../components/employee-length-warn";
 import Image from '../../../assets/enterprise-stock.jpg';
 import Logo from '../../../assets/SyncStock.png';
 
@@ -63,8 +63,8 @@ export default function HomeEnterprise() {
                 </HomeContent>
 
                 <StockSummary>
-                    <StockCard>📦 Produtos: 120</StockCard>
-                    <StockCard>📂 Categorias: 10</StockCard>
+                    <StockCard>📦 Produtos: <span>120</span></StockCard>
+                    <StockCard>📂 Categorias:  <span>10</span></StockCard>
                 </StockSummary>
 
                 <QuickActions>

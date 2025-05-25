@@ -10,6 +10,12 @@ export const UseLayoutPage = styled.main`
     margin-top: 65px;
     overflow: hidden;
 
+    aside {
+        @media screen and (max-width: 1000px) {
+            display: none;
+        }
+    }
+
     aside > div {
         display: flex;
         flex-direction: column;
@@ -24,5 +30,24 @@ export const UseLayoutPage = styled.main`
         padding: 19px 25px;
         width: 100%;
         background-color: #F1F1F1;
+
+        @media screen and (max-width: 768px) {
+            margin-bottom: 60px;
+        }
+    }
+`;
+
+export const BottomTabsWrapper = styled.div`
+    display: none;
+
+    @media screen and (max-width: 768px) {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-top: 1px solid #ccc;
+        z-index: 1000;
     }
 `;

@@ -44,7 +44,11 @@ export const EnterpriseInfoContainer = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const EnterpriseCard = styled.div`
@@ -56,6 +60,10 @@ export const EnterpriseCard = styled.div`
     border: 1.5px solid #d1d1d1;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
     width: 50%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const EnterpriseLogo = styled.img`
@@ -76,6 +84,10 @@ export const EnterpriseDetailsText = styled.p`
 
 export const EnterpriseLabel = styled.span`
     font-size: 14px;
+
+    @media (max-width: 768px) {
+        font-size: 13px;
+    }
 `;
 
 export const EnterpriseTotal = styled.span`
@@ -92,6 +104,10 @@ export const EmployeeCard = styled.div`
     border: 1.5px solid #d1d1d1;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
     width: 50%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const EmployeeIcon = styled.span`
@@ -112,7 +128,19 @@ export const StockCard = styled.div`
     border: 1.5px solid #d1d1d1;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
     text-align: center;
+    border-radius: 8px;
     flex: 1;
+
+    span {
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        span {
+            display: block;
+        }
+    }
 `;
 
 export const QuickActions = styled.div`
@@ -129,6 +157,7 @@ export const ActionButton = styled.button`
     background-color: #303030;
     color: white;
     cursor: pointer;
+    border-radius: 8px;
     transition: 0.3s;
 
     &:hover {
