@@ -18,6 +18,7 @@ export const TabButton = styled.button<{ active?: boolean }>`
     font-size: 22px;
     color: #777;
     transition: 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 
     display: flex;
     align-items: center;

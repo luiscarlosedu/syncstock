@@ -1,6 +1,9 @@
 import { Container, TabButton } from "./styles";
 import { useNavigate, useLocation } from "react-router";
-import { FaHome, FaProductHunt, FaFonticons } from "react-icons/fa";
+
+import { FaHome, FaUsers } from "react-icons/fa";
+import { MdCategory} from "react-icons/md";
+import { IoMdPricetag } from "react-icons/io";
 
 export function Tabs() {
     const navigate = useNavigate();
@@ -8,10 +11,9 @@ export function Tabs() {
 
     const tabs = [
         { icon: <FaHome />, path: "/empresa/home" },
-        { icon: <FaProductHunt />, path: "/empresa/produtos" },
-        { icon: <FaFonticons />, path: "/empresa/funcionarios" },
-        { icon: <FaFonticons />, path: "/empresa/funcionarios" },
-        { icon: <FaFonticons />, path: "/empresa/funcionarios" },
+        { icon: <IoMdPricetag />, path: "/empresa/produtos" },
+        { icon: <MdCategory />, path: "/empresa/categorias" },
+        { icon: <FaUsers />, path: "/empresa/funcionarios" },
     ];
 
     return (
