@@ -7,12 +7,11 @@ export const EmployeeWarn = styled.p`
     margin-bottom: 15px;
     color: white;
     font-size: 13px;
-    height: 45px;
     gap: 2px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 25px 20px;
+    padding: 12px 20px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 `;
 
