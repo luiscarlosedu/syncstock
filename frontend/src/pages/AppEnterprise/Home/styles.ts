@@ -124,6 +124,7 @@ export const StockCard = styled.div`
     border: 1.5px solid #d1d1d1;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
     text-align: center;
+    border-radius: 8px;
     flex: 1;
 `;
 
@@ -141,6 +142,7 @@ export const ActionButton = styled.button`
     background-color: #303030;
     color: white;
     cursor: pointer;
+    border-radius: 8px;
     transition: 0.3s;
 
     &:hover {
