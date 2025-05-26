@@ -148,6 +148,10 @@ export const QuickActions = styled.div`
     gap: 15px;
     margin-top: 20px;
     padding-bottom: 30px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const ActionButton = styled.button`
