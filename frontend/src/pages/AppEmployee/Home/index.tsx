@@ -39,20 +39,20 @@ export default function HomeEmployee() {
                 </HomeContent>
 
                 <StockSummary>
-                    <StockCard>📦 Produtos: 120</StockCard>
-                    <StockCard>📂 Categorias: 10</StockCard>
+                    <StockCard>📦 Produtos: <span>120</span></StockCard>
+                    <StockCard>📂 Categorias: <span>10</span></StockCard>
                 </StockSummary>
 
                 <QuickActions>
                     <ActionButton
-                        onClick={() => navigate('/funcionario/produtos/adicionar')}
-                    >➕ Adicionar Produto</ActionButton>
+                        onClick={() => navigate('/funcionario/produtos')}
+                    >➕ Movimentar Produtos</ActionButton>
                     <ActionButton
-                        onClick={() => navigate('/funcionario/funcionarios/adicionar')}
-                    >👥 Cadastrar Funcionário</ActionButton>
+                        onClick={() => navigate('/funcionario/empresa')}
+                    >👥 Detalhes da Empresa</ActionButton>
                     <ActionButton
-                        onClick={() => navigate('/funcionario/categorias')}
-                    >📂 Gerenciar Categorias</ActionButton>
+                        onClick={() => navigate('/funcionario/faq')}
+                    >📂 Tutorial para Funcionário</ActionButton>
                 </QuickActions>
 
             </HomeContentContainer>

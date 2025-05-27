@@ -27,7 +27,7 @@ export function UseLayout() {
             </UseLayoutPage>
 
             <BottomTabsWrapper>
-                <Tabs />
+                <Tabs type={typeUser} />
             </BottomTabsWrapper>
         </Container>
     );

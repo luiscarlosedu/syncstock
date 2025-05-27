@@ -12,6 +12,10 @@ export const HomeContentContainer = styled.main`
     @media screen and (min-width: 1800px) {
         max-width: 1300px;
     }
+
+    @media screen and (max-width: 768px) {
+        padding-bottom: 80px;
+    }
 `;
 
 export const HomeTitle = styled.h2`
@@ -45,6 +49,10 @@ export const EmployeeInfoContainer = styled.div`
     justify-content: space-between;
     gap: 20px;
     margin-top: 20px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const EmployeeCard = styled.div`
@@ -56,6 +64,10 @@ export const EmployeeCard = styled.div`
     border: 1.5px solid #d1d1d1;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
     width: 50%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const EnterpriseLogo = styled.img`
@@ -76,6 +88,10 @@ export const EnterpriseDetailsText = styled.p`
 
 export const EmployeesLabel = styled.span`
     font-size: 14px;
+
+    @media (max-width: 768px) {
+        font-size: 13px;
+    }
 `;
 
 export const EmployeesTotal = styled.span`
@@ -92,6 +108,10 @@ export const EmployeesCard = styled.div`
     border: 1.5px solid #d1d1d1;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
     width: 50%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const EmployeesIcon = styled.span`
@@ -104,6 +124,10 @@ export const StockSummary = styled.div`
     justify-content: space-between;
     gap: 20px;
     margin-top: 20px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const StockCard = styled.div`
@@ -112,7 +136,20 @@ export const StockCard = styled.div`
     border: 1.5px solid #d1d1d1;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
     text-align: center;
+    border-radius: 8px;
     flex: 1;
+
+    span {
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+
+        span {
+            display: block;
+        }
+    }
 `;
 
 export const QuickActions = styled.div`
@@ -120,6 +157,10 @@ export const QuickActions = styled.div`
     gap: 15px;
     margin-top: 20px;
     padding-bottom: 30px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const ActionButton = styled.button`
@@ -129,6 +170,7 @@ export const ActionButton = styled.button`
     background-color: #303030;
     color: white;
     cursor: pointer;
+    border-radius: 8px;
     transition: 0.3s;
 
     &:hover {
