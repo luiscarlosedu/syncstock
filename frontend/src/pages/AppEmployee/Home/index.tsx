@@ -39,8 +39,8 @@ export default function HomeEmployee() {
                 </HomeContent>
 
                 <StockSummary>
-                    <StockCard>📦 Produtos: 120</StockCard>
-                    <StockCard>📂 Categorias: 10</StockCard>
+                    <StockCard>📦 Produtos: <span>120</span></StockCard>
+                    <StockCard>📂 Categorias: <span>10</span></StockCard>
                 </StockSummary>
 
                 <QuickActions>

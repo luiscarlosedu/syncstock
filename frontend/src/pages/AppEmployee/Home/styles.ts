@@ -139,6 +139,10 @@ export const StockCard = styled.div`
     border-radius: 8px;
     flex: 1;
 
+    span {
+        font-weight: bold;
+    }
+
     @media (max-width: 768px) {
         font-size: 14px;
 
