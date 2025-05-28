@@ -22,12 +22,21 @@ export const HeaderLogo = styled.div`
 export const HeaderLogoImage = styled.img`
     width: 30px;
     height: 30px;
+
+    @media screen and (max-width: 768px) {
+        width: 26px;
+        height: 26px;
+    }
 `;
 
 export const HeaderLogoTitle = styled.h1`
     color: white;
     font-size: 22px;
     cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+        font-size: 19px;
+    }
 `;
 
 export const MyEnterprise = styled.button`
@@ -47,11 +56,19 @@ export const MyEnterprise = styled.button`
     &:hover {
         background-color: #3A3A3A;
     }
+
+    @media screen and (max-width: 768px) {
+        
+    }
 `;
 
 export const MyEnterpriseText = styled.h3`
     font-size: 15px;
     font-weight: 500;
+
+    @media screen and (max-width: 768px) {
+        font-size: 13px;
+    }
 `;
 
 export const MyEnterpriseImage = styled.img`
