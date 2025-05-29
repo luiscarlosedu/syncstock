@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.article`
     display: flex;
+    flex-direction: column;
     justify-content: center;
 `;
 
@@ -46,6 +47,7 @@ export const ProductContent = styled.div`
     flex-direction: column;
     gap: 15px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
 `;
 
 export const ProductTotalSearchContainer = styled.div`
@@ -55,6 +57,15 @@ export const ProductTotalSearchContainer = styled.div`
     padding: 12px;
     border-radius: 6px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        gap: 4px;
+
+        input {
+            width: 100%;
+        }
+    }
 `;
 
 export const ProductTotalContainer = styled.div`
