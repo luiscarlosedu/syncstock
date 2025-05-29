@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.article`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 `;
 
 export const ProductContentContainer = styled.div`
@@ -93,6 +93,7 @@ export const ProductSearchInputContainer = styled.div`
     align-items: center;
     padding: 4px 10px;
     border-radius: 6px;
+    width: 100%;
 `;
 
 export const SearchIcon = styled.span`
