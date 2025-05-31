@@ -1,9 +1,10 @@
-import {} from './styles';
+import { HeaderError } from './components/HeaderError';
+import { Container } from './styles';
 
 export default function Error() {
     return (
-        <div>
-            <h1>Página erro</h1>
-        </div>
+        <Container>
+            <HeaderError />
+        </Container>
     );
 }
