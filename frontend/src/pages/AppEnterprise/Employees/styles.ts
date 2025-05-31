@@ -90,6 +90,7 @@ export const EmployeesSearchInputContainer = styled.div`
     align-items: center;
     padding: 4px 10px;
     border-radius: 6px;
+    width: 100%;
 `;
 
 export const SearchIcon = styled.span`

@@ -113,6 +113,8 @@ export const ProductSearchInput = styled.input`
 export const ProductsContainer = styled.div`
     background: white;
     border-radius: 8px;
+    /* overflow-x: scroll; */
+    /* width: 100%; */
 `;
 
 export const Table = styled.table`
