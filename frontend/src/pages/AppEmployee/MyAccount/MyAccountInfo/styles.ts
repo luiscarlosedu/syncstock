@@ -24,5 +24,8 @@ export const InfoItemName = styled.label`
 
 export const InfoItemValue = styled.p`
     font-size: 16px;
+    flex: 1;
+    word-break: break-word;
+    overflow-wrap: break-word;
     color: #222;
 `;

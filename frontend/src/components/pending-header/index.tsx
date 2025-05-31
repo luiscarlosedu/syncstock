@@ -18,7 +18,7 @@ export function PendingHeader() {
             <HeaderLogo>
                 <HeaderLogoImage src={ImageLogo} />
                 <HeaderLogoTitle
-                    onClick={() => navigate("/funcionario/home")}
+                    onClick={() => navigate("/funcionario/pendente")}
                 >
                     SyncStock
                 </HeaderLogoTitle>
