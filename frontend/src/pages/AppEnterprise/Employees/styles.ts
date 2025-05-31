@@ -54,6 +54,15 @@ export const EmployeesStatus = styled.div`
     padding: 12px;
     border-radius: 6px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        gap: 4px;
+
+        input {
+            width: 100%;
+        }
+    }
 `;
 
 export const EmployeesTotalContainer = styled.div`
@@ -81,6 +90,7 @@ export const EmployeesSearchInputContainer = styled.div`
     align-items: center;
     padding: 4px 10px;
     border-radius: 6px;
+    width: 100%;
 `;
 
 export const SearchIcon = styled.span`

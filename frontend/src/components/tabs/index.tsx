@@ -41,7 +41,7 @@ export function Tabs({ type }: SideBarProps) {
                         onClick={() => navigate(tab.employee_path)}
                         active={location.pathname === tab.employee_path}
                     >
-                        {tab.employee_path === 'funcionario/empresa' ? <MdOutlineHomeWork/> : tab.icon}
+                        {tab.employee_path === '/funcionario/empresa' ? <MdOutlineHomeWork/> : tab.icon}
                     </TabButton>
                 ))}
             </Container>

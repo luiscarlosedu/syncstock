@@ -9,6 +9,10 @@ export const EmployeeCardContainer = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
 `;
 
 export const EmployeePhoto = styled.img`
