@@ -32,13 +32,17 @@ export const StoryTitleName = styled.h2`
 export const StoryBtnArea = styled.div`
     display: flex;
     gap: 5px;
+    
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const StoryBtn = styled.button`
     background-color: #202020;
     color: white;
     padding: 5px 10px;
-    width: 95px;
+    width: 100%;
     text-align: center;
     border: 0;
     border-radius: 10px;
