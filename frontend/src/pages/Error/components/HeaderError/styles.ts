@@ -6,11 +6,9 @@ export const HeaderErrorContainer = styled.header`
     display: flex;
     justify-content: space-between;
     padding: 10px 15px;
-    position: fixed;
     height: 62px;
-    top: 0;
-    right: 0;
     z-index: 200;
+    position: fixed;
 `;
 
 export const HeaderErrorLogo = styled.div`
