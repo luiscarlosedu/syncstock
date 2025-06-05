@@ -36,3 +36,29 @@ export const ErrorText = styled.p`
         font-size: 14px;
     }
 `;
+
+export const SocialLinks = styled.ul`
+    list-style-type: none;
+    display: flex;
+    gap: 22px;
+    margin-top: 10px;
+`;
+
+export const DevLinks = styled.li`
+    a {
+        color: black;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border-radius: 50%;
+        border: 1.6px solid black;
+        transition: all .4s;
+
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+    }
+`;
