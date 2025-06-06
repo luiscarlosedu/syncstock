@@ -28,10 +28,10 @@ export default function LoginEnterprise() {
 
     function LoginFormTest(e: FormEvent) {
         e.preventDefault();
-        alert(`Email: ${email}, Senha: ${senha}, Cnpj: ${cnpj}`);
-        setEmail("")
-        setCnpj("")
-        setSenha("")
+        
+        // setEmail("");
+        // setCnpj("");
+        // setSenha(""); 
     }
 
     return (
