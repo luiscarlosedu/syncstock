@@ -16,26 +16,8 @@ import {
 
 import { AuthHeader } from "../../components/auth-header";
 
-import api from "../../services/api";
-import { useEffect } from "react";
-
 export default function Select() {
     const navigate = useNavigate();
-
-    function loadHelloWorld() {
-        api.get("/")
-        .then((response) => {
-            console.log(response.data); // Mostra a resposta da API
-        })
-        .catch((err) => {
-            alert("Erro ao conectar com o servidor."); // Mostra uma mensagem de erro
-            console.error(err);
-        });
-    }
-
-    useEffect(() => {
-        loadHelloWorld();
-    }, []);
 
     return (
         <Container>

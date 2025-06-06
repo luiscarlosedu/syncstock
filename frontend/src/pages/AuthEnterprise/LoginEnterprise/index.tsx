@@ -19,8 +19,21 @@ import {
 } from "./styles";
 
 import { AuthHeader } from "../../../components/auth-header";
+import { FormEvent, useState } from "react";
 
 export default function LoginEnterprise() {
+    const [email, setEmail] = useState("");
+    const [cnpj, setCnpj] = useState("");
+    const [senha, setSenha] = useState("");
+
+    function LoginFormTest(e: FormEvent) {
+        e.preventDefault();
+        alert(`Email: ${email}, Senha: ${senha}, Cnpj: ${cnpj}`);
+        setEmail("")
+        setCnpj("")
+        setSenha("")
+    }
+
     return (
         <Container>
             <LoginContainer>
@@ -31,7 +44,9 @@ export default function LoginEnterprise() {
                         <LoginSubTitle>Que bom te ver de novo!</LoginSubTitle>
                     </LoginContentText>
 
-                    <LoginForm>
+                    <LoginForm
+                        onSubmit={LoginFormTest}
+                    >
                         <LoginInputContainer>
                             <LoginLabel htmlFor="iemail">Email</LoginLabel>
                             <Input 
@@ -39,6 +54,8 @@ export default function LoginEnterprise() {
                                 type="email"
                                 required
                                 id="iemail"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </LoginInputContainer>
 
@@ -51,6 +68,8 @@ export default function LoginEnterprise() {
                                 id="icnpj"
                                 maxLength={18}
                                 minLength={14}
+                                value={cnpj}
+                                onChange={(e) => setCnpj(e.target.value)}
                             />
                         </LoginInputContainer>
 
@@ -61,6 +80,8 @@ export default function LoginEnterprise() {
                                 type="password"
                                 required
                                 id="isenha"
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
                             />
                         </LoginInputContainer>
 
