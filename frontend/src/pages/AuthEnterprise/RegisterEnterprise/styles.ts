@@ -93,7 +93,6 @@ export const FormImgInputContainer = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 3px;
-
     gap: 10px;
     padding: 10px;
 `;
