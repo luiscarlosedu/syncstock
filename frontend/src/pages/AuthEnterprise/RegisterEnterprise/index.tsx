@@ -106,32 +106,32 @@ export default function RegisterEnterprise() {
 
                         <FormFileArea>
                             {!imagePreview && (
-                            <FormImgInputContainer>
-                                <FormImgInputTitle>Adicionar imagem da empresa</FormImgInputTitle>
-                                <FiUpload color="#121212" />
-                                <FormImgInput
-                                    type="file"
-                                    accept="image/*"
-                                    required
-                                // onChange={handleOnChangeFile}
-                                />
-                            </FormImgInputContainer>
+                                <FormImgInputContainer>
+                                    <FormImgInputTitle>Adicionar imagem da empresa</FormImgInputTitle>
+                                    <FiUpload color="#121212" />
+                                    <FormImgInput
+                                        type="file"
+                                        accept="image/*"
+                                        required
+                                    // onChange={handleOnChangeFile}
+                                    />
+                                </FormImgInputContainer>
                             )}
                             {imagePreview && (
-                            <FormImgContainer className="form-img-container">
-                                <FormImgDelete
-                                // onClick={() => {
-                                // setFile(null);
-                                // setImagePreview(null);
-                                // }}
-                                >
-                                <FiTrash size={22} color="#FFF" />
-                                </FormImgDelete>
-                                <FormImg
-                                src={SyncImage}
-                                alt="Imagem do produto"
-                                />
-                            </FormImgContainer>
+                                <FormImgContainer className="form-img-container">
+                                    <FormImgDelete
+                                    // onClick={() => {
+                                    // setFile(null);
+                                    // setImagePreview(null);
+                                    // }}
+                                    >
+                                        <FiTrash size={22} color="#FFF" />
+                                    </FormImgDelete>
+                                    <FormImg
+                                        src={SyncImage}
+                                        alt="Imagem do produto"
+                                    />
+                                </FormImgContainer>
                             )}
                         </FormFileArea>
 
