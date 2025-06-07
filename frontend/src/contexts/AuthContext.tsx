@@ -25,6 +25,7 @@ interface UserProps {
     employed?: boolean;
 }
 
+/* eslint-disable react-refresh/only-export-components */
 export const AuthContext = createContext({} as AuthContextProps);
 
 export default function AuthProvider({children}: AuthProviderProps) {
