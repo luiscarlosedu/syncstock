@@ -1,3 +1,4 @@
+import { FiTrash, FiUpload } from "react-icons/fi";
 import { AuthHeader } from "../../../components/auth-header";
 
 import {
@@ -11,10 +12,19 @@ import {
     RegisterInputContainer,
     RegisterLabel,
     Input,
-    RegisterFormSubmit
+    RegisterFormSubmit,
+    FormFileArea,
+    FormImgInputContainer,
+    FormImgInputTitle,
+    FormImgInput,
+    FormImgContainer,
+    FormImgDelete,
+    FormImg
 } from "./styles";
 
 export default function RegisterEmployee() {
+    const imagePreview = false;
+
     return (
         <Container>
             <RegisterContainer>
@@ -57,6 +67,37 @@ export default function RegisterEmployee() {
                                 id="isenha"
                             />
                         </RegisterInputContainer>
+
+                        <FormFileArea>
+                            {!imagePreview && (
+                                <FormImgInputContainer>
+                                    <FormImgInputTitle>Adicionar foto de perfil (Opcional)</FormImgInputTitle>
+                                    <FiUpload color="#121212" />
+                                    <FormImgInput
+                                        type="file"
+                                        accept="image/*"
+                                        required
+                                    // onChange={handleOnChangeFile}
+                                    />
+                                </FormImgInputContainer>
+                            )}
+                            {imagePreview && (
+                                <FormImgContainer className="form-img-container">
+                                    <FormImgDelete
+                                    // onClick={() => {
+                                    // setFile(null);
+                                    // setImagePreview(null);
+                                    // }}
+                                    >
+                                        <FiTrash size={22} color="#FFF" />
+                                    </FormImgDelete>
+                                    <FormImg
+                                        src={"https://github.com/gustavoguanabara.png"}
+                                        alt="Imagem do produto"
+                                    />
+                                </FormImgContainer>
+                            )}
+                        </FormFileArea>
 
                         <RegisterFormSubmit 
                             type="submit"
