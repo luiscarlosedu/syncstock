@@ -3,7 +3,6 @@ import backgroud_image from '../../../../../assets/enterprise1.jpg';
 
 export const Container = styled.div`
     width: 100%;
-    min-height: 100dvh;
     background: url(${backgroud_image});
     background-position: center center;
     background-repeat: no-repeat;

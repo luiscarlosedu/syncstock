@@ -43,7 +43,6 @@ export default function LoginEnterprise() {
         setSenha("");
     }
 
-
     return (
         <Container>
             <LoginContainer>
