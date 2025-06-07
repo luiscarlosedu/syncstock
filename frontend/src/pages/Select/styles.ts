@@ -14,6 +14,10 @@ export const Container = styled.div`
     @media screen and (max-width: 768px) {
         padding: 20px 0px;
     }
+
+    @media screen and (min-width: 1000px) {
+        min-height: 100dvh;
+    }
 `;
 
 export const SelectContent = styled.div`

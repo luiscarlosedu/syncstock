@@ -106,21 +106,21 @@ export default function NewProductEnterprise() {
                             </FormImgInputContainer>
                             )}
                             {imagePreview && (
-                            <FormImgContainer className="form-img-container">
-                                <FormImgDelete
-                                className="form-img-delete"
-                                // onClick={() => {
-                                // setFile(null);
-                                // setImagePreview(null);
-                                // }}
-                                >
-                                <FiTrash size={22} color="#FFF" />
-                                </FormImgDelete>
-                                <FormImg
-                                src={"https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
-                                alt="Imagem do produto"
-                                />
-                            </FormImgContainer>
+                                <FormImgContainer className="form-img-container">
+                                    <FormImgDelete
+                                    className="form-img-delete"
+                                    // onClick={() => {
+                                    // setFile(null);
+                                    // setImagePreview(null);
+                                    // }}
+                                    >
+                                    <FiTrash size={22} color="#FFF" />
+                                    </FormImgDelete>
+                                    <FormImg
+                                    src={"https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
+                                    alt="Imagem do produto"
+                                    />
+                                </FormImgContainer>
                             )}
                         </FormFileArea>
 

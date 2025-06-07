@@ -78,6 +78,7 @@ export const FormImgInputContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 3px;
     gap: 10px;
     padding: 10px;
 `;
@@ -88,6 +89,7 @@ export const FormImgInputTitle = styled.p`
 
 export const FormImgInput = styled.input`
     border: 0;
+    background-color: red;
     opacity: 0;
     position: absolute;
     width: 100%;
@@ -96,6 +98,7 @@ export const FormImgInput = styled.input`
 `;
 
 export const FormSubmitBtn = styled.button`
+    border-radius: 8px;
     background-color: #1C1C1C;
     color: white;
     width: 100%;
