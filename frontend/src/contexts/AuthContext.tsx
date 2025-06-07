@@ -34,10 +34,10 @@ export default function AuthProvider({children}: AuthProviderProps) {
     useEffect(() => {
         const testUser: UserProps = {
             id: "2",
-            nome: "Jonas",
+            nome: "Jonas Lavanderias",
             email: "jonastop@gmail.com",
-            tipo: "funcionario",
-            employed: true,
+            tipo: "empresa",
+            // employed: true,
         }    
 
         setUser(testUser);
@@ -51,6 +51,16 @@ export default function AuthProvider({children}: AuthProviderProps) {
     function signInEnterprise(email: string, cnpj: string, senha: string) {
         console.log("Entrou uma empresa");
         console.log(email, cnpj, senha);
+
+        const fakeUser: UserProps = {
+            id: "1",
+            nome: "Empresa Exemplo",
+            email,
+            tipo: "empresa",
+            foto: "https://via.placeholder.com/150"
+        };
+
+        setUser(fakeUser);  // salva no contexto
     }
 
     function signUpEmployee(email: string, senha: string) {

@@ -19,20 +19,30 @@ import {
 } from "./styles";
 
 import { AuthHeader } from "../../../components/auth-header";
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export default function LoginEnterprise() {
+    const { signInEnterprise } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [cnpj, setCnpj] = useState("");
     const [senha, setSenha] = useState("");
 
     function LoginFormTest(e: FormEvent) {
         e.preventDefault();
-        
-        // setEmail("");
-        // setCnpj("");
-        // setSenha(""); 
+
+        try {
+            signInEnterprise(email, cnpj, senha);
+            console.log("Login simulado com sucesso!");
+        } catch (err) {
+            console.log("erro", err);
+        }
+
+        setEmail("");
+        setCnpj("");
+        setSenha("");
     }
+
 
     return (
         <Container>
