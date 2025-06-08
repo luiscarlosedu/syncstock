@@ -21,6 +21,7 @@ interface UserProps {
     id: string;
     nome: string;
     email: string;
+    cnpj?: string;
     tipo: "empresa" | "funcionario";
     foto?: string;
     employed?: boolean;
@@ -61,6 +62,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     id: data.id ?? "",
                     nome: data.nome,
                     email: data.email,
+                    cnpj: data.cnpj ?? undefined,
                     tipo: data.tipo,
                     foto: data.foto ?? undefined,
                     employed: data.employed ?? undefined 
@@ -80,19 +82,33 @@ export default function AuthProvider({children}: AuthProviderProps) {
         console.log(email, cnpj, senha)
     }
     
-    function signInEnterprise(email: string, cnpj: string, senha: string) {
-        console.log("Entrou uma empresa");
-        console.log(email, cnpj, senha);
+    async function signInEnterprise(email: string, cnpj: string, senha: string) {
+        try {
+            const response = await api.post("/enterprise/session", {
+                email,
+                cnpj,
+                senha
+            });
+            const { token, id, nome, email: userEmail, cnpj: userCnpj, foto } = response.data;
 
-        const fakeUser: UserProps = {
-            id: "1",
-            nome: "Empresa Exemplo",
-            email,
-            tipo: "empresa",
-            foto: "https://via.placeholder.com/150"
-        };
+            localStorage.setItem("@tokenWeb", token);
+            localStorage.setItem("@typeWeb", "empresa");
 
-        setUser(fakeUser);  // salva no contexto
+            api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+            setUser({
+                id,
+                nome,
+                email: userEmail,
+                cnpj: userCnpj,
+                tipo: "empresa",
+                foto,
+            });
+
+        } catch (err) {
+            console.log('[ERRO!]');
+            console.error(err);
+        }
     }
 
     function signUpEmployee(email: string, senha: string) {
