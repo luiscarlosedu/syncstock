@@ -21,19 +21,26 @@ import {
 import { AuthHeader } from "../../../components/auth-header";
 import { FormEvent, useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { useNavigate } from "react-router";
 
 export default function LoginEnterprise() {
+    const navigate = useNavigate();
     const { signInEnterprise } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [cnpj, setCnpj] = useState("");
     const [senha, setSenha] = useState("");
 
-    function LoginFormTest(e: FormEvent) {
+    async function LoginFormTest(e: FormEvent) {
         e.preventDefault();
 
         try {
-            signInEnterprise(email, cnpj, senha);
-            console.log("Login simulado com sucesso!");
+            signInEnterprise(email, cnpj, senha)
+            .then(() => {
+                console.log("[USUÁRIO LOGADO]");
+                navigate('/empresa/home')
+            }).catch((err) => {
+                console.log("[ERRO] ", err);
+            })
         } catch (err) {
             console.log("erro", err);
         }

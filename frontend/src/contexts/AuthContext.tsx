@@ -12,7 +12,7 @@ interface AuthContextProps {
     //   loading: boolean;
     signUpEnterprise: (email: string, cnpj: string, senha: string) => /*Promise<void>*/ void;
     signUpEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
-    signInEnterprise: (email: string, cnpj: string, senha: string, ) => /*Promise<void>*/ void;
+    signInEnterprise: (email: string, cnpj: string, senha: string, ) => Promise<void>;
     signInEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
     signOut: () => void;
 }
@@ -63,7 +63,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     nome: data.nome,
                     email: data.email,
                     cnpj: data.cnpj ?? undefined,
-                    tipo: data.tipo,
+                    tipo: "empresa",
                     foto: data.foto ?? undefined,
                     employed: data.employed ?? undefined 
                 }
