@@ -12,6 +12,7 @@ export const RegisterContainer = styled.div`
     padding: 20px 60px;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 
     @media screen and (max-width: 1247px) and (min-width: 1000px)  {
         padding: 10px 10px;

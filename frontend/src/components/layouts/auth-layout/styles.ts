@@ -9,4 +9,8 @@ export const Container = styled.div`
         flex-direction: column-reverse;
         height: auto;
     }
+
+    @media screen and (min-width: 1001px) {
+        min-height: 100dvh;
+    }
 `;
