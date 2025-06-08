@@ -30,7 +30,7 @@ export default function LoginEnterprise() {
     const [cnpj, setCnpj] = useState("");
     const [senha, setSenha] = useState("");
 
-    async function LoginFormTest(e: FormEvent) {
+    async function LoginFormOnSubmit(e: FormEvent) {
         e.preventDefault();
 
         try {
@@ -63,7 +63,7 @@ export default function LoginEnterprise() {
                     </LoginContentText>
 
                     <LoginForm
-                        onSubmit={LoginFormTest}
+                        onSubmit={LoginFormOnSubmit}
                     >
                         <LoginInputContainer>
                             <LoginLabel htmlFor="iemail">Email</LoginLabel>

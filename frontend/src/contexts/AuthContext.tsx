@@ -13,7 +13,7 @@ interface AuthContextProps {
     signUpEnterprise: (email: string, cnpj: string, senha: string) => /*Promise<void>*/ void;
     signUpEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
     signInEnterprise: (email: string, cnpj: string, senha: string, ) => Promise<void>;
-    signInEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
+    signInEmployee: (email: string, senha: string) => Promise<void>;
     signOut: () => Promise<void>;
 }
 
@@ -115,9 +115,31 @@ export default function AuthProvider({children}: AuthProviderProps) {
         console.log(email, senha);
     }
 
-    function signInEmployee(email: string, senha: string) {
-        console.log("Entrou um funcionario");
-        console.log(email, senha);
+    async function signInEmployee(email: string, senha: string) {
+        try {
+            const response = await api.post("/employee/session", {
+                email,
+                senha
+            });
+            const { token, id, nome, email: userEmail, foto } = response.data;
+
+            localStorage.setItem("@tokenWeb", token);
+            localStorage.setItem("@typeWeb", "funcionario");
+
+            api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+            setUser({
+                id,
+                nome,
+                email: userEmail,
+                tipo: "funcionario",
+                foto,
+            });
+
+        } catch (err) {
+            console.log('[ERRO!]');
+            console.error(err);
+        }
     }
 
     async function signOut() {

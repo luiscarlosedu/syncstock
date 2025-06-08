@@ -21,20 +21,29 @@ import {
 import { AuthHeader } from "../../../components/auth-header";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { FormEvent, useContext, useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function LoginEmployee() {
+    const navigate = useNavigate();
     const { signInEmployee } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
-    function LoginFormTest(e: FormEvent) {
+    function LoginFormOnSubmit(e: FormEvent) {
         e.preventDefault();
 
         try {
-            signInEmployee(email, senha);
-            console.log("Login simulado co sucesso!");
+            signInEmployee(email, senha)
+            .then(() => {
+                console.log("[USUÁRIO LOGADO]");
+                navigate('/funcionario/home');
+            }).catch((err) => {
+                console.log("[ERRO] ", err);
+                alert("[ERRO] Erro ao logar usuário!");
+            })
         } catch (err) {
             console.log("erro", err);
+            alert("[ERRO]");
         }
 
         setEmail("");
@@ -52,7 +61,7 @@ export default function LoginEmployee() {
                     </LoginContentText>
 
                     <LoginForm
-                        onSubmit={LoginFormTest}
+                        onSubmit={LoginFormOnSubmit}
                     >
                         <LoginInputContainer>
                             <LoginLabel htmlFor="iemail">Email</LoginLabel>
