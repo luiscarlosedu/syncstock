@@ -14,7 +14,7 @@ interface AuthContextProps {
     signUpEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
     signInEnterprise: (email: string, cnpj: string, senha: string, ) => Promise<void>;
     signInEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
-    signOut: () => void;
+    signOut: () => Promise<void>;
 }
 
 interface UserProps {
@@ -36,7 +36,6 @@ export default function AuthProvider({children}: AuthProviderProps) {
     const [user, setUser] = useState<UserProps | null>(null);
 
     useEffect(() => {
-        console.log('entrou aqui')
         loadStorage();
     }, []);
 

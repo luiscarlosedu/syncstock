@@ -14,8 +14,10 @@ import {
 import { FaHome, FaQuestion, FaUsers } from "react-icons/fa";
 import { MdCategory, MdLogout, MdOutlineHomeWork } from "react-icons/md";
 import { IoMdPricetag } from "react-icons/io";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { TbMessage2Question } from "react-icons/tb";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 interface SideBarProps {
     type: "enterprise" | "employee";
@@ -23,6 +25,15 @@ interface SideBarProps {
 
 export function SideBar({ type }: SideBarProps) {
     const location = useLocation();
+    const { signOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+
+    async function signOutAccount() {
+        await signOut();
+        navigate("/");      
+    }
+
     return (
         <Container>
             {type === 'enterprise' ? (
@@ -93,7 +104,9 @@ export function SideBar({ type }: SideBarProps) {
                     </SideBarContent>
 
                     <SideBarFooter>
-                        <SideBarFooterButton>
+                        <SideBarFooterButton
+                            onClick={signOutAccount}
+                        >
                             <MdLogout size={16} /> Sair
                         </SideBarFooterButton>
                     </SideBarFooter>
@@ -165,7 +178,9 @@ export function SideBar({ type }: SideBarProps) {
                     </SideBarContent>
 
                     <SideBarFooter>
-                        <SideBarFooterButton>
+                        <SideBarFooterButton
+                            onClick={signOutAccount}
+                        >
                             <MdLogout size={16}/> Sair
                         </SideBarFooterButton>
                     </SideBarFooter>
