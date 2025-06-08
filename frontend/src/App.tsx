@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import { AuthLayout } from "./components/layouts/auth-layout";
 import { UseLayout } from "./components/layouts/use-layout";
 import { EmployeeRouteGuard } from "./routes/EmployeeRouteGuard";
+import { PrivateRoute } from "./routes/PrivateRoute";
 
 import Select from "./pages/Select";
 
@@ -68,7 +69,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    element: <UseLayout />,
+    element: <PrivateRoute><UseLayout /></PrivateRoute>,
     children: [
       {
         path: '/empresa/home',
@@ -121,7 +122,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    element: <UseLayout />,
+    element: <PrivateRoute><UseLayout /></PrivateRoute>,
     children: [
       {
         element: <EmployeeRouteGuard />,
