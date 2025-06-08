@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import api from "../services/api";
 
 interface AuthProviderProps {
     children: ReactNode;
@@ -25,6 +26,8 @@ interface UserProps {
     employed?: boolean;
 }
 
+type TypeUser = "empresa" | "funcionario";
+
 /* eslint-disable react-refresh/only-export-components */
 export const AuthContext = createContext({} as AuthContextProps);
 
@@ -32,16 +35,45 @@ export default function AuthProvider({children}: AuthProviderProps) {
     const [user, setUser] = useState<UserProps | null>(null);
 
     useEffect(() => {
-        const testUser: UserProps = {
-            id: "2",
-            nome: "Jonas Lavanderias",
-            email: "jonastop@gmail.com",
-            tipo: "empresa",
-            // employed: true,
-        }    
-
-        setUser(testUser);
+        console.log('entrou aqui')
+        loadStorage();
     }, []);
+
+    async function loadStorage() {
+        const tokenUser = localStorage.getItem("@tokenWeb");
+        const typeUser = localStorage.getItem("@typeWeb") as TypeUser | null;
+        if (tokenUser && typeUser) {
+            
+            api.defaults.headers.common["Authorization"] = `Bearer ${tokenUser}`;
+            
+            try {
+                let response;
+
+                if (typeUser === 'empresa') {
+                    response = await api.get("/enterprise/detail");
+                } else {
+                    response = await api.get("/employee/detail");
+                }
+
+                const data: UserProps = response.data;
+
+                const UserData: UserProps = {
+                    id: data.id ?? "",
+                    nome: data.nome,
+                    email: data.email,
+                    tipo: data.tipo,
+                    foto: data.foto ?? undefined,
+                    employed: data.employed ?? undefined 
+                }
+
+                setUser(UserData);
+            } catch (err) {
+                console.log("[ERRO!]");
+                console.error(err);
+                setUser(null);
+            }
+        }
+    }
 
     function signUpEnterprise(email: string, cnpj: string, senha: string) {
         console.log("Cadastrou uma empresa");
