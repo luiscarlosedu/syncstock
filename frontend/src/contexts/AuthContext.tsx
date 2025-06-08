@@ -121,8 +121,12 @@ export default function AuthProvider({children}: AuthProviderProps) {
         console.log(email, senha);
     }
 
-    function signOut() {
-        console.log("desconectou");
+    async function signOut() {
+        localStorage.removeItem("@tokenWeb");
+        localStorage.removeItem("@typeWeb");
+        setUser(null);
+        api.defaults.headers.common["Authorization"] = "";
+        console.log("[DESCONECTOU]");
     }
 
     return (
