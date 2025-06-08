@@ -40,9 +40,11 @@ export default function LoginEnterprise() {
                 navigate('/empresa/home')
             }).catch((err) => {
                 console.log("[ERRO] ", err);
+                alert("[ERRO] Erro ao logar usuário!");
             })
         } catch (err) {
             console.log("erro", err);
+            alert("[ERRO]");
         }
 
         setEmail("");
