@@ -10,9 +10,9 @@ export const RegisterContainer = styled.div`
     flex-direction: column;
     width: 100%;
     padding: 20px 60px;
-    height: 100%;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 
     @media screen and (max-width: 1247px) and (min-width: 1000px)  {
         padding: 10px 10px;
@@ -77,6 +77,69 @@ export const Input = styled.input`
     @media screen and (max-width: 768px) {
         font-size: 12px;
     }
+`;
+
+export const FormFileArea = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 10px 0px;
+`;
+
+export const FormImgInputContainer = styled.div`
+    position: relative;
+    background-color: rgb(219, 219, 219);
+    width: 100%;
+    min-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    gap: 10px;
+    padding: 10px;
+`;
+
+export const FormImgInputTitle = styled.p`
+    font-size: 14px;
+`;
+
+export const FormImgInput = styled.input`
+    border: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+`;
+
+export const FormImgContainer = styled.div`
+    width: 100%;
+    position: relative;
+`;
+
+export const FormImgDelete = styled.button`
+    position: absolute;
+    border: 0;
+    background-color: #121212;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    border-radius: 0px 5px 0px 0px;
+    cursor: pointer;
+    transition: all .4s;
+
+    &:hover {
+        background-color: red;
+    }
+`;
+
+export const FormImg = styled.img`
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
 `;
 
 export const RegisterFormSubmit = styled.button`

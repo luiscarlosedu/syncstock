@@ -1,3 +1,4 @@
+import { FiTrash, FiUpload } from "react-icons/fi";
 import { AuthHeader } from "../../../components/auth-header";
 import {
     Container,
@@ -10,10 +11,21 @@ import {
     RegisterInputContainer,
     RegisterLabel,
     Input,
-    RegisterFormSubmit
+    RegisterFormSubmit,
+    FormFileArea,
+    FormImgInputContainer,
+    FormImgInputTitle,
+    FormImgInput,
+    FormImgContainer,
+    FormImgDelete,
+    FormImg
 } from "./styles";
 
+import SyncImage from '../../../assets/SyncStock.png'
+
 export default function RegisterEnterprise() {
+    const imagePreview = false;
+
     return (
         <Container>
             <RegisterContainer>
@@ -91,6 +103,37 @@ export default function RegisterEnterprise() {
                                 id="inumero"
                             />
                         </RegisterInputContainer>
+
+                        <FormFileArea>
+                            {!imagePreview && (
+                                <FormImgInputContainer>
+                                    <FormImgInputTitle>Adicionar imagem da empresa</FormImgInputTitle>
+                                    <FiUpload color="#121212" />
+                                    <FormImgInput
+                                        type="file"
+                                        accept="image/*"
+                                        required
+                                    // onChange={handleOnChangeFile}
+                                    />
+                                </FormImgInputContainer>
+                            )}
+                            {imagePreview && (
+                                <FormImgContainer className="form-img-container">
+                                    <FormImgDelete
+                                    // onClick={() => {
+                                    // setFile(null);
+                                    // setImagePreview(null);
+                                    // }}
+                                    >
+                                        <FiTrash size={22} color="#FFF" />
+                                    </FormImgDelete>
+                                    <FormImg
+                                        src={SyncImage}
+                                        alt="Imagem do produto"
+                                    />
+                                </FormImgContainer>
+                            )}
+                        </FormFileArea>
 
                         <RegisterFormSubmit 
                             type="submit"
