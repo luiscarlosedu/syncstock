@@ -34,14 +34,9 @@ export default function LoginEnterprise() {
         e.preventDefault();
 
         try {
-            signInEnterprise(email, cnpj, senha)
-            .then(() => {
-                console.log("[USUÁRIO LOGADO]");
-                navigate('/empresa/home')
-            }).catch((err) => {
-                console.log("[ERRO] ", err);
-                alert("[ERRO] Erro ao logar usuário!");
-            })
+            await signInEnterprise(email, cnpj, senha);
+            console.log("Usuário logado!");
+            navigate("/empresa/home");
         } catch (err) {
             console.log("erro", err);
             alert("[ERRO]");
