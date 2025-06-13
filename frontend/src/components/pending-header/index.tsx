@@ -9,13 +9,17 @@ import {
 } from "./styles";
 
 import ImageLogo from '../../assets/syncstock-white.png';
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export function PendingHeader() {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
+
+    if(!user) {
+        return <Navigate to={"/"} />
+    }
 
     return (
         <Container>
