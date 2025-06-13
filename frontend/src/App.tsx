@@ -41,6 +41,7 @@ import MyAccountPendingEdit from "./pages/AppEmployee/MyAccountPending/MyAccount
 import Error from "./pages/Error";
 import MyAccount from "./pages/AppEmployee/MyAccount";
 import MyAccountEdit from "./pages/AppEmployee/MyAccount/MyAccountEdit";
+import { EnterpriseRouteGuard } from "./routes/EnterpriseRouteGuard";
 
 const router = createBrowserRouter([
   {
@@ -72,54 +73,59 @@ const router = createBrowserRouter([
     element: <PrivateRoute><UseLayout /></PrivateRoute>,
     children: [
       {
-        path: '/empresa/home',
-        element: <HomeEnterprise />
-      },
-      {
-        path: '/empresa/detalhes',
-        element: <MyStoreEnterprise />
-      },
-      {
-        path: '/empresa/detalhes/editar',
-        element: <StoreEdit />
-      },
-      {
-        path: '/empresa/detalhes/configurar',
-        element: <StoreConfig />
-      },
-      {
-        path: '/empresa/categorias',
-        element: <CategoriesEnterprise />
-      },
-      {
-        path: '/empresa/categorias/criar',
-        element: <NewCategoryEnterprise/>
-      },
-      {
-        path: '/empresa/produtos',
-        element: <ProductsEnterprise />
-      },
-      {
-        path: '/empresa/produtos/adicionar',
-        element: <NewProductEnterprise />
-      },
-      {
-        path: '/empresa/funcionarios',
-        element: <EmployeesEnterprise />
-      },
-      {
-        path: '/empresa/funcionarios/adicionar',
-        element: <NewEmployeeEnterprise />
-      },
-      {
-        path: '/empresa/sobre',
-        element: <AboutEnterprise />
-      },
-      {
-        path: '/empresa/faq',
-        element: <FAQEnterprise />
-      },
-    ],
+        element: <EnterpriseRouteGuard />,
+        children: [
+          {
+            path: '/empresa/home',
+            element: <HomeEnterprise />
+          },
+          {
+            path: '/empresa/detalhes',
+            element: <MyStoreEnterprise />
+          },
+          {
+            path: '/empresa/detalhes/editar',
+            element: <StoreEdit />
+          },
+          {
+            path: '/empresa/detalhes/configurar',
+            element: <StoreConfig />
+          },
+          {
+            path: '/empresa/categorias',
+            element: <CategoriesEnterprise />
+          },
+          {
+            path: '/empresa/categorias/criar',
+            element: <NewCategoryEnterprise/>
+          },
+          {
+            path: '/empresa/produtos',
+            element: <ProductsEnterprise />
+          },
+          {
+            path: '/empresa/produtos/adicionar',
+            element: <NewProductEnterprise />
+          },
+          {
+            path: '/empresa/funcionarios',
+            element: <EmployeesEnterprise />
+          },
+          {
+            path: '/empresa/funcionarios/adicionar',
+            element: <NewEmployeeEnterprise />
+          },
+          {
+            path: '/empresa/sobre',
+            element: <AboutEnterprise />
+          },
+          {
+            path: '/empresa/faq',
+            element: <FAQEnterprise />
+          },
+        ],
+      }
+    ]
   },
   {
     element: <PrivateRoute><UseLayout /></PrivateRoute>,

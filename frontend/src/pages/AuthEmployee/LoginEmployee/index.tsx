@@ -29,18 +29,13 @@ export default function LoginEmployee() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
-    function LoginFormOnSubmit(e: FormEvent) {
+    async function LoginFormOnSubmit(e: FormEvent) {
         e.preventDefault();
 
         try {
-            signInEmployee(email, senha)
-            .then(() => {
-                console.log("[USUÁRIO LOGADO]");
-                navigate('/funcionario/home');
-            }).catch((err) => {
-                console.log("[ERRO] ", err);
-                alert("[ERRO] Erro ao logar usuário!");
-            })
+            await signInEmployee(email, senha);
+            console.log("Usuário logado!");
+            navigate("/funcionario/home");
         } catch (err) {
             console.log("erro", err);
             alert("[ERRO]");

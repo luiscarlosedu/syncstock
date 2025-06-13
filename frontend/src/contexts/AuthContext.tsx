@@ -100,8 +100,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 nome,
                 email: userEmail,
                 cnpj: userCnpj,
-                tipo: "empresa",
                 foto,
+                tipo: "empresa",
             });
 
         } catch (err) {
@@ -121,7 +121,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 email,
                 senha
             });
-            const { token, id, nome, email: userEmail, foto } = response.data;
+            const { id, nome, email: userEmail, employed, foto, token } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "funcionario");
@@ -132,8 +132,9 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 id,
                 nome,
                 email: userEmail,
-                tipo: "funcionario",
+                employed,
                 foto,
+                tipo: "funcionario",
             });
 
         } catch (err) {
