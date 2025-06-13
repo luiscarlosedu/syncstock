@@ -27,7 +27,7 @@ export default function PendingEmployee() {
                 <PendingEmployeeContentContainer>
                     <Title>Olá, {user.nome}</Title>
                     <Description>
-                        Seu e-mail ainda <strong>não está vinculado a nenhuma empresa</strong> pela empresa. 
+                        Seu e-mail ainda <strong>não está vinculado a nenhuma empresa</strong>. 
                         Assim que for aprovado, você irá acessar sua conta normalmente. Enquanto você não está cadastrado em uma empresa, você pode editar sua conta!
                     </Description>
 
