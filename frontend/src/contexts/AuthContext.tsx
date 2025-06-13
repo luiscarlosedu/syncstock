@@ -62,7 +62,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     nome: data.nome,
                     email: data.email,
                     cnpj: data.cnpj ?? undefined,
-                    tipo: "empresa",
+                    tipo: typeUser,
                     foto: data.foto ?? undefined,
                     employed: data.employed ?? undefined 
                 }

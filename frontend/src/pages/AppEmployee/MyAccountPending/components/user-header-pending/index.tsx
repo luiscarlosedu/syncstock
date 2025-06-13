@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router";
 import { UserBtn, UserBtnArea, UserHeaderPendingContainer, UserImage, UserPendingInfo, UserTitleName } from "./styles";
 interface HeaderProps {
     name: string;
-    image: string;
+    image: string | undefined;
 }
 
 export function UserHeaderPending({

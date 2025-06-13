@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import { AuthLayout } from "./components/layouts/auth-layout";
 import { UseLayout } from "./components/layouts/use-layout";
 import { EmployeeRouteGuard } from "./routes/EmployeeRouteGuard";
+import { EnterpriseRouteGuard } from "./routes/EnterpriseRouteGuard";
 import { PrivateRoute } from "./routes/PrivateRoute";
 
 import Select from "./pages/Select";
@@ -41,7 +42,6 @@ import MyAccountPendingEdit from "./pages/AppEmployee/MyAccountPending/MyAccount
 import Error from "./pages/Error";
 import MyAccount from "./pages/AppEmployee/MyAccount";
 import MyAccountEdit from "./pages/AppEmployee/MyAccount/MyAccountEdit";
-import { EnterpriseRouteGuard } from "./routes/EnterpriseRouteGuard";
 
 const router = createBrowserRouter([
   {

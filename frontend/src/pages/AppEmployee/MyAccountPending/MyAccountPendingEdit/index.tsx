@@ -1,19 +1,19 @@
 import { Navigate } from "react-router";
-import { EmployeeProps } from "..";
 import { PendingHeader } from "../../../../components/pending-header";
 import { UserHeaderPending } from "../components/user-header-pending";
 import { MyAccountContentContainer } from "../styles";
 import { Container, PendingEditContent, PendingEditInput, PendingEditInputContainer, PendingEditLabel, PendingEditSubmit } from "./styles";
+import { useContext } from "react";
+import { AuthContext } from "../../../../contexts/AuthContext";
 
 export default function MyAccountPendingEdit() {
-    const funcionario: EmployeeProps = {
-        name: 'Luís Eduardo',
-        employed: true,
-        type: 'employee',
-        image: "https://avatars.githubusercontent.com/u/157180909?v=4"
+    const { user } = useContext(AuthContext);
+
+    if (!user) {
+        return <Navigate to='/' />
     }
 
-    if (funcionario.employed === true) {
+    if (user?.employed) {
         return <Navigate to={'/funcionario/home'} replace />;
     }
 
@@ -23,8 +23,12 @@ export default function MyAccountPendingEdit() {
             <Container>
                 <MyAccountContentContainer>
                     <UserHeaderPending
-                        name={funcionario.name}
-                        image={funcionario.image}
+                        name={user?.nome}
+                        image={
+                            user?.foto === undefined
+                            ? `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
+                            : user?.foto
+                        }
                     />
 
                     <PendingEditContent>

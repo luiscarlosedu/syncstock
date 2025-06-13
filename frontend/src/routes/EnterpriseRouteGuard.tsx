@@ -6,7 +6,7 @@ export function EnterpriseRouteGuard() {
     const { user } = useContext(AuthContext);
 
     if(user?.tipo !== 'empresa') {
-        return <Navigate to={'/funcionario/pendente'} replace />
+        return <Navigate to={'/*'} replace />
     }
 
     return <Outlet />
