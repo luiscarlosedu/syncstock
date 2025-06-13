@@ -30,19 +30,16 @@ export default function LoginEnterprise() {
     const [cnpj, setCnpj] = useState("");
     const [senha, setSenha] = useState("");
 
-    async function LoginFormTest(e: FormEvent) {
+    async function LoginFormOnSubmit(e: FormEvent) {
         e.preventDefault();
 
         try {
-            signInEnterprise(email, cnpj, senha)
-            .then(() => {
-                console.log("[USUÁRIO LOGADO]");
-                navigate('/empresa/home')
-            }).catch((err) => {
-                console.log("[ERRO] ", err);
-            })
+            await signInEnterprise(email, cnpj, senha);
+            console.log("Usuário logado!");
+            navigate("/empresa/home");
         } catch (err) {
             console.log("erro", err);
+            alert("[ERRO]");
         }
 
         setEmail("");
@@ -61,7 +58,7 @@ export default function LoginEnterprise() {
                     </LoginContentText>
 
                     <LoginForm
-                        onSubmit={LoginFormTest}
+                        onSubmit={LoginFormOnSubmit}
                     >
                         <LoginInputContainer>
                             <LoginLabel htmlFor="iemail">Email</LoginLabel>

@@ -3,16 +3,19 @@ import { Navigate, useNavigate } from "react-router";
 
 import PendingEmployeeImage from '../../../assets/pendent-employee.jpg';
 import { PendingHeader } from "../../../components/pending-header";
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export default function PendingEmployee() {
+    const { user, signOut } = useContext(AuthContext);
     const navigate = useNavigate();
-    const funcionario = {
-        nome: 'Arnaldo César',
-        employed: false
-    };
 
-    if (funcionario.employed === true) {
-        return <Navigate to={'/funcionario/home'} replace />;
+    if (!user) {
+        return <Navigate to={"/"} replace />
+    }
+
+    async function logOut() {
+        await signOut();
     }
 
     return (
@@ -22,7 +25,7 @@ export default function PendingEmployee() {
                 <ImageArea src={PendingEmployeeImage} />
 
                 <PendingEmployeeContentContainer>
-                    <Title>Olá, {funcionario.nome}</Title>
+                    <Title>Olá, {user.nome}</Title>
                     <Description>
                         Seu e-mail ainda <strong>não está vinculado a nenhuma empresa</strong> pela empresa. 
                         Assim que for aprovado, você irá acessar sua conta normalmente. Enquanto você não está cadastrado em uma empresa, você pode editar sua conta!
@@ -30,6 +33,9 @@ export default function PendingEmployee() {
 
                     <BackButton onClick={() => navigate("/funcionario/pendente/detalhes")}>
                         Editar sua conta
+                    </BackButton>
+                    <BackButton onClick={logOut}>
+                        Sair da sua conta
                     </BackButton>
                 </PendingEmployeeContentContainer>
             </Container>

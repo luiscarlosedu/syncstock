@@ -50,6 +50,7 @@ export const BackButton = styled.button`
     border: none;
     padding: 12px 24px;
     font-size: 14px;
+    margin-bottom: 4px;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.2s;

@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import { AuthLayout } from "./components/layouts/auth-layout";
 import { UseLayout } from "./components/layouts/use-layout";
 import { EmployeeRouteGuard } from "./routes/EmployeeRouteGuard";
+import { EnterpriseRouteGuard } from "./routes/EnterpriseRouteGuard";
 import { PrivateRoute } from "./routes/PrivateRoute";
 
 import Select from "./pages/Select";
@@ -72,54 +73,59 @@ const router = createBrowserRouter([
     element: <PrivateRoute><UseLayout /></PrivateRoute>,
     children: [
       {
-        path: '/empresa/home',
-        element: <HomeEnterprise />
-      },
-      {
-        path: '/empresa/detalhes',
-        element: <MyStoreEnterprise />
-      },
-      {
-        path: '/empresa/detalhes/editar',
-        element: <StoreEdit />
-      },
-      {
-        path: '/empresa/detalhes/configurar',
-        element: <StoreConfig />
-      },
-      {
-        path: '/empresa/categorias',
-        element: <CategoriesEnterprise />
-      },
-      {
-        path: '/empresa/categorias/criar',
-        element: <NewCategoryEnterprise/>
-      },
-      {
-        path: '/empresa/produtos',
-        element: <ProductsEnterprise />
-      },
-      {
-        path: '/empresa/produtos/adicionar',
-        element: <NewProductEnterprise />
-      },
-      {
-        path: '/empresa/funcionarios',
-        element: <EmployeesEnterprise />
-      },
-      {
-        path: '/empresa/funcionarios/adicionar',
-        element: <NewEmployeeEnterprise />
-      },
-      {
-        path: '/empresa/sobre',
-        element: <AboutEnterprise />
-      },
-      {
-        path: '/empresa/faq',
-        element: <FAQEnterprise />
-      },
-    ],
+        element: <EnterpriseRouteGuard />,
+        children: [
+          {
+            path: '/empresa/home',
+            element: <HomeEnterprise />
+          },
+          {
+            path: '/empresa/detalhes',
+            element: <MyStoreEnterprise />
+          },
+          {
+            path: '/empresa/detalhes/editar',
+            element: <StoreEdit />
+          },
+          {
+            path: '/empresa/detalhes/configurar',
+            element: <StoreConfig />
+          },
+          {
+            path: '/empresa/categorias',
+            element: <CategoriesEnterprise />
+          },
+          {
+            path: '/empresa/categorias/criar',
+            element: <NewCategoryEnterprise/>
+          },
+          {
+            path: '/empresa/produtos',
+            element: <ProductsEnterprise />
+          },
+          {
+            path: '/empresa/produtos/adicionar',
+            element: <NewProductEnterprise />
+          },
+          {
+            path: '/empresa/funcionarios',
+            element: <EmployeesEnterprise />
+          },
+          {
+            path: '/empresa/funcionarios/adicionar',
+            element: <NewEmployeeEnterprise />
+          },
+          {
+            path: '/empresa/sobre',
+            element: <AboutEnterprise />
+          },
+          {
+            path: '/empresa/faq',
+            element: <FAQEnterprise />
+          },
+        ],
+      }
+    ]
   },
   {
     element: <PrivateRoute><UseLayout /></PrivateRoute>,
