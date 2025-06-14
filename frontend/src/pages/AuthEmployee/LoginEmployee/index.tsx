@@ -15,7 +15,8 @@ import {
     HorizontalRowText,
     LoginFooter,
     LoginFooterText,
-    LoginFooterLink
+    LoginFooterLink,
+    Spinner
 } from "./styles";
 
 import { AuthHeader } from "../../../components/auth-header";
@@ -25,7 +26,7 @@ import { useNavigate } from "react-router";
 
 export default function LoginEmployee() {
     const navigate = useNavigate();
-    const { signInEmployee } = useContext(AuthContext);
+    const { signInEmployee, loadingAuth } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
@@ -83,9 +84,10 @@ export default function LoginEmployee() {
                         </LoginInputContainer>
 
                         <LoginFormSubmit 
-                            type="submit"
+                            type="submit" 
+                            disabled={loadingAuth}
                         >
-                            Entrar
+                            {loadingAuth ? <Spinner /> : "Entrar"}
                         </LoginFormSubmit>
 
                     </LoginForm>

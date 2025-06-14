@@ -99,7 +99,10 @@ export default function LoginEnterprise() {
                             />
                         </LoginInputContainer>
 
-                        <LoginFormSubmit type="submit" disabled={loadingAuth}>
+                        <LoginFormSubmit 
+                            type="submit" 
+                            disabled={loadingAuth}
+                        >
                             {loadingAuth ? <Spinner /> : "Entrar"}
                         </LoginFormSubmit>
 
