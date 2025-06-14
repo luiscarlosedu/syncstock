@@ -7,7 +7,11 @@ interface PrivateProps {
 }
 
 export function PrivateRoute({ children }: PrivateProps) {
-    const { signed } = useContext(AuthContext);
+    const { signed, loading } = useContext(AuthContext);
+
+    if (loading) {
+        return null;
+    }
 
     if(!signed) {
         return <Navigate to='/' replace />
