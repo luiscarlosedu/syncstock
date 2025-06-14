@@ -48,12 +48,21 @@ export const AboutSyncStock = styled.div`
     background-color: white;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
     display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 export const AboutSyncStockLeft = styled.div`
     flex: 1;
     display: flex;
     padding: 10px;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const SyncStockLogo = styled.img`
@@ -107,6 +116,11 @@ export const AboutSyncStockRight = styled.div`
     background-position: center;
     position: relative;
 
+    @media screen and (max-width: 768px) {
+        border-radius: 0px 0px 5px 5px;
+        min-height: 130px;
+    }
+
     &:hover div {
         opacity: 1;
         pointer-events: all;
@@ -127,6 +141,10 @@ export const AboutOverlay = styled.div`
     z-index: 2;
     pointer-events: none;
     transition: opacity .4s ease;
+
+    @media screen and (max-width: 768px) {
+        border-radius: 0px 0px 5px 5px;
+    }
 `;
 
 export const OverlayButton = styled.button`
