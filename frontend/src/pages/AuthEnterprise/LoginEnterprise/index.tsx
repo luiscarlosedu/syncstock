@@ -26,12 +26,10 @@ import { useNavigate } from "react-router";
 
 export default function LoginEnterprise() {
     const navigate = useNavigate();
-    const { signInEnterprise } = useContext(AuthContext);
+    const { signInEnterprise, loadingAuth } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [cnpj, setCnpj] = useState("");
     const [senha, setSenha] = useState("");
-
-    const [loadingAuth, setLoadingAuth] = useState(false);
 
     async function LoginFormOnSubmit(e: FormEvent) {
         e.preventDefault();
@@ -101,7 +99,7 @@ export default function LoginEnterprise() {
                             />
                         </LoginInputContainer>
 
-                        <LoginFormSubmit type="submit"/* disabled={loadingAuth} */ onClick={() => setLoadingAuth(!loadingAuth)}>
+                        <LoginFormSubmit type="submit" disabled={loadingAuth}>
                             {loadingAuth ? <Spinner /> : "Entrar"}
                         </LoginFormSubmit>
 
