@@ -15,7 +15,8 @@ import {
     HorizontalRowText,
     LoginFooter,
     LoginFooterText,
-    LoginFooterLink
+    LoginFooterLink,
+    Spinner
 } from "./styles";
 
 import { AuthHeader } from "../../../components/auth-header";
@@ -29,6 +30,8 @@ export default function LoginEnterprise() {
     const [email, setEmail] = useState("");
     const [cnpj, setCnpj] = useState("");
     const [senha, setSenha] = useState("");
+
+    const [loadingAuth, setLoadingAuth] = useState(false);
 
     async function LoginFormOnSubmit(e: FormEvent) {
         e.preventDefault();
@@ -98,10 +101,8 @@ export default function LoginEnterprise() {
                             />
                         </LoginInputContainer>
 
-                        <LoginFormSubmit 
-                            type="submit"
-                        >
-                            Entrar
+                        <LoginFormSubmit type="submit"/* disabled={loadingAuth} */ onClick={() => setLoadingAuth(!loadingAuth)}>
+                            {loadingAuth ? <Spinner /> : "Entrar"}
                         </LoginFormSubmit>
 
                     </LoginForm>
