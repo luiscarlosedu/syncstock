@@ -8,8 +8,8 @@ interface AuthProviderProps {
 interface AuthContextProps {
     signed: boolean;
     user: UserProps | null;
-    //   loadingAuth: boolean;
-    //   loading: boolean;
+    loading: boolean;
+    loadingAuth: boolean;
     signUpEnterprise: (email: string, cnpj: string, senha: string) => /*Promise<void>*/ void;
     signUpEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
     signInEnterprise: (email: string, cnpj: string, senha: string, ) => Promise<void>;
@@ -34,6 +34,8 @@ export const AuthContext = createContext({} as AuthContextProps);
 
 export default function AuthProvider({children}: AuthProviderProps) {
     const [user, setUser] = useState<UserProps | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [loadingAuth, setLoadingAuth] = useState(false);
 
     useEffect(() => {
         loadStorage();
@@ -74,6 +76,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 setUser(null);
             }
         }
+
+        setLoading(false);
     }
 
     function signUpEnterprise(email: string, cnpj: string, senha: string) {
@@ -82,6 +86,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
     }
     
     async function signInEnterprise(email: string, cnpj: string, senha: string) {
+        setLoadingAuth(true);
+
         try {
             const response = await api.post("/enterprise/session", {
                 email,
@@ -107,6 +113,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
         } catch (err) {
             console.log('[ERRO!]');
             console.error(err);
+        } finally {
+            setLoadingAuth(false);
         }
     }
 
@@ -116,6 +124,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
     }
 
     async function signInEmployee(email: string, senha: string) {
+        setLoadingAuth(true);
+
         try {
             const response = await api.post("/employee/session", {
                 email,
@@ -140,6 +150,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
         } catch (err) {
             console.log('[ERRO!]');
             console.error(err);
+        } finally {
+            setLoadingAuth(false);
         }
     }
 
@@ -155,6 +167,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
         <AuthContext.Provider value={{
             signed: !!user,
             user,
+            loading,
+            loadingAuth,
             signInEnterprise,
             signUpEnterprise,
             signInEmployee,
