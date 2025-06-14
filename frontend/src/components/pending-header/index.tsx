@@ -9,10 +9,18 @@ import {
 } from "./styles";
 
 import ImageLogo from '../../assets/syncstock-white.png';
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export function PendingHeader() {
     const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
+
+    if(!user) {
+        return <Navigate to={"/"} replace />
+    }
+
     return (
         <Container>
             <HeaderLogo>
@@ -29,7 +37,13 @@ export function PendingHeader() {
                 <MyEnterpriseText>
                     My Account
                 </MyEnterpriseText>
-                <MyEnterpriseImage src="https://github.com/luiscarlosedu.png" alt="Logo da empresa" />
+                <MyEnterpriseImage  
+                    src={
+                        user?.foto === undefined
+                        ? `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
+                        : user?.foto
+                    }
+                />
             </MyEnterprise>
         </Container>
     );

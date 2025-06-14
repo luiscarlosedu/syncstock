@@ -11,6 +11,7 @@ export const MyAccountContentContainer = styled.main`
     width: 100%;
     max-width: 1100px;
     margin-top: 80px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;

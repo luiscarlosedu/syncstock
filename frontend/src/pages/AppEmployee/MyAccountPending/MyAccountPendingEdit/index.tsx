@@ -3,15 +3,17 @@ import { PendingHeader } from "../../../../components/pending-header";
 import { UserHeaderPending } from "../components/user-header-pending";
 import { MyAccountContentContainer } from "../styles";
 import { Container, PendingEditContent, PendingEditInput, PendingEditInputContainer, PendingEditLabel, PendingEditSubmit } from "./styles";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthContext";
 
 export default function MyAccountPendingEdit() {
     const { user } = useContext(AuthContext);
-
+    const [userName, setUserName] = useState(user?.nome);
+    
     if (!user) {
         return <Navigate to='/' />
     }
+
 
     if (user?.employed) {
         return <Navigate to={'/funcionario/home'} replace />;
@@ -39,6 +41,8 @@ export default function MyAccountPendingEdit() {
                                 id="iname"
                                 name="name"
                                 type="text"
+                                onChange={(e) => setUserName(e.target.value)}
+                                value={userName}
                             />
                         </PendingEditInputContainer>
                         <PendingEditSubmit>
