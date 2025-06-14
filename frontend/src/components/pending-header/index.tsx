@@ -18,7 +18,7 @@ export function PendingHeader() {
     const { user } = useContext(AuthContext);
 
     if(!user) {
-        return <Navigate to={"/"} />
+        return <Navigate to={"/"} replace />
     }
 
     return (
