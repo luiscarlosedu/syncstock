@@ -23,9 +23,11 @@ import {
     FormImgDelete,
     FormImg
 } from "./styles";
+import { useNavigate } from "react-router";
 
 export default function RegisterEmployee() {
     const { signUpEmployee, signInEmployee } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -39,6 +41,7 @@ export default function RegisterEmployee() {
             await signUpEmployee(nome, email, senha, file);
             alert("Funcionário cadastrado com sucesso!");
             await signInEmployee(email, senha);
+            navigate("/funcionario/pendente");
             setNome("");
             setEmail("");
             setSenha("");
