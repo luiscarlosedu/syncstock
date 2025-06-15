@@ -41,6 +41,8 @@ export class CreateEmployeeService {
                 id: true,
                 nome: true,
                 email: true,
+                foto: true,
+                employed: true,
                 createdAt: true,
             }
         });
