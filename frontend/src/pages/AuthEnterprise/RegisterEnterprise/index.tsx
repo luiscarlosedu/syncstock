@@ -36,14 +36,6 @@ export default function RegisterEnterprise() {
     const [file, setFile] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-    function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-        const selectedFile = e.target.files?.[0];
-        if (selectedFile) {
-            setFile(selectedFile);
-            setImagePreview(URL.createObjectURL(selectedFile));
-        }
-    }
-
     async function handleRegister(e: React.FormEvent) {
         e.preventDefault();
 
@@ -70,6 +62,14 @@ export default function RegisterEnterprise() {
         }
     }
 
+    function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const selectedFile = e.target.files?.[0];
+        if (selectedFile) {
+            setFile(selectedFile);
+            setImagePreview(URL.createObjectURL(selectedFile));
+        };
+    }
+
     return (
         <Container>
             <RegisterContainer>
@@ -80,7 +80,9 @@ export default function RegisterEnterprise() {
                         <RegisterSubTitle>Crie uma conta para sua empresa agora!</RegisterSubTitle>
                     </RegisterContentText>
 
-                    <RegisterForm onSubmit={handleRegister}>
+                    <RegisterForm 
+                        onSubmit={handleRegister}
+                    >
                         <RegisterInputContainer>
                             <RegisterLabel htmlFor="inome">Nome</RegisterLabel>
                             <Input 

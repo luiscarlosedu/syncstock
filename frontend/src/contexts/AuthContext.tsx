@@ -10,8 +10,8 @@ interface AuthContextProps {
     user: UserProps | null;
     loading: boolean;
     loadingAuth: boolean;
-    signUpEnterprise: (nome: string, cnpj: string, email: string, senha: string, endereco: string, telefone: string, file: File,) => Promise<void>;
-    signUpEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
+    signUpEnterprise: (nome: string, cnpj: string, email: string, senha: string, endereco: string, telefone: string, file: File) => Promise<void>;
+    signUpEmployee: (nome: string, email: string, senha: string, file?: File) => Promise<void>;
     signInEnterprise: (email: string, cnpj: string, senha: string, ) => Promise<void>;
     signInEmployee: (email: string, senha: string) => Promise<void>;
     signOut: () => Promise<void>;
@@ -164,9 +164,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
         }
     }
 
-    function signUpEmployee(email: string, senha: string) {
-        console.log("Cadastrou um funcionario");
-        console.log(email, senha);
+    async function signUpEmployee(nome: string, email: string, senha: string, file?: string) {
+        
     }
 
     async function signInEmployee(email: string, senha: string) {
