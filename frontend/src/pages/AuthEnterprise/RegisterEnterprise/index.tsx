@@ -21,10 +21,54 @@ import {
     FormImg
 } from "./styles";
 
-import SyncImage from '../../../assets/SyncStock.png'
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export default function RegisterEnterprise() {
-    const imagePreview = false;
+    const { signUpEnterprise, signInEnterprise } = useContext(AuthContext);
+
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [cnpj, setCnpj] = useState("");
+    const [senha, setSenha] = useState("");
+    const [endereco, setEndereco] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const [file, setFile] = useState<File | null>(null);
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+    function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const selectedFile = e.target.files?.[0];
+        if (selectedFile) {
+            setFile(selectedFile);
+            setImagePreview(URL.createObjectURL(selectedFile));
+        }
+    }
+
+    async function handleRegister(e: React.FormEvent) {
+        e.preventDefault();
+
+        if (!file) {
+            alert("Selecione uma imagem!");
+            return;
+        }
+
+        try {
+            await signUpEnterprise(nome, cnpj, email, senha, endereco, telefone, file);
+            alert("Empresa cadastrada com sucesso!");
+            await signInEnterprise(email, cnpj, senha);
+            setNome("");
+            setEmail("");
+            setCnpj("");
+            setSenha("");
+            setEndereco("");
+            setTelefone("");
+            setFile(null);
+            setImagePreview(null);
+        } catch (err) {
+            console.error(err);
+            alert("Erro ao cadastrar empresa.");
+        }
+    }
 
     return (
         <Container>
@@ -36,7 +80,7 @@ export default function RegisterEnterprise() {
                         <RegisterSubTitle>Crie uma conta para sua empresa agora!</RegisterSubTitle>
                     </RegisterContentText>
 
-                    <RegisterForm>
+                    <RegisterForm onSubmit={handleRegister}>
                         <RegisterInputContainer>
                             <RegisterLabel htmlFor="inome">Nome</RegisterLabel>
                             <Input 
@@ -45,6 +89,8 @@ export default function RegisterEnterprise() {
                                 name="nome"
                                 required
                                 id="inome"
+                                value={nome}
+                                onChange={e => setNome(e.target.value)}
                             />
                         </RegisterInputContainer>
                         <RegisterInputContainer>
@@ -55,6 +101,8 @@ export default function RegisterEnterprise() {
                                 name="email"
                                 required
                                 id="iemail"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
                             />
                         </RegisterInputContainer>
 
@@ -68,6 +116,8 @@ export default function RegisterEnterprise() {
                                 name="cnpj"
                                 maxLength={18}
                                 minLength={14}
+                                value={cnpj}
+                                onChange={e => setCnpj(e.target.value)}
                             />
                         </RegisterInputContainer>
 
@@ -79,28 +129,34 @@ export default function RegisterEnterprise() {
                                 required
                                 name="senha"
                                 id="isenha"
+                                value={senha}
+                                onChange={e => setSenha(e.target.value)}
                             />
                         </RegisterInputContainer>
 
                         <RegisterInputContainer>
-                            <RegisterLabel htmlFor="isenha">Endereço</RegisterLabel>
+                            <RegisterLabel htmlFor="iendereco">Endereço</RegisterLabel>
                             <Input 
                                 placeholder="Ex: São Paulo - SP - Brasil"
-                                type="password"
+                                type="text"
                                 required
                                 name="endereco"
                                 id="iendereco"
+                                value={endereco}
+                                onChange={e => setEndereco(e.target.value)}
                             />
                         </RegisterInputContainer>
 
                         <RegisterInputContainer>
-                            <RegisterLabel htmlFor="isenha">Número de telefone</RegisterLabel>
+                            <RegisterLabel htmlFor="inumero">Número de telefone</RegisterLabel>
                             <Input 
                                 placeholder="Ex: 099999999999"
                                 type="text"
                                 required
                                 name="numero"
                                 id="inumero"
+                                value={telefone}
+                                onChange={e => setTelefone(e.target.value)}
                             />
                         </RegisterInputContainer>
 
@@ -113,31 +169,29 @@ export default function RegisterEnterprise() {
                                         type="file"
                                         accept="image/*"
                                         required
-                                    // onChange={handleOnChangeFile}
+                                        onChange={handleFileChange}
                                     />
                                 </FormImgInputContainer>
                             )}
                             {imagePreview && (
                                 <FormImgContainer className="form-img-container">
                                     <FormImgDelete
-                                    // onClick={() => {
-                                    // setFile(null);
-                                    // setImagePreview(null);
-                                    // }}
+                                        onClick={() => {
+                                            setFile(null);
+                                            setImagePreview(null);
+                                        }}
                                     >
                                         <FiTrash size={22} color="#FFF" />
                                     </FormImgDelete>
                                     <FormImg
-                                        src={SyncImage}
-                                        alt="Imagem do produto"
+                                        src={imagePreview}
+                                        alt="Imagem da empresa"
                                     />
                                 </FormImgContainer>
                             )}
                         </FormFileArea>
 
-                        <RegisterFormSubmit 
-                            type="submit"
-                        >
+                        <RegisterFormSubmit type="submit">
                             Cadastrar
                         </RegisterFormSubmit>
 

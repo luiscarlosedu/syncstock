@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
@@ -97,6 +97,9 @@ export const LoginFormSubmit = styled.button`
     font-size: 14px;
     transition: 0.2s;
     user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
         background-color: #505050;
@@ -133,4 +136,19 @@ export const LoginFooterText = styled.p`
 
 export const LoginFooterLink = styled(Link)`
     color: blue;
+`;
+
+const spin = keyframes`
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+`;
+
+export const Spinner = styled.div`
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: ${spin} 0.8s linear infinite;
+    margin: 0 auto;
 `;

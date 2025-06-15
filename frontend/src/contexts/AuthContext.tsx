@@ -10,7 +10,7 @@ interface AuthContextProps {
     user: UserProps | null;
     loading: boolean;
     loadingAuth: boolean;
-    signUpEnterprise: (email: string, cnpj: string, senha: string) => /*Promise<void>*/ void;
+    signUpEnterprise: (nome: string, cnpj: string, email: string, senha: string, endereco: string, telefone: string, file: File,) => Promise<void>;
     signUpEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
     signInEnterprise: (email: string, cnpj: string, senha: string, ) => Promise<void>;
     signInEmployee: (email: string, senha: string) => Promise<void>;
@@ -80,11 +80,57 @@ export default function AuthProvider({children}: AuthProviderProps) {
         setLoading(false);
     }
 
-    function signUpEnterprise(email: string, cnpj: string, senha: string) {
-        console.log("Cadastrou uma empresa");
-        console.log(email, cnpj, senha)
+    async function signUpEnterprise(
+        nome: string, 
+        cnpj: string, 
+        email: string, 
+        senha: string, 
+        endereco: string, 
+        telefone: string, 
+        file: File,
+    ) {
+        setLoadingAuth(true);
+        try {
+            const data = new FormData();
+            data.append("nome", nome);
+            data.append("cnpj", cnpj);
+            data.append("email", email);
+            data.append("senha", senha);
+            data.append("endereco", endereco);
+            data.append("telefone", telefone);
+            data.append("file", file);
+
+            const response = await api.post("/enterprise", data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            });
+
+            const { token, id, nome: userNome, email: userEmail, cnpj: userCnpj, foto } = response.data;
+
+            localStorage.setItem("@tokenWeb", token);
+            localStorage.setItem("@typeWeb", "empresa");
+
+            api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+            setUser({
+                id,
+                nome: userNome,
+                email: userEmail,
+                cnpj: userCnpj,
+                foto,
+                tipo: "empresa",
+            });
+
+            setLoadingAuth(false);
+            
+        } catch (error) {
+            console.error("Erro ao cadastrar empresa:", error);
+            setLoadingAuth(false);
+            throw error;
+        }
     }
-    
+
     async function signInEnterprise(email: string, cnpj: string, senha: string) {
         setLoadingAuth(true);
 
