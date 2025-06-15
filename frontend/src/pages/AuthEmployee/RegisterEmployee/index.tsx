@@ -111,12 +111,11 @@ export default function RegisterEmployee() {
                         <FormFileArea>
                             {!imagePreview && (
                                 <FormImgInputContainer>
-                                    <FormImgInputTitle>Adicionar imagem da empresa</FormImgInputTitle>
+                                    <FormImgInputTitle>Adicionar imagem do funcionário</FormImgInputTitle>
                                     <FiUpload color="#121212" />
                                     <FormImgInput
                                         type="file"
                                         accept="image/*"
-                                        required
                                         onChange={handleFileChange}
                                     />
                                 </FormImgInputContainer>
