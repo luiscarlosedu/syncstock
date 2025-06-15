@@ -51,6 +51,7 @@ export class CreateEnterpriseService {
                 cnpj: true,
                 email: true,
                 endereco: true,
+                foto: true,
                 telefone: true,
             }
         });

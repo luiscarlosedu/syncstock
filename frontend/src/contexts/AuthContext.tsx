@@ -10,8 +10,8 @@ interface AuthContextProps {
     user: UserProps | null;
     loading: boolean;
     loadingAuth: boolean;
-    signUpEnterprise: (nome: string, cnpj: string, email: string, senha: string, endereco: string, telefone: string, file: File,) => Promise<void>;
-    signUpEmployee: (email: string, senha: string) => /*Promise<void>*/ void;
+    signUpEnterprise: (nome: string, cnpj: string, email: string, senha: string, endereco: string, telefone: string, file: File) => Promise<void>;
+    signUpEmployee: (nome: string, email: string, senha: string, file?: File) => Promise<void>;
     signInEnterprise: (email: string, cnpj: string, senha: string, ) => Promise<void>;
     signInEmployee: (email: string, senha: string) => Promise<void>;
     signOut: () => Promise<void>;
@@ -164,9 +164,47 @@ export default function AuthProvider({children}: AuthProviderProps) {
         }
     }
 
-    function signUpEmployee(email: string, senha: string) {
-        console.log("Cadastrou um funcionario");
-        console.log(email, senha);
+    async function signUpEmployee(nome: string, email: string, senha: string, file?: File) {
+        setLoadingAuth(true);
+        try {
+            const data = new FormData();
+            data.append("nome", nome);
+            data.append("email", email);
+            data.append("senha", senha);
+
+            if (file) {
+                data.append("file", file);
+            };
+
+            const response = await api.post("/employee", data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            });
+
+            const { id, nome: userNome, email: userEmail, foto, employed, token } = response.data;
+
+            localStorage.setItem("@tokenWeb", token);
+            localStorage.setItem("@typeWeb", "funcionario");
+
+            api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+            setUser({
+                id,
+                nome: userNome,
+                email: userEmail,
+                foto,
+                employed,
+                tipo: "funcionario" 
+            });
+
+            setLoadingAuth(false);
+
+        } catch (err) {
+            console.error("Erro ao cadastrar funcionário:", err);
+            setLoadingAuth(false);
+            throw err;
+        }
     }
 
     async function signInEmployee(email: string, senha: string) {
@@ -192,6 +230,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 foto,
                 tipo: "funcionario",
             });
+
+            setLoadingAuth(false);
 
         } catch (err) {
             console.log('[ERRO!]');

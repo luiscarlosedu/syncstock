@@ -1,3 +1,5 @@
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
 import { FiTrash, FiUpload } from "react-icons/fi";
 import { AuthHeader } from "../../../components/auth-header";
 
@@ -21,9 +23,43 @@ import {
     FormImgDelete,
     FormImg
 } from "./styles";
+import { useNavigate } from "react-router";
 
 export default function RegisterEmployee() {
-    const imagePreview = false;
+    const { signUpEmployee, signInEmployee } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [file, setFile] = useState<File | undefined>(undefined);
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+    async function handleRegister(e: React.FormEvent) {
+        e.preventDefault();
+
+        try {
+            await signUpEmployee(nome, email, senha, file);
+            alert("Funcionário cadastrado com sucesso!");
+            await signInEmployee(email, senha);
+            navigate("/funcionario/pendente");
+            setNome("");
+            setEmail("");
+            setSenha("");
+            setFile(undefined);
+            setImagePreview(null);
+        } catch (err) {
+            console.error(err);
+            alert("Erro ao cadastrar empresa.");
+        }
+    }
+
+    function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+        const selectedFile = e.target.files?.[0];
+        if (selectedFile) {
+            setFile(selectedFile);
+            setImagePreview(URL.createObjectURL(selectedFile));
+        };
+    }
 
     return (
         <Container>
@@ -35,7 +71,9 @@ export default function RegisterEmployee() {
                         <RegisterSubTitle>Crie sua conta de funcionário agora!</RegisterSubTitle>
                     </RegisterContentText>
 
-                    <RegisterForm>
+                    <RegisterForm
+                        onSubmit={handleRegister}
+                    >
                         <RegisterInputContainer>
                             <RegisterLabel htmlFor="inome">Nome</RegisterLabel>
                             <Input 
@@ -44,7 +82,8 @@ export default function RegisterEmployee() {
                                 name="nome"
                                 required
                                 id="inome"
-                            />
+                                value={nome}
+                                onChange={e => setNome(e.target.value)}/>
                         </RegisterInputContainer>
                         <RegisterInputContainer>
                             <RegisterLabel htmlFor="iemail">Email</RegisterLabel>
@@ -54,6 +93,8 @@ export default function RegisterEmployee() {
                                 name="email"
                                 required
                                 id="iemail"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
                             />
                         </RegisterInputContainer>
 
@@ -65,35 +106,36 @@ export default function RegisterEmployee() {
                                 required
                                 name="senha"
                                 id="isenha"
+                                value={senha}
+                                onChange={e => setSenha(e.target.value)}
                             />
                         </RegisterInputContainer>
 
                         <FormFileArea>
                             {!imagePreview && (
                                 <FormImgInputContainer>
-                                    <FormImgInputTitle>Adicionar foto de perfil (Opcional)</FormImgInputTitle>
+                                    <FormImgInputTitle>Adicionar imagem do funcionário</FormImgInputTitle>
                                     <FiUpload color="#121212" />
                                     <FormImgInput
                                         type="file"
                                         accept="image/*"
-                                        required
-                                    // onChange={handleOnChangeFile}
+                                        onChange={handleFileChange}
                                     />
                                 </FormImgInputContainer>
                             )}
                             {imagePreview && (
                                 <FormImgContainer className="form-img-container">
                                     <FormImgDelete
-                                    // onClick={() => {
-                                    // setFile(null);
-                                    // setImagePreview(null);
-                                    // }}
+                                        onClick={() => {
+                                            setFile(undefined);
+                                            setImagePreview(null);
+                                        }}
                                     >
                                         <FiTrash size={22} color="#FFF" />
                                     </FormImgDelete>
                                     <FormImg
-                                        src={"https://github.com/gustavoguanabara.png"}
-                                        alt="Imagem do produto"
+                                        src={imagePreview}
+                                        alt="Imagem da empresa"
                                     />
                                 </FormImgContainer>
                             )}
