@@ -29,14 +29,18 @@ export default function MyAccount() {
             <Container>
                 <MyAccountContentContainer>
                     <UserHeaderDetail 
-                        name={funcionario.name}
-                        image={funcionario.image}
+                        name={user.nome}
+                        image={
+                            user?.foto 
+                            ? `http://localhost:3333/files/${user.foto}`
+                            : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
+                        }
                     />
 
                     <MyAccountInfo 
-                        name={funcionario.name}
-                        email={funcionario.email}
-                        enterpriseName={funcionario.enterpriseName}
+                        name={user.nome}
+                        email={user.email}
+                        // enterpriseName={user.}
                     />
                 </MyAccountContentContainer>
             </Container>
