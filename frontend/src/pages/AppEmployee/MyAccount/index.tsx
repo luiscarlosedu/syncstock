@@ -40,7 +40,11 @@ export default function MyAccount() {
                     <MyAccountInfo 
                         name={user.nome}
                         email={user.email}
-                        // enterpriseName={user.}
+                        enterpriseName={
+                            user.enterprise_nome
+                            ? user.enterprise_nome
+                            : "Nenhuma"
+                        }
                     />
                 </MyAccountContentContainer>
             </Container>

@@ -3,11 +3,11 @@ import { Container, InfoItem, InfoItemName, InfoItemValue } from "./styles";
 interface InfoProps {
     name: string;
     email: string;
-    // enterpriseName: string;
+    enterpriseName: string;
 }
 
 export default function MyAccountInfo({
-    name, email, /*enterpriseName*/
+    name, email, enterpriseName
 }: InfoProps) {
     return (
         <Container>
@@ -25,7 +25,7 @@ export default function MyAccountInfo({
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Empresa:</InfoItemName>
-                <InfoItemValue>{/*{enterpriseName}*/} SyncStock</InfoItemValue>
+                <InfoItemValue>{enterpriseName}</InfoItemValue>
             </InfoItem>
         </Container>
     );

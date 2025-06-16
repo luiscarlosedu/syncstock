@@ -25,6 +25,7 @@ interface UserProps {
     tipo: "empresa" | "funcionario";
     foto?: string;
     employed?: boolean;
+    enterprise_nome?: string;
 }
 
 type TypeUser = "empresa" | "funcionario";
@@ -57,7 +58,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     response = await api.get("/employee/detail");
                 }
 
-                const data: UserProps = response.data;
+                const data = response.data;
 
                 const UserData: UserProps = {
                     id: data.id ?? "",
@@ -66,7 +67,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     cnpj: data.cnpj ?? undefined,
                     tipo: typeUser,
                     foto: data.foto ?? undefined,
-                    employed: data.employed ?? undefined 
+                    employed: data.employed ?? undefined,
+                    enterprise_nome: data.empresa?.nome ?? undefined,
                 }
 
                 setUser(UserData);
