@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { UserHeaderDetail } from "./components/user-header-detail";
 import MyAccountInfo from "./MyAccountInfo";
 import { Container, MyAccountContentContainer } from "./styles";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { Navigate } from "react-router";
 // import { UserHeaderPending } from "./components/user-header-pending";
 // import MyAccountPendinginfo from "./MyAccountPendingInfo";
 // import { Navigate } from "react-router";
@@ -15,15 +18,12 @@ export interface EmployeeProps {
 }
 
 export default function MyAccount() {
-    const funcionario: EmployeeProps = {
-        name: 'Luís Eduardo',
-        email: 'eduardo.luis032@gmail.com',
-        enterpriseName: 'SyncStock',
-        employed: true,
-        type: 'employee',
-        image: "https://avatars.githubusercontent.com/u/157180909?v=4"
-    }
+    const { user } = useContext(AuthContext);
         
+    if(!user) {
+        return <Navigate to={"/"} replace />
+    }
+
     return (
         <>
             <Container>
