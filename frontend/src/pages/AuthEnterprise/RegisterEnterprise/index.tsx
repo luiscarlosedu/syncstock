@@ -42,7 +42,7 @@ export default function RegisterEnterprise() {
         if (!file) {
             alert("Selecione uma imagem!");
             return;
-        }
+        };
 
         try {
             await signUpEnterprise(nome, cnpj, email, senha, endereco, telefone, file);
@@ -60,7 +60,7 @@ export default function RegisterEnterprise() {
             console.error(err);
             alert("Erro ao cadastrar empresa.");
         }
-    }
+    };
 
     function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
         const selectedFile = e.target.files?.[0];
@@ -68,7 +68,7 @@ export default function RegisterEnterprise() {
             setFile(selectedFile);
             setImagePreview(URL.createObjectURL(selectedFile));
         };
-    }
+    };
 
     return (
         <Container>
