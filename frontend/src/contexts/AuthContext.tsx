@@ -25,6 +25,7 @@ interface UserProps {
     tipo: "empresa" | "funcionario";
     foto?: string;
     employed?: boolean;
+    createdAt: string;
     enterprise_nome?: string;
 }
 
@@ -67,6 +68,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     cnpj: data.cnpj ?? undefined,
                     tipo: typeUser,
                     foto: data.foto ?? undefined,
+                    createdAt: data.createdAt,
                     employed: data.employed ?? undefined,
                     enterprise_nome: data.empresa?.nome ?? undefined,
                 }
@@ -108,7 +110,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 }
             });
 
-            const { token, id, nome: userNome, email: userEmail, cnpj: userCnpj, foto } = response.data;
+            const { token, id, nome: userNome, email: userEmail, cnpj: userCnpj, foto, createdAt } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "empresa");
@@ -122,6 +124,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 cnpj: userCnpj,
                 foto,
                 tipo: "empresa",
+                createdAt,
             });
 
             setLoadingAuth(false);
@@ -142,7 +145,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 cnpj,
                 senha
             });
-            const { token, id, nome, email: userEmail, cnpj: userCnpj, foto } = response.data;
+            const { token, id, nome, email: userEmail, cnpj: userCnpj, foto, createdAt } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "empresa");
@@ -156,6 +159,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 cnpj: userCnpj,
                 foto,
                 tipo: "empresa",
+                createdAt,
             });
 
         } catch (err) {
@@ -179,12 +183,12 @@ export default function AuthProvider({children}: AuthProviderProps) {
             };
 
             const response = await api.post("/employee", data, {
-                headers: {
+                headers: {  
                     'Content-Type': 'multipart/form-data',
                 }
             });
 
-            const { id, nome: userNome, email: userEmail, foto, employed, token } = response.data;
+            const { id, nome: userNome, email: userEmail, foto, employed, token, createdAt } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "funcionario");
@@ -197,7 +201,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 email: userEmail,
                 foto,
                 employed,
-                tipo: "funcionario" 
+                tipo: "funcionario",
+                createdAt,
             });
 
             setLoadingAuth(false);
@@ -217,7 +222,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 email,
                 senha
             });
-            const { id, nome, email: userEmail, employed, foto, token } = response.data;
+            const { id, nome, email: userEmail, employed, foto, token, createdAt } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "funcionario");
@@ -231,6 +236,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 employed,
                 foto,
                 tipo: "funcionario",
+                createdAt,
             });
 
             setLoadingAuth(false);

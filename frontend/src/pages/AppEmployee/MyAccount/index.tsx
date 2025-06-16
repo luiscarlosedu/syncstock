@@ -40,6 +40,7 @@ export default function MyAccount() {
                     <MyAccountInfo 
                         name={user.nome}
                         email={user.email}
+                        created_at={user.createdAt}
                         enterpriseName={
                             user.enterprise_nome
                             ? user.enterprise_nome
