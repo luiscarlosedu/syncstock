@@ -28,6 +28,8 @@ interface UserProps {
     createdAt: string;
     enterprise_nome?: string;
     enterprise_foto?: string;
+    telefone?: string;
+    endereco?: string;
 }
 
 type TypeUser = "empresa" | "funcionario";
@@ -70,6 +72,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     tipo: typeUser,
                     foto: data.foto ?? undefined,
                     createdAt: data.createdAt,
+                    endereco: data?.endereco ?? undefined,
+                    telefone: data?.telefone ?? undefined,
                     employed: data.employed ?? undefined,
                     enterprise_nome: data.empresa?.nome ?? undefined,
                     enterprise_foto: data.empresa?.foto ?? undefined,
@@ -112,7 +116,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 }
             });
 
-            const { token, id, nome: userNome, email: userEmail, cnpj: userCnpj, foto, createdAt, empresa } = response.data;
+            const { token, id, nome: userNome, email: userEmail, cnpj: userCnpj, foto, createdAt, telefone: userTelefone, endereco: userEndereco } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "empresa");
@@ -127,8 +131,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 foto,
                 tipo: "empresa",
                 createdAt,
-                enterprise_nome: empresa?.nome,
-                enterprise_foto: empresa?.foto,
+                telefone: userTelefone,
+                endereco: userEndereco
             });
 
             setLoadingAuth(false);
@@ -149,7 +153,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 cnpj,
                 senha
             });
-            const { token, id, nome, email: userEmail, cnpj: userCnpj, foto, createdAt } = response.data;
+            const { token, id, nome, email: userEmail, cnpj: userCnpj, foto, createdAt, endereco: userEndereco, telefone: userTelefone } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "empresa");
@@ -164,6 +168,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 foto,
                 tipo: "empresa",
                 createdAt,
+                endereco: userEndereco,
+                telefone: userTelefone
             });
 
         } catch (err) {
