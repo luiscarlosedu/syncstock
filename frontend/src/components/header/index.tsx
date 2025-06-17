@@ -62,7 +62,7 @@ export function Header({ type }: HeaderProps) {
                     <MyEnterpriseImage 
                         src={
                             user.foto 
-                                ? `http://localhost:3333/files/${user.foto}` 
+                                ? `${import.meta.env.VITE_API_URL}/files/${user.foto}`
                                 : `https://ui-avatars.com/api/?name=${user.nome}&background=202020&color=fff`
                             } 
                         alt="Logo da empresa" 

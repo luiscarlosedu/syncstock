@@ -32,7 +32,7 @@ export default function MyAccount() {
                         name={user.nome}
                         image={
                             user?.foto 
-                            ? `http://localhost:3333/files/${user.foto}`
+                            ? `${import.meta.env.VITE_API_URL}/files/${user.foto}`
                             : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
                         }
                     />

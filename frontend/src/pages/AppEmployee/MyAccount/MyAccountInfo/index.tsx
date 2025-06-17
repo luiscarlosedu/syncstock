@@ -10,6 +10,13 @@ interface InfoProps {
 export default function MyAccountInfo({
     name, email, created_at, enterpriseName
 }: InfoProps) {
+
+    function formattedDate(user_createdAt: string) {
+        const createdDate = new Date(user_createdAt);
+        const formatted = createdDate.toLocaleDateString("pt-BR");
+        return formatted;
+    }
+
     return (
         <Container>
             <InfoItem>
@@ -22,7 +29,7 @@ export default function MyAccountInfo({
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Desde:</InfoItemName>
-                <InfoItemValue>{created_at}</InfoItemValue>
+                <InfoItemValue>{formattedDate(created_at)}</InfoItemValue>
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Empresa:</InfoItemName>

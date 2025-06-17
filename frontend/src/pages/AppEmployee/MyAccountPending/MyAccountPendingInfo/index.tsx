@@ -10,6 +10,12 @@ export default function MyAccountPendinginfo() {
         return <Navigate to={"/"} replace />
     }
 
+    function formattedDate(user_createdAt: string) {
+        const createdDate = new Date(user_createdAt);
+        const formatted = createdDate.toLocaleDateString("pt-BR");
+        return formatted;
+    }
+
     return (
         <Container>
             <InfoItem>
@@ -22,7 +28,7 @@ export default function MyAccountPendinginfo() {
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Desde:</InfoItemName>
-                <InfoItemValue>01/01/2024</InfoItemValue>
+                <InfoItemValue>{formattedDate(user.createdAt)}</InfoItemValue>
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Empresa:</InfoItemName>
