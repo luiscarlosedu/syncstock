@@ -48,6 +48,8 @@ export class AuthEnterpriseService {
             cnpj: enterprise.cnpj,
             createdAt: enterprise.createdAt,
             foto: enterprise.foto,
+            endereco: enterprise.endereco,
+            telefone: enterprise.telefone,
             token: token,
         }
 

@@ -47,6 +47,7 @@ export class CreateEnterpriseService {
                 nome, cnpj, email, senha: passwordHash, endereco: endereco, telefone, foto,
             },
             select: {
+                id: true,
                 nome: true,
                 cnpj: true,
                 email: true,
