@@ -27,6 +27,7 @@ interface UserProps {
     employed?: boolean;
     createdAt: string;
     enterprise_nome?: string;
+    enterprise_foto?: string;
 }
 
 type TypeUser = "empresa" | "funcionario";
@@ -71,6 +72,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     createdAt: data.createdAt,
                     employed: data.employed ?? undefined,
                     enterprise_nome: data.empresa?.nome ?? undefined,
+                    enterprise_foto: data.empresa?.foto ?? undefined,
                 }
 
                 setUser(UserData);
@@ -110,7 +112,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 }
             });
 
-            const { token, id, nome: userNome, email: userEmail, cnpj: userCnpj, foto, createdAt } = response.data;
+            const { token, id, nome: userNome, email: userEmail, cnpj: userCnpj, foto, createdAt, empresa } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "empresa");
@@ -125,6 +127,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 foto,
                 tipo: "empresa",
                 createdAt,
+                enterprise_nome: empresa?.nome,
+                enterprise_foto: empresa?.foto,
             });
 
             setLoadingAuth(false);
@@ -188,7 +192,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 }
             });
 
-            const { id, nome: userNome, email: userEmail, foto, employed, token, createdAt } = response.data;
+            const { id, nome: userNome, email: userEmail, foto, employed, token, createdAt, empresa } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "funcionario");
@@ -203,6 +207,8 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 employed,
                 tipo: "funcionario",
                 createdAt,
+                enterprise_nome: empresa?.nome ?? undefined,
+                enterprise_foto: empresa?.foto ?? undefined,
             });
 
             setLoadingAuth(false);
