@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { UserHeaderDetail } from "./components/user-header-detail";
 import MyAccountInfo from "./MyAccountInfo";
 import { Container, MyAccountContentContainer } from "./styles";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { Navigate } from "react-router";
 // import { UserHeaderPending } from "./components/user-header-pending";
 // import MyAccountPendinginfo from "./MyAccountPendingInfo";
 // import { Navigate } from "react-router";
@@ -15,28 +18,34 @@ export interface EmployeeProps {
 }
 
 export default function MyAccount() {
-    const funcionario: EmployeeProps = {
-        name: 'Luís Eduardo',
-        email: 'eduardo.luis032@gmail.com',
-        enterpriseName: 'SyncStock',
-        employed: true,
-        type: 'employee',
-        image: "https://avatars.githubusercontent.com/u/157180909?v=4"
-    }
+    const { user } = useContext(AuthContext);
         
+    if(!user) {
+        return <Navigate to={"/"} replace />
+    }
+
     return (
         <>
             <Container>
                 <MyAccountContentContainer>
                     <UserHeaderDetail 
-                        name={funcionario.name}
-                        image={funcionario.image}
+                        name={user.nome}
+                        image={
+                            user?.foto 
+                            ? `http://localhost:3333/files/${user.foto}`
+                            : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
+                        }
                     />
 
                     <MyAccountInfo 
-                        name={funcionario.name}
-                        email={funcionario.email}
-                        enterpriseName={funcionario.enterpriseName}
+                        name={user.nome}
+                        email={user.email}
+                        created_at={user.createdAt}
+                        enterpriseName={
+                            user.enterprise_nome
+                            ? user.enterprise_nome
+                            : "Nenhuma"
+                        }
                     />
                 </MyAccountContentContainer>
             </Container>

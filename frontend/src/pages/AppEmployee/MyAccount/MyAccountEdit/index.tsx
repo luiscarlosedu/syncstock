@@ -1,28 +1,31 @@
-import { useState } from "react";
-import { EmployeeProps } from "..";
+import { useContext, useState } from "react";
 import { UserHeaderDetail } from "../components/user-header-detail";
 import { MyAccountContentContainer } from "../styles";
 import { Container, EditContent, EditInput, EditInputContainer, EditLabel, EditSubmit, } from "./styles";
+import { AuthContext } from "../../../../contexts/AuthContext";
+import { Navigate } from "react-router";
 
 export default function MyAccountEdit() {
-    const funcionario: EmployeeProps = {
-        name: 'Luís Eduardo',
-        email: 'eduardo.luis032@gmail.com',
-        enterpriseName: 'SyncStock',
-        employed: true,
-        type: 'employee',
-        image: "https://avatars.githubusercontent.com/u/157180909?v=4"
+    const { user } = useContext(AuthContext);
+
+    const [nameUser, setNameUser] = useState(user?.nome);
+
+    if (!user) {
+        return <Navigate to={"/"} replace />
     }
 
-    const [name, setName] = useState(funcionario.name);
 
     return (
         <>
             <Container>
                 <MyAccountContentContainer>
-                    <UserHeaderDetail
-                        name={funcionario.name}
-                        image={funcionario.image}
+                    <UserHeaderDetail 
+                        name={user.nome}
+                        image={
+                            user?.foto 
+                            ? `http://localhost:3333/files/${user.foto}`
+                            : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
+                        }
                     />
 
                     <EditContent>
@@ -33,8 +36,8 @@ export default function MyAccountEdit() {
                                 id="iname"
                                 name="name"
                                 type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                value={nameUser}
+                                onChange={(e) => setNameUser(e.target.value)}
                             />
                         </EditInputContainer>
                         <EditSubmit>

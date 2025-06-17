@@ -10,13 +10,21 @@ import {
 
 import ImageLogo from '../../assets/syncstock-white.png';
 import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 interface HeaderProps {
     type: 'enterprise' | 'employee';
 }
 
 export function Header({ type }: HeaderProps) {
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    if (!user) {
+        return;
+    }
+
     return (
         <Container>
             <HeaderLogo>
@@ -35,7 +43,14 @@ export function Header({ type }: HeaderProps) {
                     <MyEnterpriseText>
                         My Store
                     </MyEnterpriseText>
-                    <MyEnterpriseImage src={ImageLogo} alt="Logo da empresa" />
+                    <MyEnterpriseImage 
+                        src={
+                            user.foto 
+                                ? `http://localhost:3333/files/${user.foto}` 
+                                : `https://ui-avatars.com/api/?name=${user.nome}&background=202020&color=fff`
+                            } 
+                        alt="Logo da empresa" 
+                    />
                 </MyEnterprise>
             ): (
                 <MyEnterprise
@@ -44,7 +59,14 @@ export function Header({ type }: HeaderProps) {
                     <MyEnterpriseText>
                         My Account
                     </MyEnterpriseText>
-                    <MyEnterpriseImage src="https://github.com/luiscarlosedu.png" alt="Logo da empresa" />
+                    <MyEnterpriseImage 
+                        src={
+                            user.foto 
+                                ? `http://localhost:3333/files/${user.foto}` 
+                                : `https://ui-avatars.com/api/?name=${user.nome}&background=202020&color=fff`
+                            } 
+                        alt="Logo da empresa" 
+                    />
                 </MyEnterprise>
             )}
         </Container>
