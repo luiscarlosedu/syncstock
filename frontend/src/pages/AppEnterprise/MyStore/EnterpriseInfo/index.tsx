@@ -4,7 +4,11 @@ import { AuthContext } from "../../../../contexts/AuthContext";
 import { Navigate } from "react-router";
 
 export function EnterpriseInfo() {
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
+
+    if (loading) {
+        return <p>Carregando informações...</p>;
+    }
 
     if(!user) {
         return <Navigate to={"/"} replace />
@@ -15,8 +19,6 @@ export function EnterpriseInfo() {
         const formatted = createdDate.toLocaleDateString("pt-BR");
         return formatted;
     }
-
-    console.log(user.cnpj);
     
     return (
         <Container>
@@ -26,16 +28,16 @@ export function EnterpriseInfo() {
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Email:</InfoItemName>
-                <InfoItemValue>{user.email}</InfoItemValue>
+                <InfoItemValue>{user?.email}</InfoItemValue>
             </InfoItem>
 
             <InfoItem>
                 <InfoItemName>Telefone:</InfoItemName>
-                <InfoItemValue>(88)997876890 - editar</InfoItemValue>
+                <InfoItemValue>{user.telefone}</InfoItemValue>
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Endereço:</InfoItemName>
-                <InfoItemValue>Av. das Empresas, 123 - SP - editar</InfoItemValue>
+                <InfoItemValue>{user.endereco}</InfoItemValue>
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Desde:</InfoItemName>
