@@ -46,6 +46,7 @@ export class AuthEnterpriseService {
             nome: enterprise.nome,
             email: enterprise.email,
             cnpj: enterprise.cnpj,
+            createdAt: enterprise.createdAt,
             foto: enterprise.foto,
             token: token,
         }

@@ -53,6 +53,7 @@ export class CreateEnterpriseService {
                 endereco: true,
                 foto: true,
                 telefone: true,
+                createdAt: true,
             }
         });
 
