@@ -25,11 +25,11 @@ export default function MyAccountPendingEdit() {
             <Container>
                 <MyAccountContentContainer>
                     <UserHeaderPending
-                        name={user?.nome}
+                        name={user.nome}
                         image={
-                            user?.foto === undefined
-                            ? `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
-                            : user?.foto
+                            user?.foto 
+                            ? `http://localhost:3333/files/${user.foto}`
+                            : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
                         }
                     />
 
