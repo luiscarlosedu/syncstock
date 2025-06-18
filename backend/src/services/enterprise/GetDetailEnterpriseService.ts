@@ -12,6 +12,8 @@ export class GetDetailEnterpriseService {
             },
             select: {
                 nome: true,
+                email: true,
+                cnpj: true,
                 foto: true,
                 telefone: true,
                 endereco: true,

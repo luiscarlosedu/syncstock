@@ -19,7 +19,8 @@ export class EmployeeDetailService {
                 createdAt: true,
                 empresa: {
                     select: {
-                        nome: true
+                        nome: true,
+                        foto: true,
                     }
                 }
             }

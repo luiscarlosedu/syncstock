@@ -42,6 +42,7 @@ export class AuthEmployeeService {
             nome: employee.nome,
             email: employee.email,
             employed: employee.employed,
+            createdAt: employee.createdAt,
             foto: employee.foto ?? undefined,
             token: token,
         }

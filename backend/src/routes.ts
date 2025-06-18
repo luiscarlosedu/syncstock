@@ -9,6 +9,7 @@ import { CreateEnterpriseController } from "./controllers/enterprise/CreateEnter
 import { AuthEnterpriseController } from "./controllers/enterprise/AuthEnterpriseController";
 import { GetDetailEnterpriseController } from "./controllers/enterprise/GetDetailEnterpriseController";
 import { ListEmployeesController } from "./controllers/enterprise/ListEmployeesController";
+import { StatusEnterpriseController } from "./controllers/enterprise/StatusEnterpriseController";
 import { RemoveEmployeeController } from "./controllers/enterprise/RemoveEmployeeController";
 import { EmailEmployeeController } from "./controllers/enterprise/EmailEmployeeController";
 
@@ -45,6 +46,7 @@ router.post("/employee/session", new AuthEmployeeController().handle);
 router.get("/enterprise/detail", isAuthenticaded, new GetDetailEnterpriseController().handle);
 router.post("/employee/approve", isAuthenticaded, new EmailEmployeeController().handle);
 router.get("/enterprise/employees", isAuthenticaded, new ListEmployeesController().handle);
+router.get("/enterprise/status", isAuthenticaded, new StatusEnterpriseController().handle);
 router.patch("/enterprise/remove-employee", isAuthenticaded, new RemoveEmployeeController().handle);
 
 // Rotas - Employee / Funcionário
