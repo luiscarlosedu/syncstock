@@ -22,7 +22,7 @@ export function MyStoreHeader() {
                 } />
                 <MyStoryHeadInfo>
                     <StoryTitleName>
-                        SyncStock
+                        {user.nome}
                     </StoryTitleName>
 
                     {location.pathname === '/empresa/detalhes' && (

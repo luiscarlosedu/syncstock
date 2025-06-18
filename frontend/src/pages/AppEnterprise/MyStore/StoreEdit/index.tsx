@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { MyStoreHeader } from "../../../../components/my-store-header";
 import { Container, StoreEditContent, StoreEditContentContainer, StoreEditInput, StoreEditInputContainer, StoreEditLabel, StoreEditSubmit, StoreEditTwoInputsContainer } from "./styles";
+import { AuthContext } from "../../../../contexts/AuthContext";
+import { Navigate } from "react-router";
 
 export default function StoreEdit() {
-    const [empresa, setEmpresa] = useState({
-        nome: 'Empresa Exemplo Ltda',
-        cnpj: '00.000.000/0001-00',
-        endereco: 'Rua Exemplo, 123 - Centro',
-        telefone: '8899999-9999',
-    });
+    const { user } = useContext(AuthContext);
+    const [empresaNome, setEmpresaNome] = useState(user?.nome);
+    const [empresaEndereco, setEmpresaEndereco] = useState(user?.endereco);
+    const [empresaTelefone, setEmpresaTelefone] = useState(user?.telefone);
+
+    if (!user) {
+        return <Navigate to={"/"} replace />
+    };
 
     return (
         <Container>
@@ -24,8 +28,8 @@ export default function StoreEdit() {
                             id="iname"
                             name="name"
                             type="text"
-                            value={empresa.nome}
-                            onChange={(e) => setEmpresa({...empresa, nome: e.target.value})}
+                            value={empresaNome}
+                            onChange={(e) => setEmpresaNome(e.target.value)}
                         />
                     </StoreEditInputContainer>
 
@@ -36,8 +40,8 @@ export default function StoreEdit() {
                             id="iaddress"
                             name="address"
                             type="text"
-                            value={empresa.endereco}
-                            onChange={(e) => setEmpresa({...empresa, endereco: e.target.value})}
+                            value={empresaEndereco}
+                            onChange={(e) => setEmpresaEndereco(e.target.value)}
                         />
                     </StoreEditInputContainer>
 
@@ -49,23 +53,11 @@ export default function StoreEdit() {
                                     id="iphone"
                                     name="phone"
                                     type="tel"
-                                    value={empresa.telefone}
-                                    onChange={(e) => setEmpresa({...empresa, telefone: e.target.value})}
+                                    value={empresaTelefone}
+                                    onChange={(e) => setEmpresaTelefone(e.target.value)}
                                 />
                         </StoreEditInputContainer>
-
-                        <StoreEditInputContainer>
-                            <StoreEditLabel htmlFor="icnpj">CNPJ</StoreEditLabel>
-                                <StoreEditInput
-                                    placeholder="12.345.678/0001-99"
-                                    id="icnpj"
-                                    name="cnpj"
-                                    type="text"
-                                    value={empresa.cnpj}
-                                    onChange={(e) => setEmpresa({...empresa, cnpj: e.target.value})}
-                                />
-                            </StoreEditInputContainer>
-                        </StoreEditTwoInputsContainer>
+                    </StoreEditTwoInputsContainer>
                     
                     <StoreEditSubmit>
                         Atualizar
