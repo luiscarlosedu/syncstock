@@ -29,8 +29,6 @@ export function EnterpriseInfo({data}: Props) {
                 <InfoItemName>Desde:</InfoItemName>
                 <InfoItemValue>{data.createdAt}</InfoItemValue>
             </InfoItem>
-
-            
         </Container>
     );
 }
