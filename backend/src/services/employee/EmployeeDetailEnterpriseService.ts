@@ -12,6 +12,7 @@ export class EmployeeDetailEnterpriseService {
             },
             select: {
                 nome: true,
+                email: true,
                 foto: true,
                 telefone: true,
                 endereco: true,
