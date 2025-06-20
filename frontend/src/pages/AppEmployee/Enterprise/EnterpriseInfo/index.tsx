@@ -23,7 +23,7 @@ export function EnterpriseInfo({data}: Props) {
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Endereço:</InfoItemName>
-                <InfoItemValue>{data.telefone}</InfoItemValue>
+                <InfoItemValue>{data.endereco}</InfoItemValue>
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Desde:</InfoItemName>
