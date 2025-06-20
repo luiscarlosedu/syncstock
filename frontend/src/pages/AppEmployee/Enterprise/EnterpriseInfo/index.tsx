@@ -6,6 +6,10 @@ interface Props {
 }
 
 export function EnterpriseInfo({data}: Props) {
+    function formattedDate(date: string) {
+        return new Date(date).toLocaleDateString("pt-BR");
+    }
+
     return (
         <Container>
             <InfoItem>
@@ -27,7 +31,7 @@ export function EnterpriseInfo({data}: Props) {
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Desde:</InfoItemName>
-                <InfoItemValue>{data.createdAt}</InfoItemValue>
+                <InfoItemValue>{formattedDate(data.createdAt)}</InfoItemValue>
             </InfoItem>
         </Container>
     );
