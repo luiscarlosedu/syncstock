@@ -1,28 +1,33 @@
+import { EnterpriseData } from "..";
 import { Container, InfoItem, InfoItemName, InfoItemValue } from "./styles";
 
-export function EnterpriseInfo() {
+interface Props {
+    data: EnterpriseData;
+}
+
+export function EnterpriseInfo({data}: Props) {
     return (
         <Container>
             <InfoItem>
-                <InfoItemName>CNPJ:</InfoItemName>
-                <InfoItemValue>12.345.678/0001-99</InfoItemValue>
+                <InfoItemName>Nome:</InfoItemName>
+                <InfoItemValue>{data.nome}</InfoItemValue>
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Email:</InfoItemName>
-                <InfoItemValue>synstock@gmail.com</InfoItemValue>
+                <InfoItemValue>{data.email}</InfoItemValue>
             </InfoItem>
 
             <InfoItem>
                 <InfoItemName>Telefone:</InfoItemName>
-                <InfoItemValue>(88)997876890</InfoItemValue>
+                <InfoItemValue>{data.telefone}</InfoItemValue>
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Endereço:</InfoItemName>
-                <InfoItemValue>Av. das Empresas, 123 - SP</InfoItemValue>
+                <InfoItemValue>{data.telefone}</InfoItemValue>
             </InfoItem>
             <InfoItem>
                 <InfoItemName>Desde:</InfoItemName>
-                <InfoItemValue>01/01/2024</InfoItemValue>
+                <InfoItemValue>{data.createdAt}</InfoItemValue>
             </InfoItem>
 
             

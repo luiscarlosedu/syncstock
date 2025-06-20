@@ -215,6 +215,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 employed,
                 tipo: "funcionario",
                 createdAt,
+                enterprise_id: empresa?.id ?? undefined,
                 enterprise_nome: empresa?.nome ?? undefined,
                 enterprise_foto: empresa?.foto ?? undefined,
             });
