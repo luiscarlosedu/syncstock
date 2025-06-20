@@ -9,7 +9,7 @@ export function EnterpriseEmployees({data}: Props) {
     return (
         <Container>
             {data.map((emp) => (
-                <EmployeeCard>
+                <EmployeeCard key={emp.id}>
                     <EmployeeAvatar 
                         src={
                             emp.foto 

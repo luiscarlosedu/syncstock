@@ -2,8 +2,13 @@ import { Navigate } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../../../../../contexts/AuthContext";
 import { MyStoreHead, MyStoryHeadInfo, StoreImage, StoryTitleName } from "../../../../../components/my-store-header/styles";
+import { EnterpriseData } from "../..";
 
-export function MyEnterpriseHeader() {
+interface Props {
+    data: EnterpriseData;
+}
+
+export function MyEnterpriseHeader({data}: Props) {
     const { user } = useContext(AuthContext);
 
     if(!user) {
@@ -14,13 +19,13 @@ export function MyEnterpriseHeader() {
         <>
             <MyStoreHead>
                 <StoreImage src={
-                    user?.foto
-                        ? `${import.meta.env.VITE_API_URL}/files/${user.foto}`
-                        : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
+                    data?.foto
+                        ? `${import.meta.env.VITE_API_URL}/files/${data.foto}`
+                        : `https://ui-avatars.com/api/?name=${encodeURIComponent(data.nome)}&background=202020&color=fff`
                 } />
                 <MyStoryHeadInfo>
                     <StoryTitleName>
-                        {user.nome}
+                        {data.nome}
                     </StoryTitleName>
                     
                 </MyStoryHeadInfo>

@@ -32,32 +32,36 @@ export default function EnterpriseEmployee() {
     const [enterpriseData, setEnterpriseData] = useState<EnterpriseData | null>(null);
 
     useEffect(() => {
+        async function loadStorage() {
+            try {
+                const response = await api.get("/employee/enterprise", {
+                    params: {
+                        enterprise_id: user?.enterprise_id,
+                    }
+                });
+                setEnterpriseData(response.data);
+            } catch (err) {
+                console.log("[ERRO]", err);
+            }
+        };
+
         if (user?.enterprise_id) {
             loadStorage();
-        }
+        };
     }, [user]);
 
     if (!user) {
         return <Navigate to={"/"} replace />
-    }
-
-    async function loadStorage() {
-        try {
-            const response = await api.get("/employee/enterprise", {
-                params: {
-                    enterprise_id: user?.enterprise_id,
-                }
-            });
-            setEnterpriseData(response.data);
-        } catch (err) {
-            console.log("[ERRO]", err);
-        }
-    }
+    };
 
     return (
         <Container>
             <MyStoreContentContainer>
-                <MyEnterpriseHeader />
+                {enterpriseData && (
+                    <MyEnterpriseHeader 
+                        data={enterpriseData}
+                    />
+                )}
 
                 <ChangeInfo>
                     <ChangeInfoItem
