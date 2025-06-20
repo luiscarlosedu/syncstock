@@ -26,7 +26,7 @@ export function EnterpriseStatus({data}: Props) {
                     <IoMdPricetag size={25} />
                 </StatusCardIcon>
                 <StatusCardContent>
-                    <StatusValue>140</StatusValue>
+                    <StatusValue>{data.productsCount}</StatusValue>
                     <StatusTitle>Produtos</StatusTitle>
                 </StatusCardContent>                
             </StatusCard>
@@ -36,7 +36,7 @@ export function EnterpriseStatus({data}: Props) {
                     <MdCategory size={25} />
                 </StatusCardIcon>
                 <StatusCardContent>
-                    <StatusValue>10</StatusValue>
+                    <StatusValue>{data.categoriesCount}</StatusValue>
                     <StatusTitle>Categorias</StatusTitle>
                 </StatusCardContent>                
             </StatusCard>
