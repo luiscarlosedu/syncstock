@@ -26,6 +26,7 @@ interface UserProps {
     foto?: string;
     employed?: boolean;
     createdAt: string;
+    enterprise_id?: string;
     enterprise_nome?: string;
     enterprise_foto?: string;
     telefone?: string;
@@ -75,6 +76,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     endereco: data?.endereco ?? undefined,
                     telefone: data?.telefone ?? undefined,
                     employed: data.employed ?? undefined,
+                    enterprise_id: data.empresa?.id ?? undefined,
                     enterprise_nome: data.empresa?.nome ?? undefined,
                     enterprise_foto: data.empresa?.foto ?? undefined,
                 }

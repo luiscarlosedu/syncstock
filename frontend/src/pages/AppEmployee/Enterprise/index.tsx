@@ -2,8 +2,8 @@ import { useState } from "react";
 import { EnterpriseInfo } from "./EnterpriseInfo";
 import { EnterpriseStatus } from "./EntepriseStatus";
 import { EnterpriseEmployees } from "./EnterpriseEmployees";
-import { MyStoreHeader } from "../../../components/my-store-header";
 import { ChangeInfo, ChangeInfoItem, Container, MyStoreContentContainer } from "./styles";
+import { MyEnterpriseHeader } from "./components/my-enterprise-header";
 
 export default function EnterpriseEmployee() {
     const [activeTab, setActiveTab] = useState("info");
@@ -11,7 +11,7 @@ export default function EnterpriseEmployee() {
     return (
         <Container>
             <MyStoreContentContainer>
-                <MyStoreHeader />
+                <MyEnterpriseHeader />
 
                 <ChangeInfo>
                     <ChangeInfoItem
