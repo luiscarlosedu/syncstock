@@ -2,8 +2,13 @@ import { FaUsers } from "react-icons/fa";
 import { Container, StatusCard, StatusCardContent, StatusCardIcon, StatusTitle, StatusValue } from "./styles";
 import { IoMdPricetag } from "react-icons/io";
 import { MdCategory } from "react-icons/md";
+import { EnterpriseData } from "..";
 
-export function EnterpriseStatus() {
+interface Props {
+    data: EnterpriseData
+}
+
+export function EnterpriseStatus({data}: Props) {
     return (
         <Container>
             <StatusCard>
@@ -11,7 +16,7 @@ export function EnterpriseStatus() {
                     <FaUsers size={25} />
                 </StatusCardIcon>
                 <StatusCardContent>
-                    <StatusValue>8</StatusValue>
+                    <StatusValue>{data.funcionarios.length}</StatusValue>
                     <StatusTitle>Funcionários</StatusTitle>
                 </StatusCardContent>
             </StatusCard>
@@ -21,7 +26,7 @@ export function EnterpriseStatus() {
                     <IoMdPricetag size={25} />
                 </StatusCardIcon>
                 <StatusCardContent>
-                    <StatusValue>140</StatusValue>
+                    <StatusValue>{data.productsCount}</StatusValue>
                     <StatusTitle>Produtos</StatusTitle>
                 </StatusCardContent>                
             </StatusCard>
@@ -31,7 +36,7 @@ export function EnterpriseStatus() {
                     <MdCategory size={25} />
                 </StatusCardIcon>
                 <StatusCardContent>
-                    <StatusValue>10</StatusValue>
+                    <StatusValue>{data.categoriesCount}</StatusValue>
                     <StatusTitle>Categorias</StatusTitle>
                 </StatusCardContent>                
             </StatusCard>

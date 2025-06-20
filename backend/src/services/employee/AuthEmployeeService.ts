@@ -13,6 +13,15 @@ export class AuthEmployeeService {
             where: {
                 email: email,
             },
+            include: {
+                empresa: {
+                    select: {
+                        id: true,
+                        nome: true,
+                        foto: true,
+                    },
+                },
+            },
         });
 
         if (!employee) {
@@ -45,6 +54,11 @@ export class AuthEmployeeService {
             createdAt: employee.createdAt,
             foto: employee.foto ?? undefined,
             token: token,
+            empresa: {
+                id: employee.empresa?.id,
+                nome: employee.empresa?.nome,
+                foto: employee.empresa?.foto,
+            },
         }
     }
 }

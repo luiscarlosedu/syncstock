@@ -26,6 +26,7 @@ interface UserProps {
     foto?: string;
     employed?: boolean;
     createdAt: string;
+    enterprise_id?: string;
     enterprise_nome?: string;
     enterprise_foto?: string;
     telefone?: string;
@@ -75,6 +76,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                     endereco: data?.endereco ?? undefined,
                     telefone: data?.telefone ?? undefined,
                     employed: data.employed ?? undefined,
+                    enterprise_id: data.empresa?.id ?? undefined,
                     enterprise_nome: data.empresa?.nome ?? undefined,
                     enterprise_foto: data.empresa?.foto ?? undefined,
                 }
@@ -213,6 +215,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 employed,
                 tipo: "funcionario",
                 createdAt,
+                enterprise_id: empresa?.id ?? undefined,
                 enterprise_nome: empresa?.nome ?? undefined,
                 enterprise_foto: empresa?.foto ?? undefined,
             });
@@ -234,7 +237,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 email,
                 senha
             });
-            const { id, nome, email: userEmail, employed, foto, token, createdAt } = response.data;
+            const { id, nome, email: userEmail, employed, foto, token, createdAt, empresa } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "funcionario");
@@ -249,6 +252,9 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 foto,
                 tipo: "funcionario",
                 createdAt,
+                enterprise_id: empresa?.id ?? undefined,
+                enterprise_nome: empresa?.nome ?? undefined,
+                enterprise_foto: empresa?.foto ?? undefined,
             });
 
             setLoadingAuth(false);
