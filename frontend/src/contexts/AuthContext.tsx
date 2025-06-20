@@ -237,7 +237,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 email,
                 senha
             });
-            const { id, nome, email: userEmail, employed, foto, token, createdAt } = response.data;
+            const { id, nome, email: userEmail, employed, foto, token, createdAt, empresa } = response.data;
 
             localStorage.setItem("@tokenWeb", token);
             localStorage.setItem("@typeWeb", "funcionario");
@@ -252,6 +252,9 @@ export default function AuthProvider({children}: AuthProviderProps) {
                 foto,
                 tipo: "funcionario",
                 createdAt,
+                enterprise_id: empresa?.id ?? undefined,
+                enterprise_nome: empresa?.nome ?? undefined,
+                enterprise_foto: empresa?.foto ?? undefined,
             });
 
             setLoadingAuth(false);
