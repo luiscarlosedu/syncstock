@@ -24,8 +24,11 @@ import {
 import { EmployeeLengthWarn } from "../../../components/employee-length-warn";
 import Image from '../../../assets/enterprise-stock.jpg';
 import Logo from '../../../assets/SyncStock.png';
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 export default function HomeEnterprise() {
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const length: number = 0;
     
