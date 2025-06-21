@@ -25,10 +25,16 @@ export class GetDetailEnterpriseService {
             throw new Error("[ERROR] Empresa não encontrada!");
         };
 
+        const employeesCount = await prismaClient.funcionario.count({
+            where: {
+                empresa_id: enterprise_id,
+            },
+        });
+
         const productsCount = await prismaClient.produto.count({
             where: {
                 empresa_id: enterprise_id,
-            }
+            },
         });
 
         const categoriesCount = await prismaClient.categoria.count({
