@@ -45,6 +45,7 @@ export class GetDetailEnterpriseService {
 
         return {
             ...enterprise,
+            employeesCount,
             productsCount,
             categoriesCount,
         };
