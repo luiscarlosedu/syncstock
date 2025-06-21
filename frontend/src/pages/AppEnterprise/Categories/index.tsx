@@ -51,8 +51,6 @@ export default function CategoriesEnterprise() {
         return <Navigate to={"/"} replace />
     };
 
-    
-
     return (
         <Container>
             <CategoryContentContainer>
@@ -94,5 +92,4 @@ export default function CategoriesEnterprise() {
             </CategoryContentContainer>
         </Container>
     );
-
-}
+};
