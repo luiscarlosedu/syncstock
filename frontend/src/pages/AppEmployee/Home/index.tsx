@@ -73,7 +73,6 @@ export default function HomeEmployee() {
                                 </EnterpriseDetailsText>
                             </EnterpriseDetails>
                         </EmployeeCard>
-                        
 
                         <EmployeesCard>
                             <EmployeesIcon>👥</EmployeesIcon>
