@@ -110,6 +110,9 @@ export default function HomeEmployee() {
                         onClick={() => navigate('/funcionario/produtos')}
                     >➕ Movimentar Produtos</ActionButton>
                     <ActionButton
+                        onClick={() => navigate('/funcionario/categorias')}
+                    >🏷️ Visualizar Categorias</ActionButton>
+                    <ActionButton
                         onClick={() => navigate('/funcionario/empresa')}
                     >👥 Detalhes da Empresa</ActionButton>
                     <ActionButton
