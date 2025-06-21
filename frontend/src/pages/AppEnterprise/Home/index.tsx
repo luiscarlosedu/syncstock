@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import { 
     Container, 
     HomeContentContainer, 
@@ -24,15 +24,51 @@ import {
 import { EmployeeLengthWarn } from "../../../components/employee-length-warn";
 import Image from '../../../assets/enterprise-stock.jpg';
 import Logo from '../../../assets/SyncStock.png';
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
+import api from "../../../services/api";
+
+interface EnterpriseProps {
+    nome: string;
+    email: string;
+    cnpj: string;
+    foto: string;
+    telefone: string;
+    endereco: string;
+    createdAt: string
+    employeesCount: number;
+    productsCount: number;
+    categoriesCount: number;
+}
 
 export default function HomeEnterprise() {
+    const { user } = useContext(AuthContext);
+    const [enterpriseData, setEnterpriseData] = useState<EnterpriseProps>();
+    
     const navigate = useNavigate();
     const length: number = 0;
+
+    useEffect(() => {
+        loadStorage();
+    }, []);
+
+    if (!user) {
+        return <Navigate to={"/"} />
+    };
+
+    async function loadStorage() {
+        try {
+            const response = await api.get("/enterprise/detail");
+            setEnterpriseData(response.data);
+        } catch (err) {
+            console.log("[ERRO] ", err);
+        }
+    }
     
     return (
         <Container>
             <HomeContentContainer>
-                {length === 0 && <EmployeeLengthWarn/>}
+                {enterpriseData?.employeesCount === 0 && <EmployeeLengthWarn/>}
                 
                 <HomeTitle>Olá, Empresa!</HomeTitle>
                 <HomeSubTitle>Gerencie seu estoque com nossa plataforma.</HomeSubTitle>
@@ -43,10 +79,16 @@ export default function HomeEnterprise() {
                     <EnterpriseInfoContainer>
 
                         <EnterpriseCard>
-                            <EnterpriseLogo src={Logo} alt="Logo da Empresa" />
+                            <EnterpriseLogo 
+                                src={
+                                    enterpriseData?.foto
+                                    ? `${import.meta.env.VITE_API_URL}/files/${enterpriseData.foto}`
+                                    : `https://ui-avatars.com/api/?name=${enterpriseData?.nome}&background=202020&color=fff`
+                                } 
+                                alt="Logo da Empresa" />
                             <EnterpriseDetails>
                                 <EnterpriseDetailsText>
-                                    SyncStock
+                                    {enterpriseData?.nome}
                                 </EnterpriseDetailsText>
                             </EnterpriseDetails>
                         </EnterpriseCard>
@@ -55,7 +97,7 @@ export default function HomeEnterprise() {
                             <EmployeeIcon>👥</EmployeeIcon>
                             <EnterpriseDetails>
                                 <EnterpriseLabel>Funcionários Cadastrados</EnterpriseLabel>
-                                <EnterpriseTotal>35</EnterpriseTotal>
+                                <EnterpriseTotal>{enterpriseData?.employeesCount}</EnterpriseTotal>
                             </EnterpriseDetails>
                         </EmployeeCard>
                     </EnterpriseInfoContainer>
@@ -63,8 +105,8 @@ export default function HomeEnterprise() {
                 </HomeContent>
 
                 <StockSummary>
-                    <StockCard>📦 Produtos: <span>120</span></StockCard>
-                    <StockCard>📂 Categorias:  <span>10</span></StockCard>
+                    <StockCard>📦 Produtos: <span>{enterpriseData?.productsCount}</span></StockCard>
+                    <StockCard>📂 Categorias:  <span>{enterpriseData?.categoriesCount}</span></StockCard>
                 </StockSummary>
 
                 <QuickActions>
