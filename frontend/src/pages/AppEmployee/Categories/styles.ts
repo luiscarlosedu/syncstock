@@ -73,3 +73,29 @@ export const CategoryItem = styled.div`
         border-bottom: none;
     }
 `;
+
+export const NoCategoriesContainer = styled.div`
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    margin-top: 20px;
+`;
+
+export const NoCategoriesIcon = styled.div`
+    font-size: 48px;
+    margin-bottom: 15px;
+`;
+
+export const NoCategoriesTitle = styled.h2`
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+`;
+
+export const NoCategoriesText = styled.p`
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+`;

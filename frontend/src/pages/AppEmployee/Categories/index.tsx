@@ -5,7 +5,11 @@ import {
     CategoryTitle,
     CategoryList,
     CategoryListHeader,
-    CategoryItem
+    CategoryItem,
+    NoCategoriesContainer,
+    NoCategoriesIcon,
+    NoCategoriesTitle,
+    NoCategoriesText,
 } from "./styles";
 import { useContext, useEffect, useState } from "react";
 import api from "../../../services/api";
@@ -47,19 +51,29 @@ export default function CategoriesEmployee() {
                     <CategoryTitle>Categorias</CategoryTitle>
                 </CategoryTitleAddContainer>
 
-                <CategoryList>
-                    <CategoryListHeader>
-                        <span>Nome</span>
-                        <span>Produtos</span>
-                    </CategoryListHeader>
+                {categories.length === 0 ? (
+                    <NoCategoriesContainer>
+                        <NoCategoriesIcon>📂</NoCategoriesIcon>
+                        <NoCategoriesTitle>Sua empresa ainda não cadastrou categorias</NoCategoriesTitle>
+                        <NoCategoriesText>
+                            Aguarde sua empresa cadastrar as categorias.
+                        </NoCategoriesText>
+                    </NoCategoriesContainer>
+                ) : (
+                    <CategoryList>
+                        <CategoryListHeader>
+                            <span>Nome</span>
+                            <span>Produtos</span>
+                        </CategoryListHeader>
 
-                    {categories.map((category) => (
-                        <CategoryItem key={category.id}>
-                            <span>{category.nome}</span>
-                            <span>{category.produtosCount}</span>
-                        </CategoryItem>
-                    ))}
-                </CategoryList>
+                        {categories.map((category) => (
+                            <CategoryItem key={category.id}>
+                                <span>{category.nome}</span>
+                                <span>{category.produtosCount}</span>
+                            </CategoryItem>
+                        ))}
+                    </CategoryList>
+                )}
             </CategoryContentContainer>
         </Container>
     );
