@@ -1,32 +1,50 @@
-import { useNavigate } from "react-router";
 import { 
     Container,
     CategoryContentContainer,
     CategoryTitleAddContainer,
     CategoryTitle,
-    CategoryAdd,
     CategoryList,
     CategoryListHeader,
     CategoryItem
 } from "./styles";
+import { useContext, useEffect, useState } from "react";
+import api from "../../../services/api";
+import { AuthContext } from "../../../contexts/AuthContext";
+
+interface CategoryProps {
+    id: string;
+    nome: string;
+    produtosCount: number;
+};
 
 export default function CategoriesEmployee() {
-    const navigate = useNavigate();
+    const { user } = useContext(AuthContext);
+    const [categories, setCategories] = useState<CategoryProps[]>([]);
 
-    const categories = [
-        { title: "Eletrônicos", products: 12 },
-        { title: "Roupas", products: 8 },
-        { title: "Alimentos", products: 15 },
-    ];
+    useEffect(() => {
+        async function loadCategories() {
+            try {
+                const response = await api.get("/categories", {
+                    params: {
+                        enterprise_id: user?.enterprise_id,
+                    },
+                });
+                setCategories(response.data);
+            } catch (err) {
+                console.log("[ERRO] Erro ao buscar categorias: ", err);
+            }
+        };
+
+        if (user) {
+            loadCategories();
+        }
+    }, [user]);
 
     return (
         <Container>
             <CategoryContentContainer>
                 <CategoryTitleAddContainer>
                     <CategoryTitle>Categorias</CategoryTitle>
-                    <CategoryAdd
-                        onClick={() => navigate('/funcionario/categorias/criar')}
-                    >+ Criar categoria</CategoryAdd>
                 </CategoryTitleAddContainer>
 
                 <CategoryList>
@@ -35,10 +53,10 @@ export default function CategoriesEmployee() {
                         <span>Produtos</span>
                     </CategoryListHeader>
 
-                    {categories.map((category, index) => (
-                        <CategoryItem key={index}>
-                            <span>{category.title}</span>
-                            <span>{category.products}</span>
+                    {categories.map((category) => (
+                        <CategoryItem key={category.id}>
+                            <span>{category.nome}</span>
+                            <span>{category.produtosCount}</span>
                         </CategoryItem>
                     ))}
                 </CategoryList>
