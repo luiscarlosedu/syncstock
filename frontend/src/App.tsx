@@ -29,7 +29,6 @@ import FAQEnterprise from "./pages/AppEnterprise/FAQ";
 
 import HomeEmployee from "./pages/AppEmployee/Home";
 import CategoriesEmployee from "./pages/AppEmployee/Categories";
-import NewCategoryEmployee from "./pages/AppEmployee/Categories/NewCategory";
 import ProductsEmployee from "./pages/AppEmployee/Products";
 import EnterpriseEmployee from "./pages/AppEmployee/Enterprise";
 import AboutEmployee from "./pages/AppEmployee/About";
@@ -148,10 +147,6 @@ const router = createBrowserRouter([
           {
             path: '/funcionario/categorias',
             element: <CategoriesEmployee />
-          },
-          {
-            path: '/funcionario/categorias/criar',
-            element: <NewCategoryEmployee />
           },
           {
             path: '/funcionario/produtos',
