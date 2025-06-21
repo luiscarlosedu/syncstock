@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import { 
     Container,
     CategoryContentContainer,
@@ -9,15 +9,45 @@ import {
     CategoryListHeader,
     CategoryItem
 } from "./styles";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
+import api from "../../../services/api";
+
+interface CategoryProps {
+    id: string;
+    nome: string;
+    produtosCount: number;
+};
 
 export default function CategoriesEnterprise() {
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [categories, setCategories] = useState<CategoryProps[]>([]);
 
-    const categories = [
-        { title: "Eletrônicos", products: 12 },
-        { title: "Roupas", products: 8 },
-        { title: "Alimentos", products: 15 },
-    ];
+    useEffect(() => {
+        async function loadCategories() {
+            try {
+                const response = await api.get("/categories", {
+                    params: {
+                        enterprise_id: user?.id,
+                    },
+                });
+                setCategories(response.data);
+            } catch (err) {
+                console.log("[ERRO] Erro ao buscar categorias: ", err);
+            }
+        };
+
+        if (user) {
+            loadCategories();
+        }
+    }, [user]);
+
+    if (!user) {
+        return <Navigate to={"/"} replace />
+    };
+
+    
 
     return (
         <Container>
@@ -35,10 +65,10 @@ export default function CategoriesEnterprise() {
                         <span>Produtos</span>
                     </CategoryListHeader>
 
-                    {categories.map((category, index) => (
-                        <CategoryItem key={index}>
-                            <span>{category.title}</span>
-                            <span>{category.products}</span>
+                    {categories.map((category) => (
+                        <CategoryItem key={category.id}>
+                            <span>{category.nome}</span>
+                            <span>{category.produtosCount}</span>
                         </CategoryItem>
                     ))}
                 </CategoryList>
