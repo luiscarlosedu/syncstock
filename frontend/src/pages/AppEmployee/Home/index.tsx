@@ -1,12 +1,52 @@
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import { ActionButton, Container, EmployeeCard, EmployeeInfoContainer, EmployeesCard, EmployeesIcon, EmployeesLabel, EmployeesTotal, EnterpriseDetails, EnterpriseDetailsText, EnterpriseLogo, HomeContent, HomeContentContainer, HomePhoto, HomeSubTitle, HomeTitle, QuickActions, StockCard, StockSummary } from "./styles";
 
 import Image from '../../../assets/home-employee.jpg';
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../contexts/AuthContext";
+import api from "../../../services/api";
 
-import Logo from '../../../assets/SyncStock.png';
+interface EnterpriseData {
+    nome: string;
+    foto: string;
+    employeesCount: number;
+    productsCount: number;
+    categoriesCount: number;
+}
 
 export default function HomeEmployee() {
+    const { user } = useContext(AuthContext);
+    const [enterpriseData, setEnterpriseData] = useState<EnterpriseData | null>();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        async function loadStorage() {
+            try {
+                const response = await api.get("/employee/enterprise", {
+                    params: {
+                        enterprise_id: user?.enterprise_id,
+                    }
+                });
+
+                const { nome, foto, funcionarios, productsCount, categoriesCount } = response.data;
+                const employeesCount = funcionarios.length;
+
+                setEnterpriseData({
+                    nome, foto, employeesCount, productsCount, categoriesCount
+                });
+            } catch (err) {
+                console.log("[ERRO]", err);
+            }
+        };
+
+        if (user?.enterprise_id) {
+            loadStorage();
+        }
+    }, [user]);
+
+    if (!user) {
+        return <Navigate to={"/"} replace />
+    };
 
     return (
         <Container>
@@ -20,27 +60,34 @@ export default function HomeEmployee() {
                 <HomeContent>
                     <EmployeeInfoContainer>
                         <EmployeeCard>
-                            <EnterpriseLogo src={Logo} alt="Logo da Empresa" />
+                            <EnterpriseLogo 
+                                src={
+                                    user?.foto 
+                                    ? `${import.meta.env.VITE_API_URL}/files/${user.foto}`
+                                    : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.nome)}&background=202020&color=fff`
+                                } 
+                            alt="Logo da Empresa" />
                             <EnterpriseDetails>
                                 <EnterpriseDetailsText>
-                                    SyncStock
+                                    {user.nome}
                                 </EnterpriseDetailsText>
                             </EnterpriseDetails>
                         </EmployeeCard>
+                        
 
                         <EmployeesCard>
                             <EmployeesIcon>👥</EmployeesIcon>
                             <EnterpriseDetails>
                                 <EmployeesLabel>Funcionários Cadastrados</EmployeesLabel>
-                                <EmployeesTotal>35</EmployeesTotal>
+                                <EmployeesTotal>{enterpriseData?.employeesCount}</EmployeesTotal>
                             </EnterpriseDetails>
                         </EmployeesCard>
                     </EmployeeInfoContainer>
                 </HomeContent>
 
                 <StockSummary>
-                    <StockCard>📦 Produtos: <span>120</span></StockCard>
-                    <StockCard>📂 Categorias: <span>10</span></StockCard>
+                    <StockCard>📦 Produtos: <span>{enterpriseData?.productsCount}</span></StockCard>
+                    <StockCard>📂 Categorias: <span>{enterpriseData?.categoriesCount}</span></StockCard>
                 </StockSummary>
 
                 <QuickActions>
