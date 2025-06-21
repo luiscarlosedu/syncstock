@@ -7,7 +7,11 @@ import {
     CategoryAdd,
     CategoryList,
     CategoryListHeader,
-    CategoryItem
+    CategoryItem,
+    NoCategoriesContainer,
+    NoCategoriesIcon,
+    NoCategoriesTitle,
+    NoCategoriesText
 } from "./styles";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -56,23 +60,39 @@ export default function CategoriesEnterprise() {
                     <CategoryTitle>Categorias</CategoryTitle>
                     <CategoryAdd
                         onClick={() => navigate('/empresa/categorias/criar')}
-                    >+ Criar categoria</CategoryAdd>
+                    >
+                        + Criar categoria
+                    </CategoryAdd>
                 </CategoryTitleAddContainer>
 
-                <CategoryList>
-                    <CategoryListHeader>
-                        <span>Nome</span>
-                        <span>Produtos</span>
-                    </CategoryListHeader>
+                {categories.length === 0 ? (
+                    <NoCategoriesContainer>
+                        <NoCategoriesIcon>📂</NoCategoriesIcon>
+                        <NoCategoriesTitle>Você ainda não possui categorias</NoCategoriesTitle>
+                        <NoCategoriesText>
+                            Comece organizando seu estoque criando sua primeira categoria.
+                        </NoCategoriesText>
+                        <CategoryAdd onClick={() => navigate('/empresa/categorias/criar')}>
+                            + Criar agora
+                        </CategoryAdd>
+                    </NoCategoriesContainer>
+                ) : (
+                    <CategoryList>
+                        <CategoryListHeader>
+                            <span>Nome</span>
+                            <span>Produtos</span>
+                        </CategoryListHeader>
 
-                    {categories.map((category) => (
-                        <CategoryItem key={category.id}>
-                            <span>{category.nome}</span>
-                            <span>{category.produtosCount}</span>
-                        </CategoryItem>
-                    ))}
-                </CategoryList>
+                        {categories.map((category) => (
+                            <CategoryItem key={category.id}>
+                                <span>{category.nome}</span>
+                                <span>{category.produtosCount}</span>
+                            </CategoryItem>
+                        ))}
+                    </CategoryList>
+                )}
             </CategoryContentContainer>
         </Container>
     );
+
 }
