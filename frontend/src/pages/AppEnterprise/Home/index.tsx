@@ -23,7 +23,6 @@ import {
 
 import { EmployeeLengthWarn } from "../../../components/employee-length-warn";
 import Image from '../../../assets/enterprise-stock.jpg';
-import Logo from '../../../assets/SyncStock.png';
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import api from "../../../services/api";
@@ -46,7 +45,6 @@ export default function HomeEnterprise() {
     const [enterpriseData, setEnterpriseData] = useState<EnterpriseProps>();
     
     const navigate = useNavigate();
-    const length: number = 0;
 
     useEffect(() => {
         loadStorage();
