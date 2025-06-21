@@ -74,6 +74,22 @@ export default function HomeEmployee() {
                             </EnterpriseDetails>
                         </EmployeeCard>
 
+                        {enterpriseData && (
+                            <EmployeesCard>
+                                <EnterpriseLogo 
+                                    src={
+                                        enterpriseData.foto
+                                        ? `${import.meta.env.VITE_API_URL}/files/${enterpriseData.foto}`
+                                        : `https://ui-avatars.com/api/?name=${encodeURIComponent(enterpriseData.nome)}&background=202020&color=fff`
+                                    } 
+                                />
+                                <EnterpriseDetails>
+                                    <EmployeesLabel>Empresa Vinculada</EmployeesLabel>
+                                    <EnterpriseDetailsText>{enterpriseData.nome}</EnterpriseDetailsText>
+                                </EnterpriseDetails>
+                            </EmployeesCard>
+                        )}
+
                         <EmployeesCard>
                             <EmployeesIcon>👥</EmployeesIcon>
                             <EnterpriseDetails>
