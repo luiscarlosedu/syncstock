@@ -7,7 +7,7 @@ export const CreateCategoryBox = styled.form`
 `;
 
 export const CreateCategoryContent = styled.div`
-    padding: 20px;
+    padding: 12px;
 `;
 
 export const CreateCategoryTitle = styled.p`
