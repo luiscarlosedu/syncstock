@@ -38,12 +38,6 @@ export const FormInput = styled.input`
     padding: 0px 8px;
     height: 35px;
     outline: none;
-
-    &:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 30px #606060 inset;
-        -webkit-text-fill-color: white;
-    }
-
 `;
 
 export const FormSelect = styled.select`
