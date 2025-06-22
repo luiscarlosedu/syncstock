@@ -3,7 +3,7 @@ import prismaClient from "../../../prisma";
 interface CreateProductRequest {
     nome: string;
     descricao?: string;
-    preco: number;
+    preco: string;
     foto: string;
     quantidade: number;
     category_id: string;
