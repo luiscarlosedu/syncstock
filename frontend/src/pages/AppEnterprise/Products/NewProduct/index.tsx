@@ -56,8 +56,6 @@ export default function NewProductEnterprise() {
             return;
         };
 
-        /*nome, descricao, preco, foto, quantidade, category_id, enterprise_id*/
-
         try {
             const formData = new FormData();
             
