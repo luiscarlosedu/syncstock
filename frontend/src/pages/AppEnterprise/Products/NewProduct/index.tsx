@@ -3,7 +3,7 @@ import { Container, ProductContentContainer, ProductsTitle, ProductsTitleAddCont
 import { FormFileArea, FormImg, FormImgContainer, FormImgDelete, FormImgInput, FormImgInputContainer, FormImgInputTitle, FormInput, FormInputContainer, FormInputLabel, FormInputLabelText, FormSelect, FormSubmitBtn, FormTextArea, NewForm, NewFormContainer, PaddingStyle, SelectOption } from "./styles";
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthContext";
-import { Navigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import api from "../../../../services/api";
 
 interface CategoryProps {
@@ -14,6 +14,7 @@ interface CategoryProps {
 
 export default function NewProductEnterprise() {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [categoriesData, setCategoriesData] = useState<CategoryProps[]>([]);
 
     const [nome, setNome] = useState("");
@@ -50,7 +51,39 @@ export default function NewProductEnterprise() {
     async function postProduct(e: FormEvent) {
         e.preventDefault();
 
+        if (!nome || !preco || !quantidade || !categoria) {
+            alert("[ERRO] Preencha todos os campos!");
+            return;
+        };
 
+        /*nome, descricao, preco, foto, quantidade, category_id, enterprise_id*/
+
+        try {
+            const formData = new FormData();
+            
+            formData.append("nome", nome);
+            formData.append("preco", String(preco));
+            formData.append("quantidade", String(quantidade));
+            formData.append("category_id", categoria);
+            formData.append("descricao", descricao);
+            formData.append("enterprise_id", user?.id ?? "");
+
+            if (file) {
+                formData.append("file", file);
+            };
+
+            await api.post("/product", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+
+            alert("Produto cadastrado com sucesso!");
+            navigate("/empresa/produtos");
+        } catch (err) {
+            console.log(err);
+            alert("[ERRO] Erro ao criar produto!");
+        }
     };
 
     function handleOnChangeFile(e: React.ChangeEvent<HTMLInputElement>) {
