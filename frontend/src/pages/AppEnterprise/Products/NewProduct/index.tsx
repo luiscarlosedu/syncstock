@@ -1,16 +1,96 @@
 import { FiTrash, FiUpload } from "react-icons/fi";
 import { Container, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer } from "../styles";
 import { FormFileArea, FormImg, FormImgContainer, FormImgDelete, FormImgInput, FormImgInputContainer, FormImgInputTitle, FormInput, FormInputContainer, FormInputLabel, FormInputLabelText, FormSelect, FormSubmitBtn, FormTextArea, NewForm, NewFormContainer, PaddingStyle, SelectOption } from "./styles";
+import { FormEvent, useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../../contexts/AuthContext";
+import { Navigate, useNavigate } from "react-router";
+import api from "../../../../services/api";
+
+interface CategoryProps {
+    id: string;
+    nome: string;
+    produtosCount: number;
+};
 
 export default function NewProductEnterprise() {
-    const categories = [
-        {
-            id: '1',
-            name: "carros"
-        }
-    ]
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [categoriesData, setCategoriesData] = useState<CategoryProps[]>([]);
 
-    const imagePreview = false;
+    const [nome, setNome] = useState("");
+    const [preco, setPreco] = useState(0);
+    const [quantidade, setQuantidade] = useState(0);
+    const [categoria, setCategoria] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [file, setFile] = useState<File | null>(null);
+    const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+    useEffect(() => {
+        async function loadCategories() {
+            try {
+                const response = await api.get("/categories", {
+                    params: {
+                        enterprise_id: user?.id,
+                    },
+                });
+                setCategoriesData(response.data);
+            } catch (err) {
+                console.log("[ERRO] Erro ao buscar categorias: ", err);
+            }
+        };
+
+        if (user) {
+            loadCategories();
+        }
+    }, [user]);
+
+    if (!user) {
+        return <Navigate to={"/"} replace />
+    };
+
+    async function postProduct(e: FormEvent) {
+        e.preventDefault();
+
+        if (!nome || !preco || !quantidade || !categoria) {
+            alert("[ERRO] Preencha todos os campos!");
+            return;
+        };
+
+        try {
+            const formData = new FormData();
+            
+            formData.append("nome", nome);
+            formData.append("preco", String(preco));
+            formData.append("quantidade", String(quantidade));
+            formData.append("category_id", categoria);
+            formData.append("descricao", descricao);
+            formData.append("enterprise_id", user?.id ?? "");
+
+            if (file) {
+                formData.append("file", file);
+            };
+
+            await api.post("/product", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+
+            alert("Produto cadastrado com sucesso!");
+            navigate("/empresa/produtos");
+        } catch (err) {
+            console.log(err);
+            alert("[ERRO] Erro ao criar produto!");
+        }
+    };
+
+    function handleOnChangeFile(e: React.ChangeEvent<HTMLInputElement>) {
+        if (e.target.files && e.target.files.length > 0) {
+            const selectedFile = e.target.files[0];
+            setFile(selectedFile);
+            setImagePreview(URL.createObjectURL(selectedFile));
+        }
+    }
 
     return (
         <Container>
@@ -20,7 +100,9 @@ export default function NewProductEnterprise() {
                 </ProductsTitleAddContainer>
 
                 <NewFormContainer>
-                    <NewForm>
+                    <NewForm
+                        onSubmit={postProduct}
+                    >
                         <FormInputContainer>
                             <FormInputLabel
                                 htmlFor="nome"
@@ -32,6 +114,8 @@ export default function NewProductEnterprise() {
                                 id="nome"
                                 type="text"
                                 placeholder="Digite o nome do produto"
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
                             />
                         </FormInputContainer>
 
@@ -46,6 +130,8 @@ export default function NewProductEnterprise() {
                                 type="number"
                                 id="preco"
                                 placeholder="Digite o preço do produto"
+                                value={preco}
+                                onChange={(e) => setPreco(Number(e.target.value))}
                             />
                         </FormInputContainer>
 
@@ -60,6 +146,8 @@ export default function NewProductEnterprise() {
                                 type="number"
                                 id="qnt-inicial"
                                 placeholder="Digite a quantidade inicial do produto"
+                                value={quantidade}
+                                onChange={(e) => setQuantidade(Number(e.target.value))}
                             />
                         </FormInputContainer>
 
@@ -70,14 +158,15 @@ export default function NewProductEnterprise() {
                             <FormSelect
                                 required
                                 id="select"
-                                // onChange={(e) => setSelect(e.target.value)}
+                                value={categoria}
+                                onChange={(e) => setCategoria(e.target.value)}
                             >
                                 <SelectOption value="">Selecione uma categoria</SelectOption>
 
-                                {categories.map((category) => (
-                                <SelectOption key={category.id} value={category.id}>
-                                    {category.name}
-                                </SelectOption>
+                                {categoriesData.map((category) => (
+                                    <SelectOption key={category.id} value={category.id}>
+                                        {category.nome}
+                                    </SelectOption>
                                 ))}
                             </FormSelect>
                         </FormInputContainer>
@@ -90,6 +179,8 @@ export default function NewProductEnterprise() {
                                 id="textarea"
                                 required
                                 placeholder="Digite sobre o produto"
+                                value={descricao}
+                                onChange={(e) => setDescricao(e.target.value)}
                             />
                         </FormInputContainer>
 
@@ -101,24 +192,23 @@ export default function NewProductEnterprise() {
                                 <FormImgInput
                                     type="file"
                                     accept="image/*"
-                                // onChange={handleOnChangeFile}
+                                    onChange={handleOnChangeFile}
                                 />
                             </FormImgInputContainer>
                             )}
                             {imagePreview && (
-                                <FormImgContainer className="form-img-container">
+                                <FormImgContainer>
                                     <FormImgDelete
-                                    className="form-img-delete"
-                                    // onClick={() => {
-                                    // setFile(null);
-                                    // setImagePreview(null);
-                                    // }}
+                                        onClick={() => {
+                                            setFile(null);
+                                            setImagePreview(null);
+                                        }}
                                     >
-                                    <FiTrash size={22} color="#FFF" />
+                                        <FiTrash size={22} color="#FFF" />
                                     </FormImgDelete>
                                     <FormImg
-                                    src={"https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
-                                    alt="Imagem do produto"
+                                        src={imagePreview}
+                                        alt="Imagem do produto"
                                     />
                                 </FormImgContainer>
                             )}
