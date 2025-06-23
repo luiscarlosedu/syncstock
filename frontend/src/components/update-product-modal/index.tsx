@@ -13,17 +13,44 @@ import {
     Type,
     TypeButton,
 } from "./styles";
+import api from "../../services/api";
 
 interface UpdateModalProps {
     isOpen: boolean;
     onClose: () => void;
+    productId: string;
+    onUpdate: () => void;
 }
 
-export function UpdateProductModal({ isOpen, onClose }: UpdateModalProps) {
+export function UpdateProductModal({ isOpen, onClose, productId, onUpdate }: UpdateModalProps) {
     const [quantity, setQuantity] = useState<number>(0);
     const [updateType, setUpdateType] = useState<"entrada" | "saida" | null>(null);
 
     if (!isOpen) return null;
+
+    async function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+
+        if (!updateType || quantity <= 0) {
+            alert("Preencha todos os campos corretamente.");
+            return;
+        }
+
+        try {
+            await api.put(`/product/${productId}/quantity`, {
+                quantidade: quantity,
+                tipo: updateType,
+            });
+
+            setQuantity(0);
+            setUpdateType(null);
+            onUpdate();
+            onClose();      
+        } catch (err) {
+            console.error("[ERRO AO ATUALIZAR PRODUTO]", err);
+            alert("Erro ao atualizar produto.");
+        }
+    }
 
     return (
         <Overlay onClick={onClose}>
@@ -34,12 +61,7 @@ export function UpdateProductModal({ isOpen, onClose }: UpdateModalProps) {
                 </Header>
 
                 <Form
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        console.log("Nova quantidade:", quantity);
-                        onClose();
-                        setQuantity(0);
-                    }}
+                    onSubmit={handleSubmit}
                 >
                     <Label>Tipo de atualização</Label>
                     <Type>
@@ -64,14 +86,14 @@ export function UpdateProductModal({ isOpen, onClose }: UpdateModalProps) {
                     <Label>Novo estoque</Label>
                     <Input
                         type="number"
-                        min={0}
+                        min={1}
                         value={quantity}
                         onChange={(e) => setQuantity(Number(e.target.value))}
                         required
                     />
                     <Actions>
                         <Button type="button" secondary onClick={onClose}>
-                        Cancelar
+                            Cancelar
                         </Button>
                         <Button type="submit">Salvar</Button>
                     </Actions>
