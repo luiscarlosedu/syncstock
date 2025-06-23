@@ -25,10 +25,11 @@ import {
     ProductImage,
     UpdateData,
 } from "./styles";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UpdateProductModal } from "../../../components/update-product-modal";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router";
+import api from "../../../services/api";
 // import { useNavigate } from "react-router";
 
 interface ProductJson {
@@ -58,6 +59,37 @@ export default function ProductsEmployee() {
     const [products, setProducts] = useState<ProductProps[]>([]);
     const [modalOpen, setModalOpen] = useState(false);
     
+    useEffect(() => {
+        async function loadProducts() {
+            try {
+                const response = await api.get("/products", {
+                    params: {
+                        enterprise_id: user?.enterprise_id,
+                    }
+                });
+
+                const productsJson: ProductJson[] = response.data;
+                const productsData: ProductProps[] = productsJson.map((item) => ({
+                    id: item.id,
+                    nome: item.nome,
+                    preco: item.preco,
+                    quantidade: item.quantidade.toString(),
+                    categoria_id: item.categoria.id,
+                    categoria_nome: item.categoria.nome,
+                    foto: item.foto,
+                }));
+
+                setProducts(productsData);
+            } catch (err) {
+                console.log("[ERRO], ", err);
+            }
+        };
+
+        if (user) {
+            loadProducts();
+        }
+    }, [user]);
+
     if (!user) {
         return <Navigate to={"/"} replace />
     };
@@ -103,17 +135,24 @@ export default function ProductsEmployee() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {products.map((product, index) => (
-                                    <TableRow key={index}>
+                                {products.map((product) => (
+                                    <TableRow key={product.id}>
                                         <TableData>
-                                            <ProductImage src={product.image} alt={product.name} />
+                                            <ProductImage 
+                                                src={
+                                                    product.foto
+                                                    ? `${import.meta.env.VITE_API_URL}/files/${product.foto}`
+                                                    : ``
+                                                } 
+                                                alt={product.nome} 
+                                            />
                                         </TableData>
-                                        <TableData>{product.name}</TableData>
+                                        <TableData>{product.nome}</TableData>
                                         {/* <TableData>
                                             <StatusBadge status={product.status}>{product.status}</StatusBadge>
                                         </TableData> */}
-                                        <TableData>{product.inventory}</TableData>
-                                        <TableData>{product.category}</TableData>
+                                        <TableData>{product.quantidade}</TableData>
+                                        <TableData>{product.categoria_nome}</TableData>
                                         <TableData>
                                             <UpdateData
                                                 onClick={() => setModalOpen(true)}
