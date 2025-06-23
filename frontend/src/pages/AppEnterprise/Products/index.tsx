@@ -85,18 +85,32 @@ import api from "../../../services/api";
 //     }
 // ];
 
+interface ProductJson {
+    id: string;
+    nome: string;
+    preco: string;
+    quantidade: number;
+    foto: string;
+    categoria: {
+        id: string;
+        nome: string;
+    };
+};
+
 interface ProductProps {
     id: string;
     nome: string;
     preco: string;
     quantidade: string;
-    category_id: string;
+    categoria_id: string;
+    categoria_nome: string;
+    foto: string;
 };
 
 export default function ProductsEnterprise() {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<ProductProps[]>([]);
 
     useEffect(() => {
         async function loadProducts() {
@@ -106,7 +120,17 @@ export default function ProductsEnterprise() {
                         enterprise_id: user?.id,
                     }
                 });
-                console.log(response.data);
+                const productsJson: ProductJson[] = response.data;
+                const productsData: ProductProps[] = productsJson.map((item) => ({
+                    id: item.id,
+                    nome: item.nome,
+                    preco: item.preco,
+                    quantidade: item.quantidade.toString(),
+                    categoria_id: item.categoria.id,
+                    categoria_nome: item.categoria.nome,
+                    foto: item.foto,
+                }));
+                setProducts(productsData);
             } catch (err) {
                 console.log("[ERRO], ", err);
             };
@@ -162,18 +186,25 @@ export default function ProductsEnterprise() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {products.map((product, index) => (
-                                    <TableRow key={index}>
+                                {products.map((product) => (
+                                    <TableRow key={product.id}>
                                         <TableData>
-                                            <ProductImage src={product.image} alt={product.name} />
+                                            <ProductImage 
+                                                src={
+                                                    product.foto
+                                                    ? `${import.meta.env.VITE_API_URL}/files/${product.foto}`
+                                                    : ""
+                                                } 
+                                                alt={product.nome} 
+                                            />
                                         </TableData>
-                                        <TableData>{product.name}</TableData>
+                                        <TableData>{product.nome}</TableData>
                                         {/* <TableData>
                                             <StatusBadge status={product.status}>{product.status}</StatusBadge>
                                         </TableData> */}
-                                        <TableData>{product.inventory}</TableData>
+                                        <TableData>{product.quantidade}</TableData>
                                         {/* <TableData>{product.salesChannels}</TableData> */}
-                                        <TableData>{product.category}</TableData>
+                                        <TableData>{product.categoria_nome}</TableData>
                                     </TableRow>
                                 ))}
                             </TableBody>
