@@ -32,50 +32,6 @@ export default function EmployeesEnterprise() {
     const [openMenu, setOpenMenu] = useState<string | null>(null);
     const [employees, setEmployees] = useState<EmployeeProps[]>([]);
 
-    // const employees = [
-    //     {
-    //         id: "1",
-    //         nome: "Luís Eduardo",
-    //         photo: "https://github.com/luiscarlosedu.png",
-    //         role: "Desenvolvedor",
-    //         empresa: "SyncStock",
-    //         hired: "12/94/29",
-    //         email: "eduardo.luis@gmail.com",
-    //         number: "88997876890"
-    //     },
-    //     {
-    //         id: "2",
-    //         nome: "José Felipe",
-    //         photo: "https://github.com/wtffelp.png",
-    //         role: "Desenvolvedor",
-    //         empresa: "SyncStock",
-    //         hired: "12/94/29",
-    //         email: "goticas@gmail.com",
-    //         number: "8899787950"
-    //     },
-    //     {
-    //         id: "3",
-    //         nome: "Cleudo Paiva",
-    //         photo: "https://github.com/cleudojunior.png",
-    //         role: "Desenvolvedor",
-    //         empresa: "SyncStock",
-    //         hired: "12/94/29",
-    //         email: "cleudinha@gmail.com",
-    //         number: "88997879990"
-    //     },
-    //     {
-    //         id: "4",
-    //         nome: "Nério Stacio",
-    //         photo: "https://github.com/NarioMendonca.png",
-    //         role: "Desenvolvedor",
-    //         empresa: "SyncStock",
-    //         hired: "12/94/29",
-    //         email: "rogerio@gmail.com",
-    //         number: "88967872140"
-    //     },
-        
-    // ]
-
     useEffect(() => {
         async function loadEmployees() {
             try {
@@ -101,7 +57,7 @@ export default function EmployeesEnterprise() {
         if (user) {
             loadEmployees();
         }
-    }, [user]);
+    }, [user, employees]);
 
     if (!user) {
         return <Navigate to={"/"} replace />
@@ -127,7 +83,7 @@ export default function EmployeesEnterprise() {
                     <EmployeesStatus>
                         <EmployeesTotalContainer>
                             <EmployeesTotalTitle>Total de Funcionários</EmployeesTotalTitle>
-                            <EmployeesTotal>{/*employees.length*/}</EmployeesTotal>
+                            <EmployeesTotal>{employees.length}</EmployeesTotal>
                         </EmployeesTotalContainer>
 
                         <EmployeesSearchContainer>
@@ -149,7 +105,7 @@ export default function EmployeesEnterprise() {
                                 nome={item.nome}
                                 photo={item.foto}
                                 empresa={item.empresa_nome}
-                                // hired={item.hired}
+                                created_at={item.createdAt}
                                 email={item.email}
                                 // number={item.number}
                                 openMenu={openMenu}
