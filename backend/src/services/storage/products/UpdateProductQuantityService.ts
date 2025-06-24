@@ -3,11 +3,12 @@ import prismaClient from "../../../prisma";
 interface UpdateProductQuantityRequest {
     id: string;
     quantidade: number;
+    tipo: "entrada" | "saida";
 }
 
 export class UpdateProductQuantityService {
-    async execute({ id, quantidade }: UpdateProductQuantityRequest) {
-        if (!id || quantidade === undefined) {
+    async execute({ id, quantidade, tipo }: UpdateProductQuantityRequest) {
+        if (!id || quantidade === undefined || !tipo) {
             throw new Error("[ERROR] Você não preencheu todos os campos!");
         };
 
@@ -19,7 +20,10 @@ export class UpdateProductQuantityService {
             throw new Error("[ERROR] Produto não encontrado!");
         };
 
-        const novaQuantidade = product.quantidade + quantidade;
+        const novaQuantidade =
+            tipo === 'entrada'
+                ? product.quantidade + quantidade
+                : product.quantidade - quantidade;
 
         if (novaQuantidade < 0) {
             throw new Error("[ERROR] Estoque insuficiente!");

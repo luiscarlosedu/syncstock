@@ -25,7 +25,7 @@ import {
     ProductImage,
     UpdateData,
 } from "./styles";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { UpdateProductModal } from "../../../components/update-product-modal";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router";
@@ -57,38 +57,37 @@ interface ProductProps {
 export default function ProductsEmployee() {
     const { user } = useContext(AuthContext);
     const [products, setProducts] = useState<ProductProps[]>([]);
+    const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
     const [modalOpen, setModalOpen] = useState(false);
-    
-    useEffect(() => {
-        async function loadProducts() {
-            try {
-                const response = await api.get("/products", {
-                    params: {
-                        enterprise_id: user?.enterprise_id,
-                    }
-                });
 
-                const productsJson: ProductJson[] = response.data;
-                const productsData: ProductProps[] = productsJson.map((item) => ({
-                    id: item.id,
-                    nome: item.nome,
-                    preco: item.preco,
-                    quantidade: item.quantidade.toString(),
-                    categoria_id: item.categoria.id,
-                    categoria_nome: item.categoria.nome,
-                    foto: item.foto,
-                }));
+    const loadProducts = useCallback(async () => {
+        try {
+            const response = await api.get("/products", {
+                params: {
+                    enterprise_id: user?.enterprise_id,
+                }
+            });
 
-                setProducts(productsData);
-            } catch (err) {
-                console.log("[ERRO], ", err);
-            }
-        };
-
-        if (user) {
-            loadProducts();
+            const productsJson: ProductJson[] = response.data;
+            const productsData: ProductProps[] = productsJson.map((item) => ({
+                id: item.id,
+                nome: item.nome,
+                preco: item.preco,
+                quantidade: item.quantidade.toString(),
+                categoria_id: item.categoria.id,
+                categoria_nome: item.categoria.nome,
+                foto: item.foto,
+            }));
+        
+            setProducts(productsData);
+        } catch (err) {
+            console.log("[ERRO], ", err);
         }
-    }, [user]);
+    }, [user?.enterprise_id]);
+
+    useEffect(() => {
+        if (user) loadProducts();
+    }, [user, loadProducts]);
 
     if (!user) {
         return <Navigate to={"/"} replace />
@@ -155,7 +154,10 @@ export default function ProductsEmployee() {
                                         <TableData>{product.categoria_nome}</TableData>
                                         <TableData>
                                             <UpdateData
-                                                onClick={() => setModalOpen(true)}
+                                                onClick={() => {
+                                                    setSelectedProductId(product.id);
+                                                    setModalOpen(true);
+                                                }}
                                             ><FaExchangeAlt /></UpdateData>
                                         </TableData>
                                     </TableRow>
@@ -169,6 +171,10 @@ export default function ProductsEmployee() {
             <UpdateProductModal
                 isOpen={modalOpen}
                 onClose={() => setModalOpen(false)}
+                productId={selectedProductId ?? ""}
+                onUpdate={() => {
+                    loadProducts();
+                }}
             />
         </Container>
     );
