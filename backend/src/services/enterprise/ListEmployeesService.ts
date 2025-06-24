@@ -25,7 +25,12 @@ export class ListEmployeesService {
                 nome: true,
                 email: true,
                 foto: true,
-                createdAt: true
+                createdAt: true,
+                empresa: {
+                    select: {
+                        nome: true,
+                    }
+                }
             }
         });
 
