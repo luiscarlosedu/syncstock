@@ -9,17 +9,16 @@ interface EmployeeProps {
     id: string;
     nome: string;
     photo: string;
-    role: string;
     empresa: string;
-    hired: string;
+    // hired: string;
     email: string;
-    number: string;
+    // number: string;
     openMenu: string | null;
     setOpenMenu: (id: string | null) => void;
 }
 
 export function EmployeeCard({ 
-    id, nome, photo, role, empresa, hired, email, number, openMenu, setOpenMenu 
+    id, nome, photo, empresa, email, openMenu, setOpenMenu 
 }: EmployeeProps) {
     const isOpen = openMenu === id;
 
@@ -50,7 +49,7 @@ export function EmployeeCard({
 
             <EmployeePhoto src={photo} />
             <EmployeeName>{nome}</EmployeeName>
-            <EmployeeRole>{role}</EmployeeRole>
+            {/* <EmployeeRole>{role}</EmployeeRole> */}
             <EmployeeInfo>
                 <EmployeeInfoData>
                     <EmployeeInfoDataName>Empresa</EmployeeInfoDataName>
@@ -58,14 +57,14 @@ export function EmployeeCard({
                 </EmployeeInfoData>
                 <EmployeeInfoData>
                     <EmployeeInfoDataName>Hired Date</EmployeeInfoDataName>
-                    <EmployeeData>{hired}</EmployeeData>
+                    <EmployeeData>20</EmployeeData>
                 </EmployeeInfoData>
             </EmployeeInfo>
             <ContactInfo>
                 <FaEnvelope /> {email}
             </ContactInfo>
             <ContactInfo>
-                <FaPhone /> {number}
+                <FaPhone /> 
             </ContactInfo>
         </EmployeeCardContainer>
     );
