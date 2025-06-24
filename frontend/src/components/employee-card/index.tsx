@@ -18,7 +18,7 @@ interface EmployeeProps {
 }
 
 export function EmployeeCard({ 
-    id, nome, photo, empresa, created_at,email, openMenu, setOpenMenu 
+    id, nome, photo, empresa, created_at, email, openMenu, setOpenMenu 
 }: EmployeeProps) {
     const isOpen = openMenu === id;
 
