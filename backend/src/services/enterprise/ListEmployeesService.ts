@@ -24,8 +24,8 @@ export class ListEmployeesService {
                 id: true,
                 nome: true,
                 email: true,
-                foto: true,
                 createdAt: true,
+                foto: true,
                 empresa: {
                     select: {
                         nome: true,
