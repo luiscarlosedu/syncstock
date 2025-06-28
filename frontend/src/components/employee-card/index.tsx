@@ -1,7 +1,7 @@
-import { FaEllipsisH, FaEnvelope, FaPhone, FaTrash, FaEdit, FaEye } from "react-icons/fa";
+import { FaEllipsisH, FaEnvelope, FaTrash, FaEdit, FaEye } from "react-icons/fa";
 import { 
     ContactInfo, EmployeeCardContainer, EmployeeData, EmployeeInfo, EmployeeInfoData, 
-    EmployeeInfoDataName, EmployeeName, EmployeePhoto, EmployeeRole, OptionsButton, 
+    EmployeeInfoDataName, EmployeeName, EmployeePhoto, OptionsButton, 
     OptionsMenu, OptionItem
 } from "./styles";
 
@@ -9,24 +9,27 @@ interface EmployeeProps {
     id: string;
     nome: string;
     photo: string;
-    role: string;
     empresa: string;
-    hired: string;
+    created_at: string;
     email: string;
-    number: string;
+    // number: string;
     openMenu: string | null;
     setOpenMenu: (id: string | null) => void;
 }
 
 export function EmployeeCard({ 
-    id, nome, photo, role, empresa, hired, email, number, openMenu, setOpenMenu 
+    id, nome, photo, empresa, created_at, email, openMenu, setOpenMenu 
 }: EmployeeProps) {
     const isOpen = openMenu === id;
+
+    function formattedDate(date: string) {
+        return new Date(date).toLocaleDateString("pt-BR");
+    }
 
     function toggleMenu(e: React.MouseEvent) {
         e.stopPropagation();
         setOpenMenu(isOpen ? null : id);
-    }
+    };
 
     return (
         <EmployeeCardContainer>
@@ -48,25 +51,31 @@ export function EmployeeCard({
                 </OptionsMenu>
             )}
 
-            <EmployeePhoto src={photo} />
+            <EmployeePhoto 
+                src={
+                    photo
+                        ? `http://localhost:3333/files/${photo}` 
+                        : `https://ui-avatars.com/api/?name=${nome}&background=202020&color=fff`
+                } 
+            />
             <EmployeeName>{nome}</EmployeeName>
-            <EmployeeRole>{role}</EmployeeRole>
+            {/* <EmployeeRole>{role}</EmployeeRole> */}
             <EmployeeInfo>
                 <EmployeeInfoData>
                     <EmployeeInfoDataName>Empresa</EmployeeInfoDataName>
                     <EmployeeData>{empresa}</EmployeeData>
                 </EmployeeInfoData>
                 <EmployeeInfoData>
-                    <EmployeeInfoDataName>Hired Date</EmployeeInfoDataName>
-                    <EmployeeData>{hired}</EmployeeData>
+                    <EmployeeInfoDataName>Criado em:</EmployeeInfoDataName>
+                    <EmployeeData>{formattedDate(created_at)}</EmployeeData>
                 </EmployeeInfoData>
             </EmployeeInfo>
             <ContactInfo>
                 <FaEnvelope /> {email}
             </ContactInfo>
-            <ContactInfo>
-                <FaPhone /> {number}
-            </ContactInfo>
+            {/* <ContactInfo>
+                <FaPhone /> 
+            </ContactInfo> */}
         </EmployeeCardContainer>
     );
 }

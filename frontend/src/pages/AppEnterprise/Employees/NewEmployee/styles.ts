@@ -26,7 +26,7 @@ export const RegisterDescription = styled.p`
     margin-bottom: 5px;
 `;
 
-export const RegisterForm = styled.div`
+export const RegisterForm = styled.form`
     display: flex;
     flex-direction: column;
 `;
