@@ -55,6 +55,11 @@ export default function ProductsEnterprise() {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [products, setProducts] = useState<ProductProps[]>([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filteredProducts = products.filter(product =>
+        product.nome.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     useEffect(() => {
         async function loadProducts() {
@@ -111,7 +116,11 @@ export default function ProductsEnterprise() {
                                 <SearchIcon>
                                     <FaSearch />
                                 </SearchIcon>
-                                <ProductSearchInput placeholder="Buscar produtos..." />
+                                <ProductSearchInput 
+                                    placeholder="Buscar produtos..." 
+                                    value={searchTerm}    
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                />
                             </ProductSearchInputContainer>
                         </ProductSearchContainer>
                     </ProductTotalSearchContainer>
@@ -130,7 +139,7 @@ export default function ProductsEnterprise() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {products.map((product) => (
+                                {filteredProducts.map((product) => (
                                     <TableRow key={product.id}>
                                         <TableData>
                                             <ProductImage 
