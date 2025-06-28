@@ -11,11 +11,20 @@ import {
     NoCategoriesContainer,
     NoCategoriesIcon,
     NoCategoriesTitle,
-    NoCategoriesText
+    NoCategoriesText,
+    CategoryTotalSearchContainer,
+    CategoryTotalContainer,
+    CategoryTotalTitle,
+    CategoryTotal,
+    CategorySearchContainer,
+    CategorySearchInputContainer,
+    SearchIcon,
+    CategorySearchInput
 } from "./styles";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import api from "../../../services/api";
+import { FaSearch } from "react-icons/fa";
 
 interface CategoryProps {
     id: string;
@@ -62,6 +71,22 @@ export default function CategoriesEnterprise() {
                         + Criar categoria
                     </CategoryAdd>
                 </CategoryTitleAddContainer>
+        
+                <CategoryTotalSearchContainer>
+                    <CategoryTotalContainer>
+                        <CategoryTotalTitle>Total de Categorias</CategoryTotalTitle>
+                        <CategoryTotal>{categories.length}</CategoryTotal>
+                    </CategoryTotalContainer>
+
+                    <CategorySearchContainer>
+                        <CategorySearchInputContainer>
+                            <SearchIcon>
+                                <FaSearch />
+                            </SearchIcon>
+                            <CategorySearchInput placeholder="Buscar produtos..." />
+                        </CategorySearchInputContainer>
+                    </CategorySearchContainer>
+                </CategoryTotalSearchContainer>
 
                 {categories.length === 0 ? (
                     <NoCategoriesContainer>
