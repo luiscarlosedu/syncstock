@@ -47,8 +47,6 @@ export default function EmployeesEnterprise() {
                 }));
 
                 setEmployees(employeesData);
-
-                console.log(employees)
             } catch (err) {
                 console.log("[ERRO], Erro ao carregar funcionários!", err);
             }
