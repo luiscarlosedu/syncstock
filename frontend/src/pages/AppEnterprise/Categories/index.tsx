@@ -36,6 +36,11 @@ export default function CategoriesEnterprise() {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [categories, setCategories] = useState<CategoryProps[]>([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filteredCategories = categories.filter(category =>
+        category.nome.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     useEffect(() => {
         async function loadCategories() {
@@ -83,7 +88,11 @@ export default function CategoriesEnterprise() {
                             <SearchIcon>
                                 <FaSearch />
                             </SearchIcon>
-                            <CategorySearchInput placeholder="Buscar produtos..." />
+                            <CategorySearchInput 
+                                placeholder="Buscar produtos..." 
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
                         </CategorySearchInputContainer>
                     </CategorySearchContainer>
                 </CategoryTotalSearchContainer>
@@ -99,6 +108,14 @@ export default function CategoriesEnterprise() {
                             + Criar agora
                         </CategoryAdd>
                     </NoCategoriesContainer>
+                ) : filteredCategories.length === 0 ? (
+                    <NoCategoriesContainer>
+                        <NoCategoriesIcon>🔍</NoCategoriesIcon>
+                        <NoCategoriesTitle>Nenhuma categoria encontrada</NoCategoriesTitle>
+                        <NoCategoriesText>
+                            Tente usar outro nome ou limpe a busca para ver todas as categorias disponíveis.
+                        </NoCategoriesText>
+                    </NoCategoriesContainer>
                 ) : (
                     <CategoryList>
                         <CategoryListHeader>
@@ -106,7 +123,7 @@ export default function CategoriesEnterprise() {
                             <span>Produtos</span>
                         </CategoryListHeader>
 
-                        {categories.map((category) => (
+                        {filteredCategories.map((category) => (
                             <CategoryItem key={category.id}>
                                 <span>{category.nome}</span>
                                 <span>{category.produtosCount}</span>
