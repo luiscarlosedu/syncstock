@@ -24,13 +24,18 @@ import {
     TableData,
     ProductImage,
     UpdateData,
+    NoProductsContainer,
+    NoProductsIcon,
+    NoProductsTitle,
+    NoProductsText,
+    ProductsAdd,
 } from "./styles";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { UpdateProductModal } from "../../../components/update-product-modal";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router";
 import api from "../../../services/api";
-// import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 interface ProductJson {
     id: string;
@@ -56,9 +61,15 @@ interface ProductProps {
 
 export default function ProductsEmployee() {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [products, setProducts] = useState<ProductProps[]>([]);
     const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
     const [modalOpen, setModalOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+    
+    const filteredProducts = products.filter(product =>
+        product.nome.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     const loadProducts = useCallback(async () => {
         try {
@@ -98,9 +109,6 @@ export default function ProductsEmployee() {
             <ProductContentContainer>
                 <ProductsTitleAddContainer>
                     <ProductsTitle>Produtos</ProductsTitle>
-                    {/* <ProductsAdd
-                        // onClick={() => navigate("/funcionario/produtos/adicionar")}
-                    >+ Atualizar estoque</ProductsAdd> */}
                 </ProductsTitleAddContainer>
 
                 <ProductContent>
@@ -115,56 +123,81 @@ export default function ProductsEmployee() {
                                 <SearchIcon>
                                     <FaSearch />
                                 </SearchIcon>
-                                <ProductSearchInput placeholder="Buscar produtos..." />
+                                <ProductSearchInput 
+                                    placeholder="Buscar produtos..." 
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                />
                             </ProductSearchInputContainer>
                         </ProductSearchContainer>
                     </ProductTotalSearchContainer>
 
-                    <ProductsContainer>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableHeader></TableHeader>
-                                    <TableHeader rowSpan={2}>Produto</TableHeader>
-                                    {/* <TableHeader>Status</TableHeader> */}
-                                    <TableHeader>Estoque</TableHeader>
-                                    {/* <TableHeader>Canais</TableHeader> */}
-                                    <TableHeader>Categoria</TableHeader>
-                                    <TableHeader>Ação</TableHeader>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {products.map((product) => (
-                                    <TableRow key={product.id}>
-                                        <TableData>
-                                            <ProductImage 
-                                                src={
-                                                    product.foto
-                                                    ? `${import.meta.env.VITE_API_URL}/files/${product.foto}`
-                                                    : ``
-                                                } 
-                                                alt={product.nome} 
-                                            />
-                                        </TableData>
-                                        <TableData>{product.nome}</TableData>
-                                        {/* <TableData>
-                                            <StatusBadge status={product.status}>{product.status}</StatusBadge>
-                                        </TableData> */}
-                                        <TableData>{product.quantidade}</TableData>
-                                        <TableData>{product.categoria_nome}</TableData>
-                                        <TableData>
-                                            <UpdateData
-                                                onClick={() => {
-                                                    setSelectedProductId(product.id);
-                                                    setModalOpen(true);
-                                                }}
-                                            ><FaExchangeAlt /></UpdateData>
-                                        </TableData>
+                    {products.length === 0 ? (
+                        <NoProductsContainer>
+                            <NoProductsIcon>📂</NoProductsIcon>
+                            <NoProductsTitle>Você ainda não possui categorias</NoProductsTitle>
+                            <NoProductsText>
+                                Comece organizando seu estoque criando sua primeira categoria.
+                            </NoProductsText>
+                            <ProductsAdd onClick={() => navigate('/empresa/categorias/criar')}>
+                                + Criar agora
+                            </ProductsAdd>
+                        </NoProductsContainer>
+                    ): filteredProducts.length === 0 ? (
+                        <NoProductsContainer>
+                            <NoProductsIcon>🔍</NoProductsIcon>
+                            <NoProductsTitle>Nenhum produto encontrado!</NoProductsTitle>
+                            <NoProductsText>
+                                Tente usar outro nome ou limpe a busca para ver todas os produtos disponíveis.
+                            </NoProductsText>
+                        </NoProductsContainer>
+                    ): (
+                        <ProductsContainer>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableHeader></TableHeader>
+                                        <TableHeader rowSpan={2}>Produto</TableHeader>
+                                        {/* <TableHeader>Status</TableHeader> */}
+                                        <TableHeader>Estoque</TableHeader>
+                                        {/* <TableHeader>Canais</TableHeader> */}
+                                        <TableHeader>Categoria</TableHeader>
+                                        <TableHeader>Ação</TableHeader>
                                     </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </ProductsContainer>
+                                </TableHead>
+                                <TableBody>
+                                    {filteredProducts.map((product) => (
+                                        <TableRow key={product.id}>
+                                            <TableData>
+                                                <ProductImage 
+                                                    src={
+                                                        product.foto
+                                                        ? `${import.meta.env.VITE_API_URL}/files/${product.foto}`
+                                                        : ``
+                                                    } 
+                                                    alt={product.nome} 
+                                                />
+                                            </TableData>
+                                            <TableData>{product.nome}</TableData>
+                                            {/* <TableData>
+                                                <StatusBadge status={product.status}>{product.status}</StatusBadge>
+                                            </TableData> */}
+                                            <TableData>{product.quantidade}</TableData>
+                                            <TableData>{product.categoria_nome}</TableData>
+                                            <TableData>
+                                                <UpdateData
+                                                    onClick={() => {
+                                                        setSelectedProductId(product.id);
+                                                        setModalOpen(true);
+                                                    }}
+                                                ><FaExchangeAlt /></UpdateData>
+                                            </TableData>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </ProductsContainer>
+                    )}
                 </ProductContent>
             </ProductContentContainer>
 

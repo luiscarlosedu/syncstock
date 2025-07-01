@@ -10,10 +10,21 @@ import {
     NoCategoriesIcon,
     NoCategoriesTitle,
     NoCategoriesText,
+    CategorySearchContainer,
+    CategorySearchInputContainer,
+    SearchIcon,
+    CategorySearchInput,
+    CategoryTotalSearchContainer,
+    CategoryTotalContainer,
+    CategoryTotalTitle,
+    CategoryTotal,
+    CategoryAdd,
 } from "./styles";
 import { useContext, useEffect, useState } from "react";
 import api from "../../../services/api";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 interface CategoryProps {
     id: string;
@@ -23,7 +34,13 @@ interface CategoryProps {
 
 export default function CategoriesEmployee() {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [categories, setCategories] = useState<CategoryProps[]>([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filteredCategories = categories.filter(category =>
+        category.nome.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     useEffect(() => {
         async function loadCategories() {
@@ -51,12 +68,44 @@ export default function CategoriesEmployee() {
                     <CategoryTitle>Categorias</CategoryTitle>
                 </CategoryTitleAddContainer>
 
+                <CategoryTotalSearchContainer>
+                    <CategoryTotalContainer>
+                        <CategoryTotalTitle>Total de Categorias</CategoryTotalTitle>
+                        <CategoryTotal>{categories.length}</CategoryTotal>
+                    </CategoryTotalContainer>
+
+                    <CategorySearchContainer>
+                        <CategorySearchInputContainer>
+                            <SearchIcon>
+                                <FaSearch />
+                            </SearchIcon>
+                            <CategorySearchInput 
+                                placeholder="Buscar produtos..." 
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </CategorySearchInputContainer>
+                    </CategorySearchContainer>
+                    
+                </CategoryTotalSearchContainer>
+
                 {categories.length === 0 ? (
                     <NoCategoriesContainer>
                         <NoCategoriesIcon>📂</NoCategoriesIcon>
-                        <NoCategoriesTitle>Sua empresa ainda não cadastrou categorias</NoCategoriesTitle>
+                        <NoCategoriesTitle>Você ainda não possui categorias</NoCategoriesTitle>
                         <NoCategoriesText>
-                            Aguarde sua empresa cadastrar as categorias.
+                            Comece organizando seu estoque criando sua primeira categoria.
+                        </NoCategoriesText>
+                        <CategoryAdd onClick={() => navigate('/empresa/categorias/criar')}>
+                            + Criar agora
+                        </CategoryAdd>
+                    </NoCategoriesContainer>
+                ) : filteredCategories.length === 0 ? (
+                    <NoCategoriesContainer>
+                        <NoCategoriesIcon>🔍</NoCategoriesIcon>
+                        <NoCategoriesTitle>Nenhuma categoria encontrada</NoCategoriesTitle>
+                        <NoCategoriesText>
+                            Tente usar outro nome ou limpe a busca para ver todas as categorias disponíveis.
                         </NoCategoriesText>
                     </NoCategoriesContainer>
                 ) : (
@@ -66,13 +115,13 @@ export default function CategoriesEmployee() {
                             <span>Produtos</span>
                         </CategoryListHeader>
 
-                        {categories.map((category) => (
+                        {filteredCategories.map((category) => (
                             <CategoryItem key={category.id}>
                                 <span>{category.nome}</span>
                                 <span>{category.produtosCount}</span>
                             </CategoryItem>
                         ))}
-                    </CategoryList>
+                        </CategoryList>
                 )}
             </CategoryContentContainer>
         </Container>

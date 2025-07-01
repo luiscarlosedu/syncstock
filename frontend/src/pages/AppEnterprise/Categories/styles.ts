@@ -40,6 +40,69 @@ export const CategoryAdd = styled.button`
     }
 `;
 
+export const CategoryTotalSearchContainer = styled.div`
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        gap: 4px;
+
+        input {
+            width: 100%;
+        }
+    }
+`;
+
+export const CategoryTotalContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const CategoryTotalTitle = styled.p`
+    font-weight: 600;
+    font-size: 14px;
+`;
+
+export const CategoryTotal = styled.span`
+    font-size: 16px;
+`;
+
+export const CategorySearchContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const CategorySearchInputContainer = styled.div`
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 6px;
+    width: 100%;
+`;
+
+export const SearchIcon = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+    color: #888;
+`;
+
+export const CategorySearchInput = styled.input`
+    border: none;
+    padding: 8px;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+`;
+
 export const CategoryList = styled.div`
     width: 100%;
     border-radius: 8px;

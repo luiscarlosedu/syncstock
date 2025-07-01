@@ -110,6 +110,32 @@ export const ProductSearchInput = styled.input`
     font-size: 14px;
 `;
 
+export const NoProductsContainer = styled.div`
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    margin-top: 20px;
+`;
+
+export const NoProductsIcon = styled.div`
+    font-size: 48px;
+    margin-bottom: 15px;
+`;
+
+export const NoProductsTitle = styled.h2`
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+`;
+
+export const NoProductsText = styled.p`
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+`;
+
 export const ProductsContainer = styled.div`
     background: white;
     border-radius: 8px;
