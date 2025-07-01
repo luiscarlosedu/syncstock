@@ -96,7 +96,7 @@ export default function ProductsEnterprise() {
 
     if (!user) {
         <Navigate to={"/"} replace />
-    }
+    };
 
     return (
         <Container>
