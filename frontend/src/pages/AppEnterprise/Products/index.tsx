@@ -23,6 +23,10 @@ import {
     TableBody,
     TableData,
     ProductImage,
+    NoProductsContainer,
+    NoProductsIcon,
+    NoProductsTitle,
+    NoProductsText,
 } from "./styles";
 import { Navigate, useNavigate } from "react-router";
 import { useContext, useEffect, useState } from "react";
@@ -125,44 +129,65 @@ export default function ProductsEnterprise() {
                         </ProductSearchContainer>
                     </ProductTotalSearchContainer>
 
-                    <ProductsContainer>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableHeader></TableHeader>
-                                    <TableHeader rowSpan={2}>Produto</TableHeader>
-                                    {/* <TableHeader>Status</TableHeader> */}
-                                    <TableHeader>Estoque</TableHeader>
-                                    {/* <TableHeader>Canais</TableHeader> */}
-                                    {/* <TableHeader>Mercados</TableHeader> */}
-                                    <TableHeader>Categoria</TableHeader>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {filteredProducts.map((product) => (
-                                    <TableRow key={product.id}>
-                                        <TableData>
-                                            <ProductImage 
-                                                src={
-                                                    product.foto
-                                                    ? `${import.meta.env.VITE_API_URL}/files/${product.foto}`
-                                                    : ""
-                                                } 
-                                                alt={product.nome} 
-                                            />
-                                        </TableData>
-                                        <TableData>{product.nome}</TableData>
-                                        {/* <TableData>
-                                            <StatusBadge status={product.status}>{product.status}</StatusBadge>
-                                        </TableData> */}
-                                        <TableData>{product.quantidade}</TableData>
-                                        {/* <TableData>{product.salesChannels}</TableData> */}
-                                        <TableData>{product.categoria_nome}</TableData>
+                    {products.length === 0 ? (
+                        <NoProductsContainer>
+                            <NoProductsIcon>📂</NoProductsIcon>
+                            <NoProductsTitle>Você ainda não possui categorias</NoProductsTitle>
+                            <NoProductsText>
+                                Comece organizando seu estoque criando sua primeira categoria.
+                            </NoProductsText>
+                            <ProductsAdd onClick={() => navigate('/empresa/categorias/criar')}>
+                                + Criar agora
+                            </ProductsAdd>
+                        </NoProductsContainer>
+                    ): filteredProducts.length === 0 ? (
+                        <NoProductsContainer>
+                            <NoProductsIcon>🔍</NoProductsIcon>
+                            <NoProductsTitle>Nenhum produto encontrado!</NoProductsTitle>
+                            <NoProductsText>
+                                Tente usar outro nome ou limpe a busca para ver todas os produtos disponíveis.
+                            </NoProductsText>
+                        </NoProductsContainer>
+                    ) : (
+                        <ProductsContainer>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableHeader></TableHeader>
+                                        <TableHeader rowSpan={2}>Produto</TableHeader>
+                                        {/* <TableHeader>Status</TableHeader> */}
+                                        <TableHeader>Estoque</TableHeader>
+                                        {/* <TableHeader>Canais</TableHeader> */}
+                                        {/* <TableHeader>Mercados</TableHeader> */}
+                                        <TableHeader>Categoria</TableHeader>
                                     </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </ProductsContainer>
+                                </TableHead>
+                                <TableBody>
+                                    {filteredProducts.map((product) => (
+                                        <TableRow key={product.id}>
+                                            <TableData>
+                                                <ProductImage 
+                                                    src={
+                                                        product.foto
+                                                        ? `${import.meta.env.VITE_API_URL}/files/${product.foto}`
+                                                        : ""
+                                                    } 
+                                                    alt={product.nome} 
+                                                />
+                                            </TableData>
+                                            <TableData>{product.nome}</TableData>
+                                            {/* <TableData>
+                                                <StatusBadge status={product.status}>{product.status}</StatusBadge>
+                                            </TableData> */}
+                                            <TableData>{product.quantidade}</TableData>
+                                            {/* <TableData>{product.salesChannels}</TableData> */}
+                                            <TableData>{product.categoria_nome}</TableData>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </ProductsContainer>
+                    )}
                 </ProductContent>
             </ProductContentContainer>
         </Container>
