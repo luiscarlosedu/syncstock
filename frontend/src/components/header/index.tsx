@@ -5,7 +5,8 @@ import {
     HeaderLogoTitle,
     MyEnterprise,
     MyEnterpriseText,
-    MyEnterpriseImage
+    MyEnterpriseImage,
+    MyContainer
 } from "./styles";
 
 import ImageLogo from '../../assets/syncstock-white.png';
@@ -41,7 +42,7 @@ export function Header({ type }: HeaderProps) {
                     onClick={() => navigate("/empresa/detalhes")}
                 >
                     <MyEnterpriseText>
-                        My Store
+                        Empresa
                     </MyEnterpriseText>
                     <MyEnterpriseImage 
                         src={
@@ -56,9 +57,11 @@ export function Header({ type }: HeaderProps) {
                 <MyEnterprise
                     onClick={() => navigate("/funcionario/detalhes")}
                 >
-                    <MyEnterpriseText>
-                        My Account
-                    </MyEnterpriseText>
+                    <MyContainer>
+                        <MyEnterpriseText>
+                            Usuário
+                        </MyEnterpriseText>
+                    </MyContainer>
                     <MyEnterpriseImage 
                         src={
                             user.foto 
