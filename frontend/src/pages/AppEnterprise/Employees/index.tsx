@@ -73,7 +73,7 @@ export default function EmployeesEnterprise() {
     if (isLoading) {
         return (
             <Container>
-                <Loading message="Carregando informações..." />
+                <Loading message="Carregando funcionários..." />
             </Container>
         );
     };

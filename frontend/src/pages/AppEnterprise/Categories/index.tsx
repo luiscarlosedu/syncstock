@@ -72,7 +72,7 @@ export default function CategoriesEnterprise() {
     if (isLoading) {
         return (
             <Container>
-                <Loading message="Carregando informações..." />
+                <Loading message="Carregando categorias..." />
             </Container>
         );
     };
