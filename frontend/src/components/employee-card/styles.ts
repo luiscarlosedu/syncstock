@@ -10,7 +10,7 @@ export const EmployeeCardContainer = styled.div`
     flex-direction: column;
     position: relative;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 700px) {
         width: 100%;
     }
 `;

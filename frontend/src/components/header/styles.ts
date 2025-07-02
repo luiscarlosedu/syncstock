@@ -62,6 +62,12 @@ export const MyEnterprise = styled.button`
     }
 `;
 
+export const MyContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`;
+
 export const MyEnterpriseText = styled.h3`
     font-size: 15px;
     font-weight: 500;

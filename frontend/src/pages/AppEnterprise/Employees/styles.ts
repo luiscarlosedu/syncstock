@@ -116,3 +116,30 @@ export const EmployeesContainer = styled.div`
     padding-bottom: 20px;
     flex-wrap: wrap;
 `;
+
+export const NoEmployeesContainer = styled.div`
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    margin-top: 20px;
+    width: 100%;
+`;
+
+export const NoEmployeesIcon = styled.div`
+    font-size: 48px;
+    margin-bottom: 15px;
+`;
+
+export const NoEmployeesTitle = styled.h2`
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+`;
+
+export const NoEmployeesText = styled.p`
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+`;

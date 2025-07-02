@@ -40,7 +40,7 @@ export const UseLayoutPage = styled.main`
 export const BottomTabsWrapper = styled.div`
     display: none;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1000px) {
         display: block;
         position: fixed;
         bottom: 0;
