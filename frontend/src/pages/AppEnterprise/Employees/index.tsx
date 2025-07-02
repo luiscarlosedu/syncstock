@@ -140,22 +140,6 @@ export default function EmployeesEnterprise() {
                                 />
                             ))
                         )}
-
-                        {/*{employees.map((item) => (
-                            <EmployeeCard 
-                                id={item.id}
-                                key={item.nome}
-                                nome={item.nome}
-                                photo={item.foto}
-                                empresa={item.empresa_nome}
-                                created_at={item.createdAt}
-                                email={item.email}
-                                // number={item.number}
-                                openMenu={openMenu}
-                                setOpenMenu={setOpenMenu}
-                            />
-                        ))}*/}
-
                     </EmployeesContainer>
 
                 </EmployeesContent>
