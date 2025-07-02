@@ -50,3 +50,27 @@ export const EmployeeEmail = styled.span`
     font-size: 13px;
     color: #888;
 `;
+
+export const NoEmployeesContainer = styled.div`
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+`;
+
+export const NoEmployeesIcon = styled.div`
+    font-size: 48px;
+    margin-bottom: 15px;
+`;
+
+export const NoEmployeesTitle = styled.h2`
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+`;
+
+export const NoEmployeesText = styled.p`
+    font-size: 14px;
+    color: #666;
+`;
