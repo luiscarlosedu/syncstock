@@ -4,9 +4,6 @@ import MyAccountInfo from "./MyAccountInfo";
 import { Container, MyAccountContentContainer } from "./styles";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router";
-// import { UserHeaderPending } from "./components/user-header-pending";
-// import MyAccountPendinginfo from "./MyAccountPendingInfo";
-// import { Navigate } from "react-router";
 
 export interface EmployeeProps {
     name: string;
@@ -22,7 +19,7 @@ export default function MyAccount() {
         
     if(!user) {
         return <Navigate to={"/"} replace />
-    }
+    };
 
     return (
         <>
