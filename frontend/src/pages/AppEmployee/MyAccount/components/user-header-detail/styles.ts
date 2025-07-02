@@ -23,6 +23,9 @@ export const UserInfo = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const UserTitleName = styled.h2`
@@ -48,6 +51,10 @@ export const UserBtn = styled.button`
     border-radius: 10px;
     cursor: pointer;
     transition: all .3s;
+
+    @media screen and (max-width: 768px) {
+        max-width: 200px;
+    }
 
     &:hover {
         background-color: #454545;
