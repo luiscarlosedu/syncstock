@@ -32,6 +32,7 @@ import { Navigate, useNavigate } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import api from "../../../services/api";
+import { Loading } from "../../../components/loading";
 
 interface ProductJson {
     id: string;
@@ -58,6 +59,7 @@ interface ProductProps {
 export default function ProductsEnterprise() {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [products, setProducts] = useState<ProductProps[]>([]);
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -84,8 +86,10 @@ export default function ProductsEnterprise() {
                     foto: item.foto,
                 }));
                 setProducts(productsData);
+                setIsLoading(false);
             } catch (err) {
                 console.log("[ERRO], ", err);
+                setIsLoading(false);
             };
         };
 
@@ -96,6 +100,14 @@ export default function ProductsEnterprise() {
 
     if (!user) {
         <Navigate to={"/"} replace />
+    };
+
+    if (isLoading) {
+        return (
+            <Container>
+                <Loading message="Carregando produtos..." />
+            </Container>
+        );
     };
 
     return (
