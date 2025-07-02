@@ -6,7 +6,7 @@ const spin = keyframes`
 `;
 
 export const Spinner = styled.div`
-  border: 4px solid #f3f3f3;
+  border: 4px solid #999999;
   border-top: 4px solid #202020;
   border-radius: 50%;
   width: 40px;
@@ -18,6 +18,6 @@ export const SpinnerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: calc(100% - 65px);
   width: 100%;
 `;

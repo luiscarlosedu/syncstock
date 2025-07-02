@@ -25,6 +25,7 @@ import api from "../../../services/api";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import { Loading } from "../../../components/loading";
 
 interface CategoryProps {
     id: string;
@@ -35,6 +36,7 @@ interface CategoryProps {
 export default function CategoriesEmployee() {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [categories, setCategories] = useState<CategoryProps[]>([]);
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -51,8 +53,10 @@ export default function CategoriesEmployee() {
                     },
                 });
                 setCategories(response.data);
+                setIsLoading(false);
             } catch (err) {
                 console.log("[ERRO] Erro ao buscar categorias: ", err);
+                setIsLoading(false);
             }
         };
 
@@ -60,6 +64,14 @@ export default function CategoriesEmployee() {
             loadCategories();
         }
     }, [user]);
+
+    if (isLoading) {
+        return (
+            <Container>
+                <Loading message="Carregando categorias..." />
+            </Container>
+        );
+    }
 
     return (
         <Container>
