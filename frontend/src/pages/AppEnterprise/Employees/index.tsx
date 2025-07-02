@@ -5,6 +5,7 @@ import { Container, EmployeesHeader, EmployeesHeaderAdd, EmployeesHeaderTitle, E
 import { EmployeeCard } from "../../../components/employee-card";
 import { AuthContext } from "../../../contexts/AuthContext";
 import api from "../../../services/api";
+import { Loading } from "../../../components/loading";
 
 interface EmployeeProps {
     id: string;
@@ -29,6 +30,7 @@ interface EmployeeResponse {
 export default function EmployeesEnterprise() {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [openMenu, setOpenMenu] = useState<string | null>(null);
     const [employees, setEmployees] = useState<EmployeeProps[]>([]);
     const [searchTerm, setSearchTerm] = useState("");
@@ -52,8 +54,10 @@ export default function EmployeesEnterprise() {
                 }));
 
                 setEmployees(employeesData);
+                setIsLoading(false);
             } catch (err) {
                 console.log("[ERRO], Erro ao carregar funcionários!", err);
+                setIsLoading(false);
             }
         }
 
@@ -64,7 +68,15 @@ export default function EmployeesEnterprise() {
 
     if (!user) {
         return <Navigate to={"/"} replace />
-    }
+    };
+
+    if (isLoading) {
+        return (
+            <Container>
+                <Loading message="Carregando informações..." />
+            </Container>
+        );
+    };
 
     return (
         <Container
