@@ -7,6 +7,7 @@ import { MyEnterpriseHeader } from "./components/my-enterprise-header";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { Navigate } from "react-router";
 import api from "../../../services/api";
+import { Loading } from "../../../components/loading";
 
 export interface EnterpriseData {
     nome: string;
@@ -30,6 +31,7 @@ export default function EnterpriseEmployee() {
     const { user } = useContext(AuthContext);
     const [activeTab, setActiveTab] = useState("info");
     const [enterpriseData, setEnterpriseData] = useState<EnterpriseData | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         async function loadStorage() {
@@ -40,8 +42,10 @@ export default function EnterpriseEmployee() {
                     }
                 });
                 setEnterpriseData(response.data);
+                setIsLoading(false);
             } catch (err) {
                 console.log("[ERRO]", err);
+                setIsLoading(false);
             }
         };
 
@@ -52,6 +56,14 @@ export default function EnterpriseEmployee() {
 
     if (!user) {
         return <Navigate to={"/"} replace />
+    };
+
+    if (isLoading) {
+        return (
+            <Container>
+                <Loading message="Carregando informações..." />
+            </Container>
+        );
     };
 
     return (
