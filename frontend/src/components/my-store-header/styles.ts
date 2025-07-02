@@ -23,6 +23,9 @@ export const MyStoryHeadInfo = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const StoryTitleName = styled.h2`
@@ -32,6 +35,7 @@ export const StoryTitleName = styled.h2`
 export const StoryBtnArea = styled.div`
     display: flex;
     gap: 5px;
+    width: 100%;
     
     @media screen and (max-width: 768px) {
         flex-direction: column;
@@ -48,8 +52,12 @@ export const StoryBtn = styled.button`
     border-radius: 10px;
     cursor: pointer;
     transition: all .3s;
-
+    
     &:hover {
         background-color: #454545;
+    }
+    
+    @media screen and (max-width: 768px) {
+        max-width: 200px;
     }
 `;
