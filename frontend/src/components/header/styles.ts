@@ -64,7 +64,6 @@ export const MyEnterprise = styled.button`
 
 export const MyContainer = styled.div`
     width: 100%;
-    /* background-color: red; */
     display: flex;
     justify-content: center;
 `;
