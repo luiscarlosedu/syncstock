@@ -29,7 +29,7 @@ export function EnterpriseStatus() {
             console.log("[ERRO] ", err);
         } finally {
             setLoading(false);
-        }
+        };
     };
 
     if (loading) {
