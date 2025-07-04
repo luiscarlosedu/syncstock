@@ -39,7 +39,7 @@ export function EnterpriseEmployees() {
 
     if (loading) {
         return <LoadingAccount />
-    }
+    };
 
     return (
         <Container>
