@@ -147,12 +147,12 @@ export default function ProductsEmployee() {
                     {products.length === 0 ? (
                         <NoProductsContainer>
                             <NoProductsIcon>📂</NoProductsIcon>
-                            <NoProductsTitle>Você ainda não possui categorias</NoProductsTitle>
+                            <NoProductsTitle>Você ainda não possui produtos!</NoProductsTitle>
                             <NoProductsText>
-                                Comece organizando seu estoque criando sua primeira categoria.
+                                Comece cadastrando seus produtos na plataforma!.
                             </NoProductsText>
-                            <ProductsAdd onClick={() => navigate('/empresa/categorias/criar')}>
-                                + Criar agora
+                            <ProductsAdd onClick={() => navigate('/funcionario/categorias/criar')}>
+                                + Adicionar agora
                             </ProductsAdd>
                         </NoProductsContainer>
                     ): filteredProducts.length === 0 ? (
