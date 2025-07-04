@@ -40,7 +40,7 @@ export default function HomeEmployee() {
             } catch (err) {
                 console.log("[ERRO]", err);
             } finally {
-                setIsLoading(true);
+                setIsLoading(false);
             };
         };
 
