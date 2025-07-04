@@ -3,6 +3,7 @@ import { Container, EmployeeCard, EmployeeInfo, EmployeeName, EmployeeEmail, Emp
 import api from "../../../../services/api";
 import { AuthContext } from "../../../../contexts/AuthContext";
 import { Navigate } from "react-router";
+import { LoadingAccount } from "../../../../components/loading-account";
 
 interface EmployeeProps {
     id: string;
@@ -12,8 +13,9 @@ interface EmployeeProps {
 }
 
 export function EnterpriseEmployees() {
-    const [employees, setEmployees] = useState<EmployeeProps[]>([]);
     const { user } = useContext(AuthContext);
+    const [employees, setEmployees] = useState<EmployeeProps[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         loadStorage();
@@ -24,12 +26,19 @@ export function EnterpriseEmployees() {
     }
 
     async function loadStorage() {
+        setLoading(true);
         try {
             const response = await api.get("/enterprise/employees");
             setEmployees(response.data);
         } catch (err) {
             console.log("[ERRO]", err);
-        }
+        } finally {
+            setLoading(false);
+        };
+    };
+
+    if (loading) {
+        return <LoadingAccount />
     }
 
     return (
