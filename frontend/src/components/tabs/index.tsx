@@ -3,9 +3,10 @@ import { Container, TabButton, MoreMenu } from "./styles";
 import { useNavigate, useLocation } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
 
-import { FaHome, FaUsers, FaEllipsisH } from "react-icons/fa";
-import { MdCategory, MdOutlineHomeWork } from "react-icons/md";
+import { FaHome, FaUsers, FaEllipsisH, FaQuestion } from "react-icons/fa";
+import { MdCategory, MdLogout, MdOutlineHomeWork } from "react-icons/md";
 import { IoMdPricetag } from "react-icons/io";
+import { TbMessage2Question } from "react-icons/tb";
 
 interface SideBarProps {
     type: "enterprise" | "employee";
@@ -106,7 +107,7 @@ export function Tabs({ type }: SideBarProps) {
                                 )
                             }
                         >
-                            Sobre
+                            <FaQuestion /> Sobre
                         </button>
                         <button
                             onClick={() =>
@@ -117,7 +118,7 @@ export function Tabs({ type }: SideBarProps) {
                                 )
                             }
                         >
-                            FAQ
+                            <TbMessage2Question /> FAQ
                         </button>
                         <button
                             onClick={async () => {
@@ -125,7 +126,7 @@ export function Tabs({ type }: SideBarProps) {
                                 navigate("/");
                             }}
                         >
-                            Sair
+                            <MdLogout /> Sair
                         </button>
                     </MoreMenu>
                 )}

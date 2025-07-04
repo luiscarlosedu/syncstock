@@ -47,6 +47,9 @@ export const MoreMenu = styled.div`
     z-index: 1001;
 
     button {
+        display: flex;
+        align-items: center;
+        gap: 4px;
         background: none;
         border: none;
         padding: 10px 16px;
