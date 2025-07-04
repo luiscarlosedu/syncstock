@@ -4,11 +4,7 @@ import { AuthContext } from "../../../../contexts/AuthContext";
 import { Navigate } from "react-router";
 
 export function EnterpriseInfo() {
-    const { user, loading } = useContext(AuthContext);
-
-    if (loading) {
-        return <p>Carregando informações...</p>;
-    }
+    const { user } = useContext(AuthContext);
 
     if(!user) {
         return <Navigate to={"/"} replace />
