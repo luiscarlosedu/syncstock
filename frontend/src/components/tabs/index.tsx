@@ -90,7 +90,6 @@ export function Tabs({ type }: SideBarProps) {
                 );
             })}
 
-            {/* Botão de Mais */}
             <div ref={moreRef} style={{ position: "relative" }}>
                 <TabButton onClick={() => setShowMoreMenu((prev) => !prev)}>
                     <FaEllipsisH />

@@ -1,4 +1,15 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const fadeSlideIn = keyframes`
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`;
 
 export const Container = styled.nav`
     width: 100%;
@@ -45,6 +56,8 @@ export const MoreMenu = styled.div`
     flex-direction: column;
     padding: 8px;
     z-index: 1001;
+
+    animation: ${fadeSlideIn} 0.2s ease-out;
 
     button {
         display: flex;
