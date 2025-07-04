@@ -4,17 +4,20 @@ import { IoMdPricetag } from "react-icons/io";
 import { MdCategory } from "react-icons/md";
 import { useEffect, useState } from "react";
 import api from "../../../../services/api";
+import { LoadingAccount } from "../../../../components/loading-account";
 
 export function EnterpriseStatus() {
     const [employeesTotal, setEmployeesTotal] = useState(0);
     const [productsTotal, setProductsTotal] = useState(0);
     const [categoriesTotal, setCategoriesTotal] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         loadStorage();
     }, []);
 
     async function loadStorage() {
+        setLoading(true);
         try {
             const response = await api.get("/enterprise/status");
             const { employeesTotal, productsTotal, categoriesTotal } = response.data;
@@ -24,8 +27,13 @@ export function EnterpriseStatus() {
             setCategoriesTotal(categoriesTotal);
         } catch (err) {
             console.log("[ERRO] ", err);
-        }
+        } finally {
+            setLoading(false);
+        };
+    };
 
+    if (loading) {
+        return <LoadingAccount />
     }
 
     return (

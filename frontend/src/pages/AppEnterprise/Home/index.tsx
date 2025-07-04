@@ -26,6 +26,7 @@ import Image from '../../../assets/enterprise-stock.jpg';
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import api from "../../../services/api";
+import { Loading } from "../../../components/loading";
 
 interface EnterpriseProps {
     nome: string;
@@ -43,6 +44,7 @@ interface EnterpriseProps {
 export default function HomeEnterprise() {
     const { user } = useContext(AuthContext);
     const [enterpriseData, setEnterpriseData] = useState<EnterpriseProps>();
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     
     const navigate = useNavigate();
 
@@ -55,12 +57,23 @@ export default function HomeEnterprise() {
     };
 
     async function loadStorage() {
+        setIsLoading(true);
         try {
             const response = await api.get("/enterprise/detail");
             setEnterpriseData(response.data);
         } catch (err) {
             console.log("[ERRO] ", err);
-        }
+        } finally {
+            setIsLoading(false);
+        };
+    };
+
+    if (isLoading) {
+        return (
+            <Container>
+                <Loading message="Carregando informações..." />
+            </Container>
+        );
     }
     
     return (

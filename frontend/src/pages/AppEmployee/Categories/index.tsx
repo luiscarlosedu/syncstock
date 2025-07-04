@@ -108,7 +108,7 @@ export default function CategoriesEmployee() {
                         <NoCategoriesText>
                             Comece organizando seu estoque criando sua primeira categoria.
                         </NoCategoriesText>
-                        <CategoryAdd onClick={() => navigate('/empresa/categorias/criar')}>
+                        <CategoryAdd onClick={() => navigate('/funcionario/categorias/criar')}>
                             + Criar agora
                         </CategoryAdd>
                     </NoCategoriesContainer>

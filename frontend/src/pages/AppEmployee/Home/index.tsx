@@ -5,6 +5,7 @@ import Image from '../../../assets/home-employee.jpg';
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import api from "../../../services/api";
+import { Loading } from "../../../components/loading";
 
 interface EnterpriseData {
     nome: string;
@@ -16,37 +17,49 @@ interface EnterpriseData {
 
 export default function HomeEmployee() {
     const { user } = useContext(AuthContext);
-    const [enterpriseData, setEnterpriseData] = useState<EnterpriseData | null>();
     const navigate = useNavigate();
+    const [enterpriseData, setEnterpriseData] = useState<EnterpriseData | null>();
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         async function loadStorage() {
+            setIsLoading(true);
             try {
                 const response = await api.get("/employee/enterprise", {
                     params: {
                         enterprise_id: user?.enterprise_id,
                     }
                 });
-
+                
                 const { nome, foto, funcionarios, productsCount, categoriesCount } = response.data;
                 const employeesCount = funcionarios.length;
-
+                
                 setEnterpriseData({
                     nome, foto, employeesCount, productsCount, categoriesCount
                 });
             } catch (err) {
                 console.log("[ERRO]", err);
-            }
+            } finally {
+                setIsLoading(true);
+            };
         };
 
         if (user?.enterprise_id) {
             loadStorage();
-        }
+        };
     }, [user]);
 
     if (!user) {
         return <Navigate to={"/"} replace />
     };
+
+    if (isLoading) {
+        return (
+            <Container>
+                <Loading message="Carregando informações..." />
+            </Container>
+        );
+    }
 
     return (
         <Container>

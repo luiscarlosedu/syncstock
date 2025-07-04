@@ -51,7 +51,7 @@ export default function EnterpriseEmployee() {
 
         if (user?.enterprise_id) {
             loadStorage();
-        }
+        };
     }, [user]);
 
     if (!user) {
