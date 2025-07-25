@@ -19,7 +19,7 @@ export const LogoImage = styled.Image`
 `;
 
 export const Title = styled.Text`
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
   color: #000;
 `;
