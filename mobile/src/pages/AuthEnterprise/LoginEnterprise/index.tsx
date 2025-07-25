@@ -1,4 +1,4 @@
-import { Button } from "react-native";
+import { Button, Text } from "react-native";
 import { AuthLayout } from "../../../components/layouts/auth-layout";
 import { useNavigation } from "@react-navigation/native";
 import { AuthRoutesList } from "../../../routes/auth.routes";
@@ -13,6 +13,7 @@ export default function LoginEnterprise() {
     return (
         <AuthLayout>
             <Container>
+                <Text>Página Login Enterprise</Text>
                 <Button title="Ir se registrar" onPress={() => navigation.navigate("RegisterEnterprise")} />
                 <Button title="Ir para home" onPress={() => navigation.goBack()} />
             </Container>
