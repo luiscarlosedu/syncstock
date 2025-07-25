@@ -22,7 +22,7 @@ import { AuthRoutesList } from "../../routes/auth.routes";
 type NavigationProps = NativeStackNavigationProp<AuthRoutesList, "Select">;
 
 export default function Select() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProps>();
 
   return (
     <AuthLayout>
