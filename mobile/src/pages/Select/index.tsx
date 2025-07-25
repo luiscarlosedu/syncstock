@@ -16,6 +16,10 @@ import {
 import { Text } from "react-native";
 import { AuthLayout } from "../../components/layouts/auth-layout";
 import { AuthHeader } from "../../components/auth-header";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { AuthRoutesList } from "../../routes/auth.routes";
+
+type NavigationProps = NativeStackNavigationProp<AuthRoutesList, "Select">;
 
 export default function Select() {
   const navigation = useNavigation<any>();
