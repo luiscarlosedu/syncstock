@@ -18,6 +18,9 @@ export default function AuthRoutes() {
             <AuthStack.Screen 
                 name="Select"
                 component={Select}
+                options={{
+                    headerShown: false,
+                }}
             />
         </AuthStack.Navigator>
     );
