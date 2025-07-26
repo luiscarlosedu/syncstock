@@ -1,6 +1,10 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import Select from "../pages/Select";
+import RegisterEnterprise from "../pages/AuthEnterprise/RegisterEnterprise";
+import LoginEnterprise from "../pages/AuthEnterprise/LoginEnterprise";
+import LoginEmployee from "../pages/AuthEmployee/LoginEmployee";
+import RegisterEmployee from "../pages/AuthEmployee/RegisterEmployee";
 
 export type AuthRoutesList = {
     Select: undefined;
@@ -18,6 +22,41 @@ export default function AuthRoutes() {
             <AuthStack.Screen 
                 name="Select"
                 component={Select}
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+            <AuthStack.Screen 
+                name="LoginEnterprise"
+                component={LoginEnterprise}
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+            <AuthStack.Screen 
+                name="RegisterEnterprise"
+                component={RegisterEnterprise}
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+            <AuthStack.Screen 
+                name="LoginEmployee"
+                component={LoginEmployee}
+                options={{
+                    headerShown: false,
+                }}
+            />
+
+            <AuthStack.Screen 
+                name="RegisterEmployee"
+                component={RegisterEmployee}
+                options={{
+                    headerShown: false,
+                }}
             />
         </AuthStack.Navigator>
     );
