@@ -14,7 +14,7 @@ export default function LoginEmployee() {
         <AuthLayout>
             <Container>
                 <Text>Página Login Employee</Text>
-                <Button title="Ir se registrar" onPress={() => navigation.navigate("LoginEmployee")} />
+                <Button title="Ir se registrar" onPress={() => navigation.navigate("RegisterEmployee")} />
                 <Button title="Ir para home" onPress={() => navigation.goBack()} />
             </Container>
         </AuthLayout>
