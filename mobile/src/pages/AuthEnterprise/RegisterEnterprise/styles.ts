@@ -1,3 +1,4 @@
+import { TouchableOpacity } from 'react-native';
 import styled from "styled-components/native";
 
 export const Container = styled.ScrollView`
@@ -87,4 +88,41 @@ export const RegisterFooterText = styled.Text`
 export const RegisterFooterLink = styled.Text`
     color: blue;
     text-decoration: underline;
+`;
+
+export const UploadArea = styled.View`
+    margin-top: 10px;
+    width: 100%;
+    position: relative;
+`;
+
+export const UploadButton = styled.TouchableOpacity`
+    background-color: #dbdbdb;
+    padding: 12px;
+    border-radius: 5px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+`;
+
+export const UploadText = styled.Text`
+    font-size: 14px;
+    color: #121212;
+`;
+
+export const PreviewImage = styled.Image`
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+`;
+
+export const DeleteButton = styled.TouchableOpacity`
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background-color: #121212;
+    padding: 6px;
+    border-radius: 6px;
+    z-index: 10;
 `;
