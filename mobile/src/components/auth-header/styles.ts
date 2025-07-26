@@ -7,7 +7,7 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-export const LogoWrapper = styled.View`
+export const LogoWrapper = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   gap: 10px;
