@@ -1,4 +1,4 @@
-import { ActivityIndicator, Text } from "react-native";
+import { ActivityIndicator, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { AuthRoutesList } from "../../../routes/auth.routes";
@@ -17,15 +17,37 @@ import {
     RegisterFormSubmit,
     RegisterFooter,
     RegisterFooterText,
-    RegisterFooterLink
+    RegisterFooterLink,
+    UploadArea,
+    UploadButton,
+    UploadText,
+    DeleteButton,
+    PreviewImage
 } from "./styles";
 import { useState } from "react";
+
+import * as ImagePicker from 'expo-image-picker';
+import { Ionicons } from '@expo/vector-icons';
 
 type NavigationProps = NativeStackNavigationProp<AuthRoutesList, "RegisterEmployee">;
 
 export default function RegisterEmployee() {
     const navigation = useNavigation<NavigationProps>();
+    const [imageUri, setImageUri] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ["images"],
+            allowsEditing: true,
+            aspect: [4, 4],
+            quality: 1,
+        });
+        console.log(result);
+        if (!result.canceled) {
+            setImageUri(result.assets[0].uri);
+        };
+    }
 
     return (
         <AuthLayout>
@@ -52,6 +74,46 @@ export default function RegisterEmployee() {
                         <RegisterInputContainer>
                             <RegisterLabel>Senha</RegisterLabel>
                             <Input placeholder="********" secureTextEntry />
+                        </RegisterInputContainer>
+
+                        <RegisterInputContainer>
+                            <RegisterLabel>Imagem do Usuário</RegisterLabel>
+
+                            <UploadArea>
+                                {!imageUri ? (
+                                    <UploadButton
+                                        onPress={pickImage}
+                                    >
+                                        <Ionicons 
+                                            name="cloud-upload-outline"
+                                            size={22}
+                                            color="#121212"
+                                        />
+                                        <UploadText>
+                                            Selecionar imagem
+                                        </UploadText>
+                                    </UploadButton>
+                                ): (
+                                    <>
+                                        <DeleteButton
+                                            onPress={() => setImageUri(null)}
+                                        >
+                                            <Ionicons 
+                                                name="trash"
+                                                size={18}
+                                                color={"#fff"}
+                                            />
+                                        </DeleteButton>
+
+                                        <PreviewImage 
+                                            source={{
+                                                uri: imageUri
+                                            }}
+                                            resizeMode="cover"
+                                        />
+                                    </>
+                                )}
+                            </UploadArea>
                         </RegisterInputContainer>
 
                         <RegisterFormSubmit disabled={loading}>

@@ -91,7 +91,7 @@ export const RegisterFooterLink = styled.Text`
 `;
 
 export const UploadArea = styled.View`
-    margin-top: 10px;
+    margin-top: 4px;
     width: 100%;
     position: relative;
 `;
