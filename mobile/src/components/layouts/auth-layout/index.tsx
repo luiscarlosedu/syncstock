@@ -4,16 +4,18 @@ import { AuthHeader } from "../../auth-header";
 const backgroundImage = require("../../../assets/enterprise1.jpg");
 
 interface AuthLayoutProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 export function AuthLayout({ children }: AuthLayoutProps) {
-  return (
-    <Container>
-      <BackgroundImage source={backgroundImage} resizeMode="cover" />
-      <Content>
-        {children}
-      </Content>
-    </Container>
-  );
+    return (
+        <Container
+            showsVerticalScrollIndicator={false}
+        > 
+            <BackgroundImage source={backgroundImage} resizeMode="cover" />
+            <Content>
+              {children}
+            </Content>
+        </Container>
+    );
 }
