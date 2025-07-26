@@ -44,7 +44,7 @@ export default function RegisterEnterprise() {
                     <RegisterForm>
                         <RegisterInputContainer>
                             <RegisterLabel>Nome da empresa</RegisterLabel>
-                            <Input placeholder="Nome fantasia" />
+                            <Input placeholder="Nome" />
                         </RegisterInputContainer>
 
                         <RegisterInputContainer>
