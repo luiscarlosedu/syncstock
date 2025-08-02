@@ -1,8 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeEnterprise from "../pages/AppEnterprise/Home";
+import HomeCategories from "../pages/AppEnterprise/Categories";
 
 type TabRoutesList = {
     HomeEnterprise: undefined;
+    HomeCategories: undefined;
     // ProductsEnterprise: undefined;
     // demais rotas
 }
@@ -23,6 +25,14 @@ export default function EnterpriseRoutes() {
             <Tab.Screen 
                 name="HomeEnterprise"
                 component={HomeEnterprise}
+                options={{
+                    headerShown: false
+                }}
+            />
+
+            <Tab.Screen 
+                name="HomeCategories"
+                component={HomeCategories}
                 options={{
                     headerShown: false
                 }}
