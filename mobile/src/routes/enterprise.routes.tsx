@@ -1,6 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeEnterprise from "../pages/AppEnterprise/Home";
 import CategoriesEnterprise from "../pages/AppEnterprise/Categories";
+import Feather from '@expo/vector-icons/Feather';
+import { MaterialIcons } from "@expo/vector-icons";
 
 type TabRoutesList = {
     HomeEnterprise: undefined;
@@ -17,16 +19,20 @@ export default function EnterpriseRoutes() {
             screenOptions={{
                 tabBarHideOnKeyboard: true,
                 tabBarStyle: {
-                    backgroundColor: '#FFFFFF',
-                    borderTopWidth: 1,
+                    backgroundColor: '#e7e7e7',
+                    borderTopWidth: 0,
                 },
+                tabBarShowLabel: false,
             }}
         >
             <Tab.Screen 
                 name="HomeEnterprise"
                 component={HomeEnterprise}
                 options={{
-                    headerShown: false
+                    headerShown: false,
+                    tabBarIcon: ({ color, size }) => {
+                        return <Feather name="home" color={color} size={size} />
+                    },
                 }}
             />
 
@@ -34,7 +40,10 @@ export default function EnterpriseRoutes() {
                 name="CategoriesEnterprise"
                 component={CategoriesEnterprise}
                 options={{
-                    headerShown: false
+                    headerShown: false,
+                    tabBarIcon: ({ color, size }) => {
+                        return <MaterialIcons name="category" color={color} size={size} />
+                    },
                 }}
             />
         </Tab.Navigator>

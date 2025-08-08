@@ -9,5 +9,5 @@ export default function CategoriesEnterprise() {
                 <Text>Página Categories Enterprise</Text>
             </Container>
         </EnterpriseLayout>
-    )
+    );
 }
