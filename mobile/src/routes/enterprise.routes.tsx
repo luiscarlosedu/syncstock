@@ -1,8 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeEnterprise from "../pages/AppEnterprise/Home";
 import CategoriesEnterprise from "../pages/AppEnterprise/Categories";
-import Feather from '@expo/vector-icons/Feather';
-import { MaterialIcons } from "@expo/vector-icons";
+import { Entypo, MaterialIcons } from "@expo/vector-icons";
 
 type TabRoutesList = {
     HomeEnterprise: undefined;
@@ -31,7 +30,7 @@ export default function EnterpriseRoutes() {
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ color, size }) => {
-                        return <Feather name="home" color={color} size={size} />
+                        return <Entypo name="home" size={size} color={color} />
                     },
                 }}
             />
