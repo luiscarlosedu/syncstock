@@ -14,6 +14,7 @@ export type EnterpriseTabRoutesList = {
 
 const Tab = createBottomTabNavigator<EnterpriseTabRoutesList>();
 
+
 export default function EnterpriseRoutes() {
     return (
         <Tab.Navigator
@@ -21,9 +22,14 @@ export default function EnterpriseRoutes() {
                 tabBarHideOnKeyboard: true,
                 tabBarStyle: {
                     backgroundColor: '#e7e7e7',
-                    borderTopWidth: 0,
+                    borderTopWidth: 0,  
                 },
                 tabBarShowLabel: false,
+                tabBarActiveTintColor: '#1a1a1a',
+                tabBarInactiveTintColor: '#888',
+                tabBarIconStyle: {
+                    marginTop: 5,
+                },
             }}
         >
             <Tab.Screen 
