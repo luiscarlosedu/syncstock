@@ -7,7 +7,8 @@ export default function Routes() {
         nome: 'José',
         tipo: 'empresa'
     };
-    const signed = false; 
+
+    const signed = true; 
         
     if (!signed) {
         return <AuthRoutes />
