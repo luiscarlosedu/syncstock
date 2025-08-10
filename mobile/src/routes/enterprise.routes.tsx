@@ -3,14 +3,14 @@ import HomeEnterprise from "../pages/AppEnterprise/Home";
 import CategoriesEnterprise from "../pages/AppEnterprise/Categories";
 import { Entypo, MaterialIcons } from "@expo/vector-icons";
 
-type TabRoutesList = {
+export type EnterpriseTabRoutesList = {
     HomeEnterprise: undefined;
     CategoriesEnterprise: undefined;
     // ProductsEnterprise: undefined;
     // demais rotas
 }
 
-const Tab = createBottomTabNavigator<TabRoutesList>();
+const Tab = createBottomTabNavigator<EnterpriseTabRoutesList>();
 
 export default function EnterpriseRoutes() {
     return (

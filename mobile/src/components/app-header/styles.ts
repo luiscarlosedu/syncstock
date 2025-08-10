@@ -10,7 +10,7 @@ export const Container = styled.View`
     height: 67px;
 `;
 
-export const HeaderLogo = styled.View`
+export const HeaderLogo = styled.TouchableOpacity`
     flex-direction: row;
     align-items: center;
     gap: 8px;
