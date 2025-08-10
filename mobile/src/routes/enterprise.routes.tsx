@@ -1,14 +1,16 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeEnterprise from "../pages/AppEnterprise/Home";
 import CategoriesEnterprise from "../pages/AppEnterprise/Categories";
-import { Entypo, MaterialIcons } from "@expo/vector-icons";
+import { Entypo, FontAwesome5, Ionicons, MaterialIcons } from "@expo/vector-icons";
+import ProductsEnterprise from "../pages/AppEnterprise/Products";
+import EmployeesEnterprise from "../pages/AppEnterprise/Employees";
 
 export type EnterpriseTabRoutesList = {
     HomeEnterprise: undefined;
     CategoriesEnterprise: undefined;
-    // ProductsEnterprise: undefined;
-    // demais rotas
-}
+    ProductsEnterprise: undefined;
+    EmployeesEnterprise: undefined;
+};
 
 const Tab = createBottomTabNavigator<EnterpriseTabRoutesList>();
 
@@ -32,6 +34,28 @@ export default function EnterpriseRoutes() {
                     tabBarIcon: ({ color, size }) => {
                         return <Entypo name="home" size={size} color={color} />
                     },
+                }}
+            />
+
+            <Tab.Screen 
+                name="ProductsEnterprise"
+                component={ProductsEnterprise}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color, size }) => {
+                        return <Ionicons name="pricetag" size={size} color={color} />
+                    }
+                }}
+            />
+
+            <Tab.Screen 
+                name="EmployeesEnterprise"
+                component={EmployeesEnterprise}
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color, size }) => {
+                        return <FontAwesome5 name="users" size={size} color={color} />
+                    }
                 }}
             />
 
