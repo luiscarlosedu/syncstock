@@ -14,7 +14,6 @@ export type EnterpriseTabRoutesList = {
 
 const Tab = createBottomTabNavigator<EnterpriseTabRoutesList>();
 
-
 export default function EnterpriseRoutes() {
     return (
         <Tab.Navigator
