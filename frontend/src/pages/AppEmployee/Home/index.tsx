@@ -25,11 +25,7 @@ export default function HomeEmployee() {
         async function loadStorage() {
             setIsLoading(true);
             try {
-                const response = await api.get("/employee/enterprise", {
-                    params: {
-                        enterprise_id: user?.enterprise_id,
-                    }
-                });
+                const response = await api.get("/employee/enterprise");
                 
                 const { nome, foto, funcionarios, productsCount, categoriesCount } = response.data;
                 const employeesCount = funcionarios.length;

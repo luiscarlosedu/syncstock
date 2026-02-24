@@ -3,10 +3,10 @@ import { ListProductsService } from "../../../services/storage/products/ListProd
 
 export class ListProductsController {
     async handle(req: Request, res: Response) {
-        const { enterprise_id } = req.body;
-        
+        const { enterprise_id } = req.query;
+
         const listProductsService = new ListProductsService();
-        const products = await listProductsService.execute({enterprise_id});
+        const products = await listProductsService.execute({enterprise_id: enterprise_id as string});
 
         res.json(products);
     }

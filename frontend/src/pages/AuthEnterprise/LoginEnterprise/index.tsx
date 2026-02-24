@@ -40,7 +40,7 @@ export default function LoginEnterprise() {
             navigate("/empresa/home");
         } catch (err) {
             console.log("erro", err);
-            alert("[ERRO]");
+            alert("[ERRO] Erro ao fazer login da empresa. Verifique suas credenciais e tente novamente.");
         }
 
         setEmail("");

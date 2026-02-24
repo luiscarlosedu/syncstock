@@ -1,5 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "react-native";  // 👈 muda aqui
 import Routes from "./src/routes";
 
 export default function App() {
@@ -10,5 +10,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-

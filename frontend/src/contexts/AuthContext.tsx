@@ -175,7 +175,7 @@ export default function AuthProvider({children}: AuthProviderProps) {
             });
 
         } catch (err) {
-            console.log('[ERRO!]');
+            console.log('[ERRO!] Erro ao fazer login da empresa');
             console.error(err);
         } finally {
             setLoadingAuth(false);
