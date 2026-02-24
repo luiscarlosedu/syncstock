@@ -36,11 +36,7 @@ export default function EnterpriseEmployee() {
     useEffect(() => {
         async function loadStorage() {
             try {
-                const response = await api.get("/employee/enterprise", {
-                    params: {
-                        enterprise_id: user?.enterprise_id,
-                    }
-                });
+                const response = await api.get("/employee/enterprise");
                 setEnterpriseData(response.data);
                 setIsLoading(false);
             } catch (err) {
