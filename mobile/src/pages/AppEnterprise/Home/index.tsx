@@ -69,9 +69,9 @@ export default function HomeEnterprise() {
 
                         <QuickActions>
                             {[
-                                "➕ Adicionar Produto",
-                                "👥 Cadastrar Funcionário",
-                                "📂 Gerenciar Categorias",
+                                "📦 Visualizar Produtos",
+                                "🏷️ Visualizar Categorias",
+                                "👤 Visualizar Funcionário",
                             ].map((label) => (
                                 <ActionButton key={label} activeOpacity={0.75}>
                                     <ActionButtonText>{label}</ActionButtonText>
