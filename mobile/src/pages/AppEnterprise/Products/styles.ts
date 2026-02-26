@@ -85,3 +85,60 @@ export const NoProductsText = styled.Text`
     color: #555;
     text-align: center;
 `;
+
+export const ProductCard = styled.View`
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    border-width: 1.5px;
+    border-color: #d1d1d1;
+    padding: 12px;
+    gap: 12px;
+`;
+
+export const ProductThumb = styled.Image`
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+    background-color: #eee;
+`;
+
+export const ProductInfo = styled.View`
+    flex: 1;
+    gap: 6px;
+`;
+
+export const ProductName = styled.Text`
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+`;
+
+export const CategoryBadge = styled.View`
+    align-self: flex-start;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    padding: 2px 8px;
+`;
+
+export const CategoryBadgeText = styled.Text`
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+`;
+
+export const QuantityWrapper = styled.View`
+    align-items: center;
+`;
+
+export const QuantityValue = styled.Text`
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+`;
+
+export const QuantityLabel = styled.Text`
+    font-size: 11px;
+    color: #888;
+`;

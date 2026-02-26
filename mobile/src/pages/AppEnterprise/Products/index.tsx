@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FlatList, TextInput, View } from "react-native";
 import { EnterpriseLayout } from "../../../components/layouts/enterprise-layout";
-import { Container, NoProductsContainer, NoProductsIcon, NoProductsText, NoProductsTitle, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer, SearchInput, SearchWrapper, SummaryBar, SummaryBarText, SummaryCount } from "./styles";
+import { CategoryBadge, CategoryBadgeText, Container, NoProductsContainer, NoProductsIcon, NoProductsText, NoProductsTitle, ProductCard, ProductContentContainer, ProductInfo, ProductName, ProductsTitle, ProductsTitleAddContainer, ProductThumb, QuantityLabel, QuantityValue, QuantityWrapper, SearchInput, SearchWrapper, SummaryBar, SummaryBarText, SummaryCount } from "./styles";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const FIXED_PRODUCTS = [
@@ -79,9 +79,33 @@ export default function ProductsEnterprise() {
                             <NoProductsText>Tente buscar por outro nome.</NoProductsText>
                         </NoProductsContainer>
                     ) : (
-                        <View>
-                            <NoProductsText>Oi</NoProductsText>
-                        </View>
+                        <FlatList 
+                            data={filteredProducts}
+                            keyExtractor={(item) => item.id}
+                            scrollEnabled={false}
+                            contentContainerStyle={{ gap: 10 }}
+                            renderItem={({ item }) => (
+                                <ProductCard>
+                                    <ProductThumb 
+                                        source={{
+                                            uri: item.foto
+                                            ? item?.foto
+                                            : `https://ui-avatars.com/api/?name=${encodeURIComponent(item.nome)}&background=303030&color=fff&size=60`
+                                        }}
+                                    />
+                                    <ProductInfo>
+                                        <ProductName numberOfLines={1}>{item.nome}</ProductName>
+                                        <CategoryBadge>
+                                            <CategoryBadgeText>{item.categoria_nome}</CategoryBadgeText>
+                                        </CategoryBadge>
+                                    </ProductInfo>
+                                    <QuantityWrapper>
+                                        <QuantityValue>{item.quantidade}</QuantityValue>
+                                        <QuantityLabel>em estoque</QuantityLabel>
+                                    </QuantityWrapper>
+                                </ProductCard>
+                            )}
+                        />
                     )}
 
                 </ProductContentContainer>
