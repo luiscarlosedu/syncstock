@@ -1,39 +1,41 @@
 import { useState } from "react";
 import { FlatList, TextInput, View } from "react-native";
 import { EnterpriseLayout } from "../../../components/layouts/enterprise-layout";
-import { Container, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer, SearchInput, SearchWrapper, SummaryBar, SummaryBarText, SummaryCount } from "./styles";
+import { Container, NoProductContainer, NoProductsContainer, NoProductsIcon, NoProductsText, NoProductsTitle, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer, SearchInput, SearchWrapper, SummaryBar, SummaryBarText, SummaryCount } from "./styles";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-const FIXED_PRODUCTS = [
-    {
-        id: "1",
-        nome: "Parafuso Sextavado M8",
-        quantidade: "150",
-        categoria_nome: "Fixadores",
-        foto: "",
-    },
-    {
-        id: "2",
-        nome: "Chave de Fenda Phillips",
-        quantidade: "40",
-        categoria_nome: "Ferramentas",
-        foto: "",
-    },
-    {
-        id: "3",
-        nome: "Luva de Segurança",
-        quantidade: "80",
-        categoria_nome: "EPIs",
-        foto: "",
-    },
-    {
-        id: "4",
-        nome: "Tinta Spray Preta 400ml",
-        quantidade: "25",
-        categoria_nome: "Acabamentos",
-        foto: "",
-    },
-];
+// const FIXED_PRODUCTS = [
+//     {
+//         id: "1",
+//         nome: "Parafuso Sextavado M8",
+//         quantidade: "150",
+//         categoria_nome: "Fixadores",
+//         foto: "",
+//     },
+//     {
+//         id: "2",
+//         nome: "Chave de Fenda Phillips",
+//         quantidade: "40",
+//         categoria_nome: "Ferramentas",
+//         foto: "",
+//     },
+//     {
+//         id: "3",
+//         nome: "Luva de Segurança",
+//         quantidade: "80",
+//         categoria_nome: "EPIs",
+//         foto: "",
+//     },
+//     {
+//         id: "4",
+//         nome: "Tinta Spray Preta 400ml",
+//         quantidade: "25",
+//         categoria_nome: "Acabamentos",
+//         foto: "",
+//     },
+// ];
+
+const FIXED_PRODUCTS = [];
 
 export default function ProductsEnterprise() {
 
@@ -59,8 +61,21 @@ export default function ProductsEnterprise() {
                             Total Produtos: <SummaryCount>{FIXED_PRODUCTS.length}</SummaryCount> 
                         </SummaryBarText>
                     </SummaryBar>
+
+                    {FIXED_PRODUCTS.length === 0 ? (
+                        <NoProductsContainer>
+                            <NoProductsIcon>📦</NoProductsIcon>
+                            <NoProductsTitle>Nenhum produto cadastrado</NoProductsTitle>
+                            <NoProductsText>Comece adicionando seu primeiro produto.</NoProductsText>
+                        </NoProductsContainer>
+                    ) : (
+                        <View>
+                            
+                        </View>
+                    )}
+
                 </ProductContentContainer>
             </Container>
         </EnterpriseLayout>
     );
-}
+};

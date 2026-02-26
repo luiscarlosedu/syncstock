@@ -58,3 +58,30 @@ export const SummaryCount = styled.Text`
     font-weight: 700;
     color: #1a1a1a;
 `;
+
+export const NoProductsContainer = styled.View`
+    align-items: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    border-width: 1.5px;
+    border-color: #d1d1d1;
+    gap: 6px;
+`;
+
+export const NoProductsIcon = styled.Text`
+    font-size: 44px;
+`;
+
+export const NoProductsTitle = styled.Text`
+    font-size: 17px;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+`;
+
+export const NoProductsText = styled.Text`
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+`;
