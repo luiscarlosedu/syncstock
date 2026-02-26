@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FlatList, TextInput, View } from "react-native";
 import { EnterpriseLayout } from "../../../components/layouts/enterprise-layout";
-import { Container, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer } from "./styles";
+import { Container, ProductContentContainer, ProductsTitle, ProductsTitleAddContainer, SearchInput, SearchWrapper, SummaryBar, SummaryBarText, SummaryCount } from "./styles";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const FIXED_PRODUCTS = [
     {
@@ -36,6 +37,7 @@ const FIXED_PRODUCTS = [
 
 export default function ProductsEnterprise() {
 
+
     return (
         <EnterpriseLayout>
             <Container>
@@ -44,7 +46,19 @@ export default function ProductsEnterprise() {
                         <ProductsTitle>Produtos</ProductsTitle>
                     </ProductsTitleAddContainer>
 
-                    
+                    <SearchWrapper>
+                        <Ionicons name="search" size={20} color="#888" />
+                        <SearchInput 
+                            placeholder="Buscar produtos..."
+                            placeholderTextColor="#888"
+                        />
+                    </SearchWrapper>
+
+                    <SummaryBar>
+                        <SummaryBarText>
+                            Total Produtos: <SummaryCount>{FIXED_PRODUCTS.length}</SummaryCount> 
+                        </SummaryBarText>
+                    </SummaryBar>
                 </ProductContentContainer>
             </Container>
         </EnterpriseLayout>
